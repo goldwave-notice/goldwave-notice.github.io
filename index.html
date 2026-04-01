@@ -2,23 +2,126 @@
 <html lang="ko">
 <head>
   <meta charset="UTF-8">
-  <title>GOLD WAVE IMAGE</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GOLD WAVE PREMIUM REPORT</title>
   <style>
+    /* 제미나이 스타일의 깔끔한 폰트 적용 */
+    @import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css');
+
     body {
       margin: 0;
-      background-color: #000;
+      background-color: #0b0d11; /* 깊이감 있는 다크 네이비 블랙 */
+      font-family: 'Pretendard', sans-serif;
+      color: #e0e0e0;
       display: flex;
-      justify-content: center;
+      flex-direction: column;
       align-items: center;
-      height: 100vh;
+      padding-bottom: 50px;
     }
-    img {
-      max-width: 100%;
-      max-height: 100%;
+
+    .container {
+      width: 100%;
+      max-width: 800px; /* 읽기 편한 너비 */
+      padding: 20px;
+      box-sizing: border-box;
+      text-align: center;
+    }
+
+    /* 카드뉴스 이미지 스타일 */
+    .main-card {
+      width: 100%;
+      border-radius: 15px;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.6);
+      margin-top: 20px;
+      transition: transform 0.3s ease;
+    }
+
+    /* 텍스트 영역 스타일 */
+    .report-box {
+      margin-top: 40px;
+      text-align: left; /* 문구는 왼쪽 정렬이 읽기 편함 */
+      background: rgba(255, 255, 255, 0.03);
+      padding: 30px;
+      border-radius: 20px;
+      border: 1px solid rgba(191, 149, 63, 0.2);
+    }
+
+    h1 {
+      color: #bf953f; /* 골드 포인트 */
+      font-size: 24px;
+      margin-bottom: 20px;
+      border-left: 4px solid #bf953f;
+      padding-left: 15px;
+    }
+
+    .highlight-text {
+      font-size: 18px;
+      font-weight: 700;
+      color: #fcf6ba;
+      margin-bottom: 15px;
+      display: block;
+    }
+
+    .strategy-card {
+      background: #161a21;
+      padding: 20px;
+      border-radius: 12px;
+      border-left: 5px solid #bf953f;
+      margin-top: 25px;
+    }
+
+    .strategy-title {
+      color: #bf953f;
+      font-weight: bold;
+      margin-bottom: 10px;
+      display: flex;
+      align-items: center;
+    }
+
+    ul {
+      padding-left: 20px;
+      margin: 0;
+    }
+
+    li {
+      margin-bottom: 10px;
+      color: #ccc;
+    }
+
+    /* 하단 링크 영역 (기록 쌓기용) */
+    .footer-links {
+      margin-top: 50px;
+      font-size: 14px;
+      color: #666;
     }
   </style>
 </head>
 <body>
-  <img src="https://i.imgur.com/U8t0OUg.png" alt="이미지">
+
+  <div class="container">
+    <img src="https://i.imgur.com/v8Qc7gQ.jpeg" alt="오늘의 뉴스" class="main-card">
+
+    <div class="report-box">
+      <h1>📌 오늘의 핵심 브리핑</h1>
+      
+      <span class="highlight-text">[비트코인-나스닥 상관관계 역대 최저치 기록]</span>
+      
+      <p>최근 비트코인과 미 증시(나스닥)의 동조화 현상이 급격히 약화되었습니다. 이는 비트코인이 더 이상 증시의 부속물이 아닌, 독자적인 '디지털 금'으로서의 지위를 굳히고 있다는 증거입니다.</p>
+      
+      <div class="strategy-card">
+        <div class="strategy-title">💡 골드웨이브 전략 가이드</div>
+        <ul>
+          <li>증시 하락 시에도 비트코인은 반등할 수 있는 차별화된 움직임에 주목하세요.</li>
+          <li>기존의 '커플링' 매매 기법보다 개별 변동성을 활용한 전략이 유효합니다.</li>
+          <li>골드웨이브 AI는 현재 이 독자적인 추세를 감지하여 최적의 타점을 분석 중입니다.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-links">
+      © GOLD WAVE. All rights reserved.
+    </div>
+  </div>
+
 </body>
 </html>

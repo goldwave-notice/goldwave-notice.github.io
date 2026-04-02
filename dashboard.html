@@ -4,95 +4,72 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>GOLD WAVE PREMIUM DASHBOARD</title>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.css" />
     <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
     
     <style>
         body {
             margin: 0;
             padding: 0;
-            background-color: #ffffff; /* 하단은 깨끗한 화이트 */
-            font-family: 'Pretendard', sans-serif;
+            background-color: #ffffff;
+            font-family: 'Pretendard', -apple-system, sans-serif;
             color: #333;
             display: flex;
             flex-direction: column;
             align-items: center;
         }
 
-        /* 1. 상단 투톤 히어로 섹션 (다크 네이비) */
+        /* 1. 상단 히어로 섹션 (랑랑쌤 제작 이미지 적용) */
         .hero-section {
             width: 100%;
-            /* ⭐ 랑랑쌤의 V체크 반짝이 안개 이미지(image_89.png)를 배경으로 반영 ⭐ */
-            background-image: 
-                linear-gradient(180deg, rgba(15,23,42,0.9) 0%, rgba(30,41,59,0.95) 100%), /* 네이비 그라데이션 오버레이 */
-                url('https://i.imgur.com/89.png'); /* ⭐ 실제 반짝이 안개 이미지 주소 ⭐ */
-            background-size: cover; /* 배경 꽉 차게 */
-            background-position: bottom center; /* 반짝이 폭발 부분이 하단으로 오게 배치 */
+            /* 랑랑쌤이 주신 이미지 주소 적용 */
+            background-image: url('https://i.imgur.com/B3gB87i.jpeg');
+            background-size: cover;
+            background-position: center;
             background-repeat: no-repeat;
             
-            padding: 70px 0 90px 0;
-            text-align: center;
-            position: relative;
-            overflow: hidden;
-            border-bottom: 3px solid #bf953f; /* 경계선 골드 라인 */
+            /* 이미지 비율에 맞춰 높이 최적화 (300px~350px 추천) */
+            height: 320px; 
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end; /* 상태바를 하단 쪽에 배치 */
+            align-items: center;
+            padding-bottom: 40px; 
+            box-sizing: border-box;
+            border-bottom: 2px solid #bf953f; /* 하단 골드 라인 유지 */
         }
 
-        /* ⭐ 랑랑쌤의 요청: 뚱뚱하고 번져보이는 럭셔리 골드 텍스트 ⭐ */
-        .brand-title {
-            margin: 0;
-            font-family: 'Montserrat', sans-serif; /* 더 굵은 영문 전용 폰트 */
-            font-size: 44px;
-            letter-spacing: 8px; /* 시원한 자간 */
-            font-weight: 900;
-            text-transform: uppercase;
-            font-style: italic; /* 역동적인 기울임 추가 */
-            position: relative;
-            z-index: 10;
-            
-            /* ⭐ 리얼 골드 입체 그라데이션 (더 화사하게) ⭐ */
-            background: linear-gradient(to bottom, #fcf6ba 0%, #bf953f 40%, #fcf6ba 60%, #bf953f 85%, #aa771c 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            
-            /* ⭐ 미세한 테두리로 선명함과 번짐 방지 ⭐ */
-            -webkit-text-stroke: 0.5px rgba(212, 175, 55, 0.4);
-            
-            /* ⭐ 번져보이는 후광 효과 ⭐ */
-            filter: drop-shadow(0 4px 10px rgba(184, 134, 11, 0.6)) blur(0.3px);
-        }
-
+        /* 상태바 스타일 */
         .status-bar {
             display: inline-flex;
             align-items: center;
-            margin-top: 25px;
-            padding: 8px 20px;
-            background: rgba(255, 255, 255, 0.05);
-            border: 1px solid rgba(191, 149, 63, 0.4);
-            border-radius: 40px;
-            position: relative;
-            z-index: 10;
+            padding: 6px 18px;
+            background: rgba(0, 0, 0, 0.4); /* 이미지 위에서 잘 보이도록 반투명 배경 */
+            border: 1px solid rgba(191, 149, 63, 0.6);
+            border-radius: 30px;
+            backdrop-filter: blur(4px);
         }
 
         .status-dot {
-            width: 10px; height: 10px;
-            background-color: #28a745;
+            width: 9px; height: 9px;
+            background-color: #00ff00;
             border-radius: 50%;
-            margin-right: 12px;
-            box-shadow: 0 0 10px #28a745;
-            animation: breathe 2s infinite;
+            margin-right: 10px;
+            box-shadow: 0 0 10px #00ff00;
+            animation: pulse 2s infinite;
         }
 
-        @keyframes breathe {
-            0% { opacity: 1; transform: scale(1); }
-            50% { opacity: 0.5; transform: scale(1.15); }
-            100% { opacity: 1; transform: scale(1); }
+        @keyframes pulse {
+            0% { transform: scale(1); opacity: 1; }
+            50% { transform: scale(1.2); opacity: 0.6; }
+            100% { transform: scale(1); opacity: 1; }
         }
 
-        /* 2. 하단 콘텐츠 섹션 (화이트 배경) */
+        /* 2. 하단 콘텐츠 섹션 */
         .content-container {
             width: 100%;
             max-width: 950px;
-            padding: 40px 20px 100px 20px;
+            padding: 30px 20px 80px 20px;
             box-sizing: border-box;
             display: flex;
             flex-direction: column;
@@ -100,10 +77,10 @@
         }
 
         .info-bar {
-            margin-bottom: 40px;
+            margin-bottom: 30px;
             font-size: 14px;
             color: #888;
-            font-weight: 600;
+            font-weight: 700;
             letter-spacing: 1px;
         }
 
@@ -116,18 +93,18 @@
 
         .nav-card {
             border-radius: 20px;
-            background: #fff; /* 아이콘과 배경색 일치 */
+            background: #fff;
             transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
             cursor: pointer;
             aspect-ratio: 546 / 402;
             box-shadow: 0 5px 20px rgba(0,0,0,0.05);
-            border: 1px solid #f0f0f0;
+            border: 1px solid #f2f2f2;
             overflow: hidden;
         }
 
         .nav-card img {
             width: 100%; height: 100%;
-            object-fit: contain; /* 이미지 비율 유지 */
+            object-fit: contain;
             display: block;
         }
 
@@ -137,31 +114,27 @@
             border: 1.5px solid #bf953f;
         }
 
+        /* 모바일 대응 */
         @media (max-width: 700px) {
             .dashboard-grid { grid-template-columns: repeat(2, 1fr); }
-            .brand-title { font-size: 30px; letter-spacing: 4px; }
-            .hero-section { padding: 50px 0 60px 0; }
+            .hero-section { height: 220px; padding-bottom: 25px; }
         }
     </style>
 </head>
 <body>
 
     <div class="hero-section">
-        <img src="https://i.imgur.com/9VUt3sN.png" alt="Gold Wave Logo" class="premium-logo">
-        
-        <h1 class="brand-title">GOLD WAVE</h1>
-        
         <div class="status-bar">
             <div class="status-dot"></div>
-            <span style="color: #bf953f; font-size: 13px; font-weight: 900; letter-spacing: 2px;">SYSTEM STATUS: ACTIVE</span>
+            <span style="color: #bf953f; font-size: 11px; font-weight: 900; letter-spacing: 1.5px;">SYSTEM STATUS: ACTIVE</span>
         </div>
     </div>
 
     <div class="content-container">
         <div class="info-bar">
-            <span id="display-date"></span>
+            <span id="date-display"></span>
             <span style="margin: 0 15px; opacity: 0.3;">|</span>
-            <span style="letter-spacing: 1px;">VIEWS: <span id="busuanzi_value_site_pv" style="color: #b38728; font-weight: 800;">0</span></span>
+            <span>VIEWS: <span id="busuanzi_value_site_pv" style="color: #b38728; font-weight: 800;">0</span></span>
         </div>
 
         <div class="dashboard-grid">
@@ -175,8 +148,12 @@
     </div>
 
     <script>
-        const d = new Date();
-        document.getElementById('display-date').innerText = `📅 ${d.getFullYear()}.${String(d.getMonth() + 1).padStart(2, '0')}.${String(d.getDate()).padStart(2, '0')}`;
+        // 오늘 날짜 출력
+        const today = new Date();
+        const y = today.getFullYear();
+        const m = String(today.getMonth() + 1).padStart(2, '0');
+        const d = String(today.getDate()).padStart(2, '0');
+        document.getElementById('date-display').innerText = `📅 ${y}.${m}.${d}`;
     </script>
 
 </body>

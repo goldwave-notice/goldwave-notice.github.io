@@ -11,52 +11,72 @@
         body {
             margin: 0;
             padding: 0;
-            background-color: #ffffff; /* 아이콘과 완벽 일치하는 순백색 */
+            background-color: #ffffff; /* 하단은 깨끗한 화이트 */
             font-family: 'Pretendard', sans-serif;
             color: #333;
             display: flex;
             flex-direction: column;
             align-items: center;
-            min-height: 100vh;
         }
 
-        /* 1. 상단 VVIP 헤더 */
-        header {
-            text-align: center;
-            padding: 65px 20px 45px 20px;
+        /* 1. 상단 투톤 헤더 (다크 네이비 배경) */
+        .hero-section {
             width: 100%;
+            background: linear-gradient(to bottom, #0f172a, #1e293b); /* 럭셔리 다크 네이비 */
+            padding: 60px 0 80px 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
         }
 
-        /* ⭐ 랑랑쌤의 상징적 소용돌이 로고 반영 (9VUt3sN.png) ⭐ */
+        /* 랑랑쌤이 V체크하신 반짝이 효과 (Particle) */
+        .hero-section::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 100px;
+            /* 경계선 부분에 황금빛 반짝이 그라데이션 */
+            background: radial-gradient(circle, rgba(191,149,63,0.4) 0%, rgba(255,255,255,0) 70%);
+            filter: blur(10px);
+        }
+
+        /* 별빛 반짝이 효과 추가 */
+        .sparkles {
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background-image: radial-gradient(#bf953f 1px, transparent 1px);
+            background-size: 40px 40px;
+            opacity: 0.2;
+        }
+
         .premium-logo {
             width: 70px;
-            height: auto; /* 비율 유지 */
-            margin-bottom: 12px;
-            display: inline-block;
-            /* 로고 엠블럼 효과 (dropshadow) */
-            filter: drop-shadow(0 4px 10px rgba(184, 134, 11, 0.2));
+            height: auto;
+            margin-bottom: 15px;
+            position: relative;
+            z-index: 10;
+            filter: drop-shadow(0 0 15px rgba(191,149,63,0.5));
         }
 
-        /* ⭐ 웅장한 골드 텍스트에 미세한 테두리 추가 ⭐ */
         .brand-title {
-            margin: 10px 0 0 0;
+            margin: 0;
             font-family: 'Montserrat', sans-serif;
-            font-size: 40px;
-            letter-spacing: 6px; /* 여유로운 자간 유지 */
+            font-size: 44px;
+            letter-spacing: 8px; /* 시원한 자간 */
             font-weight: 900;
             text-transform: uppercase;
-            font-style: italic; /* 역동적인 기울임 */
+            font-style: italic;
+            position: relative;
+            z-index: 10;
             
-            /* 리얼 골드 입체 그라데이션 (화사하게) */
+            /* 입체 골드 텍스트 */
             background: linear-gradient(to bottom, #fcf6ba 0%, #bf953f 30%, #fcf6ba 50%, #bf953f 80%, #aa771c 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
-            
-            /* ⭐ 테두리 효과 (매우 얇은 골드 라인) ⭐ */
-            -webkit-text-stroke: 0.5px #d4af37; /* 미세한 테두리로 번짐 방지 */
-            
-            /* 3D 깊이감을 주는 그림자 */
-            filter: drop-shadow(2px 2px 2px rgba(0,0,0,0.05));
+            -webkit-text-stroke: 0.5px rgba(212, 175, 55, 0.5);
+            filter: drop-shadow(0 4px 10px rgba(0,0,0,0.3));
         }
 
         .status-bar {
@@ -64,119 +84,30 @@
             align-items: center;
             margin-top: 25px;
             padding: 6px 20px;
-            background: #ffffff;
-            border: 1.5px solid #d4af37;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(191, 149, 63, 0.4);
             border-radius: 35px;
-            box-shadow: 0 3px 10px rgba(212, 175, 55, 0.15);
+            position: relative;
+            z-index: 10;
         }
 
         .status-dot {
-            width: 10px;
-            height: 10px;
+            width: 10px; height: 10px;
             background-color: #28a745;
             border-radius: 50%;
             margin-right: 12px;
-            box-shadow: 0 0 10px rgba(40, 167, 69, 0.7);
+            box-shadow: 0 0 10px #28a745;
             animation: breathe 2s infinite;
         }
 
         @keyframes breathe {
             0% { opacity: 1; transform: scale(1); }
-            50% { opacity: 0.5; transform: scale(1.15); }
+            50% { opacity: 0.5; transform: scale(1.2); }
             100% { opacity: 1; transform: scale(1); }
         }
 
-        .info-row {
-            margin-top: 30px;
-            color: #999;
-            font-size: 14px;
-            font-weight: 500;
-        }
-
-        /* 2. 대시보드 그리드 (6개 아이콘) */
-        .dashboard-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 15px;
-            padding: 0 20px 80px 20px;
-            max-width: 900px;
-            width: 95%;
-        }
-
-        .nav-card {
-            border-radius: 18px;
-            background: #fff; /* 아이콘과 배경색 일치 */
-            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            cursor: pointer;
-            aspect-ratio: 546 / 402;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.04);
-            border: 1px solid #f2f2f2;
-        }
-
-        .nav-card img {
-            width: 100%; height: 100%;
-            object-fit: contain; /* 이미지 비율 유지 */
-            display: block;
-        }
-
-        .nav-card:hover {
-            transform: translateY(-10px) scale(1.02);
-            box-shadow: 0 20px 40px rgba(191, 149, 63, 0.15);
-            border: 1.5px solid #bf953f;
-        }
-
-        @media (max-width: 650px) {
-            .dashboard-grid { grid-template-columns: repeat(2, 1fr); }
-            .brand-title { font-size: 30px; letter-spacing: 4px; }
-            .premium-logo { width: 60px; }
-        }
-    </style>
-</head>
-<body>
-
-    <header>
-        <img src="https://i.imgur.com/9VUt3sN.png" alt="Gold Wave Logo" class="premium-logo">
-        
-        <h1 class="brand-title">GOLD WAVE</h1>
-        
-        <div class="status-bar">
-            <div class="status-dot"></div>
-            <span style="color: #aa771c; font-size: 12px; font-weight: 900; letter-spacing: 2px;">SYSTEM STATUS: ACTIVE</span>
-        </div>
-
-        <div class="info-row">
-            <span id="display-date" style="color: #666;"></span>
-            <span style="margin: 0 15px; opacity: 0.2;">|</span>
-            <span style="letter-spacing: 1.5px;">VIEWS: <span id="busuanzi_value_site_pv" style="color: #b38728; font-weight: 800;">0</span></span>
-        </div>
-    </header>
-
-    <div class="dashboard-grid">
-        <div class="nav-card" onclick="location.href='https://goldwave-notice.github.io/guide.html'">
-            <img src="https://i.imgur.com/C5xMVYm.png" alt="초간단 설명서">
-        </div>
-        
-        <div class="nav-card" onclick="location.href='https://goldwave-notice.github.io/profit.html'">
-            <img src="https://i.imgur.com/EHzDZon.png" alt="실시간 수익현황">
-        </div>
-        <div class="nav-card" onclick="location.href='https://goldwave-notice.github.io/archive.html'">
-            <img src="https://i.imgur.com/TKsOsPT.png" alt="리포트 아카이브">
-        </div>
-        <div class="nav-card" onclick="location.href='https://goldwave-notice.github.io/program.html'">
-            <img src="https://i.imgur.com/Xles7rX.png" alt="골드웨이브 프로그램">
-        </div>
-        <div class="nav-card" onclick="location.href='https://goldwave-notice.github.io/faq.html'">
-            <img src="https://i.imgur.com/XCVCrRj.png" alt="자주 묻는 질문">
-        </div>
-        <div class="nav-card" onclick="location.href='https://goldwave-notice.github.io/remote.html'">
-            <img src="https://i.imgur.com/CYBeRLN.png" alt="원격지원 시스템">
-        </div>
-    </div>
-
-    <script>
-        const d = new Date();
-        document.getElementById('display-date').innerText = `📅 ${d.getFullYear()}.${String(d.getMonth() + 1).padStart(2, '0')}.${String(d.getDate()).padStart(2, '0')}`;
-    </script>
-
-</body>
-</html>
+        /* 2. 하단 대시보드 그리드 (화이트 배경 위) */
+        .content-section {
+            width: 100%;
+            max-width: 950px;
+            padding

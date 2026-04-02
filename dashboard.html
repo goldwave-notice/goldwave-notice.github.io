@@ -4,14 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>GOLD WAVE PREMIUM DASHBOARD</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@900&display=swap" rel="stylesheet">
     <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
     
     <style>
         body {
             margin: 0;
             padding: 0;
-            background-color: #ffffff; /* 랑랑쌤 아이콘과 맞추기 위해 완전 흰색 고정 */
+            background-color: #ffffff; /* 아이콘과 완벽 일치하는 순백색 */
             font-family: 'Pretendard', sans-serif;
             color: #333;
             display: flex;
@@ -20,159 +20,153 @@
             min-height: 100vh;
         }
 
-        /* 1. 상단 헤더 섹션 */
+        /* 1. 상단 VVIP 헤더 */
         header {
             text-align: center;
-            padding: 50px 20px 20px 20px;
+            padding: 65px 20px 45px 20px;
             width: 100%;
         }
 
-        /* 로고 이미지가 안 뜰 때를 대비해 세련된 원형 아이콘으로 대체 */
-        .logo-circle {
-            width: 60px;
-            height: 60px;
-            background: linear-gradient(145deg, #bf953f, #aa771c);
+        /* 랑랑쌤의 상징적 로고 자리 */
+        .premium-logo {
+            width: 70px;
+            height: 70px;
+            margin-bottom: 12px;
+            display: inline-block;
+            background: linear-gradient(135deg, #d4af37, #f7ef8a, #af8e1d);
             border-radius: 50%;
-            display: inline-flex;
-            justify-content: center;
-            align-items: center;
-            color: white;
-            font-weight: 900;
-            font-size: 24px;
-            margin-bottom: 15px;
-            box-shadow: 0 5px 15px rgba(191, 149, 63, 0.3);
+            position: relative;
+            box-shadow: 0 4px 15px rgba(184, 134, 11, 0.3);
         }
 
-        .brand-title {
-            margin: 0;
+        .premium-logo::after {
+            content: '🌀'; /* 임시 로고 문양 */
             font-size: 32px;
-            letter-spacing: 3px;
-            color: #b38728; /* 선명한 골드톤 */
+            line-height: 70px;
+            color: #fff;
+        }
+
+        /* ⭐ 랑랑쌤의 피드백: 자간을 넓힌 웅장한 골드 텍스트 ⭐ */
+        .brand-title {
+            margin: 10px 0 0 0;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 40px; /* 크기는 유지하되 */
+            letter-spacing: 6px; /* 랑랑쌤의 요청대로 자간을 넉넉히 벌림! */
             font-weight: 900;
             text-transform: uppercase;
+            font-style: italic; /* 속도감 있는 기울임 */
+            
+            /* 리얼 골드 입체 그라데이션 (더 화사하게) */
+            background: linear-gradient(to bottom, #fcf6ba 0%, #bf953f 30%, #fcf6ba 50%, #bf953f 80%, #aa771c 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            
+            /* 3D 깊이감을 주는 미세한 그림자 */
+            filter: drop-shadow(2px 2px 2px rgba(0,0,0,0.05));
         }
 
         .status-bar {
             display: inline-flex;
             align-items: center;
-            margin-top: 15px;
-            padding: 6px 16px;
-            background: #fdfaf0;
-            border: 1px solid #f2e1ac;
-            border-radius: 25px;
+            margin-top: 25px;
+            padding: 6px 20px;
+            background: #ffffff;
+            border: 1.5px solid #d4af37;
+            border-radius: 35px;
+            box-shadow: 0 3px 10px rgba(212, 175, 55, 0.15);
         }
 
         .status-dot {
-            width: 8px;
-            height: 8px;
+            width: 10px;
+            height: 10px;
             background-color: #28a745;
             border-radius: 50%;
-            margin-right: 10px;
-            box-shadow: 0 0 8px rgba(40, 167, 69, 0.5);
-            animation: blink 2s infinite;
+            margin-right: 12px;
+            box-shadow: 0 0 10px rgba(40, 167, 69, 0.7);
+            animation: breathe 2s infinite;
         }
 
-        @keyframes blink {
-            0% { opacity: 1; }
-            50% { opacity: 0.4; }
-            100% { opacity: 1; }
+        @keyframes breathe {
+            0% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.5; transform: scale(1.15); }
+            100% { opacity: 1; transform: scale(1); }
         }
 
         .info-row {
-            margin-top: 20px;
+            margin-top: 30px;
             color: #999;
-            font-size: 13px;
+            font-size: 14px;
+            font-weight: 500;
         }
 
         /* 2. 대시보드 그리드 (6개 아이콘) */
         .dashboard-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
-            gap: 12px;
-            padding: 20px 15px 60px 15px;
-            max-width: 800px;
-            width: 100%;
-            box-sizing: border-box;
+            gap: 15px;
+            padding: 0 20px 80px 20px;
+            max-width: 900px;
+            width: 95%;
         }
 
         .nav-card {
-            position: relative;
-            overflow: hidden;
-            border-radius: 12px;
-            background: #fff;
-            transition: all 0.25s ease;
+            border-radius: 18px;
+            background: #fff; /* 아이콘과 배경색 일치 */
+            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
             cursor: pointer;
             aspect-ratio: 546 / 402;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
-            border: 1px solid #eee;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.04);
+            border: 1px solid #f2f2f2;
         }
 
         .nav-card img {
-            width: 100%;
-            height: 100%;
-            object-fit: contain; /* 이미지 전체가 잘림 없이 보이도록 */
+            width: 100%; height: 100%;
+            object-fit: contain;
             display: block;
         }
 
         .nav-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 20px rgba(191, 149, 63, 0.15);
-            border: 1px solid #bf953f;
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 20px 40px rgba(191, 149, 63, 0.15);
+            border: 1.5px solid #bf953f;
         }
 
-        /* 모바일 대응 */
-        @media (max-width: 600px) {
-            .dashboard-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-            .brand-title { font-size: 26px; }
+        @media (max-width: 650px) {
+            .dashboard-grid { grid-template-columns: repeat(2, 1fr); }
+            .brand-title { font-size: 30px; letter-spacing: 4px; }
         }
     </style>
 </head>
 <body>
 
     <header>
-        <div class="logo-circle">G</div>
-        
+        <div class="premium-logo"></div>
         <h1 class="brand-title">GOLD WAVE</h1>
         
         <div class="status-bar">
             <div class="status-dot"></div>
-            <span style="color: #b38728; font-size: 11px; font-weight: 700; letter-spacing: 1px;">SYSTEM STATUS: ACTIVE</span>
+            <span style="color: #aa771c; font-size: 12px; font-weight: 900; letter-spacing: 2px;">SYSTEM STATUS: ACTIVE</span>
         </div>
 
         <div class="info-row">
-            <span id="display-date"></span>
-            <span style="margin: 0 10px; opacity: 0.3;">|</span>
-            <span>VIEWS: <span id="busuanzi_value_site_pv" style="color: #333; font-weight: bold;">0</span></span>
+            <span id="display-date" style="color: #666;"></span>
+            <span style="margin: 0 15px; opacity: 0.2;">|</span>
+            <span style="letter-spacing: 1.5px;">VIEWS: <span id="busuanzi_value_site_pv" style="color: #b38728; font-weight: 800;">0</span></span>
         </div>
     </header>
 
     <div class="dashboard-grid">
-        <div class="nav-card" onclick="location.href='https://goldwave-notice.github.io/guide.html'">
-            <img src="https://i.imgur.com/LLMMLE6.png" alt="사용설명서">
-        </div>
-        <div class="nav-card" onclick="location.href='https://goldwave-notice.github.io/profit.html'">
-            <img src="https://i.imgur.com/EHzDZon.png" alt="수익현황">
-        </div>
-        <div class="nav-card" onclick="location.href='https://goldwave-notice.github.io/archive.html'">
-            <img src="https://i.imgur.com/TKsOsPT.png" alt="아카이브">
-        </div>
-        <div class="nav-card" onclick="location.href='https://goldwave-notice.github.io/program.html'">
-            <img src="https://i.imgur.com/Xles7rX.png" alt="프로그램">
-        </div>
-        <div class="nav-card" onclick="location.href='https://goldwave-notice.github.io/faq.html'">
-            <img src="https://i.imgur.com/XCVCrRj.png" alt="FAQ">
-        </div>
-        <div class="nav-card" onclick="location.href='https://goldwave-notice.github.io/remote.html'">
-            <img src="https://i.imgur.com/CYBeRLN.png" alt="원격지원">
-        </div>
+        <div class="nav-card" onclick="location.href='https://goldwave-notice.github.io/guide.html'"><img src="https://i.imgur.com/LLMMLE6.png"></div>
+        <div class="nav-card" onclick="location.href='https://goldwave-notice.github.io/profit.html'"><img src="https://i.imgur.com/EHzDZon.png"></div>
+        <div class="nav-card" onclick="location.href='https://goldwave-notice.github.io/archive.html'"><img src="https://i.imgur.com/TKsOsPT.png"></div>
+        <div class="nav-card" onclick="location.href='https://goldwave-notice.github.io/program.html'"><img src="https://i.imgur.com/Xles7rX.png"></div>
+        <div class="nav-card" onclick="location.href='https://goldwave-notice.github.io/faq.html'"><img src="https://i.imgur.com/XCVCrRj.png"></div>
+        <div class="nav-card" onclick="location.href='https://goldwave-notice.github.io/remote.html'"><img src="https://i.imgur.com/CYBeRLN.png"></div>
     </div>
 
     <script>
         const d = new Date();
-        const formattedDate = `${d.getFullYear()}.${String(d.getMonth() + 1).padStart(2, '0')}.${String(d.getDate()).padStart(2, '0')}`;
-        document.getElementById('display-date').innerText = `📅 ${formattedDate}`;
+        document.getElementById('display-date').innerText = `📅 ${d.getFullYear()}.${String(d.getMonth() + 1).padStart(2, '0')}.${String(d.getDate()).padStart(2, '0')}`;
     </script>
 
 </body>

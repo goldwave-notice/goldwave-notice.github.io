@@ -70,10 +70,31 @@
     li { margin-bottom: 10px; color: #ccc; }
     b { color: #ffffff; }
 
-    .footer-links {
-      margin-top: 50px;
+    /* 🗞️ 이전 뉴스 연결 버튼 스타일 */
+    .prev-news-link {
+      display: inline-block;
+      margin-top: 40px;
+      padding: 12px 24px;
+      background: rgba(191, 149, 63, 0.05);
+      border: 1px solid rgba(191, 149, 63, 0.3);
+      border-radius: 8px;
+      color: #bf953f;
+      text-decoration: none;
       font-size: 14px;
-      color: #666;
+      font-weight: 600;
+      transition: all 0.3s ease;
+    }
+
+    .prev-news-link:hover {
+      background: rgba(191, 149, 63, 0.15);
+      border-color: #bf953f;
+      transform: translateY(-2px);
+    }
+
+    .footer-links {
+      margin-top: 40px;
+      font-size: 13px;
+      color: #555;
     }
   </style>
 </head>
@@ -97,13 +118,17 @@
       </div>
     </div>
 
+    <a href="260401-2.html" class="prev-news-link">
+      ← [지난 뉴스] 6년 만의 재현... 비트코인 '골든 시그널' 포착
+    </a>
+
     <div class="footer-links">
       © GOLD WAVE. All rights reserved.
     </div>
   </div>
 
   <div style="margin-top: 60px; text-align: center; padding-bottom: 50px;">
-    <span style="font-size: 11px; color: #1c1f26; letter-spacing: 1px;">
+    <span style="font-size: 11px; color: #1c2128; letter-spacing: 1px;">
       VISITORS : 
       <span id="busuanzi_value_site_pv" style="margin-left: 5px; opacity: 0.5;">0</span>
     </span>

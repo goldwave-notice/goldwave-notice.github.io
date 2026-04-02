@@ -10,10 +10,10 @@
     <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
     
     <style>
-        /* 기본 레이아웃 */
+        /* [1] 기본 레이아웃 스타일 */
         body {
             margin: 0; padding: 0;
-            background-color: #ffffff; /* 하단은 깨끗한 화이트 */
+            background-color: #ffffff;
             font-family: 'Pretendard', sans-serif;
             color: #333;
             display: flex;
@@ -21,7 +21,7 @@
             align-items: center;
         }
 
-        /* 1. 상단 히어로 섹션 (스타더스트 배경) */
+        /* [2] 상단 히어로 섹션 (리얼 스타더스트 배경) */
         .hero-section {
             width: 100%;
             background-color: #000000;
@@ -37,7 +37,7 @@
             padding: 60px 0 65px 0;
             text-align: center;
             position: relative;
-            border-bottom: 3px solid #bf953f; /* 경계선 골드 라인 */
+            border-bottom: 3px solid #bf953f;
         }
 
         /* 로고 맥박(숨쉬기) 애니메이션 */
@@ -51,9 +51,8 @@
         }
 
         @keyframes gold-pulse {
-            0% { filter: drop-shadow(0 0 5px rgba(191, 149, 63, 0.4)); transform: scale(1); }
+            0%, 100% { filter: drop-shadow(0 0 5px rgba(191, 149, 63, 0.4)); transform: scale(1); }
             50% { filter: drop-shadow(0 0 25px rgba(255, 215, 0, 0.9)); transform: scale(1.08); }
-            100% { filter: drop-shadow(0 0 5px rgba(191, 149, 63, 0.4)); transform: scale(1); }
         }
 
         /* 쨍한 골드 브랜드 타이틀 */
@@ -67,16 +66,10 @@
             font-style: italic;
             position: relative;
             z-index: 10;
-            
-            /* 리얼 골드 입체 그라데이션 */
             background: linear-gradient(to bottom, #fff6a5 0%, #ffcc00 25%, #bf953f 50%, #fcf6ba 75%, #aa771c 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
-            
-            /* 테두리로 선명함 유지 (번짐 방지) */
             -webkit-text-stroke: 1px #bf953f; 
-            
-            /* 3D 깊이감을 주는 그림자 */
             filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.9));
         }
 
@@ -89,8 +82,6 @@
             color: #d4af37;
             letter-spacing: 4px;
             text-transform: uppercase;
-            position: relative;
-            z-index: 10;
         }
 
         /* 한글 슬로건 (가는 Sans 계열) */
@@ -101,16 +92,13 @@
             font-weight: 100;
             color: rgba(255, 255, 255, 0.6);
             letter-spacing: 1px;
-            position: relative;
-            z-index: 10;
         }
 
-        /* [2] 하단 콘텐츠 영역 */
+        /* [3] 하단 콘텐츠 영역 */
         .content-container {
             width: 100%;
             max-width: 950px;
             padding: 40px 20px 100px 20px;
-            box-sizing: border-box;
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -138,9 +126,8 @@
         }
 
         @keyframes light-blink {
-            0% { transform: scale(1); opacity: 1; }
+            0%, 100% { transform: scale(1); opacity: 1; }
             50% { transform: scale(1.3); opacity: 0.5; }
-            100% { transform: scale(1); opacity: 1; }
         }
 
         .info-bar {
@@ -151,7 +138,7 @@
             letter-spacing: 1px;
         }
 
-        /* 6개 아이콘 그리드 */
+        /* 6개 메뉴 카드 그리드 */
         .dashboard-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
@@ -161,7 +148,7 @@
 
         .nav-card {
             border-radius: 20px;
-            background: #fff; /* 아이콘과 배경색 일치 */
+            background: #fff;
             transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
             cursor: pointer;
             aspect-ratio: 546 / 402;
@@ -172,7 +159,7 @@
 
         .nav-card img {
             width: 100%; height: 100%;
-            object-fit: contain; /* 이미지 비율 유지 */
+            object-fit: contain;
             display: block;
         }
 
@@ -182,87 +169,65 @@
             border: 2px solid #bf953f;
         }
 
-        /* ⭐ [3] 우측 하단 플로팅 CTA 통합 섹션 ⭐ */
+        /* [4] 우측 하단 플로팅 CTA 섹션 (빙글빙글 제거 버전) */
         .floating-cta-container {
-            position: fixed; /* 스크롤을 따라다님 */
+            position: fixed;
             bottom: 30px;
             right: 30px;
-            z-index: 9999; /* 맨 위에 뜨게 */
+            z-index: 9999;
             display: flex;
-            flex-direction: column; /* 세로 배치 */
-            align-items: center; /* 중앙 정렬 */
+            flex-direction: column;
+            align-items: center;
             gap: 12px; /* 텔레그램과 카톡 사이 여백 */
         }
 
-        /* (1) ⭐ 남편분의 요청: 초직관 텔레그램 공식 로고 (빙글~ 효과 유지) ⭐ */
         .telegram-link, .kakao-link { text-decoration: none; display: flex; flex-direction: column; align-items: center; }
 
+        /* 텔레그램 직관 아이콘 스타일 */
         .telegram-icon {
-            /* ⭐ 동전 대신 랑랑쌤이 주신 직관적인 로고 이미지 (59W2FIk.png) ⭐ */
-            width: 130px; /* 슬림한 사이즈 고정 */
+            width: 130px; /* 슬림한 사이즈 */
             height: auto;
-            display: block;
-            margin: 0 auto;
-            
-            /* 3D 깊이감을 주는 그림자 */
-            filter: drop-shadow(0 10px 20px rgba(0,0,0,0.3));
-            
-            /* ⭐ 빙글빙글 회전 애니메이션 유지 ⭐ */
-            animation: icon-rotate 6s infinite linear;
+            filter: drop-shadow(0 10px 20px rgba(0,0,0,0.2));
             transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
         }
 
-        @keyframes icon-rotate {
-            0% { transform: rotateY(0deg); }
-            100% { transform: rotateY(360deg); } /* 3D로 한바퀴 핑그르르 */
-        }
-
-        /* ⭐ 랑랑쌤의 요청 2: 또렷한 텔레그램 공지방 글자 ⭐ */
+        /* 텔레그램 또렷한 텍스트 */
         .medal-text {
-            margin: 5px 0 0 0; /* 동전과 글자 사이 공간 싹 줄임 */
+            margin: 5px 0 0 0; /* 동전과 간격 축소 */
             font-family: 'Pretendard', sans-serif;
-            font-size: 12px; /* ⭐ 또렷하게 보이도록 크기 확대 ⭐ */
-            font-weight: 700; /* ⭐ 또렷하게 보이도록 볼드 처리 ⭐ */
-            color: #aa771c; /* 세련된 클래식 골드 */
+            font-size: 12px;
+            font-weight: 700; /* 직관적인 볼드 */
+            color: #aa771c;
             text-align: center;
-            background: rgba(255, 255, 255, 0.9); /* ⭐ 가독성을 위해 배경 불투명도 높임 ⭐ */
+            background: rgba(255, 255, 255, 0.9);
             padding: 4px 10px;
             border-radius: 10px;
-            letter-spacing: 1px;
-            line-height: 1.4; /* 줄바꿈 시 간격 조절 */
+            line-height: 1.4;
             transition: color 0.3s;
         }
 
-        /* 호버 시 애니메이션 및 강조 효과 */
-        .telegram-link:hover .telegram-icon {
-            animation-play-state: paused; /* 호버 시 회전 정지 */
-            transform: scale(1.1);
-            filter: drop-shadow(0 0 30px rgba(255, 215, 0, 0.6));
-        }
-        .telegram-link:hover .medal-text {
-            color: #bf953f; /* 밝은 골드로 변경 */
+        /* 카카오톡 아이콘 */
+        .kakao-icon {
+            width: 130px;
+            height: auto;
+            filter: drop-shadow(0 10px 20px rgba(0,0,0,0.2));
+            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
         }
 
-        /* (2) 카카오톡 문의하기 버튼 */
-        .kakao-link:hover .kakao-icon {
-            transform: translateY(-8px) scale(1.05); /* 위로 살짝 떠오름 */
+        /* 호버 시 부드러운 업다운 효과 */
+        .telegram-link:hover .telegram-icon, .kakao-link:hover .kakao-icon {
+            transform: translateY(-8px) scale(1.05);
+            filter: drop-shadow(0 15px 30px rgba(191, 149, 63, 0.3));
         }
-        
-        .kakao-icon {
-            width: 130px; /* 텔레그램과 크기 통일 */
-            height: auto;
-            display: block;
-            filter: drop-shadow(0 10px 20px rgba(0,0,0,0.3));
-            transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-        }
+
+        .telegram-link:hover .medal-text { color: #bf953f; }
 
         /* 모바일 대응 */
         @media (max-width: 700px) {
             .dashboard-grid { grid-template-columns: repeat(2, 1fr); }
             .brand-title { font-size: 30px; letter-spacing: 4px; }
-            .hero-section { padding: 40px 0 40px 0; }
             .floating-cta-container { right: 15px; bottom: 15px; }
-            .telegram-icon, .kakao-icon { width: 95px; } /* 모바일에서는 더 작게 */
+            .telegram-icon, .kakao-icon { width: 95px; }
         }
     </style>
 </head>
@@ -270,16 +235,12 @@
 
     <div class="hero-section">
         <img src="https://i.imgur.com/9VUt3sN.png" alt="Logo" class="premium-logo">
-        
         <h1 class="brand-title">GOLD WAVE</h1>
-        
         <div class="slogan-en">STAY AHEAD, RIGHT HERE.</div>
-        
         <div class="slogan-ko">앞서 나가고 싶은 당신, 이곳이 바로 출발점입니다.</div>
     </div>
 
     <div class="content-container">
-        
         <div class="status-badge">
             <div class="status-dot"></div>
             <span style="color: #bf953f; font-size: 12px; font-weight: 900; letter-spacing: 1px;">SYSTEM STATUS: ACTIVE</span>
@@ -292,47 +253,33 @@
         </div>
 
         <div class="dashboard-grid">
-            <div class="nav-card" onclick="location.href='https://goldwave-notice.github.io/guide.html'">
-                <img src="https://i.imgur.com/C5xMVYm.png" alt="설명서">
-            </div>
-            <div class="nav-card" onclick="location.href='https://goldwave-notice.github.io/profit.html'">
-                <img src="https://i.imgur.com/EHzDZon.png" alt="수익현황">
-            </div>
-            <div class="nav-card" onclick="location.href='https://goldwave-notice.github.io/archive.html'">
-                <img src="https://i.imgur.com/TKsOsPT.png" alt="아카이브">
-            </div>
-            <div class="nav-card" onclick="location.href='https://goldwave-notice.github.io/program.html'">
-                <img src="https://i.imgur.com/Xles7rX.png" alt="프로그램">
-            </div>
-            <div class="nav-card" onclick="location.href='https://goldwave-notice.github.io/faq.html'">
-                <img src="https://i.imgur.com/XCVCrRj.png" alt="FAQ">
-            </div>
-            <div class="nav-card" onclick="location.href='https://goldwave-notice.github.io/remote.html'">
-                <img src="https://i.imgur.com/CYBeRLN.png" alt="원격지원">
-            </div>
+            <div class="nav-card" onclick="location.href='https://goldwave-notice.github.io/guide.html'"><img src="https://i.imgur.com/C5xMVYm.png"></div>
+            <div class="nav-card" onclick="location.href='https://goldwave-notice.github.io/profit.html'"><img src="https://i.imgur.com/EHzDZon.png"></div>
+            <div class="nav-card" onclick="location.href='https://goldwave-notice.github.io/archive.html'"><img src="https://i.imgur.com/TKsOsPT.png"></div>
+            <div class="nav-card" onclick="location.href='https://goldwave-notice.github.io/program.html'"><img src="https://i.imgur.com/Xles7rX.png"></div>
+            <div class="nav-card" onclick="location.href='https://goldwave-notice.github.io/faq.html'"><img src="https://i.imgur.com/XCVCrRj.png"></div>
+            <div class="nav-card" onclick="location.href='https://goldwave-notice.github.io/remote.html'"><img src="https://i.imgur.com/CYBeRLN.png"></div>
         </div>
     </div>
 
     <div class="floating-cta-container">
-        
-        <a href="텔레그램_채널_링크_입력" target="_blank" class="telegram-link">
+        <a href="텔레그램_채널_링크" target="_blank" class="telegram-link">
             <img src="https://i.imgur.com/59W2FIk.png" alt="Telegram Logo" class="telegram-icon">
             <p class="medal-text">텔레그램 공지방<br>채널 바로가기</p>
         </a>
 
-        <a href="카카오톡_문의_링크_입력" target="_blank" class="kakao-link">
-            <img src="https://i.imgur.com/73WFeLl.png" alt="카카오톡 문의하기" class="kakao-icon">
+        <a href="카카오톡_문의_링크" target="_blank" class="kakao-link">
+            <img src="https://i.imgur.com/73WFeLl.png" alt="Kakao Inquiry" class="kakao-icon">
         </a>
     </div>
 
     <script>
-        // 오늘 날짜 자동 생성
+        // 오늘 날짜 자동 갱신
         const today = new Date();
         const y = today.getFullYear();
         const m = String(today.getMonth() + 1).padStart(2, '0');
         const d = String(today.getDate()).padStart(2, '0');
         document.getElementById('date-display').innerText = `📅 ${y}.${m}.${d}`;
     </script>
-
 </body>
 </html>

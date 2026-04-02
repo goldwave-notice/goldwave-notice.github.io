@@ -8,130 +8,129 @@
     @import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css');
 
     body {
-      margin: 0; background-color: #f4f5f7; font-family: 'Pretendard', sans-serif; color: #333;
+      margin: 0; background-color: #0b0d11; font-family: 'Pretendard', sans-serif; color: #e0e0e0;
       display: flex; flex-direction: column; align-items: center; min-height: 100vh;
+      background: radial-gradient(circle at center, #161a21 0%, #0b0d11 100%); /* 딥 네이비 그라데이션 */
     }
 
-    /* 🏛️ 상단 네이비 & 골드 바 */
+    /* 🏛️ 헤더 섹션 - 웅장한 타이포그래피 */
     header {
-      width: 100%; height: 60px; background: linear-gradient(to right, #0b0d11 30%, #bf953f 100%);
-      display: flex; justify-content: space-between; align-items: center; padding: 0 20px; box-sizing: border-box;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.2); position: sticky; top: 0; z-index: 100;
+      width: 100%; max-width: 900px; padding: 60px 20px; text-align: center;
     }
-    .logo { color: #fff; font-size: 18px; font-weight: 800; letter-spacing: 2px; }
-    .nav-links { color: #fff; font-size: 12px; opacity: 0.8; }
-
-    /* 🏷️ 중앙 타이틀 섹션 */
-    .hero-section {
-      text-align: center; padding: 60px 20px 40px; background: #fff; width: 100%;
+    .logo {
+      font-size: 36px; font-weight: 900; letter-spacing: 6px; text-transform: uppercase;
+      background: linear-gradient(145deg, #bf953f 0%, #ffffff 50%, #bf953f 100%); /* 골드-화이트 3D 그라데이션 */
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+      text-shadow: 0 5px 15px rgba(191,149,63,0.3);
     }
-    .special-label { color: #bf953f; font-size: 14px; font-weight: 700; letter-spacing: 3px; margin-bottom: 10px; display: block; }
-    .hero-title { color: #1a1c21; font-size: 32px; font-weight: 900; margin: 10px 0; letter-spacing: -1px; }
-    .hero-sub { color: #777; font-size: 14px; font-weight: 500; }
+    .sub-logo { color: #bf953f; font-size: 13px; margin-top: 15px; letter-spacing: 3px; font-weight: 700; opacity: 0.8; }
 
-    /* 🎛️ 6구 카드형 메뉴 그리드 */
-    .container { width: 100%; max-width: 900px; padding: 40px 20px; box-sizing: border-box; }
+    .container { width: 100%; max-width: 900px; padding: 0 20px 80px; box-sizing: border-box; }
+
+    /* 🗞️ LATEST REPORT - 웅장한 3D 메탈 카드 */
+    .main-news-section { margin-bottom: 50px; }
+    .section-title {
+      color: #fff; font-size: 16px; font-weight: 800; margin-bottom: 20px; text-align: left;
+      border-left: 4px solid #bf953f; padding-left: 15px; letter-spacing: 2px;
+    }
+    
+    .featured-card {
+      background: linear-gradient(145deg, #161a21 0%, #0b0d11 100%); /* 차가운 메탈 재질감 */
+      border-radius: 25px; border: 1px solid rgba(191,149,63,0.15); /* 은은한 골드 테두리 */
+      padding: 30px; display: flex; align-items: center; text-decoration: none; transition: 0.3s;
+      box-shadow: 0 20px 50px rgba(0,0,0,0.7), inset 0 0 30px rgba(191,149,63,0.05); /* 내부광 효과 */
+    }
+    .featured-card:hover { transform: translateY(-8px) scale(1.01); border-color: rgba(191,149,63,0.6); box-shadow: 0 25px 60px rgba(0,0,0,0.8), inset 0 0 40px rgba(191,149,63,0.1); }
+    .featured-thumb { width: 150px; height: 150px; border-radius: 15px; object-fit: cover; margin-right: 30px; border: 2px solid rgba(191,149,63,0.1); }
+    .featured-info { flex: 1; text-align: left; }
+    .featured-date { color: #bf953f; font-size: 12px; font-weight: 800; margin-bottom: 8px; display: block; letter-spacing: 1px; }
+    
+    .featured-title {
+      color: #fff; font-size: 24px; font-weight: 700; line-height: 1.4; word-break: keep-all;
+      background: linear-gradient(145deg, #ffffff 0%, #bf953f 100%); /* 화이트-골드 3D 그라데이션 */
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+    }
+
+    /* 🎛️ DASHBOARD MENU - 리얼 3D 렌더링 그리드 */
     .menu-grid {
-      display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px;
+      display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; margin-top: 30px;
     }
-    
-    @media (max-width: 768px) { .menu-grid { grid-template-columns: repeat(2, 1fr); } }
-
-    .menu-card {
-      background: #2a2d35; border-radius: 15px; border: 4px solid #e2c275;
-      padding: 30px 15px; text-decoration: none; text-align: center; position: relative;
-      transition: all 0.3s ease; box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+    .menu-item {
+      background: linear-gradient(145deg, #111419 0%, #0b0d11 100%);
+      border: 1px solid rgba(255,255,255,0.03); border-radius: 20px;
+      padding: 40px 25px; text-decoration: none; text-align: center; transition: 0.3s;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.5), inset 0 0 20px rgba(255,255,255,0.01);
     }
-    .menu-card:hover { transform: translateY(-8px); box-shadow: 0 15px 30px rgba(191,149,63,0.3); }
+    .menu-item:hover { background: rgba(191,149,63,0.08); border-color: rgba(191,149,63,0.3); transform: translateY(-5px); box-shadow: 0 15px 40px rgba(0,0,0,0.6), inset 0 0 30px rgba(191,149,63,0.03); }
     
-    .menu-icon { font-size: 32px; margin-bottom: 15px; display: block; filter: sepia(1) saturate(5) hue-rotate(10deg); }
-    .menu-text { color: #fff; font-size: 15px; font-weight: 700; line-height: 1.4; word-break: keep-all; }
+    .menu-icon { font-size: 32px; margin-bottom: 15px; display: block; opacity: 0.8; }
     
-    /* 카드 하단 점 세개 장식 */
-    .dot-deco { margin-top: 15px; display: flex; justify-content: center; gap: 5px; }
-    .dot { width: 4px; height: 4px; background: #bf953f; border-radius: 50%; opacity: 0.5; }
-
-    /* 🗞️ 하단 LATEST NEWS 바 */
-    .news-ticker {
-      width: 100%; max-width: 860px; background: #fff; border: 2px solid #e2c275;
-      border-radius: 50px; margin-top: 40px; padding: 15px 30px; display: flex;
-      justify-content: space-between; align-items: center; box-sizing: border-box;
-      text-decoration: none; transition: 0.3s;
+    .menu-text {
+      color: #fff; font-size: 16px; font-weight: 800; letter-spacing: 2px;
+      background: linear-gradient(145deg, #bf953f 0%, #ffffff 50%, #bf953f 100%); /* 헤더와 동일한 3D 그라데이션 */
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
     }
-    .news-ticker:hover { background: #fffdf5; border-color: #bf953f; }
-    .ticker-label { color: #1a1c21; font-size: 14px; font-weight: 900; letter-spacing: 1px; border-right: 1px solid #ddd; padding-right: 15px; }
-    .ticker-content { color: #555; font-size: 13px; flex: 1; padding: 0 20px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
-    .ticker-arrow { color: #bf953f; font-weight: 900; }
+    .menu-sub { color: #777; font-size: 12px; margin-top: 8px; font-weight: 600; }
 
-    .footer { margin-top: 50px; padding: 40px; font-size: 12px; color: #aaa; }
+    .footer { margin-top: auto; padding: 60px 40px; font-size: 13px; color: #444; letter-spacing: 1px; font-weight: 600; }
   </style>
 </head>
 <body>
 
   <header>
     <div class="logo">GOLD WAVE</div>
-    <div class="nav-links">Announcement | Reports | Log out</div>
+    <div class="sub-logo">PREMIUM INVESTMENT REPORT</div>
   </header>
 
-  <section class="hero-section">
-    <span class="special-label">SPECIAL REPORT</span>
-    <h1 class="hero-title">SPECIAL REPORT</h1>
-    <p class="hero-sub">골드웨이브만의 특별한 인사이트를 지금 확인하십시오!</p>
-  </section>
-
   <div class="container">
+    
+    <section class="main-news-section">
+      <div class="section-title">LATEST REPORT</div>
+      <a href="260402.html" class="featured-card">
+        <img src="https://i.imgur.com/EskBuKu.jpeg" class="featured-thumb" alt="오늘뉴스">
+        <div class="featured-info">
+          <span class="featured-date">26.04.02 #03</span>
+          <div class="featured-title">금 4,600달러 붕괴...<br>하루새 시총 1,500조 쇼크</div>
+        </div>
+      </a>
+    </section>
+
+    <div class="section-title">DASHBOARD MENU</div>
     <div class="menu-grid">
-      <a href="#" class="menu-card">
-        <span class="menu-icon">📄</span>
-        <div class="menu-text">골드웨이브<br>초간단 사용 설명서</div>
-        <div class="dot-deco"><div class="dot"></div><div class="dot" style="opacity:1"></div><div class="dot"></div></div>
+      <a href="archive.html" class="menu-item">
+        <span class="menu-icon">📁</span>
+        <span class="menu-text">REPORT ARCHIVE</span>
+        <span class="menu-sub">지난 뉴스 전체 보기</span>
       </a>
       
-      <a href="#" class="menu-card">
-        <span class="menu-icon">💬</span>
-        <div class="menu-text">FAQ & QnA<br>카테고리</div>
-        <div class="dot-deco"><div class="dot"></div><div class="dot" style="opacity:1"></div><div class="dot"></div></div>
-      </a>
+      <div class="menu-item" style="opacity: 0.4;">
+        <span class="menu-icon">🤖</span>
+        <span class="menu-text">AI SIGNALS</span>
+        <span class="menu-sub">준비 중</span>
+      </div>
 
-      <a href="#" class="menu-card">
-        <span class="menu-icon">📊</span>
-        <div class="menu-text">실시간 수익 확인</div>
-        <div class="dot-deco"><div class="dot"></div><div class="dot" style="opacity:1"></div><div class="dot"></div></div>
-      </a>
+      <div class="menu-item" style="opacity: 0.4;">
+        <span class="menu-icon">📈</span>
+        <span class="menu-text">MARKET DATA</span>
+        <span class="menu-sub">준비 중</span>
+      </div>
 
-      <a href="archive.html" class="menu-card">
-        <span class="menu-icon">📁</span>
-        <div class="menu-text">프리미엄 리포트<br>아카이브</div>
-        <div class="dot-deco"><div class="dot"></div><div class="dot" style="opacity:1"></div><div class="dot"></div></div>
-      </a>
-
-      <a href="#" class="menu-card">
-        <span class="menu-icon">⚙️</span>
-        <div class="menu-text">자동 매매 시스템</div>
-        <div class="dot-deco"><div class="dot"></div><div class="dot" style="opacity:1"></div><div class="dot"></div></div>
-      </a>
-
-      <a href="#" class="menu-card">
-        <span class="menu-icon">🎧</span>
-        <div class="menu-text">원격 지원 시스템</div>
-        <div class="dot-deco"><div class="dot"></div><div class="dot" style="opacity:1"></div><div class="dot"></div></div>
-      </a>
+      <div class="menu-item" style="opacity: 0.4;">
+        <span class="menu-icon">📢</span>
+        <span class="menu-text">NOTICE</span>
+        <span class="menu-sub">준비 중</span>
+      </div>
     </div>
-
-    <a href="260402.html" class="news-ticker">
-      <span class="ticker-label">LATEST NEWS</span>
-      <span class="ticker-content">금 선물 4,600달러 붕괴... 하루새 시총 1,500조 원 증발 쇼크</span>
-      <span class="ticker-arrow">&gt;</span>
-    </a>
 
     <div class="footer">
       © GOLD WAVE. All rights reserved.
     </div>
   </div>
 
-  <div style="text-align: center; padding-bottom: 50px;">
-    <span id="busuanzi_container_site_pv" style="font-size: 11px; color: #ccc;">
-      TOTAL VISITORS : <span id="busuanzi_value_site_pv">0</span>
+  <div style="text-align: center; padding-bottom: 60px;">
+    <span style="font-size: 12px; color: #1c2128; letter-spacing: 1px; font-weight: 600;">
+      TOTAL VISITORS : 
+      <span id="busuanzi_value_site_pv" style="margin-left: 8px; opacity: 0.6;">0</span>
     </span>
   </div>
   <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>

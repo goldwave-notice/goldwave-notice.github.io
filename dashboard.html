@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GOLD WAVE PREMIUM DASHBOARD</title>
+  <style>
+    @import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css');
+
+    body {
+      margin: 0; background-color: #0b0d11; font-family: 'Pretendard', sans-serif; color: #e0e0e0;
+      display: flex; flex-direction: column; align-items: center; min-height: 100vh;
+    }
+
+    /* 🏛️ 헤더 섹션 */
+    header {
+      width: 100%; max-width: 800px; padding: 40px 20px; text-align: center;
+    }
+    .logo { color: #bf953f; font-size: 28px; font-weight: 900; letter-spacing: 4px; text-transform: uppercase; }
+    .sub-logo { color: #555; font-size: 12px; margin-top: 10px; letter-spacing: 2px; }
+
+    .container { width: 100%; max-width: 800px; padding: 0 20px 60px; box-sizing: border-box; }
+
+    /* 🗞️ 메인 뉴스 카드 (오늘의 리포트) */
+    .main-news-section { margin-bottom: 40px; }
+    .section-title { color: #bf953f; font-size: 14px; font-weight: 800; margin-bottom: 15px; text-align: left; border-left: 3px solid #bf953f; padding-left: 10px; }
+    
+    .featured-card {
+      background: linear-gradient(145deg, #161a21, #0b0d11);
+      border-radius: 20px; border: 1px solid rgba(191,149,63,0.3);
+      padding: 20px; display: flex; align-items: center; text-decoration: none; transition: 0.3s;
+    }
+    .featured-card:hover { transform: translateY(-5px); border-color: #bf953f; box-shadow: 0 15px 35px rgba(0,0,0,0.6); }
+    .featured-thumb { width: 120px; height: 120px; border-radius: 12px; object-fit: cover; margin-right: 20px; }
+    .featured-info { flex: 1; text-align: left; }
+    .featured-date { color: #bf953f; font-size: 11px; font-weight: 800; margin-bottom: 5px; display: block; }
+    .featured-title { color: #fff; font-size: 18px; font-weight: 700; line-height: 1.4; word-break: keep-all; }
+
+    /* 🎛️ 6구 대시보드 그리드 */
+    .menu-grid {
+      display: grid; grid-template-columns: repeat(2, 1fr); gap: 15px; margin-top: 20px;
+    }
+    .menu-item {
+      background: #161a21; border: 1px solid rgba(255,255,255,0.05); border-radius: 15px;
+      padding: 30px 20px; text-decoration: none; text-align: center; transition: 0.3s;
+    }
+    .menu-item:hover { background: rgba(191,149,63,0.1); border-color: rgba(191,149,63,0.4); transform: translateY(-3px); }
+    .menu-icon { font-size: 24px; margin-bottom: 10px; display: block; }
+    .menu-text { color: #fff; font-size: 14px; font-weight: 600; letter-spacing: 1px; }
+    .menu-sub { color: #555; font-size: 11px; margin-top: 5px; }
+
+    .footer { margin-top: auto; padding: 40px; font-size: 12px; color: #333; letter-spacing: 1px; }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="logo">GOLD WAVE</div>
+    <div class="sub-logo">PREMIUM INVESTMENT REPORT</div>
+  </header>
+
+  <div class="container">
+    
+    <section class="main-news-section">
+      <div class="section-title">LATEST REPORT</div>
+      <a href="260402.html" class="featured-card">
+        <img src="https://i.imgur.com/EskBuKu.jpeg" class="featured-thumb" alt="오늘뉴스">
+        <div class="featured-info">
+          <span class="featured-date">26.04.02 #03</span>
+          <div class="featured-title">금 4,600달러 붕괴...<br>하루새 시총 1,500조 원 증발 쇼크</div>
+        </div>
+      </a>
+    </section>
+
+    <div class="section-title">DASHBOARD MENU</div>
+    <div class="menu-grid">
+      <a href="archive.html" class="menu-item">
+        <span class="menu-icon">📁</span>
+        <span class="menu-text">REPORT ARCHIVE</span>
+        <span class="menu-sub">지난 뉴스 전체 보기</span>
+      </a>
+      
+      <div class="menu-item" style="opacity: 0.4;">
+        <span class="menu-icon">🤖</span>
+        <span class="menu-text">AI SIGNALS</span>
+        <span class="menu-sub">준비 중</span>
+      </div>
+
+      <div class="menu-item" style="opacity: 0.4;">
+        <span class="menu-icon">📈</span>
+        <span class="menu-text">MARKET DATA</span>
+        <span class="menu-sub">준비 중</span>
+      </div>
+
+      <div class="menu-item" style="opacity: 0.4;">
+        <span class="menu-icon">📢</span>
+        <span class="menu-text">NOTICE</span>
+        <span class="menu-sub">준비 중</span>
+      </div>
+    </div>
+
+    <div class="footer">
+      © GOLD WAVE. All rights reserved.
+    </div>
+  </div>
+
+  <div style="text-align: center; padding-bottom: 50px;">
+    <span style="font-size: 11px; color: #1c2128; letter-spacing: 1px;">
+      TOTAL VISITORS : 
+      <span id="busuanzi_value_site_pv" style="margin-left: 5px; opacity: 0.5;">0</span>
+    </span>
+  </div>
+  <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+</body>
+</html>

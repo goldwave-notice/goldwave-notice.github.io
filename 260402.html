@@ -6,62 +6,121 @@
   <title>GOLD WAVE PREMIUM REPORT</title>
   <style>
     @import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css');
-    body { margin: 0; background-color: #0b0d11; font-family: 'Pretendard', sans-serif; color: #e0e0e0; display: flex; flex-direction: column; align-items: center; padding-bottom: 50px; }
-    .container { width: 100%; max-width: 800px; padding: 20px; box-sizing: border-box; text-align: center; }
-    .main-card { width: 100%; border-radius: 15px; box-shadow: 0 20px 40px rgba(0,0,0,0.6); margin-top: 20px; }
-    .report-box { margin-top: 40px; text-align: left; background: rgba(255, 255, 255, 0.03); padding: 30px; border-radius: 20px; border: 1px solid rgba(191, 149, 63, 0.2); }
-    h1 { color: #bf953f; font-size: 24px; margin-bottom: 20px; border-left: 4px solid #bf953f; padding-left: 15px; line-height: 1.4; }
-    .strategy-card { background: #161a21; padding: 20px; border-radius: 12px; border-left: 5px solid #bf953f; margin-top: 25px; }
-    .strategy-title { color: #bf953f; font-weight: bold; margin-bottom: 10px; }
+
+    body {
+      margin: 0;
+      background-color: #0b0d11; 
+      font-family: 'Pretendard', sans-serif;
+      color: #e0e0e0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding-bottom: 50px;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 800px;
+      padding: 20px;
+      box-sizing: border-box;
+      text-align: center;
+    }
+
+    /* 상단 공백 유지 (요청사항) */
+    .header-space { height: 50px; }
+
+    .main-card {
+      width: 100%;
+      border-radius: 15px;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.6);
+      margin-top: 20px;
+    }
+
+    .report-box {
+      margin-top: 40px;
+      text-align: left;
+      background: rgba(255, 255, 255, 0.03);
+      padding: 30px;
+      border-radius: 20px;
+      border: 1px solid rgba(191, 149, 63, 0.2);
+    }
+
+    h1 {
+      color: #bf953f;
+      font-size: 24px;
+      margin-bottom: 20px;
+      border-left: 4px solid #bf953f;
+      padding-left: 15px;
+      line-height: 1.4;
+    }
+
+    .strategy-card {
+      background: #161a21;
+      padding: 20px;
+      border-radius: 12px;
+      border-left: 5px solid #bf953f;
+      margin-top: 25px;
+    }
+
+    .strategy-title {
+      color: #bf953f;
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
+
     ul { padding-left: 20px; margin: 0; }
     li { margin-bottom: 10px; color: #ccc; }
     b { color: #ffffff; }
 
-    /* 🗞️ PREVIOUS REPORT - 랑랑쌤 취향 저격 카드 스타일 */
+    /* 🗞️ PREVIOUS REPORT 카드 스타일 (이미지 1번 스타일 통일) */
     .prev-section-title { color: #555; font-size: 12px; letter-spacing: 4px; margin-top: 80px; margin-bottom: 30px; text-transform: uppercase; font-weight: 700; }
     .prev-card {
-      display: flex; align-items: center; background: #161a21; /* 더 어둡고 단단한 느낌 */
+      display: flex; align-items: center; background: #161a21;
       border-radius: 20px; border: 1px solid rgba(255,255,255,0.05);
       padding: 25px; text-decoration: none; text-align: left; transition: 0.3s;
       max-width: 650px; margin: 0 auto;
     }
     .prev-card:hover { border-color: rgba(191,149,63,0.5); transform: translateY(-5px); box-shadow: 0 10px 30px rgba(0,0,0,0.5); }
-    .prev-thumb { width: 100px; height: 100px; border-radius: 12px; margin-right: 25px; object-fit: cover; box-shadow: 0 5px 15px rgba(0,0,0,0.3); }
+    .prev-thumb { width: 100px; height: 100px; border-radius: 12px; margin-right: 25px; object-fit: cover; }
     .prev-info { flex: 1; }
-    .prev-label { color: #bf953f; font-size: 12px; font-weight: 800; margin-bottom: 8px; display: block; letter-spacing: 1px; }
-    .prev-title { color: #ffffff; font-size: 18px; font-weight: 700; line-height: 1.5; word-break: keep-all; }
+    .prev-label { color: #bf953f; font-size: 12px; font-weight: 800; margin-bottom: 8px; display: block; }
+    .prev-title { color: #ffffff; font-size: 18px; font-weight: 700; line-height: 1.5; }
 
     .footer-links { margin-top: 60px; font-size: 12px; color: #333; letter-spacing: 1px; }
   </style>
 </head>
 <body>
+
   <div class="container">
-    <img src="https://i.imgur.com/vtequNN.jpeg" alt="오늘의 뉴스" class="main-card">
+    <div class="header-space"></div> <img src="https://i.imgur.com/vtequNN.jpeg" alt="오늘의 뉴스" class="main-card">
 
     <div class="report-box">
-      <h1>📌 오늘의 핵심 브리핑<br>[트럼프 강경 발언에 시장 급락... 종전 기대감 소멸 위기]</h1>
-      <p>도널드 트럼프 미국 대통령이 이란에 대한 <b>추가 군사 공격 가능성</b>을 공식화하면서 글로벌 금융시장이 일제히 흔들리고 있습니다. 비트코인은 4.7% 하락하며 6만 7천 달러선까지 밀려났고, 유가는 배럴당 105달러를 돌파하는 등 위험자산 전반에 강한 매도세가 나타나고 있습니다. 현재 공포 지수는 <b>'16(극단적 공포)'</b> 구간에 진입했습니다.</p>
+      <h1>📌 오늘의 핵심 브리핑<br>[트럼프 '에픽 퓨리' 경고... 금(Gold) 시장의 트리거 될까?]</h1>
+      
+      <p>도널드 트럼프 대통령이 이란에 대한 <b>'추가 군사 공격'</b>을 공식화하며 금융시장이 '극단적 공포(지수 16)' 구간에 진입했습니다. 유가가 105달러를 돌파하고 비트코인이 4.7% 급락하는 혼돈 속에서, 자산 시장의 시선은 다시 <b>안전 자산의 종착지인 '금(Gold)'</b>으로 향하고 있습니다.</p>
       
       <div class="strategy-card">
         <div class="strategy-title">💡 골드웨이브 전략 가이드</div>
         <ul>
-          <li><b>지정학적 리스크 재부각:</b> 향후 2~3주간 불확실성이 극대화될 전망입니다. 보수적인 관점이 필요한 시점입니다.</li>
-          <li><b>시장 심리 위축:</b> 공포·탐욕 지수가 16까지 떨어지며 투자 수요가 급격히 둔화되었습니다.</li>
-          <li><b>AI 실시간 모니터링:</b> 무리한 추격 매수보다는 명확한 지지선 확인 후 대응을 권고합니다.</li>
+          <li><b>지정학적 리스크와 금:</b> 전쟁 공포는 금값의 하방 경직성을 확보해 줍니다. 다만 국채 수익률 상승과 팽팽하게 맞서며 단기 변동성이 커질 수 있습니다.</li>
+          <li><b>인플레이션 헤지 수요:</b> 배럴당 105달러를 돌파한 유가는 강력한 인플레이션을 예고합니다. 화폐 가치 하락에 대비한 실물 금 매수세가 유입될 가능성이 높습니다.</li>
+          <li><b>AI 실시간 분석:</b> 골드웨이브 AI는 현재 '공포 지수 16' 구간을 역발상 매수 기회로 볼 것인지, 추가 하락의 전조로 볼 것인지 거래량을 통해 정밀 분석 중입니다.</li>
         </ul>
       </div>
     </div>
 
     <div class="prev-section-title">PREVIOUS REPORT</div>
     <a href="260401-2.html" class="prev-card">
-      <img src="https://i.imgur.com/vHq1vH1.png" class="prev-thumb" alt="지난뉴스">
+      <img src="https://i.imgur.com/goldwave_news_0401_3.jpg" class="prev-thumb" alt="지난뉴스">
       <div class="prev-info">
         <span class="prev-label">LATEST REPORT #02</span>
         <div class="prev-title">6년 만의 재현...<br>비트코인 폭등 '골든 시그널' 포착 분석</div>
       </div>
     </a>
 
-    <div class="footer-links">© GOLD WAVE. All rights reserved.</div>
+    <div class="footer-links">
+      © GOLD WAVE. All rights reserved.
+    </div>
   </div>
 
   <div style="margin-top: 60px; text-align: center; padding-bottom: 50px;">
@@ -71,5 +130,6 @@
     </span>
   </div>
   <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
 </body>
 </html>

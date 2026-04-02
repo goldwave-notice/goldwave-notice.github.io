@@ -27,41 +27,35 @@
             width: 100%;
         }
 
-        /* 랑랑쌤의 상징적 로고 자리 */
+        /* ⭐ 랑랑쌤의 상징적 소용돌이 로고 반영 (9VUt3sN.png) ⭐ */
         .premium-logo {
             width: 70px;
-            height: 70px;
+            height: auto; /* 비율 유지 */
             margin-bottom: 12px;
             display: inline-block;
-            background: linear-gradient(135deg, #d4af37, #f7ef8a, #af8e1d);
-            border-radius: 50%;
-            position: relative;
-            box-shadow: 0 4px 15px rgba(184, 134, 11, 0.3);
+            /* 로고 엠블럼 효과 (dropshadow) */
+            filter: drop-shadow(0 4px 10px rgba(184, 134, 11, 0.2));
         }
 
-        .premium-logo::after {
-            content: '🌀'; /* 임시 로고 문양 */
-            font-size: 32px;
-            line-height: 70px;
-            color: #fff;
-        }
-
-        /* ⭐ 랑랑쌤의 피드백: 자간을 넓힌 웅장한 골드 텍스트 ⭐ */
+        /* ⭐ 웅장한 골드 텍스트에 미세한 테두리 추가 ⭐ */
         .brand-title {
             margin: 10px 0 0 0;
             font-family: 'Montserrat', sans-serif;
-            font-size: 40px; /* 크기는 유지하되 */
-            letter-spacing: 6px; /* 랑랑쌤의 요청대로 자간을 넉넉히 벌림! */
+            font-size: 40px;
+            letter-spacing: 6px; /* 여유로운 자간 유지 */
             font-weight: 900;
             text-transform: uppercase;
-            font-style: italic; /* 속도감 있는 기울임 */
+            font-style: italic; /* 역동적인 기울임 */
             
-            /* 리얼 골드 입체 그라데이션 (더 화사하게) */
+            /* 리얼 골드 입체 그라데이션 (화사하게) */
             background: linear-gradient(to bottom, #fcf6ba 0%, #bf953f 30%, #fcf6ba 50%, #bf953f 80%, #aa771c 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             
-            /* 3D 깊이감을 주는 미세한 그림자 */
+            /* ⭐ 테두리 효과 (매우 얇은 골드 라인) ⭐ */
+            -webkit-text-stroke: 0.5px #d4af37; /* 미세한 테두리로 번짐 방지 */
+            
+            /* 3D 깊이감을 주는 그림자 */
             filter: drop-shadow(2px 2px 2px rgba(0,0,0,0.05));
         }
 
@@ -121,7 +115,7 @@
 
         .nav-card img {
             width: 100%; height: 100%;
-            object-fit: contain;
+            object-fit: contain; /* 이미지 비율 유지 */
             display: block;
         }
 
@@ -134,13 +128,15 @@
         @media (max-width: 650px) {
             .dashboard-grid { grid-template-columns: repeat(2, 1fr); }
             .brand-title { font-size: 30px; letter-spacing: 4px; }
+            .premium-logo { width: 60px; }
         }
     </style>
 </head>
 <body>
 
     <header>
-        <div class="premium-logo"></div>
+        <img src="https://i.imgur.com/9VUt3sN.png" alt="Gold Wave Logo" class="premium-logo">
+        
         <h1 class="brand-title">GOLD WAVE</h1>
         
         <div class="status-bar">
@@ -156,12 +152,25 @@
     </header>
 
     <div class="dashboard-grid">
-        <div class="nav-card" onclick="location.href='https://goldwave-notice.github.io/guide.html'"><img src="https://i.imgur.com/LLMMLE6.png"></div>
-        <div class="nav-card" onclick="location.href='https://goldwave-notice.github.io/profit.html'"><img src="https://i.imgur.com/EHzDZon.png"></div>
-        <div class="nav-card" onclick="location.href='https://goldwave-notice.github.io/archive.html'"><img src="https://i.imgur.com/TKsOsPT.png"></div>
-        <div class="nav-card" onclick="location.href='https://goldwave-notice.github.io/program.html'"><img src="https://i.imgur.com/Xles7rX.png"></div>
-        <div class="nav-card" onclick="location.href='https://goldwave-notice.github.io/faq.html'"><img src="https://i.imgur.com/XCVCrRj.png"></div>
-        <div class="nav-card" onclick="location.href='https://goldwave-notice.github.io/remote.html'"><img src="https://i.imgur.com/CYBeRLN.png"></div>
+        <div class="nav-card" onclick="location.href='https://goldwave-notice.github.io/guide.html'">
+            <img src="https://i.imgur.com/C5xMVYm.png" alt="초간단 설명서">
+        </div>
+        
+        <div class="nav-card" onclick="location.href='https://goldwave-notice.github.io/profit.html'">
+            <img src="https://i.imgur.com/EHzDZon.png" alt="실시간 수익현황">
+        </div>
+        <div class="nav-card" onclick="location.href='https://goldwave-notice.github.io/archive.html'">
+            <img src="https://i.imgur.com/TKsOsPT.png" alt="리포트 아카이브">
+        </div>
+        <div class="nav-card" onclick="location.href='https://goldwave-notice.github.io/program.html'">
+            <img src="https://i.imgur.com/Xles7rX.png" alt="골드웨이브 프로그램">
+        </div>
+        <div class="nav-card" onclick="location.href='https://goldwave-notice.github.io/faq.html'">
+            <img src="https://i.imgur.com/XCVCrRj.png" alt="자주 묻는 질문">
+        </div>
+        <div class="nav-card" onclick="location.href='https://goldwave-notice.github.io/remote.html'">
+            <img src="https://i.imgur.com/CYBeRLN.png" alt="원격지원 시스템">
+        </div>
     </div>
 
     <script>

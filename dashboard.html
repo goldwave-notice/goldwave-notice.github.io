@@ -25,7 +25,6 @@
         .hero-section {
             width: 100%;
             background-color: #000000;
-            /* 무작위로 흩뿌려진 금가루 파티클 효과 */
             background-image: 
                 radial-gradient(1px 1px at 10% 20%, #ffffff 100%, transparent),
                 radial-gradient(1.5px 1.5px at 35% 45%, #bf953f 100%, transparent),
@@ -40,7 +39,6 @@
             border-bottom: 3px solid #bf953f;
         }
 
-        /* 로고 맥박(숨쉬기) 애니메이션 */
         .premium-logo {
             width: 70px;
             height: auto;
@@ -55,7 +53,6 @@
             50% { filter: drop-shadow(0 0 25px rgba(255, 215, 0, 0.9)); transform: scale(1.08); }
         }
 
-        /* 쨍한 골드 브랜드 타이틀 */
         .brand-title {
             margin: 0;
             font-family: 'Montserrat', sans-serif;
@@ -73,7 +70,6 @@
             filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.9));
         }
 
-        /* 영문 슬로건 */
         .slogan-en {
             margin-top: 15px;
             font-family: 'Montserrat', sans-serif;
@@ -84,7 +80,6 @@
             text-transform: uppercase;
         }
 
-        /* 한글 슬로건 (가는 Sans 계열) */
         .slogan-ko {
             margin-top: 10px;
             font-family: 'Pretendard', sans-serif;
@@ -104,7 +99,6 @@
             align-items: center;
         }
 
-        /* 시스템 가동 상태 바 */
         .status-badge {
             display: inline-flex;
             align-items: center;
@@ -155,6 +149,9 @@
             box-shadow: 0 6px 25px rgba(0,0,0,0.06);
             border: 1px solid #f2f2f2;
             overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
 
         .nav-card img {
@@ -169,7 +166,7 @@
             border: 2px solid #bf953f;
         }
 
-        /* [4] 우측 하단 플로팅 CTA 섹션 (빙글빙글 제거 버전) */
+        /* [4] 우측 하단 플로팅 CTA 섹션 */
         .floating-cta-container {
             position: fixed;
             bottom: 30px;
@@ -178,25 +175,23 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            gap: 12px; /* 텔레그램과 카톡 사이 여백 */
+            gap: 12px;
         }
 
         .telegram-link, .kakao-link { text-decoration: none; display: flex; flex-direction: column; align-items: center; }
 
-        /* 텔레그램 직관 아이콘 스타일 */
-        .telegram-icon {
-            width: 130px; /* 슬림한 사이즈 */
+        .telegram-icon, .kakao-icon {
+            width: 130px;
             height: auto;
             filter: drop-shadow(0 10px 20px rgba(0,0,0,0.2));
             transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
         }
 
-        /* 텔레그램 또렷한 텍스트 */
         .medal-text {
-            margin: 5px 0 0 0; /* 동전과 간격 축소 */
+            margin: 5px 0 0 0;
             font-family: 'Pretendard', sans-serif;
             font-size: 12px;
-            font-weight: 700; /* 직관적인 볼드 */
+            font-weight: 700;
             color: #aa771c;
             text-align: center;
             background: rgba(255, 255, 255, 0.9);
@@ -206,23 +201,11 @@
             transition: color 0.3s;
         }
 
-        /* 카카오톡 아이콘 */
-        .kakao-icon {
-            width: 130px;
-            height: auto;
-            filter: drop-shadow(0 10px 20px rgba(0,0,0,0.2));
-            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-        }
-
-        /* 호버 시 부드러운 업다운 효과 */
         .telegram-link:hover .telegram-icon, .kakao-link:hover .kakao-icon {
             transform: translateY(-8px) scale(1.05);
             filter: drop-shadow(0 15px 30px rgba(191, 149, 63, 0.3));
         }
 
-        .telegram-link:hover .medal-text { color: #bf953f; }
-
-        /* 모바일 대응 */
         @media (max-width: 700px) {
             .dashboard-grid { grid-template-columns: repeat(2, 1fr); }
             .brand-title { font-size: 30px; letter-spacing: 4px; }
@@ -253,12 +236,29 @@
         </div>
 
         <div class="dashboard-grid">
-            <div class="nav-card" onclick="location.href='https://goldwave-notice.github.io/guide.html'"><img src="https://i.imgur.com/C5xMVYm.png"></div>
-            <div class="nav-card" onclick="location.href='https://goldwave-notice.github.io/profit.html'"><img src="https://i.imgur.com/EHzDZon.png"></div>
-            <div class="nav-card" onclick="location.href='https://goldwave-notice.github.io/archive.html'"><img src="https://i.imgur.com/TKsOsPT.png"></div>
-            <div class="nav-card" onclick="location.href='https://goldwave-notice.github.io/program.html'"><img src="https://i.imgur.com/Xles7rX.png"></div>
-            <div class="nav-card" onclick="location.href='https://goldwave-notice.github.io/faq.html'"><img src="https://i.imgur.com/XCVCrRj.png"></div>
-            <div class="nav-card" onclick="location.href='https://goldwave-notice.github.io/remote.html'"><img src="https://i.imgur.com/CYBeRLN.png"></div>
+            <div class="nav-card" onclick="location.href='guide.html'">
+                <img src="https://i.imgur.com/C5xMVYm.png">
+            </div>
+
+            <div class="nav-card" onclick="location.href='profit.html'">
+                <img src="https://i.imgur.com/EHzDZon.png" alt="수익현황">
+            </div>
+
+            <div class="nav-card" onclick="location.href='archive.html'">
+                <img src="https://i.imgur.com/TKsOsPT.png">
+            </div>
+
+            <div class="nav-card" onclick="location.href='program.html'">
+                <img src="https://i.imgur.com/Xles7rX.png">
+            </div>
+
+            <div class="nav-card" onclick="location.href='faq.html'">
+                <img src="https://i.imgur.com/XCVCrRj.png">
+            </div>
+
+            <div class="nav-card" onclick="location.href='remote.html'">
+                <img src="https://i.imgur.com/CYBeRLN.png">
+            </div>
         </div>
     </div>
 

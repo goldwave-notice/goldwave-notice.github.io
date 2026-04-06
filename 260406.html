@@ -5,11 +5,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>GOLD WAVE PREMIUM REPORT - 2026.04.06</title>
   <style>
+    /* 랑랑 가이드: 프리미엄 Pretendard 폰트 적용 */
     @import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css');
 
     body {
       margin: 0;
-      background-color: #0b0d11;
+      background-color: #0b0d11; /* 깊이감 있는 다크 네이비 블랙 */
       font-family: 'Pretendard', sans-serif;
       color: #e0e0e0;
       display: flex;
@@ -20,41 +21,35 @@
 
     .container {
       width: 100%;
-      max-width: 1000px;
-      padding: 40px 20px;
+      max-width: 800px;
+      padding: 20px;
       box-sizing: border-box;
+      text-align: center;
     }
 
-    /* 상단 가로 배치 레이아웃 */
-    .top-section {
-      display: flex;
-      gap: 30px;
-      align-items: stretch;
-      margin-bottom: 25px;
-    }
-
+    /* 카드뉴스 이미지 스타일 (1080*1080 최적화) */
     .main-card {
-      flex: 1.1;
       width: 100%;
       border-radius: 15px;
       box-shadow: 0 20px 40px rgba(0,0,0,0.6);
+      margin-top: 20px;
+      transition: transform 0.3s ease;
       border: 1px solid rgba(191, 149, 63, 0.3);
-      object-fit: cover;
     }
 
+    /* 텍스트 영역 스타일 */
     .report-box {
-      flex: 1;
+      margin-top: 40px;
+      text-align: left;
       background: rgba(255, 255, 255, 0.03);
       padding: 30px;
       border-radius: 20px;
       border: 1px solid rgba(191, 149, 63, 0.2);
-      text-align: left;
     }
 
     h1 {
-      color: #bf953f;
-      font-size: 22px;
-      margin-top: 0;
+      color: #bf953f; /* 골드 포인트 */
+      font-size: 24px;
       margin-bottom: 20px;
       border-left: 4px solid #bf953f;
       padding-left: 15px;
@@ -64,137 +59,89 @@
     .highlight-text {
       font-size: 18px;
       font-weight: 700;
-      color: #fcf6ba;
-      margin-bottom: 12px;
+      color: #fcf6ba; /* 옐로우 하이라이트 */
+      margin-bottom: 15px;
       display: block;
     }
 
-    /* 골드웨이브 영향/주목 포인트 */
     .strategy-card {
       background: #161a21;
-      padding: 30px;
-      border-radius: 15px;
+      padding: 20px;
+      border-radius: 12px;
       border-left: 5px solid #bf953f;
-      margin-bottom: 50px;
-      text-align: left;
+      margin-top: 25px;
     }
 
     .strategy-title {
       color: #bf953f;
       font-weight: bold;
-      font-size: 18px;
-      margin-bottom: 20px;
-    }
-
-    .strategy-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 20px;
-    }
-
-    .strategy-item { color: #ccc; line-height: 1.6; list-style: none; padding-left: 0; }
-    b { color: #00ff00; }
-
-    /* --- 아카이브 카드 UI (랑랑 가이드) --- */
-    .archive-section-title {
-      font-size: 14px;
-      letter-spacing: 4px;
-      color: #4a4d52;
-      margin-bottom: 25px;
-      text-align: center;
-      font-weight: 600;
-    }
-
-    .archive-card {
+      margin-bottom: 10px;
       display: flex;
       align-items: center;
-      background: #111419;
-      border: 1px solid #1f2329;
-      border-radius: 20px;
-      padding: 25px;
-      text-decoration: none;
-      transition: all 0.3s ease;
-      max-width: 900px;
-      margin: 0 auto;
     }
 
-    .archive-card:hover {
-      background: #161a21;
-      border-color: #bf953f;
-      transform: translateY(-5px);
+    ul {
+      padding-left: 20px;
+      margin: 0;
     }
 
-    .archive-thumb {
-      width: 120px;
-      height: 120px;
-      border-radius: 12px;
-      margin-right: 25px;
-      object-fit: cover;
+    li {
+      margin-bottom: 10px;
+      color: #ccc;
+      line-height: 1.6;
     }
 
-    .archive-info { text-align: left; }
+    b { color: #00ff00; } /* 상승/긍정 포인트는 그린 */
+
+    /* 하단 링크 영역 */
+    .footer-links {
+      margin-top: 50px;
+      font-size: 14px;
+      color: #666;
+      line-height: 2;
+    }
     
-    .archive-label {
-      color: #bf953f;
-      font-size: 13px;
-      font-weight: 800;
-      margin-bottom: 8px;
-      display: block;
-    }
-
-    .archive-subject {
-      color: #ffffff;
-      font-size: 20px;
-      font-weight: 700;
-      line-height: 1.4;
-    }
-
-    @media (max-width: 768px) {
-      .top-section { flex-direction: column; }
-      .strategy-grid { grid-template-columns: 1fr; }
-      .archive-card { padding: 15px; }
-      .archive-thumb { width: 80px; height: 80px; margin-right: 15px; }
-      .archive-subject { font-size: 16px; }
+    .archive-link {
+        color: #bf953f;
+        text-decoration: none;
+        font-weight: 700;
     }
   </style>
 </head>
 <body>
 
-<div class="container">
-  <div class="top-section">
-    <img src="https://i.imgur.com/EskBuKu.jpeg" alt="오늘의 뉴스" class="main-card">
-    
+  <div class="container">
+    <img src="https://i.imgur.com/jSOGOgO.jpeg" alt="오늘의 뉴스" class="main-card">
+
     <div class="report-box">
-      <h1>📌 핵심 브리핑<br>[변동성 장세, 금·은만이 답인가?]</h1>
-      <span class="highlight-text">냉철한 시장 데이터 분석</span>
-      <p style="font-size: 14px; line-height: 1.8;">글로벌 금융 시장의 불확실성이 커지는 가운데, <b>200일 EMA</b>의 지지 여부가 향후 랠리의 핵심 분수령이 될 전망입니다. 자산 보호를 위한 전략적 선택이 필요한 시점입니다.</p>
-    </div>
-  </div>
-
-  <div class="strategy-card">
-    <div class="strategy-title">💡 골드웨이브가 이 뉴스에 주목하는 이유</div>
-    <div class="strategy-grid">
-      <div class="strategy-item">✔️ <b>지지선 사수:</b> 기술적 반등의 신호탄이 될 지점을 선점하세요.</div>
-      <div class="strategy-item">✔️ <b>위험 관리:</b> 비트코인의 변동성에 대비한 <b>헤지 전략</b>이 유효합니다.</div>
-      <div class="strategy-item">✔️ <b>안전자산 선호:</b> 금·은으로의 자금 유입 속도를 주시해야 합니다.</div>
-      <div class="strategy-item">✔️ <b>기계적 대응:</b> 감정을 배제한 <b>AI 자동매매</b>의 효율성이 극대화되는 구간입니다.</div>
-    </div>
-  </div>
-
-  <div class="archive-section-title">PREVIOUS REPORT</div>
-  <a href="https://goldwave-notice.github.io/archive.html" class="archive-link">
-    <div class="archive-card">
-      <img src="https://i.imgur.com/jSOGOgO.jpeg" alt="지난 뉴스" class="archive-thumb">
-      <div class="archive-info">
-        <span class="archive-label">LATEST REPORT #02</span>
-        <div class="archive-subject">6년 만의 재현...<br>비트코인 폭등 '골든 시그널' 포착 분석</div>
+      <h1>📌 오늘의 핵심 브리핑<br>[시장 변동성 확대, 금·은의 기술적 반등은 시작되었는가?]</h1>
+      
+      <span class="highlight-text">냉철한 데이터 분석을 통한 시장 대응</span>
+      <p>오늘의 시장 흐름은 <b>강력한 하방 압력</b> 속에서도 주요 지지선을 지켜내려는 안전자산의 움직임이 돋보였습니다. 특히 <b>200일 EMA</b>를 기점으로 한 반등세는 향후 시장의 향방을 결정지을 중요한 <b>데이터 포인트</b>입니다.</p>
+      
+      <p>반면, 비트코인과 증시의 이탈 현상은 가속화되고 있어, 무분별한 추격 매수보다는 <b>리스크 관리</b>에 집중해야 할 시점입니다.</p>
+      
+      <div class="strategy-card">
+        <div class="strategy-title">💡 골드웨이브 VVIP 전략 가이드 (4/6)</div>
+        <ul>
+          <li><b>핵심 지표 사수:</b> 200일 지수이동평균선(EMA) 리테스트 후의 <b>안착 여부</b>를 최우선으로 모니터링하세요.</li>
+          <li><b>자금 흐름 포착:</b> 위험자산에서 안전자산으로 넘어오는 <b>수급 변화</b>를 이용한 포트폴리오 재편이 필요합니다.</li>
+          <li><b>데드라인 체크:</b> 기술적 이탈이 발생한 구간에서의 <b>기계적 대응</b>만이 자산을 보호하는 유일한 길입니다.</li>
+        </ul>
       </div>
     </div>
-  </a>
-</div>
 
-<div style="margin-top: 80px; text-align: center; padding-bottom: 50px;">
-  <span style="font-size: 11px; color: #1c1f26; letter-spacing: 1px;">VISITORS : <span id="busuanzi_value_site_pv">0</span></span>
+    <div class="footer-links">
+      <a href="https://goldwave-notice.github.io/archive.html" class="archive-link">📅 지난 뉴스 아카이브(4/2) 바로가기</a><br>
+      © GOLD WAVE. All rights reserved.
+    </div>
+  </div>
+
+<div style="margin-top: 60px; text-align: center; padding-bottom: 50px;">
+  <span style="font-size: 11px; color: #1c1f26; letter-spacing: 1px;">
+    VISITORS : 
+    <span id="busuanzi_value_site_pv" style="margin-left: 5px; opacity: 0.5;">0</span>
+  </span>
 </div>
 <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 

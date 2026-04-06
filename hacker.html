@@ -1,0 +1,53 @@
+i<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GOLD WAVE QUANTUM CODES</title>
+    <style>
+        /* [스타일 설정 - 까만 배경과 알록달록 글자색] */
+        body { margin: 0; padding: 0; background-color: #0d1117; font-family: 'Consolas', 'Monaco', 'Courier New', monospace; color: #e6edf3; display: flex; flex-direction: column; align-items: center; justify-content: center; height: 100vh; overflow: hidden; }
+        
+        /* 코딩 화면 박스 */
+        .code-container { width: 90%; max-width: 900px; height: 80vh; background-color: rgba(255, 255, 255, 0.03); border: 1px solid rgba(191, 149, 63, 0.2); border-radius: 15px; padding: 30px; box-sizing: border-box; overflow-y: auto; box-shadow: 0 15px 50px rgba(0,0,0,0.6); }
+        
+        /* 스크롤바 스타일 */
+        .code-container::-webkit-scrollbar { width: 8px; }
+        .code-container::-webkit-scrollbar-track { background: transparent; }
+        .code-container::-webkit-scrollbar-thumb { background: rgba(191, 149, 63, 0.2); border-radius: 10px; }
+        
+        /* 실제 코드 스타일 */
+        pre { margin: 0; font-size: 15px; line-height: 1.6; white-space: pre-wrap; word-break: break-all; }
+        
+        /* 알록달록 글자색 매칭! */
+        .keyword { color: #ff7b72; } /* 분홍: include, template, class, main 등 */
+        .type { color: #79c0ff; } /* 파랑: typename, double, int, std 등 */
+        .comment { color: #8b949e; } /* 회색: 주석 */
+        .string { color: #a5d6ff; } /* 하늘색: "문자열" */
+        .number { color: #d2a8ff; } /* 노랑/보라: 0.0, 10, 0.732 등 */
+        .gold { color: #bf953f; } /* 금색: GOLD WAVE 전용! */
+    </style>
+</head>
+<body>
+
+    <div class="code-container">
+        <pre>
+<span class="comment">// ⭐ GOLD WAVE QUANTUM CORE SIMULATION ⭐</span>
+<span class="keyword">#include</span> <span class="type">&lt;iostream&gt;</span>
+<span class="keyword">#include</span> <span class="type">&lt;vector&gt;</span>
+<span class="keyword">#include</span> <span class="type">&lt;string&gt;</span>
+<span class="keyword">#include</span> <span class="type">&lt;cmath&gt;</span>
+
+<span class="comment">// 전역 차원 해석 및 양자 얽힘 시뮬레이션</span>
+<span class="keyword">template</span> &lt;<span class="keyword">typename</span> <span class="type">T</span>&gt;
+<span class="keyword">class</span> <span class="gold">QuantumEntanglement</span> {
+<span class="keyword">public</span>:
+    <span class="type">T</span> <span class="gold">simulate</span>(<span class="type">T</span> stateA, <span class="type">T</span> stateB, <span class="type">double</span> couplingConstant) {
+        <span class="type">T</span> entangledState = std::<span class="gold">sin</span>(stateA * <span class="gold">M_PI</span> / <span class="number">180.0</span>) * std::<span class="gold">cos</span>(stateB * <span class="gold">M_PI</span> / <span class="number">180.0</span>);
+        entangledState += couplingConstant * std::<span class="gold">exp</span>(-std::<span class="gold">abs</span>(stateA - stateB));
+        <span class="keyword">return</span> entangledState;
+    }
+};
+
+<span class="keyword">int</span> <span class="gold">main</span>() {
+    <span class="comment">// 다차원 텐서 필드 초기화</span>

@@ -7,7 +7,6 @@
     <style>
         @import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css');
         body { margin: 0; padding: 0; background-color: #0b0d11; font-family: 'Pretendard', sans-serif; color: #e0e0e0; line-height: 1.7; }
-        
         .header-sticky { position: fixed; top: 0; width: 100%; background: rgba(26, 29, 35, 0.95); border-bottom: 1px solid rgba(191, 149, 63, 0.3); z-index: 1000; padding: 12px 0; text-align: center; backdrop-filter: blur(10px); }
         .progress-title { font-size: 13px; font-weight: 800; color: #bf953f; margin-bottom: 8px; }
         .progress-container { width: 75%; background: #333; height: 6px; border-radius: 3px; margin: 0 auto; overflow: hidden; }
@@ -35,12 +34,10 @@
         .instruction span { color: #ffffff; text-decoration: underline; text-underline-offset: 4px; }
 
         .back-home { position: fixed; bottom: 35px; left: 50%; transform: translateX(-50%); background: linear-gradient(135deg, #bf953f, #aa771c); color: #000; padding: 14px 50px; border-radius: 50px; text-decoration: none; font-weight: 800; font-size: 16px; box-shadow: 0 12px 35px rgba(0,0,0,0.6); z-index: 1000; display: flex; align-items: center; gap: 8px; }
-
         @media (max-width: 600px) { h1 { font-size: 22px; } .guide-card { padding: 20px; margin-bottom: 50px; } }
     </style>
 </head>
 <body>
-
     <div class="header-sticky">
         <div class="progress-title">GOLD WAVE 이용 가이드</div>
         <div class="progress-container"><div id="p-bar" class="progress-bar"></div></div>
@@ -52,43 +49,17 @@
     </div>
 
     <div class="container">
-        
         <div id="contract-section">
             <div class="brand-section">
                 <img src="https://i.imgur.com/9VUt3sN.png" alt="Logo" class="brand-logo">
                 <h1>GOLD WAVE GUIDE</h1>
                 <p class="sub-title">모두싸인 계약서 작성 방법</p>
             </div>
-            <div class="guide-card">
-                <span class="step-tag">STEP 01</span>
-                <h2>카카오톡/이메일 확인</h2>
-                <div class="img-box"><img src="https://i.imgur.com/ovUnm9P.png" alt="Step 1"></div>
-                <div class="instruction">수신된 카카오톡 혹은 이메일을 확인하고 <span>[내용 확인 및 서명하기]</span>를 눌러 시작해 주세요.</div>
-            </div>
-            <div class="guide-card">
-                <span class="step-tag">STEP 02</span>
-                <h2>본인 인증 및 정보 입력</h2>
-                <div class="img-box"><img src="https://i.imgur.com/OYH5ice.png" alt="Step 2"></div>
-                <div class="instruction">안전한 계약을 위한 본인 인증 후, <span>안내에 따라 계약서의 빈칸을 빠짐없이 작성해 주세요.</span></div>
-            </div>
-            <div class="guide-card">
-                <span class="step-tag">STEP 03</span>
-                <h2>서명 방식 선택 (사인)</h2>
-                <div class="img-box"><img src="https://i.imgur.com/BDjrYfV.png" alt="Step 3"></div>
-                <div class="instruction">사인이나 도장 중 편하신 방식을 선택하세요. 사인의 경우 <span>직접 그리거나 이름을 입력하여 생성</span> 가능합니다.</div>
-            </div>
-            <div class="guide-card">
-                <span class="step-tag">STEP 04</span>
-                <h2>서명 방식 선택 (도장)</h2>
-                <div class="img-box"><img src="https://i.imgur.com/CZX8PE4.png" alt="Step 4"></div>
-                <div class="instruction">개인의 경우 '일반도장'을 선택하여 <span>이름 입력만으로 도장을 생성하거나 도장 사진을 업로드</span>할 수 있습니다.</div>
-            </div>
-            <div class="guide-card">
-                <span class="step-tag">STEP 05</span>
-                <h2>최종 동의 및 서명 완료</h2>
-                <div class="img-box"><img src="https://i.imgur.com/vsDzoxV.png" alt="Step 5"></div>
-                <div class="instruction">모든 공란을 채우셨다면 <span>[동의하고 서명 완료]</span>를 클릭하세요. 이제 모든 절차가 끝났습니다!</div>
-            </div>
+            <div class="guide-card"><span class="step-tag">STEP 01</span><h2>카카오톡/이메일 확인</h2><div class="img-box"><img src="https://i.imgur.com/ovUnm9P.png"></div><div class="instruction">수신된 카카오톡 혹은 이메일을 확인하고 <span>[내용 확인 및 서명하기]</span>를 눌러 시작해 주세요.</div></div>
+            <div class="guide-card"><span class="step-tag">STEP 02</span><h2>본인 인증 및 정보 입력</h2><div class="img-box"><img src="https://i.imgur.com/OYH5ice.png"></div><div class="instruction">안전한 계약을 위한 본인 인증 후, <span>안내에 따라 계약서의 빈칸을 빠짐없이 작성해 주세요.</span></div></div>
+            <div class="guide-card"><span class="step-tag">STEP 03</span><h2>서명 방식 선택 (사인)</h2><div class="img-box"><img src="https://i.imgur.com/BDjrYfV.png"></div><div class="instruction">사인이나 도장 중 편하신 방식을 선택하세요. 사인의 경우 <span>직접 그리거나 이름을 입력하여 생성</span> 가능합니다.</div></div>
+            <div class="guide-card"><span class="step-tag">STEP 04</span><h2>서명 방식 선택 (도장)</h2><div class="img-box"><img src="https://i.imgur.com/CZX8PE4.png"></div><div class="instruction">개인의 경우 '일반도장'을 선택하여 <span>이름 입력만으로 도장을 생성하거나 도장 사진을 업로드</span>할 수 있습니다.</div></div>
+            <div class="guide-card"><span class="step-tag">STEP 05</span><h2>최종 동의 및 서명 완료</h2><div class="img-box"><img src="https://i.imgur.com/vsDzoxV.png"></div><div class="instruction">모든 공란을 채우셨다면 <span>[동의하고 서명 완료]</span>를 클릭하세요. 이제 모든 절차가 끝났습니다!</div></div>
         </div>
 
         <div id="program-section" style="display:none;">
@@ -101,12 +72,11 @@
                 <span class="step-tag">VIDEO</span>
                 <h2>프로그램 설치 영상 가이드</h2>
                 <div class="img-box">
-                    <div style="padding:56.25% 0 0 0;position:relative;"><iframe src="https://www.youtube.com/embed/영상주소" style="position:absolute;top:0;left:0;width:100%;height:100%;" frameborder="0" allowfullscreen></iframe></div>
+                    <iframe width="100%" height="315" src="https://www.youtube.com/embed/영상코드" frameborder="0" allowfullscreen></iframe>
                 </div>
                 <div class="instruction">영상을 시청하며 설정을 완료해 주세요. 궁금한 점은 <span>담당자에게 문의</span> 바랍니다.</div>
             </div>
         </div>
-
     </div>
 
     <a href="https://goldwave-notice.github.io/-/dashboard.html" class="back-home">🏠 홈</a>
@@ -117,7 +87,6 @@
             const program = document.getElementById('program-section');
             const tab1 = document.getElementById('tab1');
             const tab2 = document.getElementById('tab2');
-
             if(type === 'contract') {
                 contract.style.display = 'block'; program.style.display = 'none';
                 tab1.classList.add('active'); tab2.classList.remove('active');
@@ -128,18 +97,9 @@
             window.scrollTo(0, 0);
         }
         
+        // 핵심 기능: 주소 뒤에 #program이 있으면 자동으로 탭 전환
         window.onload = function() {
-            // URL 뒤에 #program이 있으면 자동으로 프로그램 탭을 보여줍니다.
-            if(window.location.hash === '#program') { 
-                showTab('program'); 
-            }
-        };
-
-        window.onscroll = function() {
-            var winScroll = document.body.scrollTop || document.documentElement.scrollTop;
-            var height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-            var scrolled = (winScroll / height) * 100;
-            document.getElementById("p-bar").style.width = scrolled + "%";
+            if(window.location.hash === '#program') { showTab('program'); }
         };
     </script>
 </body>

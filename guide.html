@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GOLD WAVE - 가이드</title>
+    <style>
+        @import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css');
+        body { margin: 0; padding: 0; background-color: #0b0d11; font-family: 'Pretendard', sans-serif; color: #e0e0e0; line-height: 1.6; }
+        
+        /* 고정 상단바 (진행률 표시) */
+        .header-sticky { position: fixed; top: 0; width: 100%; background: #1a1d23; border-bottom: 1px solid #bf953f; z-index: 1000; padding: 15px 0; text-align: center; }
+        .progress-container { width: 80%; background: #333; height: 6px; border-radius: 3px; margin: 10px auto; overflow: hidden; }
+        .progress-bar { width: 0%; height: 100%; background: linear-gradient(90deg, #bf953f, #fcf6ba); transition: width 0.3s; }
+        
+        .container { width: 92%; max-width: 600px; margin: 120px auto 150px; }
+        
+        /* 로고 영역 */
+        .brand-section { text-align: center; margin-bottom: 40px; }
+        .brand-logo { width: 50px; margin-bottom: 15px; filter: drop-shadow(0 0 5px rgba(191, 149, 63, 0.5)); }
+        h1 { color: #bf953f; font-size: 24px; font-weight: 800; margin: 0; }
+        .sub-title { color: #888; font-size: 14px; margin-top: 5px; font-weight: 700; }
+
+        /* 단계별 카드 스타일 */
+        .guide-card { background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(191, 149, 63, 0.15); border-radius: 20px; padding: 25px; margin-bottom: 60px; box-shadow: 0 10px 30px rgba(0,0,0,0.3); transition: 0.3s; }
+        .step-tag { display: inline-block; background: #bf953f; color: #000; padding: 4px 15px; border-radius: 50px; font-weight: 900; font-size: 13px; margin-bottom: 20px; }
+        .guide-card h2 { font-size: 20px; color: #fff; margin-bottom: 15px; font-weight: 800; }
+        
+        /* 이미지 영역 */
+        .img-box { width: 100%; border-radius: 12px; overflow: hidden; border: 1px solid rgba(255,255,255,0.1); background: #000; margin-bottom: 20px; }
+        .img-box img { width: 100%; display: block; }
+        
+        .instruction { background: rgba(191, 149, 63, 0.1); padding: 15px; border-left: 4px solid #bf953f; border-radius: 4px; font-size: 15px; font-weight: 600; color: #fcf6ba; word-break: keep-all; }
+
+        /* 하단 홈 버튼 */
+        .back-home { position: fixed; bottom: 30px; left: 50%; transform: translateX(-50%); background: linear-gradient(135deg, #bf953f, #aa771c); color: #000; padding: 15px 50px; border-radius: 50px; text-decoration: none; font-weight: 900; box-shadow: 0 10px 30px rgba(0,0,0,0.5); z-index: 1000; }
+
+        @media (max-width: 600px) { h1 { font-size: 20px; } .guide-card { padding: 15px; } }
+    </style>
+</head>
+<body>
+
+    <div class="header-sticky">
+        <div style="font-size: 12px; font-weight: 800; color: #bf953f;">계약서 작성 가이드 진행률</div>
+        <div class="progress-container">
+            <div id="p-bar" class="progress-bar"></div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="brand-section">
+            <img src="https://i.imgur.com/9VUt3sN.png" alt="Logo" class="brand-logo">
+            <h1>GOLD WAVE 가이드</h1>
+            <p class="sub-title">모두싸인 계약서 작성 방법</p>
+        </div>
+
+        <div class="guide-card" id="step1">
+            <span class="step-tag">STEP 01</span>
+            <h2>카카오톡/이메일 확인</h2>
+            <div class="img-box">
+                <img src="https://i.imgur.com/ovUnm9P.png" alt="Step 1">
+            </div>
+            <div class="instruction">
+                수신된 카카오톡 알림톡 혹은 이메일을 확인하고 <span style="color:#fff;">[내용 확인 및 서명하기]</span> 버튼을 눌러주세요.
+            </div>
+        </div>
+
+        <div class="guide-card" id="step2">
+            <span class="step-tag">STEP 02</span>
+            <h2>본인 인증 진행</h2>
+            <div class="img-box">
+                <img src="https://i.imgur.com/OYH5ice.png" alt="Step 2">
+            </div>
+            <div class="instruction">
+                안전한 계약을 위해 휴대폰 본인 인증 혹은 간편 인증을 진행해 주세요.
+            </div>
+        </div>
+
+        <div class="guide-card" id="step3">
+            <span class="step-tag">STEP 03</span>
+            <h2>계약서 내용 확인</h2>
+            <div class="img-box">
+                <img src="https://i.imgur.com/BDjrYfV.png" alt="Step 3">
+            </div>
+            <div class="instruction">
+                스크롤을 내려 계약 내용을 꼼꼼히 확인하신 후 <span style="color:#fff;">[서명 시작]</span>을 눌러주세요.
+            </div>
+        </div>
+
+        <div class="guide-card" id="step4">
+            <span class="step-tag">STEP 04</span>
+            <h2>정보 입력 및 서명</h2>
+            <div class="img-box">
+                <img src="https://i.imgur.com/CZX8PE4.png" alt="Step 4">
+            </div>
+            <div class="instruction">
+                노란색으로 표시된 필수 입력 칸을 작성하고, <span style="color:#fff;">[서명 아이콘]</span>을 눌러 도장 혹은 서명을 입력하세요.
+            </div>
+        </div>
+
+        <div class="guide-card" id="step5">
+            <span class="step-tag">STEP 05</span>
+            <h2>최종 제출 및 완료</h2>
+            <div class="img-box">
+                <img src="https://i.imgur.com/vsDzoxV.png" alt="Step 5">
+            </div>
+            <div class="instruction">
+                모든 칸을 채우셨다면 상단의 <span style="color:#fff;">[제출하기]</span> 버튼을 눌러 완료해 주세요. 수고하셨습니다!
+            </div>
+        </div>
+
+    </div>
+
+    <a href="https://goldwave-notice.github.io/-/dashboard.html" class="back-home">🏠 대시보드 돌아가기</a>
+
+    <script>
+        // 스크롤에 따른 진행바 업데이트
+        window.onscroll = function() {
+            var winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+            var height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            var scrolled = (winScroll / height) * 100;
+            document.getElementById("p-bar").style.width = scrolled + "%";
+        };
+    </script>
+
+</body>
+</html>

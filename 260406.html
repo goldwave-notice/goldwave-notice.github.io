@@ -10,7 +10,7 @@
 
     body {
       margin: 0;
-      background-color: #0b0d11; /* 깊이감 있는 다크 네이비 블랙 */
+      background-color: #0b0d11;
       font-family: 'Pretendard', sans-serif;
       color: #e0e0e0;
       display: flex;
@@ -27,17 +27,14 @@
       text-align: center;
     }
 
-    /* 카드뉴스 이미지 스타일 (1080*1080 최적화) */
     .main-card {
       width: 100%;
       border-radius: 15px;
       box-shadow: 0 20px 40px rgba(0,0,0,0.6);
       margin-top: 20px;
-      transition: transform 0.3s ease;
       border: 1px solid rgba(191, 149, 63, 0.3);
     }
 
-    /* 텍스트 영역 스타일 */
     .report-box {
       margin-top: 40px;
       text-align: left;
@@ -48,7 +45,7 @@
     }
 
     h1 {
-      color: #bf953f; /* 골드 포인트 */
+      color: #bf953f;
       font-size: 24px;
       margin-bottom: 20px;
       border-left: 4px solid #bf953f;
@@ -59,7 +56,7 @@
     .highlight-text {
       font-size: 18px;
       font-weight: 700;
-      color: #fcf6ba; /* 옐로우 하이라이트 */
+      color: #fcf6ba;
       margin-bottom: 15px;
       display: block;
     }
@@ -80,38 +77,50 @@
       align-items: center;
     }
 
-    ul {
-      padding-left: 20px;
-      margin: 0;
-    }
+    ul { padding-left: 20px; margin: 0; }
+    li { margin-bottom: 10px; color: #ccc; line-height: 1.6; }
+    b { color: #00ff00; }
 
-    li {
-      margin-bottom: 10px;
-      color: #ccc;
-      line-height: 1.6;
-    }
-
-    b { color: #00ff00; } /* 상승/긍정 포인트는 그린 */
-
-    /* 하단 링크 영역 */
-    .footer-links {
-      margin-top: 50px;
+    /* 아카이브 카드 스타일 */
+    .prev-section-title {
+      margin-top: 60px;
       font-size: 14px;
-      color: #666;
-      line-height: 2;
+      letter-spacing: 4px;
+      color: #4a4d52;
+      margin-bottom: 20px;
+      font-weight: 600;
     }
-    
-    .archive-link {
-        color: #bf953f;
-        text-decoration: none;
-        font-weight: 700;
+
+    .prev-card {
+      display: flex;
+      align-items: center;
+      background: #111419;
+      border: 1px solid #1f2329;
+      border-radius: 15px;
+      padding: 20px;
+      text-decoration: none;
+      text-align: left;
     }
+
+    .prev-thumb {
+      width: 100px;
+      height: 100px;
+      border-radius: 10px;
+      margin-right: 20px;
+      object-fit: cover;
+    }
+
+    .prev-info { flex: 1; }
+    .prev-label { color: #bf953f; font-size: 12px; font-weight: 800; margin-bottom: 5px; display: block; }
+    .prev-title { color: #ffffff; font-size: 16px; font-weight: 700; line-height: 1.4; }
+
+    .footer-links { margin-top: 50px; font-size: 14px; color: #666; line-height: 2; }
   </style>
 </head>
 <body>
 
   <div class="container">
-    <img src="https://i.imgur.com/jSOGOgO.jpeg" alt="오늘의 뉴스" class="main-card">
+    <img src="https://i.imgur.com/jSOGOgO.jpeg" alt="4/6 오늘의 뉴스" class="main-card">
 
     <div class="report-box">
       <h1>📌 오늘의 핵심 브리핑<br>[시장 변동성 확대, 금·은의 기술적 반등은 시작되었는가?]</h1>
@@ -131,19 +140,24 @@
       </div>
     </div>
 
-    <div class="footer-links">
-      <a href="https://goldwave-notice.github.io/archive.html" class="archive-link">📅 지난 뉴스 아카이브(4/2) 바로가기</a><br>
-      © GOLD WAVE. All rights reserved.
-    </div>
+    <div class="prev-section-title">PREVIOUS REPORT</div>
+    <a href="https://goldwave-notice.github.io/-/260402.html" class="prev-card">
+      <img src="https://i.imgur.com/EskBuKu.jpeg" class="prev-thumb" alt="4/2 뉴스 이미지">
+      <div class="prev-info">
+        <span class="prev-label">LATEST REPORT #02 (04.02)</span>
+        <div class="prev-title">"금·은은 버텼다"...<br>이동평균선 반등 성공, 비트코인·증시는 '먹구름'</div>
+      </div>
+    </a>
+
+    <div class="footer-links">© GOLD WAVE. All rights reserved.</div>
   </div>
 
-<div style="margin-top: 60px; text-align: center; padding-bottom: 50px;">
-  <span style="font-size: 11px; color: #1c1f26; letter-spacing: 1px;">
-    VISITORS : 
-    <span id="busuanzi_value_site_pv" style="margin-left: 5px; opacity: 0.5;">0</span>
-  </span>
-</div>
-<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
-
+  <div style="margin-top: 60px; text-align: center; padding-bottom: 50px;">
+    <span style="font-size: 11px; color: #1c2128; letter-spacing: 1px;">
+      TODAY VIEWS : 
+      <span id="busuanzi_value_page_pv" style="margin-left: 5px; opacity: 0.5;">0</span>
+    </span>
+  </div>
+  <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 </body>
 </html>

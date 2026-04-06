@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GOLD WAVE PREMIUM REPORT - TEST Ver.</title>
+  <style>
+    @import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css');
+
+    body {
+      margin: 0;
+      background-color: #0b0d11;
+      font-family: 'Pretendard', sans-serif;
+      color: #e0e0e0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding-bottom: 80px;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 1100px; /* 가로형 최적화 너비 */
+      padding: 40px 20px;
+      box-sizing: border-box;
+    }
+
+    /* 1. 상단: 이미지와 브리핑 1:1 가로 배치 */
+    .top-layout {
+      display: flex;
+      gap: 30px;
+      align-items: stretch; /* 높이 균형 맞춤 */
+      margin-bottom: 30px;
+    }
+
+    .main-card {
+      flex: 1; /* 1:1 비율 */
+      width: 100%;
+      border-radius: 15px;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.6);
+      border: 1px solid rgba(191, 149, 63, 0.3);
+      object-fit: cover;
+    }
+
+    .report-box {
+      flex: 1; /* 1:1 비율 */
+      background: rgba(255, 255, 255, 0.03);
+      padding: 35px;
+      border-radius: 20px;
+      border: 1px solid rgba(191, 149, 63, 0.2);
+      text-align: left;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    h1 {
+      color: #bf953f;
+      font-size: 22px;
+      margin: 0 0 20px 0;
+      border-left: 5px solid #bf953f;
+      padding-left: 15px;
+      line-height: 1.4;
+    }
+
+    .fact-p { font-size: 15px; line-height: 1.8; color: #ccc; margin: 0; }
+
+    /* 2. 중단: 골드웨이브 전략 해석 (연계 해석) */
+    .strategy-analysis {
+      background: #161a21;
+      padding: 40px;
+      border-radius: 20px;
+      border-top: 4px solid #bf953f;
+      margin-bottom: 25px;
+      text-align: left;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+    }
+
+    .strategy-header {
+      font-size: 20px;
+      font-weight: 800;
+      color: #fcf6ba;
+      margin-bottom: 25px;
+      display: flex;
+      align-items: center;
+    }
+
+    .analysis-content {
+      font-size: 16px;
+      line-height: 1.9;
+      color: #e0e0e0;
+    }
+
+    .analysis-content b { color: #fcf6ba; font-weight: 700; }
+
+    /* 3. 인사이트 칸 (한 줄 강조) */
+    .insight-bar {
+      background: linear-gradient(90deg, rgba(191, 149, 63, 0.1), rgba(191, 149, 63, 0.02));
+      padding: 20px;
+      border-radius: 10px;
+      border-left: 4px solid #00ff00; /* 인사이트는 그린 포인트 */
+      text-align: left;
+      font-weight: 700;
+      font-size: 17px;
+      color: #ffffff;
+    }
+
+    /* 반응형: 모바일에서는 세로로 전환 */
+    @media (max-width: 900px) {
+      .top-layout { flex-direction: column; }
+      .main-card, .report-box { flex: none; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+  
+  <div class="top-layout">
+    <img src="https://i.imgur.com/jSOGOgO.jpeg" alt="4/6 뉴스 이미지" class="main-card">
+    
+    <div class="report-box">
+      <h1>📌 오늘의 핵심 브리핑<br>[금·은 지지선 사수, 반등 서막인가?]</h1>
+      <p class="fact-p">
+        오늘 시장은 강력한 하방 압력 속에서도 <b>200일 EMA</b>를 기점으로 안전자산인 금과 은의 반등세가 뚜렷하게 나타났습니다. 
+        반면 비트코인과 증시는 여전히 지지선 회복에 난항을 겪으며 짙은 먹구름이 드리운 상태입니다.
+      </p>
+    </div>
+  </div>
+
+  <div class="strategy-analysis">
+    <div class="strategy-header">📌 GOLDWAVE 전략 해석</div>
+    <div class="analysis-content">
+      현재 시장은 <b>“수익 기회”보다 “리스크 관리”</b>가 우선되는 구간입니다.<br>
+      안전자산으로 자금이 이동하는 흐름 속에서 비트코인은 아직 뚜렷한 상승 추세를 회복하지 못한 상태입니다. 이러한 구간에서는 무리한 진입보다 <b>선별적인 매매 전략</b>이 중요합니다.<br><br>
+      
+      GOLDWAVE는 시장 변동성에 맞춰 <b>진입 기준을 조정</b>하고, 확률이 높은 구간에서만 제한적으로 진입하며 <b>리스크를 최소화하는 전략</b>을 유지하고 있습니다.
+    </div>
+  </div>
+
+  <div class="insight-bar">
+    ✔ 변동성이 큰 구간일수록, 전략의 차이가 결과를 만듭니다.
+  </div>
+
+</div>
+
+<div style="margin-top: 40px; text-align: center; opacity: 0.3;">
+  <span style="font-size: 11px; color: #666; letter-spacing: 1px;">
+    TODAY VIEWS : <span id="busuanzi_value_page_pv">0</span>
+  </span>
+</div>
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+</body>
+</html>

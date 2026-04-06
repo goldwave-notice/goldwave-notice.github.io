@@ -2,162 +2,172 @@
 <html lang="ko">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>GOLD WAVE PREMIUM REPORT - 2026.04.06</title>
+  <title>GOLD WAVE PREMIUM REPORT - GOLDEN MASTER</title>
   <style>
-    /* 랑랑 가이드: 프리미엄 Pretendard 폰트 적용 */
     @import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css');
+    
+    body { 
+      margin: 0; background-color: #0b0d11; font-family: 'Pretendard', sans-serif; color: #e0e0e0; 
+      display: flex; flex-direction: column; align-items: center; padding: 80px 0; overflow-x: hidden;
+    }
+    
+    .container { width: 95%; max-width: 1350px; }
 
-    body {
-      margin: 0;
-      background-color: #0b0d11;
-      font-family: 'Pretendard', sans-serif;
-      color: #e0e0e0;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      padding-bottom: 50px;
+    .main-section { display: flex; gap: 40px; align-items: stretch; margin-bottom: 60px; }
+    
+    .img-area { flex: 1; min-width: 550px; }
+    .img-area img { 
+      width: 100%; height: 100%; border-radius: 20px; border: 1px solid #bf953f; 
+      object-fit: cover; box-shadow: 0 30px 60px rgba(0,0,0,0.6);
     }
 
-    .container {
-      width: 100%;
-      max-width: 800px;
-      padding: 20px;
-      box-sizing: border-box;
-      text-align: center;
+    .text-area { flex: 1.2; display: flex; flex-direction: column; gap: 20px; }
+    
+    .briefing-part { 
+      flex: 1; background: rgba(255,255,255,0.02); padding: 40px; border-radius: 20px; 
+      border: 1px solid rgba(191,149,63,0.1); display: flex; flex-direction: column; justify-content: center;
+    }
+    
+    /* [수정] 황금빛 깜빡임 적용 */
+    .vvip-strategy-box { 
+      flex: 1; background: #161a21; padding: 40px; border-radius: 20px; 
+      border: 1px solid rgba(191,149,63,0.4); border-left: 6px solid #bf953f; 
+      display: flex; flex-direction: column; justify-content: center;
+      animation: goldenBreathing 1.8s infinite ease-in-out;
     }
 
-    .main-card {
-      width: 100%;
-      border-radius: 15px;
-      box-shadow: 0 20px 40px rgba(0,0,0,0.6);
-      margin-top: 20px;
-      border: 1px solid rgba(191, 149, 63, 0.3);
+    .briefing-part h1, .vvip-title { 
+      color: #bf953f; font-size: 24px; margin: 0 0 20px 0; font-weight: 800;
+    }
+    .briefing-part h1 { border-left: 6px solid #bf953f; padding-left: 15px; }
+
+    .vvip-list { padding-left: 20px; margin: 0; font-size: 16px; color: #bbb; line-height: 2.3; }
+    .vvip-list li { margin-bottom: 12px; }
+
+    .point-focus { 
+      font-weight: 800; color: #ffffff;
+      background: linear-gradient(to top, rgba(0, 255, 0, 0.45) 45%, transparent 45%);
+      padding: 0 4px; border-radius: 2px;
+    }
+    .neon-text { color: #00ff00; font-weight: 700; }
+
+    .scroll-indicator { text-align: center; margin-bottom: 40px; color: #bf953f; animation: blink 1.2s infinite; font-size: 22px; font-weight: 900; }
+    @keyframes blink { 0%, 100% { opacity: 0; transform: translateY(-5px); } 50% { opacity: 1; transform: translateY(5px); } }
+
+    /* ★ 황금빛 광채 애니메이션 정의 ★ */
+    @keyframes goldenBreathing {
+      0%, 100% { box-shadow: 0 0 15px rgba(191, 149, 63, 0.1); border-color: rgba(191, 149, 63, 0.4); }
+      50% { box-shadow: 0 0 40px rgba(191, 149, 63, 0.5); border-color: rgba(252, 246, 186, 0.8); }
     }
 
-    .report-box {
-      margin-top: 40px;
-      text-align: left;
-      background: rgba(255, 255, 255, 0.03);
-      padding: 30px;
-      border-radius: 20px;
-      border: 1px solid rgba(191, 149, 63, 0.2);
+    .logic-section { 
+      width: 100%; background: #1a1e26; padding: 60px; border-radius: 25px; 
+      border-top: 5px solid #bf953f; box-sizing: border-box; text-align: left;
+    }
+    .logic-title { font-size: 24px; font-weight: 800; color: #fcf6ba; margin-bottom: 40px; border-bottom: 1px solid rgba(191,149,63,0.1); padding-bottom: 20px; }
+    .logic-paragraph { margin-bottom: 40px; line-height: 2.3; font-size: 18px; color: #e5e5e5; }
+
+    /* [수정] 볼록 포인트 박스: 황금빛 깜빡임 동일 적용 */
+    .pop-card {
+      background: #1e232d; padding: 35px; border-radius: 15px;
+      box-shadow: inset 1px 1px 1px rgba(255,255,255,0.05), 8px 8px 25px rgba(0,0,0,0.5);
+      border-top: 1px solid rgba(191,149,63,0.3); margin-top: 20px;
+      animation: goldenBreathing 1.8s infinite ease-in-out;
     }
 
-    h1 {
-      color: #bf953f;
-      font-size: 24px;
-      margin-bottom: 20px;
-      border-left: 4px solid #bf953f;
-      padding-left: 15px;
-      line-height: 1.4;
+    .archive-title-label { 
+      text-align: center; color: rgba(255,255,255,0.2); letter-spacing: 8px; 
+      font-size: 14px; font-weight: 700; margin: 100px 0 30px 0;
+    }
+    .archive-section { width: 100%; display: grid; grid-template-columns: repeat(3, 1fr); gap: 25px; }
+    
+    .archive-card { 
+      background: rgba(255,255,255,0.03); padding: 25px; border-radius: 15px; 
+      border: 1px solid rgba(255,255,255,0.05); text-align: center; transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    }
+    .archive-card:hover { 
+      transform: scale(1.05); border-color: #bf953f; background: rgba(191,149,63,0.05);
+      box-shadow: 0 0 20px rgba(191, 149, 63, 0.3); animation: heartbeat 0.8s infinite;
+    }
+    @keyframes heartbeat {
+      0%, 30%, 100% { transform: scale(1.05); }
+      15%, 45% { transform: scale(1.08); }
     }
 
-    .highlight-text {
-      font-size: 18px;
-      font-weight: 700;
-      color: #fcf6ba;
-      margin-bottom: 15px;
-      display: block;
-    }
+    .insight-bar { background: linear-gradient(90deg, rgba(191, 149, 63, 0.2), rgba(191, 149, 63, 0.05)); padding: 30px; border-radius: 15px; border-left: 6px solid #00ff00; text-align: left; font-weight: 700; font-size: 20px; margin-top: 40px; }
 
-    .strategy-card {
-      background: #161a21;
-      padding: 20px;
-      border-radius: 12px;
-      border-left: 5px solid #bf953f;
-      margin-top: 25px;
-    }
-
-    .strategy-title {
-      color: #bf953f;
-      font-weight: bold;
-      margin-bottom: 10px;
-      display: flex;
-      align-items: center;
-    }
-
-    ul { padding-left: 20px; margin: 0; }
-    li { margin-bottom: 10px; color: #ccc; line-height: 1.6; }
-    b { color: #00ff00; }
-
-    /* 아카이브 카드 스타일 */
-    .prev-section-title {
-      margin-top: 60px;
-      font-size: 14px;
-      letter-spacing: 4px;
-      color: #4a4d52;
-      margin-bottom: 20px;
-      font-weight: 600;
-    }
-
-    .prev-card {
-      display: flex;
-      align-items: center;
-      background: #111419;
-      border: 1px solid #1f2329;
-      border-radius: 15px;
-      padding: 20px;
-      text-decoration: none;
-      text-align: left;
-    }
-
-    .prev-thumb {
-      width: 100px;
-      height: 100px;
-      border-radius: 10px;
-      margin-right: 20px;
-      object-fit: cover;
-    }
-
-    .prev-info { flex: 1; }
-    .prev-label { color: #bf953f; font-size: 12px; font-weight: 800; margin-bottom: 5px; display: block; }
-    .prev-title { color: #ffffff; font-size: 16px; font-weight: 700; line-height: 1.4; }
-
-    .footer-links { margin-top: 50px; font-size: 14px; color: #666; line-height: 2; }
+    @media (max-width: 1000px) { .main-section { flex-direction: column; } .archive-section { grid-template-columns: 1fr; } }
   </style>
 </head>
 <body>
 
-  <div class="container">
-    <img src="https://i.imgur.com/jSOGOgO.jpeg" alt="4/6 오늘의 뉴스" class="main-card">
-
-    <div class="report-box">
-      <h1>📌 오늘의 핵심 브리핑<br>[시장 변동성 확대, 금·은의 기술적 반등은 시작되었는가?]</h1>
+<div class="container">
+  <div class="main-section">
+    <div class="img-area">
+      <img src="https://i.imgur.com/G0IbFbd.jpeg" alt="4/6 뉴스 이미지">
+    </div>
+    
+    <div class="text-area">
+      <div class="briefing-part">
+        <h1>📌 오늘의 핵심 브리핑</h1>
+        <div style="font-size:16.5px; line-height:2.0; color:#ccc;">
+          오늘의 시장 흐름은 <span class="neon-text">강력한 하방 압력</span> 속에서도 주요 지지선을 지켜내려는 안전자산의 움직임이 돋보였습니다.<br><br>
+          특히 <span class="point-focus">200일 EMA</span>를 기점으로 한 반등세는 향후 시장의 향방을 결정지을 중요한 데이터 포인트입니다.
+        </div>
+      </div>
       
-      <span class="highlight-text">냉철한 데이터 분석을 통한 시장 대응</span>
-      <p>오늘의 시장 흐름은 <b>강력한 하방 압력</b> 속에서도 주요 지지선을 지켜내려는 안전자산의 움직임이 돋보였습니다. 특히 <b>200일 EMA</b>를 기점으로 한 반등세는 향후 시장의 향방을 결정지을 중요한 <b>데이터 포인트</b>입니다.</p>
-      
-      <p>반면, 비트코인과 증시의 이탈 현상은 가속화되고 있어, 무분별한 추격 매수보다는 <b>리스크 관리</b>에 집중해야 할 시점입니다.</p>
-      
-      <div class="strategy-card">
-        <div class="strategy-title">💡 골드웨이브 VVIP 전략 가이드 (4/6)</div>
-        <ul>
-          <li><b>핵심 지표 사수:</b> 200일 지수이동평균선(EMA) 리테스트 후의 <b>안착 여부</b>를 최우선으로 모니터링하세요.</li>
-          <li><b>자금 흐름 포착:</b> 위험자산에서 안전자산으로 넘어오는 <b>수급 변화</b>를 이용한 포트폴리오 재편이 필요합니다.</li>
-          <li><b>데드라인 체크:</b> 기술적 이탈이 발생한 구간에서의 <b>기계적 대응</b>만이 자산을 보호하는 유일한 길입니다.</li>
+      <div class="vvip-strategy-box">
+        <div class="vvip-title">💡 골드웨이브 VVIP 전략 가이드 (4/6)</div>
+        <ul class="vvip-list">
+          <li><span class="neon-text">핵심 지표 사수:</span> 200일 EMA 안착 여부 최우선 모니터링</li>
+          <li><span class="neon-text">자금 흐름 포착:</span> 안전자산 수급 변화 집중 주시</li>
+          <li><span class="neon-text">데드라인 체크:</span> 기계적 대응만이 자산을 보호합니다</li>
         </ul>
       </div>
     </div>
+  </div>
 
-    <div class="prev-section-title">PREVIOUS REPORT</div>
-    <a href="https://goldwave-notice.github.io/-/260402.html" class="prev-card">
-      <img src="https://i.imgur.com/EskBuKu.jpeg" class="prev-thumb" alt="4/2 뉴스 이미지">
-      <div class="prev-info">
-        <span class="prev-label">LATEST REPORT #02 (04.02)</span>
-        <div class="prev-title">"금·은은 버텼다"...<br>이동평균선 반등 성공, 비트코인·증시는 '먹구름'</div>
+  <div class="scroll-indicator">v<br>v<br>v</div>
+
+  <div class="logic-section">
+    <div class="logic-title">📌 GOLDWAVE 알고리즘 증명: 시장 데이터로 확인하는 운영 방향의 정당성</div>
+    
+    <div class="logic-paragraph">
+      현재 시장은 <span class="point-focus">“수익 기회”보다 “리스크 관리”</span>가 무엇보다 우선되는 구간입니다. <br>
+      안전자산으로 자금이 이동하는 흐름 속에서 비트코인은 아직 뚜렷한 상승 추세를 회복하지 못한 상태입니다.
+    </div>
+
+    <div class="logic-paragraph">
+      이러한 데이터의 흐름은 <span class="point-focus">현재 골드웨이브가 고수하는 선별적 매매 전략</span>이 정확함을 입증합니다. <br>
+      무리한 진입보다 팩트에 기반한 대응이 자산 보호의 핵심입니다.
+    </div>
+
+    <div class="pop-card">
+      <div style="font-size: 19px; line-height: 2.2; color: #fff;">
+        GOLDWAVE는 시장 변동성에 맞춰 진입 기준을 정밀하게 조정하고 있으며, <br>
+        <span class="neon-text">확률이 높은 구간에서만 제한적으로 진입</span>하여 리스크를 최소화하는 안정적인 전략을 유지하고 있습니다.
       </div>
-    </a>
-
-    <div class="footer-links">© GOLD WAVE. All rights reserved.</div>
+    </div>
   </div>
 
-  <div style="margin-top: 60px; text-align: center; padding-bottom: 50px;">
-    <span style="font-size: 11px; color: #1c2128; letter-spacing: 1px;">
-      TODAY VIEWS : 
-      <span id="busuanzi_value_page_pv" style="margin-left: 5px; opacity: 0.5;">0</span>
-    </span>
+  <div class="insight-bar">✔ 시장은 요동쳐도 전략은 흔들리지 않습니다. 이것이 골드웨이브의 차이입니다.</div>
+
+  <div class="archive-title-label">PREVIOUS REPORT</div>
+  <div class="archive-section">
+    <div class="archive-card">
+      <span style="font-size:12px; color:#666; display:block; margin-bottom:10px;">2026.04.05</span>
+      <b style="font-size:15px; color:#aaa;">비트코인 지지선 이탈 대응</b>
+    </div>
+    <div class="archive-card">
+      <span style="font-size:12px; color:#666; display:block; margin-bottom:10px;">2026.04.04</span>
+      <b style="font-size:15px; color:#aaa;">금/은 안전자산 수급 분석</b>
+    </div>
+    <div class="archive-card">
+      <span style="font-size:12px; color:#666; display:block; margin-bottom:10px;">2026.04.03</span>
+      <b style="font-size:15px; color:#aaa;">주간 변동성 요약 리포트</b>
+    </div>
   </div>
-  <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+</div>
+
 </body>
 </html>

@@ -13,7 +13,7 @@
     
     .container { width: 95%; max-width: 1350px; }
 
-    /* 메인 섹션 */
+    /* 메인 섹션: 가로형 칼각 정렬 */
     .main-section { display: flex; gap: 40px; align-items: stretch; margin-bottom: 60px; }
     .img-area { flex: 1; min-width: 550px; }
     .img-area img { width: 100%; height: 100%; border-radius: 20px; border: 1px solid #bf953f; object-fit: cover; box-shadow: 0 30px 60px rgba(0,0,0,0.6); }
@@ -21,6 +21,7 @@
     .text-area { flex: 1.2; display: flex; flex-direction: column; gap: 20px; }
     .briefing-part { flex: 1; background: rgba(255,255,255,0.02); padding: 40px; border-radius: 20px; border: 1px solid rgba(191,149,63,0.1); display: flex; flex-direction: column; justify-content: center; }
     
+    /* VVIP 전략 가이드: 황금빛 숨결 애니메이션 */
     .vvip-strategy-box { 
       flex: 1; background: #161a21; padding: 40px; border-radius: 20px; 
       border: 1px solid rgba(191,149,63,0.4); border-left: 6px solid #bf953f; 
@@ -52,28 +53,32 @@
       animation: goldenBreathing 1.8s infinite ease-in-out;
     }
 
-    /* [긴급 수정] 4/2 코드의 여백과 색상을 그대로 가져옴 */
-    .footer-counter { margin-top: 60px; text-align: center; padding-bottom: 50px; }
-    .counter-label { font-size: 11px; color: #1c2128; letter-spacing: 1px; }
-    #busuanzi_value_page_pv { margin-left: 5px; opacity: 0.5; color: #bf953f; font-weight: bold; }
+    /* 정직한 카운팅 바 (불산즈 연동) */
+    .footer-counter { margin-top: 80px; text-align: center; padding-bottom: 50px; border-top: 1px solid rgba(255,255,255,0.05); padding-top: 40px; }
+    .counter-label { font-size: 11px; color: #555; letter-spacing: 2px; text-transform: uppercase; font-weight: 700; }
+    #busuanzi_value_page_pv { margin-left: 5px; color: #bf953f; font-weight: bold; opacity: 0.6; }
 
+    /* 아카이브 섹션 디자인 */
     .archive-title-label { text-align: center; color: rgba(255,255,255,0.2); letter-spacing: 8px; font-size: 14px; font-weight: 700; margin-bottom: 30px; }
     .archive-section { width: 100%; display: grid; grid-template-columns: repeat(3, 1fr); gap: 25px; }
-    .archive-card { background: rgba(255,255,255,0.03); padding: 25px; border-radius: 15px; border: 1px solid rgba(255,255,255,0.05); text-align: center; transition: 0.3s; }
-    .archive-card:hover { transform: scale(1.05); border-color: #bf953f; animation: heartbeat 0.8s infinite; }
+    .archive-card { background: rgba(255,255,255,0.03); padding: 25px; border-radius: 15px; border: 1px solid rgba(255,255,255,0.05); text-align: center; transition: 0.3s; text-decoration: none; display: block; }
+    .archive-card:hover { transform: scale(1.05); border-color: #bf953f; background: rgba(191,149,63,0.05); box-shadow: 0 0 20px rgba(191, 149, 63, 0.3); animation: heartbeat 0.8s infinite; }
+    .archive-thumb { width: 100%; height: 180px; border-radius: 10px; object-fit: cover; margin-bottom: 15px; border: 1px solid rgba(191, 149, 63, 0.2); }
     @keyframes heartbeat { 0%, 30%, 100% { transform: scale(1.05); } 15%, 45% { transform: scale(1.08); } }
 
     .insight-bar { background: linear-gradient(90deg, rgba(191, 149, 63, 0.2), rgba(191, 149, 63, 0.05)); padding: 30px; border-radius: 15px; border-left: 6px solid #00ff00; text-align: left; font-weight: 700; font-size: 20px; margin-top: 40px; }
     
     .scroll-indicator { text-align: center; margin-bottom: 40px; color: #bf953f; animation: blink 1.2s infinite; font-size: 22px; font-weight: 900; }
     @keyframes blink { 0%, 100% { opacity: 0; transform: translateY(-5px); } 50% { opacity: 1; transform: translateY(5px); } }
+
+    @media (max-width: 1000px) { .main-section { flex-direction: column; } .archive-section { grid-template-columns: 1fr; } }
   </style>
 </head>
 <body>
 
 <div class="container">
   <div class="main-section">
-    <div class="img-area"><img src="https://i.imgur.com/jSOGOgO.jpeg" alt="4/6 GOLDWAVE NEWS"></div>
+    <div class="img-area"><img src="https://i.imgur.com/G0IbFbd.jpeg" alt="4/6 GOLDWAVE NEWS"></div>
     <div class="text-area">
       <div class="briefing-part">
         <h1>📌 오늘의 핵심 브리핑</h1>
@@ -111,22 +116,34 @@
 
   <div class="insight-bar">✔ 시장은 요동쳐도 전략은 흔들리지 않습니다. 이것이 골드웨이브의 차이입니다.</div>
 
+  <div class="archive-title-label" style="margin-top: 100px;">PREVIOUS REPORT</div>
+  <div class="archive-section">
+    <a href="260402.html" class="archive-card">
+      <img src="https://i.imgur.com/EskBuKu.jpeg" class="archive-thumb" alt="4/2 뉴스">
+      <span style="font-size:12px; color:#666; display:block; margin-bottom:10px;">2026.04.02</span>
+      <b style="font-size:15px; color:#aaa;">금 선물 지지선 붕괴 대응</b>
+    </a>
+    <a href="260401-2.html" class="archive-card">
+      <img src="https://i.imgur.com/DQ55lYw.png" class="archive-thumb" alt="4/1-2 뉴스">
+      <span style="font-size:12px; color:#666; display:block; margin-bottom:10px;">2026.04.01</span>
+      <b style="font-size:15px; color:#aaa;">비트코인 골든 시그널 분석</b>
+    </a>
+    <a href="260401.html" class="archive-card">
+      <img src="https://i.imgur.com/mCh2kQV.png" class="archive-thumb" alt="4/1 뉴스">
+      <span style="font-size:12px; color:#666; display:block; margin-bottom:10px;">2026.04.01</span>
+      <b style="font-size:15px; color:#aaa;">주간 변동성 요약 리포트</b>
+    </a>
+  </div>
+
   <div class="footer-counter">
     <span class="counter-label">
       TODAY VIEWS : 
       <span id="busuanzi_value_page_pv">0</span>
     </span>
   </div>
-
-  <div class="archive-title-label">PREVIOUS REPORT</div>
-  <div class="archive-section">
-    <div class="archive-card"><span style="font-size:12px; color:#666; display:block; margin-bottom:10px;">2026.04.05</span><b style="font-size:14px; color:#aaa;">비트코인 지지선 이탈 대응</b></div>
-    <div class="archive-card"><span style="font-size:12px; color:#666; display:block; margin-bottom:10px;">2026.04.04</span><b style="font-size:15px; color:#aaa;">금/은 안전자산 수급 분석</b></div>
-    <div class="archive-card"><span style="font-size:12px; color:#666; display:block; margin-bottom:10px;">2026.04.03</span><b style="font-size:15px; color:#aaa;">주간 변동성 요약 리포트</b></div>
-  </div>
 </div>
 
-<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 
 </body>
 </html>

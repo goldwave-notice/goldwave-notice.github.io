@@ -2,159 +2,99 @@
 <html lang="ko">
 <head>
   <meta charset="UTF-8">
-  <title>GOLD WAVE PREMIUM REPORT - FINAL MASTER</title>
+  <title>GOLD WAVE PREMIUM REPORT - MASTERPIECE</title>
   <style>
     @import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css');
     
     body { 
-      margin: 0; 
-      background-color: #0b0d11; 
-      font-family: 'Pretendard', sans-serif; 
-      color: #e0e0e0; 
-      display: flex; 
-      flex-direction: column; 
-      align-items: center; 
-      padding: 60px 0; 
+      margin: 0; background-color: #0b0d11; font-family: 'Pretendard', sans-serif; color: #e0e0e0; 
+      display: flex; flex-direction: column; align-items: center; padding: 80px 0; overflow-x: hidden;
     }
     
-    .container { width: 90%; max-width: 1300px; }
+    .container { width: 95%; max-width: 1350px; }
 
-    /* [구도 수정] 이미지와 우측 박스들을 세로 중앙으로 정렬해 여백 문제 해결 */
+    /* [1. 칼각 정렬] 이미지 높이에 우측 박스들을 100% 일치 (위아래 꽉 채우기) */
     .main-section { 
-      display: flex; 
-      gap: 40px; 
-      align-items: center; /* 휑한 여백 없이 중앙 집중 */
-      margin-bottom: 60px; 
+      display: flex; gap: 40px; align-items: stretch; margin-bottom: 60px;
     }
     
-    .img-area { flex: 1; min-width: 500px; }
+    .img-area { flex: 1; min-width: 550px; }
     .img-area img { 
-      width: 100%; 
-      height: auto; 
-      border-radius: 20px; 
-      border: 1px solid #bf953f; 
-      box-shadow: 0 30px 60px rgba(0,0,0,0.5); 
+      width: 100%; height: 100%; border-radius: 20px; border: 1px solid #bf953f; 
+      object-fit: cover; box-shadow: 0 30px 60px rgba(0,0,0,0.6);
     }
 
-    /* 우측 텍스트 영역: 박스 간격을 좁혀서 응집력 강화 */
-    .text-area { 
-      flex: 1.2; 
-      display: flex; 
-      flex-direction: column; 
-      gap: 20px; /* 박스 사이의 고정 간격 */
-    }
+    /* [2. 박스 나누기] 위아래 박스가 여백 없이 이미지 라인에 딱 맞도록 설정 */
+    .text-area { flex: 1.2; display: flex; flex-direction: column; gap: 20px; }
     
     .briefing-part { 
-      background: rgba(255,255,255,0.02); 
-      padding: 30px; 
-      border-radius: 20px; 
-      border: 1px solid rgba(191,149,63,0.1); 
+      flex: 1; background: rgba(255,255,255,0.02); padding: 40px; border-radius: 20px; 
+      border: 1px solid rgba(191,149,63,0.1); display: flex; flex-direction: column; justify-content: center;
     }
     
-    .briefing-part h1 { 
-      color: #bf953f; 
-      font-size: 24px; 
-      margin: 0 0 15px 0; 
-      border-left: 6px solid #bf953f; 
-      padding-left: 15px; 
-    }
-
     .vvip-strategy-box { 
-      background: #161a21; 
-      padding: 25px; 
-      border-radius: 20px; 
-      border: 1px solid rgba(191,149,63,0.3); 
-      border-left: 6px solid #bf953f; 
+      flex: 1; background: #161a21; padding: 40px; border-radius: 20px; 
+      border: 1px solid rgba(191,149,63,0.3); border-left: 6px solid #bf953f; 
+      display: flex; flex-direction: column; justify-content: center;
     }
-    
-    .vvip-title { color: #bf953f; font-weight: 800; font-size: 16px; margin-bottom: 12px; }
 
-    /* ★ 랑랑쌤 픽: 볼드 + 형광펜 효과 ★ */
+    .briefing-part h1 { color: #bf953f; font-size: 26px; margin: 0 0 20px 0; border-left: 6px solid #bf953f; padding-left: 15px; }
+    .vvip-title { color: #bf953f; font-weight: 800; font-size: 18px; margin-bottom: 15px; }
+
+    /* [3. 볼드 + 형광펜 포인트] Neon Green 강조 */
     .point-focus { 
-      font-weight: 800; 
-      color: #ffffff;
-      background: linear-gradient(to top, rgba(0, 255, 0, 0.45) 40%, transparent 40%);
-      padding: 0 4px;
-      border-radius: 2px;
+      font-weight: 800; color: #ffffff;
+      background: linear-gradient(to top, rgba(0, 255, 0, 0.45) 45%, transparent 45%);
+      padding: 0 4px; border-radius: 2px;
     }
-    
     .neon-text { color: #00ff00; font-weight: 700; }
 
-    /* 스크롤 유도 vvv */
-    .scroll-indicator { 
-      text-align: center; 
-      margin: 0 0 40px 0; 
-      color: #bf953f; 
-      font-weight: 900; 
-      font-size: 20px; 
-      animation: blink 1.2s infinite; 
-    }
+    /* [4. 스크롤 유도 vvv 애니메이션] */
+    .scroll-indicator { text-align: center; margin-bottom: 40px; color: #bf953f; animation: blink 1.2s infinite; font-size: 22px; font-weight: 900; }
     @keyframes blink { 0%, 100% { opacity: 0; transform: translateY(-5px); } 50% { opacity: 1; transform: translateY(5px); } }
 
-    /* [하단 섹션] 단락 분리 및 정렬 */
+    /* [5. 하단 전략 섹션] 단락 분리 및 볼록한 입체 카드 */
     .logic-section { 
-      width: 100%; 
-      background: #1a1e26; 
-      padding: 50px; 
-      border-radius: 20px; 
-      border-top: 5px solid #bf953f; 
-      box-sizing: border-box; 
-      text-align: left;
+      width: 100%; background: #1a1e26; padding: 60px; border-radius: 25px; 
+      border-top: 5px solid #bf953f; box-sizing: border-box; text-align: left;
     }
-    
-    .logic-title { 
-      font-size: 22px; 
-      font-weight: 800; 
-      color: #fcf6ba; 
-      margin-bottom: 35px; 
-      border-bottom: 1px solid rgba(191,149,63,0.2); 
-      padding-bottom: 15px; 
-    }
-    
-    /* 쌤이 빨간펜으로 나누신 단락 간격 */
-    .logic-paragraph { 
-      margin-bottom: 40px; 
-      line-height: 2.2; 
-      font-size: 17px; 
-      color: #e5e5e5; 
-    }
-    .logic-paragraph:last-child { margin-bottom: 0; }
+    .logic-title { font-size: 24px; font-weight: 800; color: #fcf6ba; margin-bottom: 40px; border-bottom: 1px solid rgba(191,149,63,0.1); padding-bottom: 20px; }
+    .logic-paragraph { margin-bottom: 40px; line-height: 2.3; font-size: 18px; color: #e5e5e5; }
 
-    .insight-bar { 
-      background: linear-gradient(90deg, rgba(191, 149, 63, 0.15), rgba(191, 149, 63, 0.05)); 
-      padding: 25px; 
-      border-radius: 12px; 
-      border-left: 5px solid #00ff00; 
-      text-align: left; 
-      font-weight: 700; 
-      font-size: 18px; 
-      width: 100%; 
-      box-sizing: border-box; 
-      margin-top: 30px; 
+    /* [6. 볼록하게 튀어나온 입체 박스 포인트] */
+    .pop-card {
+      background: #1e232d; padding: 30px; border-radius: 15px;
+      box-shadow: inset 1px 1px 1px rgba(255,255,255,0.05), 8px 8px 20px rgba(0,0,0,0.5);
+      border-top: 1px solid rgba(191,149,63,0.2); margin-top: 20px;
     }
 
-    /* 아카이브 그리드 */
-    .archive-section { 
-      width: 100%; 
-      display: grid; 
-      grid-template-columns: repeat(3, 1fr); 
-      gap: 20px; 
-      margin-top: 80px; 
+    /* [7. 아카이브: PREVIOUS REPORT 타이틀 & 두근 애니메이션] */
+    .archive-title-label { 
+      text-align: center; color: rgba(255,255,255,0.2); letter-spacing: 8px; 
+      font-size: 14px; font-weight: 700; margin: 100px 0 30px 0;
     }
+    .archive-section { width: 100%; display: grid; grid-template-columns: repeat(3, 1fr); gap: 25px; }
     
     .archive-card { 
-      background: rgba(255,255,255,0.03); 
-      padding: 20px; 
-      border-radius: 15px; 
-      border: 1px solid rgba(255,255,255,0.05); 
-      text-align: center; 
+      background: rgba(255,255,255,0.03); padding: 25px; border-radius: 15px; 
+      border: 1px solid rgba(255,255,255,0.05); text-align: center; transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    }
+    /* 두근(Heartbeat) 애니메이션 마우스 오버 */
+    .archive-card:hover { 
+      transform: scale(1.05); border-color: #bf953f; background: rgba(191,149,63,0.05);
+      box-shadow: 0 0 20px rgba(0, 255, 0, 0.2); animation: heartbeat 0.8s infinite;
+    }
+    @keyframes heartbeat {
+      0% { transform: scale(1.05); }
+      15% { transform: scale(1.08); }
+      30% { transform: scale(1.05); }
+      45% { transform: scale(1.08); }
+      100% { transform: scale(1.05); }
     }
 
-    @media (max-width: 950px) { 
-      .main-section { flex-direction: column; } 
-      .img-area { min-width: 100%; }
-      .archive-section { grid-template-columns: 1fr; }
-    }
+    .insight-bar { background: linear-gradient(90deg, rgba(191, 149, 63, 0.2), rgba(191, 149, 63, 0.05)); padding: 30px; border-radius: 15px; border-left: 6px solid #00ff00; text-align: left; font-weight: 700; font-size: 20px; margin-top: 40px; }
+
+    @media (max-width: 1000px) { .main-section { flex-direction: column; } .archive-section { grid-template-columns: 1fr; } }
   </style>
 </head>
 <body>
@@ -168,7 +108,7 @@
     <div class="text-area">
       <div class="briefing-part">
         <h1>📌 오늘의 핵심 브리핑</h1>
-        <div style="font-size:15.5px; line-height:1.8; color:#ccc;">
+        <div style="font-size:16.5px; line-height:2.0; color:#ccc;">
           오늘의 시장 흐름은 <span class="neon-text">강력한 하방 압력</span> 속에서도 주요 지지선을 지켜내려는 안전자산의 움직임이 돋보였습니다.<br><br>
           특히 <span class="point-focus">200일 EMA</span>를 기점으로 한 반등세는 향후 시장의 향방을 결정지을 중요한 데이터 포인트입니다.
         </div>
@@ -176,10 +116,10 @@
       
       <div class="vvip-strategy-box">
         <div class="vvip-title">💡 골드웨이브 VVIP 전략 가이드 (4/6)</div>
-        <ul style="padding-left:20px; margin:0; font-size:14.5px; color:#bbb; line-height:1.7;">
+        <ul style="padding-left:20px; margin:0; font-size:16px; color:#bbb; line-height:1.9;">
           <li><span class="neon-text">핵심 지표 사수:</span> 200일 EMA 안착 여부 최우선 모니터링</li>
-          <li><span class="neon-text">자금 흐름 포착:</span> 안전자산 수급 변화 주시</li>
-          <li><span class="neon-text">데드라인 체크:</span> 기계적 대응이 자산을 보호합니다</li>
+          <li><span class="neon-text">자금 흐름 포착:</span> 안전자산 수급 변화 집중 주시</li>
+          <li><span class="neon-text">데드라인 체크:</span> 기계적 대응만이 자산을 보호합니다</li>
         </ul>
       </div>
     </div>
@@ -200,26 +140,29 @@
       무리한 진입보다 팩트에 기반한 대응이 자산 보호의 핵심입니다.
     </div>
 
-    <div class="logic-paragraph">
-      GOLDWAVE는 시장 변동성에 맞춰 진입 기준을 정밀하게 조정하고 있으며, <br>
-      <span class="neon-text">확률이 높은 구간에서만 제한적으로 진입</span>하여 리스크를 최소화하는 안정적인 전략을 유지하고 있습니다.
+    <div class="pop-card">
+      <div style="font-size: 18px; line-height: 2.1; color: #fff;">
+        GOLDWAVE는 시장 변동성에 맞춰 진입 기준을 정밀하게 조정하고 있으며, <br>
+        <span class="neon-text">확률이 높은 구간에서만 제한적으로 진입</span>하여 리스크를 최소화하는 안정적인 전략을 유지하고 있습니다.
+      </div>
     </div>
   </div>
 
   <div class="insight-bar">✔ 시장은 요동쳐도 전략은 흔들리지 않습니다. 이것이 골드웨이브의 차이입니다.</div>
 
+  <div class="archive-title-label">PREVIOUS REPORT</div>
   <div class="archive-section">
     <div class="archive-card">
-      <span style="font-size:11px; color:#666;">2026.04.05</span><br>
-      <b style="font-size:14px; color:#aaa;">비트코인 지지선 이탈 대응</b>
+      <span style="font-size:12px; color:#666; display:block; margin-bottom:10px;">2026.04.05</span>
+      <b style="font-size:15px; color:#aaa;">비트코인 지지선 이탈 대응</b>
     </div>
     <div class="archive-card">
-      <span style="font-size:11px; color:#666;">2026.04.04</span><br>
-      <b style="font-size:14px; color:#aaa;">금/은 안전자산 수급 분석</b>
+      <span style="font-size:12px; color:#666; display:block; margin-bottom:10px;">2026.04.04</span>
+      <b style="font-size:15px; color:#aaa;">금/은 안전자산 수급 분석</b>
     </div>
     <div class="archive-card">
-      <span style="font-size:11px; color:#666;">2026.04.03</span><br>
-      <b style="font-size:14px; color:#aaa;">주간 변동성 요약 리포트</b>
+      <span style="font-size:12px; color:#666; display:block; margin-bottom:10px;">2026.04.03</span>
+      <b style="font-size:15px; color:#aaa;">주간 변동성 요약 리포트</b>
     </div>
   </div>
 </div>

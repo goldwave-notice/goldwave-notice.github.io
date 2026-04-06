@@ -2,76 +2,89 @@
 <html lang="ko">
 <head>
   <meta charset="UTF-8">
-  <title>GOLD WAVE WIDE REPORT - TEST</title>
+  <title>GOLD WAVE PREMIUM REPORT - FINAL TEST</title>
   <style>
     @import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css');
     body { margin: 0; background-color: #0b0d11; font-family: 'Pretendard', sans-serif; color: #e0e0e0; display: flex; flex-direction: column; align-items: center; padding: 60px 0; }
     
-    /* 전체 폭을 넓혀서 가로형 가독성 확보 */
     .container { width: 90%; max-width: 1300px; }
 
-    /* 1. 메인 섹션: 이미지와 텍스트의 웅장한 대칭 */
+    /* 메인 섹션: 이미지와 텍스트의 1:1 가로 대칭 */
     .main-section { display: flex; gap: 40px; align-items: stretch; margin-bottom: 40px; }
     
     .img-area { flex: 1; min-width: 500px; }
     .img-area img { width: 100%; height: 100%; border-radius: 20px; object-fit: cover; border: 1px solid #bf953f; box-shadow: 0 30px 60px rgba(0,0,0,0.5); }
 
-    .text-area { flex: 1.2; background: rgba(255,255,255,0.02); border-radius: 20px; border: 1px solid rgba(191,149,63,0.1); display: flex; flex-direction: column; }
+    /* 우측 텍스트 영역: 브리핑과 가이드의 시각적 분리 */
+    .text-area { flex: 1.2; display: flex; flex-direction: column; gap: 20px; }
     
-    /* 브리핑 상단 */
-    .briefing-part { padding: 40px; text-align: left; }
-    .briefing-part h1 { color: #bf953f; font-size: 26px; margin: 0 0 20px 0; border-left: 6px solid #bf953f; padding-left: 15px; }
-    .highlight { color: #fcf6ba; font-weight: 700; display: block; margin-bottom: 15px; }
-    .main-text { font-size: 16px; line-height: 1.9; color: #ccc; }
+    /* [상단] 오늘의 핵심 브리핑 */
+    .briefing-part { background: rgba(255,255,255,0.02); padding: 35px; border-radius: 20px; border: 1px solid rgba(191,149,63,0.1); text-align: left; }
+    .briefing-part h1 { color: #bf953f; font-size: 24px; margin: 0 0 15px 0; border-left: 6px solid #bf953f; padding-left: 15px; }
+    .highlight-sub { color: #fcf6ba; font-weight: 700; display: block; margin-bottom: 15px; }
+    .main-text { font-size: 15.5px; line-height: 1.8; color: #ccc; }
 
-    /* VVIP 전략 가이드 (박스 내 하단 배치) */
-    .strategy-part { background: rgba(0,0,0,0.3); padding: 30px 40px; border-radius: 0 0 20px 20px; border-top: 1px solid rgba(191,149,63,0.2); text-align: left; }
-    .strategy-title { color: #bf953f; font-weight: 800; font-size: 17px; margin-bottom: 15px; }
-    .strategy-part ul { padding-left: 20px; margin: 0; }
-    .strategy-part li { font-size: 15px; color: #bbb; margin-bottom: 10px; line-height: 1.6; }
+    /* ★ 밝은 연두색(Neon Green) 포인트 클래스 ★ */
+    .neon-point { color: #00ff00; font-weight: 700; }
 
-    /* 2. 전략 해석 섹션 (와이드 하단) */
-    .logic-section { width: 100%; background: #161a21; padding: 40px; border-radius: 20px; border-top: 5px solid #bf953f; box-sizing: border-box; text-align: left; margin-bottom: 30px; }
-    .logic-title { font-size: 22px; font-weight: 800; color: #fcf6ba; margin-bottom: 20px; }
-    .logic-text { font-size: 17px; line-height: 2.0; color: #e5e5e5; }
+    /* [하단] VVIP 전략 가이드 전용 박스 */
+    .vvip-strategy-box { background: #161a21; padding: 30px; border-radius: 20px; border: 1px solid rgba(191,149,63,0.3); border-left: 6px solid #bf953f; text-align: left; box-shadow: 0 10px 30px rgba(0,0,0,0.3); }
+    .vvip-title { color: #bf953f; font-weight: 800; font-size: 17px; margin-bottom: 15px; display: flex; align-items: center; }
+    .vvip-strategy-box ul { padding-left: 20px; margin: 0; }
+    .vvip-strategy-box li { font-size: 14.5px; color: #bbb; margin-bottom: 10px; line-height: 1.6; list-style: disc; }
 
-    .insight-bar { background: rgba(191,149,63,0.1); padding: 25px; border-radius: 12px; border-left: 5px solid #00ff00; text-align: left; font-weight: 700; font-size: 18px; }
+    /* [하단 섹션] 알고리즘 증명 및 운영 방향 정당성 */
+    .logic-section { width: 100%; background: #1a1e26; padding: 45px; border-radius: 20px; border-top: 5px solid #bf953f; box-sizing: border-box; text-align: left; margin-bottom: 30px; }
+    .logic-title { font-size: 22px; font-weight: 800; color: #fcf6ba; margin-bottom: 25px; letter-spacing: -0.5px; }
+    .logic-text { font-size: 17px; line-height: 2.1; color: #e5e5e5; }
+    .logic-text b { color: #fcf6ba; }
+
+    /* 최하단 인사이트 바 */
+    .insight-bar { background: linear-gradient(90deg, rgba(191, 149, 63, 0.15), rgba(191, 149, 63, 0.05)); padding: 25px; border-radius: 12px; border-left: 5px solid #00ff00; text-align: left; font-weight: 700; font-size: 18px; color: #fff; }
+
+    @media (max-width: 900px) { .main-section { flex-direction: column; } .img-area { min-width: 100%; } }
   </style>
 </head>
 <body>
 
 <div class="container">
   <div class="main-section">
-    <div class="img-area"><img src="https://i.imgur.com/jSOGOgO.jpeg"></div>
+    <div class="img-area">
+      <img src="https://i.imgur.com/jSOGOgO.jpeg" alt="4/6 뉴스 이미지">
+    </div>
+    
     <div class="text-area">
       <div class="briefing-part">
         <h1>📌 오늘의 핵심 브리핑</h1>
-        <span class="highlight">냉철한 데이터 분석을 통한 시장 대응</span>
+        <span class="highlight-sub">냉철한 데이터 분석을 통한 시장 대응</span>
         <div class="main-text">
-          오늘의 시장 흐름은 <b>강력한 하방 압력</b> 속에서도 주요 지지선을 지켜내려는 안전자산의 움직임이 돋보였습니다. 특히 <b>200일 EMA</b>를 기점으로 한 반등세는 향후 시장의 향방을 결정지을 중요한 <b>데이터 포인트</b>입니다.<br><br>
-          반면, 비트코인과 증시의 이탈 현상은 가속화되고 있어, 리스크 관리에 집중해야 할 시점입니다.
+          오늘의 시장 흐름은 <span class="neon-point">강력한 하방 압력</span> 속에서도 주요 지지선을 지켜내려는 안전자산의 움직임이 돋보였습니다. 특히 <span class="neon-point">200일 EMA</span>를 기점으로 한 반등세는 향후 시장의 향방을 결정지을 중요한 <span class="neon-point">데이터 포인트</span>입니다.<br><br>
+          반면, 비트코인과 증시의 이탈 현상은 가속화되고 있어, 무분별한 추격 매수보다는 <span class="neon-point">리스크 관리</span>에 집중해야 할 시점입니다.
         </div>
       </div>
-      <div class="strategy-part">
-        <div class="strategy-title">💡 골드웨이브 VVIP 전략 가이드 (4/6)</div>
+      
+      <div class="vvip-strategy-box">
+        <div class="vvip-title">💡 골드웨이브 VVIP 전략 가이드 (4/6)</div>
         <ul>
-          <li><b>핵심 지표 사수:</b> 200일 EMA 리테스트 후의 안착 여부를 최우선 모니터링하세요.</li>
-          <li><b>자금 흐름 포착:</b> 위험자산에서 안전자산으로의 수급 변화를 주시하세요.</li>
-          <li><b>데드라인 체크:</b> 기술적 이탈 구간에서의 기계적 대응이 자산을 보호합니다.</li>
+          <li><span class="neon-point">핵심 지표 사수:</span> 200일 EMA 리테스트 후의 <span class="neon-point">안착 여부</span>를 최우선 모니터링하세요.</li>
+          <li><span class="neon-point">자금 흐름 포착:</span> 위험자산에서 안전자산으로 넘어오는 <span class="neon-point">수급 변화</span>를 주시하세요.</li>
+          <li><span class="neon-point">데드라인 체크:</span> 기술적 이탈 구간에서의 <span class="neon-point">기계적 대응</span>이 자산을 보호합니다.</li>
         </ul>
       </div>
     </div>
   </div>
 
   <div class="logic-section">
-    <div class="logic-title">📌 GOLDWAVE 전략 해석</div>
+    <div class="logic-title">📌 GOLDWAVE 알고리즘 증명: 시장 데이터로 확인하는 운영 방향의 정당성</div>
     <div class="logic-text">
-      현재 시장은 <b>“수익 기회”보다 “리스크 관리”</b>가 우선되는 구간입니다. 안전자산으로 자금이 이동하는 흐름 속에서 비트코인은 아직 상승 추세를 회복하지 못했습니다.<br>
-      GOLDWAVE는 시장 변동성에 맞춰 <b>진입 기준을 조정</b>하고, 확률이 높은 구간에서만 제한적으로 진입하며 리스크를 최소화하는 전략을 유지하고 있습니다.
+      현재 시장은 <b>“수익 기회”보다 “리스크 관리”</b>가 우선되는 구간입니다. 안전자산으로 자금이 이동하는 흐름 속에서 비트코인은 아직 뚜렷한 상승 추세를 회복하지 못한 상태입니다. 무리한 진입보다 <b>선별적인 매매 전략</b>이 무엇보다 중요합니다.<br><br>
+      GOLDWAVE는 시장 변동성에 맞춰 <b>진입 기준을 정밀하게 조정</b>하고, 확률이 높은 구간에서만 제한적으로 진입하며 리스크를 최소화하는 안정적인 전략을 유지하고 있습니다.
     </div>
   </div>
 
-  <div class="insight-bar">✔ 변동성이 큰 구간일수록, 전략의 차이가 결과를 만듭니다.</div>
+  <div class="insight-bar">
+    ✔ 시장은 요동쳐도 전략은 흔들리지 않습니다. 이것이 골드웨이브의 차이입니다.
+  </div>
 </div>
 
 </body>

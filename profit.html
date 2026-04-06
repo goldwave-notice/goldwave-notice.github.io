@@ -5,15 +5,16 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>GOLD WAVE REAL-TIME PROFIT</title>
   <style>
+    /* 1. 프리미엄 Pretendard 폰트 */
     @import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css');
 
     body {
       margin: 0; padding: 0;
-      background-color: #0b0d11; 
+      background-color: #0b0d11; /* 랑랑's 시그니처 다크 네이비 */
       font-family: 'Pretendard', sans-serif;
       color: #e0e0e0;
       display: flex; flex-direction: column; align-items: center;
-      padding-bottom: 120px; /* 버튼 여백 확보 */
+      padding-bottom: 120px; /* 하단 버튼 여백 확보 */
     }
 
     .container {
@@ -22,7 +23,7 @@
       box-sizing: border-box;
     }
 
-    /* 로고 & 타이틀 정렬 */
+    /* 2. 로고 & 타이틀 정렬 (로고 교체 완료) */
     .header-box {
       display: flex;
       align-items: center;
@@ -40,7 +41,7 @@
       line-height: 1.2; letter-spacing: -0.5px;
     }
 
-    /* 최상단 공지: 부활절 휴장 안내 */
+    /* 3. 최상단 공지: 부활절 휴장 안내 (최신순 배치 원칙) */
     .holiday-notice {
       text-align: center;
       padding: 30px;
@@ -52,14 +53,13 @@
     }
     .holiday-notice p { color: #fcf6ba; font-size: 15px; margin: 0; line-height: 1.7; }
 
-    /* 수익 섹션 및 이미지 확대 효과 */
+    /* 4. 수익 섹션 (최신순 배치) */
     .profit-section {
       margin-bottom: 60px;
       background: rgba(255, 255, 255, 0.02);
       padding: 25px;
       border-radius: 20px;
       border: 1px solid rgba(255, 255, 255, 0.05);
-      transition: all 0.3s ease;
     }
     .date-badge {
       display: inline-block;
@@ -69,26 +69,31 @@
       margin-bottom: 20px;
     }
 
-    .img-wrapper {
-      overflow: hidden; border-radius: 12px;
-      cursor: zoom-in;
+    /* 5. ⭐ 수익 그래프 돋보기 효과 (JavaScript 필수 CSS) ⭐ */
+    .magnify-container {
+      position: relative;
+      overflow: hidden;
+      border-radius: 12px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.7);
+      cursor: zoom-in; /* 돋보기 아이콘 */
     }
     .profit-img {
       width: 100%; border-radius: 12px;
-      transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
       display: block;
     }
-    /* 호버 시 부드러운 확대 및 밝기 조절 */
-    .profit-section:hover .profit-img {
-      transform: scale(1.05);
-      filter: brightness(1.1);
-    }
-    .profit-section:hover {
-      border: 1px solid rgba(191, 149, 63, 0.5);
-      box-shadow: 0 20px 40px rgba(0,0,0,0.6), 0 0 20px rgba(191, 149, 63, 0.1);
+    /* 돋보기 렌즈 스타일 (골드 후광 효과) */
+    .magnify-lens {
+      position: absolute;
+      border: 3px solid #bf953f; /* 미세한 골드 테두리 */
+      border-radius: 50%; /* 둥근 렌즈 */
+      width: 150px; height: 150px; /* 돋보기 크기 */
+      box-shadow: 0 10px 30px rgba(0,0,0,0.8), 0 0 15px rgba(191, 149, 63, 0.3);
+      display: none; /* 마우스 올리기 전엔 숨김 */
+      pointer-events: none; /* 렌즈는 마우스 이벤트를 막지 않음 */
+      background-repeat: no-repeat;
     }
 
-    /* ⭐ 하단 플로팅 버튼: dashboard.html로 경로 수정 완료 ⭐ */
+    /* 6. 하단 플로팅 버튼 (dashboard.html 연결 완료) */
     .back-home {
       position: fixed;
       bottom: 30px;
@@ -119,21 +124,62 @@
 
     <div class="profit-section">
       <div class="date-badge">2026. 04. 02 (THU)</div>
-      <div class="img-wrapper">
+      <div class="magnify-container" id="magnify-4-2">
         <img src="https://i.imgur.com/ImllwXt.jpeg" alt="4/2 수익현황" class="profit-img">
+        <div class="magnify-lens"></div>
       </div>
     </div>
 
     <div class="profit-section">
       <div class="date-badge">2026. 04. 01 (WED)</div>
-      <div class="img-wrapper">
+      <div class="magnify-container" id="magnify-4-1">
         <img src="https://i.imgur.com/RfAd7zA.jpeg" alt="4/1 수익현황" class="profit-img">
+        <div class="magnify-lens"></div>
       </div>
     </div>
 
   </div>
 
   <a href="dashboard.html" class="back-home">🏠 메인 대시보드</a>
+
+  <script>
+    function enableMagnify(containerId) {
+      const container = document.getElementById(containerId);
+      const img = container.querySelector('.profit-img');
+      const lens = container.querySelector('.magnify-lens');
+
+      // 돋보기창 배경으로 원본 이미지를 설정
+      lens.style.backgroundImage = `url('${img.src}')`;
+
+      // ⭐ 돋보기 배율 설정 (2.5배 확대) ⭐
+      const zoom = 2.5;
+
+      container.addEventListener('mousemove', (e) => {
+        lens.style.display = 'block';
+
+        const { left, top, width, height } = container.getBoundingClientRect();
+        const x = e.clientX - left;
+        const y = e.clientY - top;
+
+        // 렌즈 위치 조절
+        lens.style.left = `${x - lens.offsetWidth / 2}px`;
+        lens.style.top = `${y - lens.offsetHeight / 2}px`;
+
+        // ⭐ 돋보기 배경 이미지 위치 조절 (확대된 이미지의 특정 구간을 보여줌) ⭐
+        // 랑랑쌤이 원하시는 네모 박스 구간을 확대해서 보여주는 핵심 로직입니다!
+        lens.style.backgroundPosition = `-${x * zoom - lens.offsetWidth / 2}px -${y * zoom - lens.offsetHeight / 2}px`;
+        lens.style.backgroundSize = `${width * zoom}px ${height * zoom}px`;
+      });
+
+      container.addEventListener('mouseleave', () => {
+        lens.style.display = 'none';
+      });
+    }
+
+    // ⭐ 4/2와 4/1 각 섹션에 돋보기 기능 활성화 ⭐
+    enableMagnify('magnify-4-2');
+    enableMagnify('magnify-4-1');
+  </script>
 
 </body>
 </html>

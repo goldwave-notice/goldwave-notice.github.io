@@ -5,107 +5,135 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>GOLD WAVE REAL-TIME PROFIT</title>
   <style>
-    /* 랑랑 가이드: 프리미엄 Pretendard 폰트 */
     @import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css');
 
     body {
       margin: 0; padding: 0;
-      background-color: #0b0d11; /* 랑랑's 시그니처 다크 네이비 */
+      background-color: #0b0d11; 
       font-family: 'Pretendard', sans-serif;
       color: #e0e0e0;
       display: flex; flex-direction: column; align-items: center;
-      padding-bottom: 80px;
+      padding-bottom: 120px; /* 버튼 여백 확보 */
     }
 
     .container {
-      width: 100%; max-width: 800px;
+      width: 100%; max-width: 850px;
       padding: 40px 20px;
       box-sizing: border-box;
     }
 
-    /* 상단 타이틀 */
+    /* 로고 & 타이틀 정렬 */
+    .header-box {
+      display: flex;
+      align-items: center;
+      margin-bottom: 40px;
+      border-left: 6px solid #bf953f;
+      padding-left: 20px;
+    }
+    .brand-logo {
+      width: 45px; height: auto;
+      margin-right: 15px;
+      filter: drop-shadow(0 0 5px rgba(191, 149, 63, 0.5));
+    }
     h1 {
-      color: #bf953f; font-size: 26px; margin-bottom: 40px;
-      border-left: 6px solid #bf953f; padding-left: 20px;
-      line-height: 1.2; letter-spacing: -1px;
+      color: #bf953f; font-size: 24px; margin: 0;
+      line-height: 1.2; letter-spacing: -0.5px;
     }
 
-    /* 날짜 섹션 스타일 */
+    /* 최상단 공지: 부활절 휴장 안내 */
+    .holiday-notice {
+      text-align: center;
+      padding: 30px;
+      background: rgba(191, 149, 63, 0.05);
+      border: 1px dashed rgba(191, 149, 63, 0.4);
+      border-radius: 20px;
+      margin-bottom: 50px;
+      box-shadow: inset 0 0 20px rgba(0,0,0,0.5);
+    }
+    .holiday-notice p { color: #fcf6ba; font-size: 15px; margin: 0; line-height: 1.7; }
+
+    /* 수익 섹션 및 이미지 확대 효과 */
     .profit-section {
       margin-bottom: 60px;
       background: rgba(255, 255, 255, 0.02);
-      padding: 30px;
+      padding: 25px;
       border-radius: 20px;
-      border: 1px solid rgba(191, 149, 63, 0.15);
+      border: 1px solid rgba(255, 255, 255, 0.05);
+      transition: all 0.3s ease;
     }
-
     .date-badge {
       display: inline-block;
       background: linear-gradient(135deg, #bf953f, #fcf6ba);
-      color: #000;
-      padding: 5px 15px;
-      border-radius: 30px;
-      font-weight: 800;
-      font-size: 13px;
+      color: #000; padding: 5px 15px;
+      border-radius: 30px; font-weight: 800; font-size: 13px;
       margin-bottom: 20px;
     }
 
+    .img-wrapper {
+      overflow: hidden; border-radius: 12px;
+      cursor: zoom-in;
+    }
     .profit-img {
-      width: 100%;
-      border-radius: 12px;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.7);
-      border: 1px solid rgba(255, 255, 255, 0.05);
+      width: 100%; border-radius: 12px;
+      transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+      display: block;
+    }
+    /* 호버 시 부드러운 확대 및 밝기 조절 */
+    .profit-section:hover .profit-img {
+      transform: scale(1.05);
+      filter: brightness(1.1);
+    }
+    .profit-section:hover {
+      border: 1px solid rgba(191, 149, 63, 0.5);
+      box-shadow: 0 20px 40px rgba(0,0,0,0.6), 0 0 20px rgba(191, 149, 63, 0.1);
     }
 
-    /* 휴장 안내 섹션 (부활절) */
-    .holiday-notice {
-      text-align: center;
-      padding: 40px;
-      border: 1px dashed rgba(191, 149, 63, 0.3);
-      border-radius: 20px;
-      margin-bottom: 60px;
-    }
-
-    .holiday-notice p { color: #888; font-size: 15px; }
-
-    /* 하단 플로팅 버튼 */
+    /* ⭐ 하단 플로팅 버튼: dashboard.html로 경로 수정 완료 ⭐ */
     .back-home {
       position: fixed;
       bottom: 30px;
-      background: #bf953f;
+      background: linear-gradient(135deg, #bf953f, #aa771c);
       color: #000;
-      padding: 12px 30px;
+      padding: 14px 40px;
       border-radius: 50px;
       text-decoration: none;
       font-weight: 800;
-      box-shadow: 0 10px 20px rgba(0,0,0,0.5);
+      box-shadow: 0 10px 30px rgba(0,0,0,0.8);
       transition: 0.3s;
+      z-index: 1000;
     }
-    .back-home:hover { transform: translateY(-5px); background: #fcf6ba; }
+    .back-home:hover { transform: translateY(-5px) scale(1.05); background: #fcf6ba; }
   </style>
 </head>
 <body>
 
   <div class="container">
-    <h1>🏛️ GOLD WAVE<br>STRATEGY PROFIT REPORT</h1>
-
-    <div class="profit-section">
-      <div class="date-badge">2026. 04. 02 (THU)</div>
-      <img src="https://i.imgur.com/ImllwXt.jpeg" alt="4/2 수익현황" class="profit-img">
-    </div>
-
-    <div class="profit-section">
-      <div class="date-badge">2026. 04. 01 (WED)</div>
-      <img src="https://i.imgur.com/RfAd7zA.jpeg" alt="4/1 수익현황" class="profit-img">
+    <div class="header-box">
+      <img src="https://i.imgur.com/9VUt3sN.png" alt="Gold Wave Logo" class="brand-logo">
+      <h1>GOLD WAVE<br>STRATEGY PROFIT REPORT</h1>
     </div>
 
     <div class="holiday-notice">
       <p>⚠️ 2026. 04. 03 - 04. 05<br>부활절 연휴 글로벌 시장 휴장으로 인한<br>AI 자동 트레이딩 시스템 일시 정지 (리스크 관리)</p>
     </div>
 
+    <div class="profit-section">
+      <div class="date-badge">2026. 04. 02 (THU)</div>
+      <div class="img-wrapper">
+        <img src="https://i.imgur.com/ImllwXt.jpeg" alt="4/2 수익현황" class="profit-img">
+      </div>
+    </div>
+
+    <div class="profit-section">
+      <div class="date-badge">2026. 04. 01 (WED)</div>
+      <div class="img-wrapper">
+        <img src="https://i.imgur.com/RfAd7zA.jpeg" alt="4/1 수익현황" class="profit-img">
+      </div>
+    </div>
+
   </div>
 
-  <a href="index.html" class="back-home">🏠 메인 대시보드</a>
+  <a href="dashboard.html" class="back-home">🏠 메인 대시보드</a>
 
 </body>
 </html>

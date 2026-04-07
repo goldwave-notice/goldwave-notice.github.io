@@ -10,12 +10,11 @@
         
         .container { width: 92%; max-width: 900px; margin-top: 50px; position: relative; }
 
-        /* 상단 메뉴 - 호버 후광 및 클릭 시 활성화 */
+        /* 상단 메뉴 - 호버 및 활성화 */
         .top-nav-fixed { position: fixed; top: 0; left: 0; width: 100%; height: 75px; background: rgba(5, 6, 8, 0.98); border-bottom: 2px solid #bf953f; display: flex; justify-content: center; align-items: center; z-index: 10000; backdrop-filter: blur(20px); }
         .nav-content { width: 92%; max-width: 900px; display: flex; justify-content: space-between; align-items: center; }
         .nav-links { display: flex; gap: 15px; }
         .nav-link { background: none; border: 1px solid rgba(191,149,63,0.3); color: #aaa; padding: 12px 22px; border-radius: 50px; cursor: pointer; font-weight: 800; font-size: 14px; text-decoration: none; transition: 0.4s; }
-        
         .nav-link:hover { border-color: #bf953f; color: #fff; box-shadow: 0 0 15px rgba(191, 149, 63, 0.7); transform: translateY(-2px); }
         .nav-link.active { background: #bf953f !important; color: #000 !important; border-color: #bf953f; font-weight: 900; box-shadow: 0 0 20px rgba(191, 149, 63, 0.5); }
 
@@ -29,37 +28,41 @@
         .tab-btn { flex: 1; padding: 18px; background: #14171d; border: 1px solid rgba(255,255,255,0.05); color: #666; border-radius: 12px; cursor: pointer; font-weight: 900; transition: 0.4s; font-size: 15px; }
         .tab-btn.active { background: #bf953f; color: #000; border-color: #bf953f; transform: translateY(-5px); box-shadow: 0 10px 20px rgba(0,0,0,0.4); }
 
-        /* 🔴 랑이 요청: 메인 로직 타이틀 절대 크기 보존 */
+        /* 로직 카드 & 메인 타이틀 */
         .logic-card { display: none; background: #14171d; border: 1px solid rgba(191, 149, 63, 0.3); border-radius: 25px; padding: 45px; margin-bottom: 60px; box-shadow: 10px 10px 30px rgba(0,0,0,0.5); }
         .logic-card.active { display: block; animation: slideIn 0.5s ease-out; }
         @keyframes slideIn { from { opacity: 0; transform: translateX(20px); } to { opacity: 1; transform: translateX(0); } }
-
         .logic-title-final { color: #ffffff; font-size: 32px; font-weight: 900; border-bottom: 2px solid rgba(191, 149, 63, 0.5); padding-bottom: 20px; margin-bottom: 35px; letter-spacing: -1.5px; }
 
-        /* 데이터 대시보드 (호박색 + 두근두근 LIVE) */
+        /* 데이터 대시보드 (호박색 & LIVE) */
         .engine-display { width: 100%; height: 380px; display: flex; margin-bottom: 35px; border-radius: 12px; overflow: hidden; border: 1px solid #333; }
         .chart-area { flex: 1.6; position: relative; overflow: hidden; background: #000; border-right: 1px solid #333; }
         .chart-area video { width: 135%; height: auto; position: absolute; top: 48%; left: 50%; transform: translate(-50%, -50%); }
         .terminal-area { flex: 1; background: #000; padding: 15px; font-family: 'Courier New', monospace; font-size: 11px; overflow: hidden; }
-        
         .terminal-header { color: #ffb300; font-weight: 900; border-bottom: 1px solid #333; margin-bottom: 10px; padding-bottom: 5px; display: flex; justify-content: space-between; }
         .live-tag { color: #ff3333; animation: heartBeatLive 1.2s infinite ease-in-out; display: inline-block; }
         @keyframes heartBeatLive { 0%, 100% { transform: scale(1); opacity: 1; } 50% { transform: scale(1.15); opacity: 0.6; } }
-
         .log-line { margin: 5px 0; color: #00ff41; font-weight: 600; }
         .log-profit { color: #ff3333 !important; font-weight: 900; }
 
-        /* 🟢 랑이의 형광 연두 포인트 포커스 */
+        /* 형광 연두 포인트 */
         .point-focus { font-weight: 800; color: #ffffff; background: linear-gradient(to top, rgba(0, 255, 0, 0.45) 45%, transparent 45%); padding: 0 4px; border-radius: 2px; }
         .logic-text-final p { font-size: 17px; line-height: 2.3; color: #ffffff; font-weight: 500; margin: 25px 0; }
 
-        /* 심박동 요약 박스 */
+        /* 요약 박스 */
         .summary-gold-box { background: linear-gradient(145deg, #1a1d23, #0d0f14); border: 1px solid rgba(191, 149, 63, 0.6); border-radius: 15px; padding: 35px; text-align: center; margin-top: 45px; animation: heartBeat 3s infinite ease-in-out; }
         @keyframes heartBeat { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.015); border-color: #bf953f; } }
         .summary-gold-box span { color: #ffdb8e; font-weight: 900; font-size: 21px; letter-spacing: 1.2px; text-shadow: 0 0 10px rgba(255, 219, 142, 0.4); }
 
-        /* 홈 버튼 고정 */
-        .back-home { position: fixed; bottom: 30px; left: 30px; background: linear-gradient(135deg, #bf953f, #aa771c); color: #000; padding: 15px 45px; border-radius: 50px; text-decoration: none; font-weight: 900; z-index: 10001; box-shadow: 0 10px 30px rgba(0,0,0,0.5); }
+        /* 영상 카드 & 대본 박스 (program4 복구) */
+        .main-video-card { width: 100%; background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(191, 149, 63, 0.15); border-radius: 20px; padding: 20px; margin-bottom: 80px; transition: 0.5s; position: relative; overflow: hidden; }
+        .main-video-card.playing { border: 2px solid #bf953f; box-shadow: 0 0 30px rgba(191, 149, 63, 0.4); transform: scale(1.02); }
+        .video-box { width: 100%; border-radius: 12px; overflow: hidden; border: 1px solid rgba(255,255,255,0.1); background: #000; }
+        #script-box { display: none; padding: 40px 25px; line-height: 1.8; color: #ccc; margin-top: 25px; background: rgba(191, 149, 63, 0.08); border-radius: 15px; border: 1px dashed rgba(191, 149, 63, 0.4); animation: fadeIn 0.8s; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+
+        /* 홈 버튼 */
+        .back-home { position: fixed; bottom: 30px; left: 30px; background: linear-gradient(135deg, #bf953f, #aa771c); color: #000; padding: 15px 45px; border-radius: 50px; text-decoration: none; font-weight: 900; z-index: 10001; box-shadow: 0 10px 30px rgba(0,0,0,0.5); transition: 0.3s; }
     </style>
 </head>
 <body>
@@ -109,9 +112,22 @@
             <div class="header-box">
                 <div class="header-text"><h1>GOLD WAVE BRAND STORY</h1><p>AI가 설계한 황금빛 물결, 투자의 새로운 패러다임</p></div>
             </div>
-            <div id="card-1" class="main-video-card" style="background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(191, 149, 63, 0.15); border-radius: 20px; padding: 20px; margin-bottom: 80px;">
-                <h2 style="font-size:19px; color:#fff; margin-bottom:20px; font-weight:700;">PART 01. AI 시스템 투자 철학 : 리스크와 시스템</h2>
-                <div style="width:100%; border-radius:12px; overflow:hidden; border:1px solid rgba(255,255,255,0.1);"><video onplay="this.closest('.main-video-card').classList.add('playing')" onpause="this.closest('.main-video-card').classList.remove('playing')" controls><source src="https://goldwave-notice.github.io/-/1_보완.mp4" type="video/mp4"></video></div>
+            
+            <div id="card-1" class="main-video-card">
+                <h2>PART 01. AI 시스템 투자 철학 : 리스크와 시스템</h2>
+                <div class="video-box"><video onplay="highlightCard('card-1')" onpause="removeHighlight('card-1')" controls><source src="https://goldwave-notice.github.io/-/1_보완.mp4" type="video/mp4"></video></div>
+            </div>
+
+            <div id="card-2" class="main-video-card">
+                <h2>PART 02. GOLD WAVE : 브랜드 소개 영상</h2>
+                <div class="video-box"><video id="intro-video" onplay="highlightCard('card-2'); document.getElementById('script-box').style.display='block';" onpause="removeHighlight('card-2')" controls><source src="https://goldwave-notice.github.io/-/GOLDE WAVE MP4 VOICE.mp4" type="video/mp4"></video></div>
+                <div id="script-box">
+                    <h3 style="color:#bf953f; font-size:20px; margin-bottom:15px; font-weight:800;">01. 왜 금(GOLD)인가?</h3>
+                    <p>시장은 언제나 움직이지만, 모든 움직임이 기회가 되는 것은 아닙니다.</p>
+                    <p><span style="color:#ffcc00; font-weight:700;">금과 은</span>은 가장 오래 살아남은 자산입니다. GOLD WAVE는 이 지속적인 가치를 기반으로 설계되었습니다.</p>
+                    <h3 style="color:#bf953f; font-size:20px; margin-bottom:15px; font-weight:800; margin-top:30px;">02. 전략적 특징</h3>
+                    <p>독자적인 시그널 알고리즘으로 <span style="color:#ffcc00; font-weight:700;">24시간 자동 매매</span>를 실현하며 리스크 분산 구조를 갖추고 있습니다.</p>
+                </div>
             </div>
         </div>
     </div>
@@ -119,14 +135,6 @@
     <a href="https://goldwave-notice.github.io/-/dashboard.html" class="back-home">🏠 홈</a>
 
     <script>
-        const logBox = document.getElementById('terminal-log');
-        const getLogMsg = () => {
-            const profit = (Math.random() * 2000 + 500).toLocaleString(undefined, {minimumFractionDigits: 2});
-            const pool = [`ANALYZING MARKET STRUCTURE... [OK]`,`WAVE PATTERN MATCHED: 0.964`,`PROFIT REALIZED: <span class="log-profit">+$${profit}</span>`,`AI ENTRY CONFIRMED: #GW-${Math.floor(Math.random()*8999)+1000}`,`CURRENT RETURN: <span class="log-profit">+${(Math.random()*20+10).toFixed(2)}%</span>`,`SIGNAL VALIDATION: HIGH PROBABILITY` ];
-            return pool[Math.floor(Math.random()*pool.length)];
-        };
-        setInterval(() => { if(!logBox) return; const line = document.createElement('div'); line.className = 'log-line'; line.innerHTML = `> ${getLogMsg()}`; logBox.prepend(line); if(logBox.children.length > 15) logBox.removeChild(logBox.lastChild); }, 300);
-
         function scrollToSection(id) {
             document.getElementById(id).scrollIntoView({ behavior: 'smooth' });
             document.querySelectorAll('.nav-link').forEach(l => l.classList.remove('active'));
@@ -140,6 +148,17 @@
             document.getElementById('logic' + n).classList.add('active');
             event.currentTarget.classList.add('active');
         }
+
+        const logBox = document.getElementById('terminal-log');
+        const getLogMsg = () => {
+            const profit = (Math.random() * 2000 + 500).toLocaleString(undefined, {minimumFractionDigits: 2});
+            const pool = [`ANALYZING MARKET STRUCTURE... [OK]`,`WAVE PATTERN MATCHED: 0.964`,`PROFIT REALIZED: <span class="log-profit">+$${profit}</span>`,`AI ENTRY CONFIRMED: #GW-${Math.floor(Math.random()*8999)+1000}`,`CURRENT RETURN: <span class="log-profit">+${(Math.random()*20+10).toFixed(2)}%</span>`,`SIGNAL VALIDATION: HIGH PROBABILITY` ];
+            return pool[Math.floor(Math.random()*pool.length)];
+        };
+        setInterval(() => { if(!logBox) return; const line = document.createElement('div'); line.className = 'log-line'; line.innerHTML = `> ${getLogMsg()}`; logBox.prepend(line); if(logBox.children.length > 15) logBox.removeChild(logBox.lastChild); }, 300);
+
+        function highlightCard(id) { document.getElementById(id).classList.add('playing'); }
+        function removeHighlight(id) { document.getElementById(id).classList.remove('playing'); }
     </script>
 </body>
 </html>

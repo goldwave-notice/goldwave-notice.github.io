@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title>GOLD WAVE PREMIUM REPORT - 26.04.07</title>
+  <style>
+    @import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css');
+    
+    body { 
+      margin: 0; background-color: #0b0d11; font-family: 'Pretendard', sans-serif; color: #e0e0e0; 
+      display: flex; flex-direction: column; align-items: center; padding: 80px 0; overflow-x: hidden;
+    }
+    
+    .container { width: 95%; max-width: 1350px; }
+
+    /* 메인 섹션: 가로형 칼각 정렬 */
+    .main-section { display: flex; gap: 40px; align-items: stretch; margin-bottom: 60px; }
+    .img-area { flex: 1; min-width: 550px; }
+    /* [이미지 완료] 랑이님이 주신 4/7-1 최종 이미지 적용 */
+    .img-area img { width: 100%; height: 100%; border-radius: 20px; border: 1px solid #bf953f; object-fit: cover; box-shadow: 0 30px 60px rgba(0,0,0,0.6); }
+
+    .text-area { flex: 1.2; display: flex; flex-direction: column; gap: 20px; }
+    .briefing-part { flex: 1; background: rgba(255,255,255,0.02); padding: 40px; border-radius: 20px; border: 1px solid rgba(191,149,63,0.1); display: flex; flex-direction: column; justify-content: center; }
+    
+    .vvip-strategy-box { 
+      flex: 1; background: #161a21; padding: 40px; border-radius: 20px; 
+      border: 1px solid rgba(191,149,63,0.4); border-left: 6px solid #bf953f; 
+      display: flex; flex-direction: column; justify-content: center;
+      animation: goldenBreathing 1.8s infinite ease-in-out;
+    }
+
+    .briefing-part h1, .vvip-title { color: #bf953f; font-size: 24px; margin: 0 0 20px 0; font-weight: 800; }
+    .briefing-part h1 { border-left: 6px solid #bf953f; padding-left: 15px; }
+    .vvip-list { padding-left: 20px; margin: 0; font-size: 16px; color: #bbb; line-height: 2.3; }
+    .vvip-list li { margin-bottom: 12px; }
+
+    .point-focus { font-weight: 800; color: #ffffff; background: linear-gradient(to top, rgba(0, 255, 0, 0.45) 45%, transparent 45%); padding: 0 4px; border-radius: 2px; }
+    .neon-text { color: #00ff00; font-weight: 700; }
+
+    @keyframes goldenBreathing {
+      0%, 100% { box-shadow: 0 0 15px rgba(191, 149, 63, 0.1); border-color: rgba(191, 149, 63, 0.4); }
+      50% { box-shadow: 0 0 40px rgba(191, 149, 63, 0.5); border-color: rgba(252, 246, 186, 0.8); }
+    }
+
+    .logic-section { width: 100%; background: #1a1e26; padding: 60px; border-radius: 25px; border-top: 5px solid #bf953f; box-sizing: border-box; text-align: left; }
+    .logic-title { font-size: 24px; font-weight: 800; color: #fcf6ba; margin-bottom: 40px; border-bottom: 1px solid rgba(191,149,63,0.1); padding-bottom: 20px; }
+    .logic-paragraph { margin-bottom: 40px; line-height: 2.3; font-size: 18px; color: #e5e5e5; }
+
+    .pop-card {
+      background: #1e232d; padding: 35px; border-radius: 15px;
+      box-shadow: inset 1px 1px 1px rgba(255,255,255,0.05), 8px 8px 25px rgba(0,0,0,0.5);
+      border-top: 1px solid rgba(191,149,63,0.3); margin-top: 20px;
+      animation: goldenBreathing 1.8s infinite ease-in-out;
+    }
+
+    .footer-counter { margin-top: 80px; text-align: center; padding-bottom: 50px; border-top: 1px solid rgba(255,255,255,0.05); padding-top: 40px; }
+    .counter-label { font-size: 11px; color: #555; letter-spacing: 2px; text-transform: uppercase; font-weight: 700; }
+    #busuanzi_value_page_pv { margin-left: 5px; color: #bf953f; font-weight: bold; opacity: 0.6; }
+
+    /* [무한 확장형 아카이브] 3개씩 자동 줄바꿈 */
+    .archive-title-label { text-align: center; color: rgba(255,255,255,0.2); letter-spacing: 8px; font-size: 14px; font-weight: 700; margin-bottom: 30px; }
+    .archive-section { width: 100%; display: grid; grid-template-columns: repeat(3, 1fr); gap: 25px; }
+    .archive-card { background: rgba(255,255,255,0.03); padding: 25px; border-radius: 15px; border: 1px solid rgba(255,255,255,0.05); text-align: center; transition: 0.3s; text-decoration: none; display: block; }
+    .archive-card:hover { transform: scale(1.05); border-color: #bf953f; background: rgba(191,149,63,0.05); box-shadow: 0 0 20px rgba(191, 149, 63, 0.3); }
+    .archive-thumb { width: 100%; height: 180px; border-radius: 10px; object-fit: cover; margin-bottom: 15px; border: 1px solid rgba(191, 149, 63, 0.2); }
+
+    .insight-bar { background: linear-gradient(90deg, rgba(191, 149, 63, 0.2), rgba(191, 149, 63, 0.05)); padding: 30px; border-radius: 15px; border-left: 6px solid #00ff00; text-align: left; font-weight: 700; font-size: 20px; margin-top: 40px; }
+    .scroll-indicator { text-align: center; margin-bottom: 40px; color: #bf953f; animation: blink 1.2s infinite; font-size: 22px; font-weight: 900; }
+    @keyframes blink { 0%, 100% { opacity: 0; transform: translateY(-5px); } 50% { opacity: 1; transform: translateY(5px); } }
+
+    @media (max-width: 1000px) { .main-section { flex-direction: column; } .archive-section { grid-template-columns: 1fr; } }
+  </style>
+</head>
+<body>
+
+<div class="container">
+  <div class="main-section">
+    <div class="img-area"><img src="https://i.imgur.com/L5mMTjI.jpeg" alt="4/7 GOLDWAVE NEWS"></div>
+    <div class="text-area">
+      <div class="briefing-part">
+        <h1>📌 오늘의 핵심 브리핑</h1>
+        <div style="margin-bottom: 25px; padding-bottom: 20px; border-bottom: 1px solid rgba(191,149,63,0.15);">
+          <div style="color: #fcf6ba; font-size: 21px; font-weight: 800; line-height: 1.5; letter-spacing: -0.5px;">
+            [미 국채도, 빅테크도 밀렸다… 금 거래량 ‘3610억 달러’ 폭발]
+          </div>
+        </div>
+        <div style="font-size:16.5px; line-height:2.0; color:#ccc;">
+          금의 일평균 거래량이 주요 국채와 주식 인덱스를 가볍게 뛰어넘으며 <span class="neon-text">역대급 유동성</span>이 쏠리고 있습니다.<br><br>
+          특히 애플, 엔비디아 등 빅테크 합산 거래량의 <span class="point-focus">13배</span>를 넘어서는 수치는 글로벌 투자자들이 금을 가장 확실한 안전 자산으로 활용하고 있음을 증명합니다.
+        </div>
+      </div>
+      <div class="vvip-strategy-box">
+        <div class="vvip-title">💡 골드웨이브 VVIP 전략 가이드 (4/7)</div>
+        <ul class="vvip-list">
+          <li><span class="neon-text">유동성 체크:</span> 일평균 3610억 달러 돌파, 시장 주도권 확인</li>
+          <li><span class="neon-text">자산 재배분:</span> 국채 대비 금의 압도적 활동성 활용 전략</li>
+          <li><span class="neon-text">리스크 헤징:</span> 거시 경제 불확실성 속 필수 포트폴리오 편입</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="scroll-indicator">v<br>v<br>v</div>
+
+  <div class="logic-section">
+    <div class="logic-title">📌 GOLDWAVE 알고리즘 증명: 시장 데이터로 확인하는 운영 방향의 정당성</div>
+    <div class="logic-paragraph">
+      금 시장의 활동성이 기록적인 속도로 급증하고 있습니다. 인플레이션 우려와 지정학적 리스크가 맞물리며 나타난 결과입니다.<br>
+      GOLDWAVE는 이러한 <span class="point-focus">압도적 유동성 데이터</span>를 기반으로, 가장 신뢰할 수 있는 진입 타점을 정밀하게 계산해냅니다.
+    </div>
+    <div class="pop-card">
+      <div style="font-size: 19px; line-height: 2.2; color: #fff;">
+        만기가 1년 미만인 미 단기 국채보다 금이 더 활발하게 거래되고 있습니다. <br>
+        <span class="neon-text">빅테크의 화려함</span>보다 황금의 묵직한 유동성이 현재 시장을 완벽하게 지배하고 있습니다.
+      </div>
+    </div>
+  </div>
+
+  <div class="insight-bar">✔ 시장은 요동쳐도 전략은 흔들리지 않습니다. 이것이 골드웨이브의 차이입니다.</div>
+
+  <div class="archive-title-label" style="margin-top: 100px;">PREVIOUS REPORT</div>
+  <div class="archive-section">
+    <a href="260406-2.html" class="archive-card">
+      <img src="https://i.imgur.com/r1kCrUH.png" class="archive-thumb" alt="4/6-2 뉴스">
+      <span style="font-size:12px; color:#666; display:block; margin-bottom:10px;">2026.04.06</span>
+      <b style="font-size:15px; color:#aaa;">“연준 기대 식었다”… 금값 고비</b>
+    </a>
+    <a href="260406.html" class="archive-card">
+      <img src="https://i.imgur.com/G0IbFbd.jpeg" class="archive-thumb" alt="4/6-1 뉴스">
+      <span style="font-size:12px; color:#666; display:block; margin-bottom:10px;">2026.04.06</span>
+      <b style="font-size:15px; color:#aaa;">비트코인·증시 먹구름, 금·은 지지</b>
+    </a>
+    <a href="260402.html" class="archive-card">
+      <img src="https://i.imgur.com/EskBuKu.jpeg" class="archive-thumb" alt="4/2 뉴스">
+      <span style="font-size:12px; color:#666; display:block; margin-bottom:10px;">2026.04.02</span>
+      <b style="font-size:15px; color:#aaa;">금 선물 지지선 붕괴 대응</b>
+    </a>
+    <a href="260401-2.html" class="archive-card">
+      <img src="https://i.imgur.com/DQ55lYw.png" class="archive-thumb" alt="4/1-2 뉴스">
+      <span style="font-size:12px; color:#666; display:block; margin-bottom:10px;">2026.04.01</span>
+      <b style="font-size:15px; color:#aaa;">비트코인 골든 시그널 분석</b>
+    </a>
+  </div>
+
+  <div class="footer-counter">
+    <span class="counter-label">TODAY VIEWS : <span id="busuanzi_value_page_pv">0</span></span>
+  </div>
+</div>
+
+<script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+</body>
+</html>

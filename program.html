@@ -10,7 +10,7 @@
         
         .container { width: 92%; max-width: 900px; margin-top: 50px; position: relative; }
 
-        /* [수정] 상단 메뉴 - 현재 위치(시스템 로직 설명) 하이라이트 */
+        /* [수정] 상단 메뉴 - 호버 및 활성화 직관성 강화 */
         .top-nav-fixed { 
             position: fixed; top: 0; left: 0; width: 100%; height: 75px; 
             background: rgba(5, 6, 8, 0.98); border-bottom: 2px solid #bf953f;
@@ -20,35 +20,29 @@
         .nav-content { width: 92%; max-width: 900px; display: flex; justify-content: space-between; align-items: center; }
         .nav-links { display: flex; gap: 15px; }
         .nav-link { 
-            background: none; border: 1px solid rgba(191,149,63,0.5); color: #fff; padding: 12px 22px; 
+            background: none; border: 1px solid rgba(191,149,63,0.3); color: #aaa; padding: 12px 22px; 
             border-radius: 50px; cursor: pointer; font-weight: 800; font-size: 14px; text-decoration: none; transition: 0.3s;
         }
-        /* 현재 페이지 활성화 표시: 배경 금색 + 글자 검정 */
-        .nav-link.active {
-            background: #bf953f;
-            color: #000;
-            border-color: #bf953f;
-            box-shadow: 0 0 15px rgba(191, 149, 63, 0.5);
-        }
+        /* 마우스 올렸을 때 */
+        .nav-link:hover { border-color: #bf953f; color: #fff; background: rgba(191, 149, 63, 0.1); }
+        /* 현재 보고 있는 메뉴 하이라이트 */
+        .nav-link.active { background: #bf953f; color: #000; border-color: #bf953f; font-weight: 900; box-shadow: 0 0 15px rgba(191, 149, 63, 0.4); }
 
+        /* 헤더 (문구 고정) */
         .header-box { display: flex; align-items: center; border-left: 6px solid #bf953f; padding-left: 20px; margin-bottom: 30px; margin-top: 50px; }
         .brand-logo { width: 45px; height: auto; margin-right: 18px; filter: drop-shadow(0 0 5px rgba(191, 149, 63, 0.5)); }
         .header-text h1 { color: #bf953f; font-size: 26px; margin: 0; font-weight: 800; }
         .header-text p { color: #ccc; font-size: 15px; margin-top: 7px; font-weight: 700; }
 
-        /* 로직 타이틀 */
+        /* 로직 카드 타이틀 */
         .logic-card { background: #14171d; border: 1px solid rgba(191, 149, 63, 0.3); border-radius: 25px; padding: 45px; margin-bottom: 60px; box-shadow: 10px 10px 30px rgba(0,0,0,0.5); }
-        .logic-title-final { 
-            color: #ffffff; font-size: 32px; font-weight: 900; 
-            border-bottom: 2px solid rgba(191, 149, 63, 0.5); 
-            padding-bottom: 20px; margin-bottom: 35px; letter-spacing: -1.5px;
-        }
+        .logic-title-final { color: #ffffff; font-size: 32px; font-weight: 900; border-bottom: 2px solid rgba(191, 149, 63, 0.5); padding-bottom: 20px; margin-bottom: 35px; letter-spacing: -1.5px; }
         .yellow-point { color: #ffcc00; }
 
-        /* 수익그래프 영상 영역 */
+        /* 수익그래프 디스플레이 */
         .engine-display { width: 100%; height: 380px; display: flex; margin-bottom: 35px; border-radius: 12px; overflow: hidden; border: 1px solid #333; }
-        .chart-video-area { flex: 1.6; position: relative; overflow: hidden; background: #000; border-right: 1px solid #333; }
-        .chart-video-area video { width: 135%; height: auto; position: absolute; top: 48%; left: 50%; transform: translate(-50%, -50%); }
+        .chart-area { flex: 1.6; position: relative; overflow: hidden; background: #000; border-right: 1px solid #333; }
+        .chart-area video { width: 135%; height: auto; position: absolute; top: 48%; left: 50%; transform: translate(-50%, -50%); }
         
         .terminal-area { flex: 1; background: #000; padding: 15px; font-family: 'Courier New', monospace; font-size: 11px; overflow: hidden; }
         .terminal-header { color: #e0e0e0; font-weight: 900; border-bottom: 1px solid #333; margin-bottom: 10px; padding-bottom: 5px; display: flex; justify-content: space-between; }
@@ -57,44 +51,45 @@
         .log-line { margin: 5px 0; color: #00ff41; font-weight: 600; }
         .log-profit { color: #ff3333 !important; font-weight: 900; }
 
-        /* [수정] 형광펜 대신 초록색 글자 포인트 적용 */
-        .logic-text-final p { font-size: 17px; line-height: 2.2; color: #ffffff; font-weight: 600; margin: 25px 0; }
-        .green-point { 
-            color: #00ff41; 
-            font-weight: 900;
-            text-shadow: 0 0 8px rgba(0, 255, 65, 0.3);
+        /* [🆕 랑이 요청] 진짜 형광펜 효과 클래스 */
+        .point-focus { 
+            font-weight: 800; color: #ffffff; 
+            background: linear-gradient(to top, rgba(0, 255, 0, 0.45) 45%, transparent 45%); 
+            padding: 0 4px; border-radius: 2px; 
         }
 
-        /* [수정] 요약 박스 - 볼록하게(Embossing) 보이도록 그림자 효과 강화 */
+        /* [수정] 설명 텍스트 (줄바꿈 및 포인트 적용) */
+        .logic-text-final p { font-size: 17px; line-height: 2.3; color: #ffffff; font-weight: 500; margin: 25px 0; }
+
+        /* [🆕 랑이 요청] 두근두근 심박동 요약 박스 */
         .summary-gold-box { 
-            background: linear-gradient(145deg, #1a1d23, #0d0f14); /* 그라데이션으로 입체감 */
+            background: linear-gradient(145deg, #1a1d23, #0d0f14); 
             border: 1px solid rgba(191, 149, 63, 0.6); 
             border-radius: 15px; padding: 35px; text-align: center; margin-top: 45px; 
-            /* 바깥 그림자와 안쪽 그림자를 동시에 써서 볼록한 느낌 구현 */
             box-shadow: 8px 8px 16px rgba(0,0,0,0.5), -4px -4px 10px rgba(255,255,255,0.02);
-            position: relative;
+            animation: heartBeat 3s infinite ease-in-out; /* 심박동 애니메이션 */
         }
-        .summary-gold-box span { 
-            color: #ffdb8e; font-weight: 900; font-size: 21px; 
-            letter-spacing: 1.2px; text-shadow: 0 0 10px rgba(255, 219, 142, 0.4);
+        @keyframes heartBeat {
+            0%, 100% { transform: scale(1); box-shadow: 8px 8px 16px rgba(0,0,0,0.5); }
+            50% { transform: scale(1.01); border-color: #bf953f; box-shadow: 0 0 25px rgba(191, 149, 63, 0.3); }
         }
+        .summary-gold-box span { color: #ffdb8e; font-weight: 900; font-size: 21px; letter-spacing: 1.2px; text-shadow: 0 0 10px rgba(255, 219, 142, 0.4); }
 
-        /* 영상 카드 및 스크립트 */
-        .main-video-card { width: 100%; background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(191, 149, 63, 0.15); border-radius: 20px; padding: 25px; box-shadow: 0 15px 40px rgba(0,0,0,0.4); margin-top: 60px; transition: 0.5s; }
-        .main-video-card.playing { border: 2px solid #bf953f; transform: scale(1.02); background: rgba(191, 149, 63, 0.05); }
-        
-        #script-box { 
-            display: none; padding: 40px 25px; line-height: 1.8; color: #ccc; 
-            margin-top: 25px; background: rgba(191, 149, 63, 0.08); 
-            border-radius: 15px; border: 1px dashed rgba(191, 149, 63, 0.4); 
-            animation: fadeIn 0.8s; 
-        }
-        #script-box.active { display: block; }
+        /* [기준 코드 program4] 영상 카드 스타일 및 재생 시 효과 */
+        .main-video-card { width: 100%; background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(191, 149, 63, 0.15); border-radius: 20px; padding: 20px; box-shadow: 0 15px 40px rgba(0,0,0,0.4); margin-bottom: 80px; transition: 0.5s; position: relative; overflow: hidden; box-sizing: border-box; }
+        .main-video-card.playing { border: 2px solid #bf953f; box-shadow: 0 0 30px rgba(191, 149, 63, 0.4), 0 20px 50px rgba(0,0,0,0.6); transform: scale(1.02); background: rgba(191, 149, 63, 0.05); }
+        .main-video-card h2 { font-size: 19px; color: #fff; margin-bottom: 20px; font-weight: 700; transition: 0.3s; }
+        .main-video-card.playing h2 { color: #bf953f; }
+        .video-box { width: 100%; border-radius: 12px; overflow: hidden; border: 1px solid rgba(255,255,255,0.1); background: #000; }
+
+        /* [기준 코드 program4] 스크립트 박스 오리지널 */
+        #script-box { display: none; padding: 40px 25px; line-height: 1.8; color: #ccc; margin-top: 25px; background: rgba(191, 149, 63, 0.08); border-radius: 15px; border: 1px dashed rgba(191, 149, 63, 0.4); animation: fadeIn 0.8s; }
         @keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
-        
-        #script-box h3 { color: #bf953f; font-size: 20px; margin-bottom: 15px; font-weight: 800; border-bottom: 1px solid rgba(191,149,63,0.1); padding-bottom: 10px; }
+        #script-box h3 { color: #bf953f; font-size: 20px; margin-bottom: 15px; font-weight: 800; border-bottom: 1px solid rgba(191,149,63,0.1); padding-bottom: 10px; margin-top: 30px; }
+        #script-box h3:first-child { margin-top: 0; }
         .highlight { color: #ffcc00; font-weight: 700; }
 
+        /* 홈 버튼 및 기타 */
         .back-home { position: fixed; bottom: 30px; left: 30px; background: linear-gradient(135deg, #bf953f, #aa771c); color: #000; padding: 15px 40px; border-radius: 50px; text-decoration: none; font-weight: 900; z-index: 1000; box-shadow: 0 10px 30px rgba(0,0,0,0.5); }
         .reveal { opacity: 0; transform: translateY(30px); transition: all 0.8s ease-out; }
         .reveal.active { opacity: 1; transform: translateY(0); }
@@ -115,7 +110,7 @@
 
     <div class="container">
         <div class="header-box">
-            <img src="https://i.imgur.com/9VUt3sN.png" alt="Logo" style="width:45px; margin-right:18px;">
+            <img src="https://i.imgur.com/9VUt3sN.png" alt="Logo" class="brand-logo">
             <div class="header-text">
                 <h1>GOLD WAVE PROGRAM</h1>
                 <p>차세대 AI 알고리즘의 과학적 설계 원리</p>
@@ -127,7 +122,7 @@
                 <div class="logic-title-final">메인 로직 : <span class="yellow-point">파동 기반</span> 추세 대응 전략</div>
 
                 <div class="engine-display">
-                    <div class="chart-video-area">
+                    <div class="chart-area">
                         <video autoplay loop muted playsinline><source src="https://goldwave-notice.github.io/-/수익그래프1.mp4" type="video/mp4"></video>
                     </div>
                     <div class="terminal-area">
@@ -137,9 +132,9 @@
                 </div>
 
                 <div class="logic-text-final">
-                    <p>시장 흐름(상승/하락 구조)을 기반으로 <span class="green-point">확률 높은 구간에서만 진입</span>하고, <br>
-                    단순 지표 진입이 아닌 <b>구조 + 흐름 + 타점 결합 방식</b>이 특징입니다.</p>
-                    <p>이는 불필요한 매매를 최소화하여 <span class="green-point">타점 중심 진입 안정적인 수익 누적 구조</span>로 이어지게 됩니다.</p>
+                    <p>시장 흐름(상승/하락 구조)을 기반으로 <span class="point-focus">확률 높은 구간에서만 진입</span>하고, <br>
+                    단순 지표 진입이 아닌 <span class="point-focus">구조 + 흐름 + 타점 결합 방식</span>이 특징입니다. <br>
+                    이는 불필요한 매매를 최소화하여 타점 중심 진입 안정적인 수익 누적 구조로 이어지게 됩니다.</p>
                 </div>
 
                 <div class="summary-gold-box">
@@ -148,21 +143,30 @@
             </div>
         </div>
 
-        <div id="brand-story" class="reveal">
+        <div id="brand-story">
             <div class="header-box" style="margin-top:50px;">
-                <div class="header-text"><h1>GOLD WAVE BRAND STORY</h1>
-         <p> AI가 설계한 황금빛 물결, 투자의 새로운 패러다임</p>
-        </div>
+                <div class="header-text">
+                    <h1>GOLD WAVE BRAND STORY</h1>
+                    <p style="font-style: italic; color: #888;">AI가 설계한 황금빛 물결, 투자의 새로운 패러다임</p>
+                </div>
             </div>
             
-            <div class="main-video-card" id="card-2">
-                <h2 style="font-size:19px; color:#fff; margin-bottom:20px; font-weight:700;">PART 02. GOLD WAVE : 브랜드 소개 영상</h2>
-                <div style="width:100%; border-radius:12px; overflow:hidden; border:1px solid rgba(255,255,255,0.1);">
-                    <video id="intro-video" onplay="highlightCard('card-2'); document.getElementById('script-box').classList.add('active')" onpause="removeHighlight('card-2')" controls>
+            <div id="card-1" class="main-video-card">
+                <h2>PART 01. AI 시스템 투자 철학 : 리스크와 시스템</h2>
+                <div class="video-box">
+                    <video onplay="highlightCard('card-1')" onpause="removeHighlight('card-1')" controls>
+                        <source src="https://goldwave-notice.github.io/-/1_보완.mp4" type="video/mp4">
+                    </video>
+                </div>
+            </div>
+
+            <div id="card-2" class="main-video-card">
+                <h2>PART 02. GOLD WAVE : 브랜드 소개 영상</h2>
+                <div class="video-box">
+                    <video id="intro-video" onplay="highlightCard('card-2'); showScript();" onpause="removeHighlight('card-2')" controls>
                         <source src="https://goldwave-notice.github.io/-/GOLDE WAVE MP4 VOICE.mp4" type="video/mp4">
                     </video>
                 </div>
-
                 <div id="script-box">
                     <h3>01. 왜 금(GOLD)인가?</h3>
                     <p>시장은 언제나 움직이지만, 모든 움직임이 기회가 되는 것은 아닙니다.</p>
@@ -173,22 +177,16 @@
                     <p>2026년, <span class="highlight">GOLD WAVE</span>와 함께 고객님의 자산 위에 황금 물결이 흐를 순간입니다.</p>
                 </div>
             </div>
-
-            <div class="main-video-card" id="card-1">
-                <h2 style="font-size:19px; color:#fff; margin-bottom:20px; font-weight:700;">PART 01. AI 시스템 투자 철학 : 1_보완</h2>
-                <div style="width:100%; border-radius:12px; overflow:hidden; border:1px solid rgba(255,255,255,0.1);">
-                    <video onplay="highlightCard('card-1')" onpause="removeHighlight('card-1')" controls><source src="https://goldwave-notice.github.io/-/1_보완.mp4" type="video/mp4"></video>
-                </div>
-            </div>
         </div>
     </div>
 
-    <a href="https://goldwave-notice.github.io/-/dashboard.html" class="back-home">🏠 홈</a>
+    <a href="https://goldwave-notice.github.io/-/dashboard.html" class="back-home">🏠 홈으로</a>
 
     <script>
+        // 데이터 대시보드
         const logBox = document.getElementById('terminal-log');
         const getLogMsg = () => {
-            const profit = (Math.random() * 2000 + 300).toLocaleString(undefined, {minimumFractionDigits: 2});
+            const profit = (Math.random() * 2000 + 500).toLocaleString(undefined, {minimumFractionDigits: 2});
             const pool = [
                 `ANALYZING MARKET STRUCTURE... [OK]`,
                 `WAVE PATTERN MATCHED: 0.942`,
@@ -206,9 +204,12 @@
             if(logBox.children.length > 15) logBox.removeChild(logBox.lastChild);
         }, 300);
 
+        // 영상 효과
         function highlightCard(cardId) { document.getElementById(cardId).classList.add('playing'); }
         function removeHighlight(cardId) { document.getElementById(cardId).classList.remove('playing'); }
+        function showScript() { document.getElementById('script-box').style.display = 'block'; }
 
+        // 스크롤 애니메이션
         window.addEventListener('scroll', () => {
             document.querySelectorAll('.reveal').forEach(el => {
                 if (el.getBoundingClientRect().top < window.innerHeight - 100) el.classList.add('active');

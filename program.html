@@ -3,100 +3,77 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GOLD WAVE - ALGORITHM GUIDE</title>
+    <title>GOLD WAVE - SYSTEM LOGIC</title>
     <style>
         @import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css');
         
-        body { margin: 0; padding: 0; background-color: #000; font-family: 'Pretendard', sans-serif; color: #e0e0e0; display: flex; flex-direction: column; align-items: center; padding-top: 80px; padding-bottom: 100px; scroll-behavior: smooth; overflow-x: hidden; }
+        body { margin: 0; padding: 0; background-color: #0b0d11; font-family: 'Pretendard', sans-serif; color: #e0e0e0; display: flex; flex-direction: column; align-items: center; padding-top: 80px; padding-bottom: 100px; overflow-x: hidden; }
         .container { width: 92%; max-width: 900px; margin-top: 30px; }
 
-        /* [고정] 상단 네비게이션 - 랑이 기준 코드 유지 */
-        .top-nav { 
-            position: fixed; top: 0; left: 0; width: 100%; height: 75px; 
-            background: rgba(0, 0, 0, 0.9); border-bottom: 2px solid #bf953f;
-            display: flex; justify-content: center; align-items: center; z-index: 10000;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.8); backdrop-filter: blur(15px);
-        }
+        /* 1. 상단 메뉴 (고정 및 세련된 디자인) */
+        .top-nav { position: fixed; top: 0; left: 0; width: 100%; height: 75px; background: rgba(5, 6, 8, 0.98); border-bottom: 1px solid rgba(191, 149, 63, 0.5); display: flex; justify-content: center; align-items: center; z-index: 10000; backdrop-filter: blur(20px); }
         .nav-content { width: 92%; max-width: 900px; display: flex; justify-content: space-between; align-items: center; }
-        .nav-logo { width: 38px; height: auto; filter: drop-shadow(0 0 5px #bf953f); }
-        .nav-links { display: flex; gap: 8px; }
-        .nav-link { 
-            background: none; border: 1px solid rgba(191,149,63,0.2); color: #fff; padding: 10px 18px; 
-            border-radius: 50px; cursor: pointer; font-weight: 800; font-size: 13px; transition: 0.3s; text-decoration: none;
-        }
-        .nav-link:hover, .nav-link.active { background: rgba(191, 149, 63, 0.2); border-color: #bf953f; color: #bf953f; }
+        .nav-logo { width: 38px; filter: drop-shadow(0 0 8px #bf953f); cursor: pointer; }
+        .nav-links { display: flex; gap: 15px; }
+        .nav-link { background: none; border: 1px solid rgba(191,149,63,0.3); color: #fff; padding: 12px 22px; border-radius: 50px; cursor: pointer; font-weight: 800; font-size: 14px; text-decoration: none; transition: 0.3s; }
+        .nav-link:hover, .nav-link.active { background: #bf953f; color: #000; border-color: #bf953f; box-shadow: 0 0 15px rgba(191, 149, 63, 0.4); }
 
-        /* [고정] 헤더 섹션 - 랑이 기준 코드 유지 */
-        .header-box { display: flex; align-items: center; border-left: 6px solid #bf953f; padding-left: 20px; margin-bottom: 40px; }
-        .header-text h1 { color: #bf953f; font-size: 26px; margin: 0; font-weight: 900; letter-spacing: -1px; }
-        .header-text p { color: #888; font-size: 14px; margin-top: 5px; font-weight: 600; }
+        /* 2. 헤더 (고정) */
+        .header-box { width: 100%; display: flex; align-items: center; border-left: 6px solid #bf953f; padding-left: 20px; margin-bottom: 50px; }
+        .header-text h1 { color: #bf953f; font-size: 28px; margin: 0; font-weight: 900; letter-spacing: -1.5px; }
+        .header-text p { color: #888; font-size: 15px; margin-top: 8px; font-weight: 600; }
 
-        /* [이식] 캡처본 레이아웃 (14171d 배경 네모 박스) */
-        .logic-card { 
-            background: #14171d; border: 1px solid rgba(191, 149, 63, 0.3); border-radius: 20px;
-            padding: 40px; margin-bottom: 40px; box-shadow: 0 20px 50px rgba(0,0,0,0.6);
-        }
-        .logic-title { color: #bf953f; font-size: 18px; font-weight: 900; margin-bottom: 35px; border-bottom: 1px solid rgba(255,255,255,0.05); padding-bottom: 15px; }
+        /* 3. 로직 탭 인터페이스 (소프트웨어 감성) */
+        .tab-menu { display: flex; gap: 10px; margin-bottom: 30px; width: 100%; }
+        .tab-btn { flex: 1; padding: 18px; background: #14171d; border: 1px solid rgba(255,255,255,0.05); color: #666; border-radius: 12px; cursor: pointer; font-weight: 900; transition: 0.4s; font-size: 15px; }
+        .tab-btn.active { background: #bf953f; color: #000; border-color: #bf953f; transform: translateY(-5px); box-shadow: 0 10px 20px rgba(0,0,0,0.4); }
 
-        /* [이식] 수익그래프1 영상 엔진 디스플레이 (사이즈 최적화) */
-        .engine-display { 
-            width: 100%; height: 380px; background: #000; border-radius: 12px; border: 1px solid #333;
-            display: flex; position: relative; overflow: hidden; margin-bottom: 30px;
-        }
-        .chart-video-area { flex: 1.6; position: relative; border-right: 1px solid #333; overflow: hidden; }
-        .chart-video-area video { 
-            width: 135%; height: auto; position: absolute; top: 48%; left: 50%; 
-            transform: translate(-50%, -50%); 
-        }
+        /* 4. 메인 컨텐츠 영역 (이미지 기반 디자인) */
+        .logic-card { display: none; background: #14171d; border: 1px solid rgba(191, 149, 63, 0.3); border-radius: 24px; padding: 45px; box-shadow: 0 30px 60px rgba(0,0,0,0.6); animation: fadeIn 0.5s ease-out forwards; }
+        .logic-card.active { display: block; }
+        @keyframes fadeIn { from { opacity: 0; transform: scale(0.98); } to { opacity: 1; transform: scale(1); } }
 
-        /* [이식] 데이터 대시보드 (속도 업 + LIVE 천천히 깜빡) */
-        .terminal-area { flex: 1; background: #000; padding: 15px; font-family: 'Courier New', monospace; font-size: 11px; overflow: hidden; }
-        .terminal-header { color: #e0e0e0; font-weight: 900; border-bottom: 1px solid #333; margin-bottom: 10px; padding-bottom: 5px; display: flex; justify-content: space-between; }
-        .live-text { color: #ffa500; animation: slowBlink 2s infinite; } /* LIVE 호박색 + 천천히 깜빡 */
-        @keyframes slowBlink { 50% { opacity: 0.3; } }
-        .log-line { margin: 5px 0; color: #00ff41; opacity: 0.9; line-height: 1.4; }
-        .log-profit { color: #ff3333 !important; font-weight: 900; } /* 수익 빨간색 강조 */
+        /* 타이틀 (이미지 2번 반영: 핑크/골드 톤 & 크기) */
+        .logic-title { color: #ff4d8d; font-size: 20px; font-weight: 900; margin-bottom: 35px; border-bottom: 1px solid rgba(255,255,255,0.08); padding-bottom: 20px; display: flex; align-items: center; gap: 10px; }
+        .logic-title::before { content: '📌'; font-size: 18px; }
 
-        /* [이식] 설명 영역 (캡처본 가이드: 초록색 볼드 & 형광펜) */
-        .logic-body p { margin: 15px 0; font-size: 16px; color: #e0e0e0; line-height: 1.8; }
-        .highlight-green { 
-            color: #00ff41; font-weight: 800; 
-            background: rgba(0, 255, 65, 0.1); padding: 0 4px; border-radius: 3px;
-        }
+        /* 엔진 디스플레이 */
+        .engine-display { width: 100%; height: 400px; background: #000; border-radius: 15px; border: 1px solid #333; display: flex; overflow: hidden; margin-bottom: 35px; }
+        .chart-area { flex: 1.6; position: relative; border-right: 1px solid #222; overflow: hidden; }
+        .chart-area video { width: 140%; height: auto; position: absolute; top: 48%; left: 50%; transform: translate(-50%, -50%); }
         
-        /* [이식] 3번 칸: 입체 골드 요약 박스 */
-        .inner-gold-box {
-            background-color: rgba(255, 255, 255, 0.03); border: 1px solid rgba(191, 149, 63, 0.2);
-            border-radius: 15px; padding: 30px; text-align: center; margin-top: 30px;
-            box-shadow: inset 2px 2px 5px rgba(255,255,255,0.05), inset -2px -2px 5px rgba(0,0,0,0.2);
-        }
-        .inner-gold-box span { color: #bf953f; font-weight: 900; font-size: 18px; font-style: italic; letter-spacing: 1.5px; }
+        .terminal-area { flex: 1; background: #000; padding: 20px; font-family: 'Courier New', monospace; font-size: 11px; overflow: hidden; }
+        .terminal-header { color: #e0e0e0; font-weight: 900; border-bottom: 1px solid #333; margin-bottom: 12px; padding-bottom: 8px; display: flex; justify-content: space-between; }
+        .live-tag { color: #ffa500; animation: slowBlink 2.5s infinite; }
+        @keyframes slowBlink { 50% { opacity: 0.2; } }
+        .log-line { margin: 6px 0; color: #00ff41; font-weight: 600; }
+        .log-profit { color: #ff3333 !important; font-weight: 900; }
 
-        /* [이식] 미션 4: 샤샤샥 등장 효과 (Reveal) */
-        .reveal { opacity: 0; transform: translateY(30px); transition: all 0.8s ease-out; }
-        .reveal.active { opacity: 1; transform: translateY(0); }
+        /* 설명 본문 (이미지 4번 반영: 형광펜 포인트) */
+        .logic-body p { margin: 20px 0; font-size: 17px; color: #ced4da; line-height: 1.9; letter-spacing: -0.3px; }
+        .highlight { color: #00ff41; font-weight: 800; background: rgba(0, 255, 65, 0.15); padding: 2px 6px; border-radius: 4px; }
 
-        /* [이식] 브랜드 스토리 (스크립트 복구) */
-        .script-box { 
-            background: #000; border: 1px solid #333; padding: 15px; border-radius: 0 0 15px 15px; 
-            min-height: 60px; font-size: 15px; color: #bf953f; display: flex; 
-            align-items: center; justify-content: center; text-align: center; margin-bottom: 40px; 
-        }
+        /* 입체 골드 박스 */
+        .inner-gold-box { background: rgba(255, 255, 255, 0.02); border: 1px solid rgba(191, 149, 63, 0.3); border-radius: 18px; padding: 35px; text-align: center; margin-top: 40px; box-shadow: inset 0 0 20px rgba(0,0,0,0.5); }
+        .inner-gold-box span { color: #bf953f; font-weight: 900; font-size: 19px; font-style: italic; letter-spacing: 1px; }
 
-        .back-home { position: fixed; bottom: 30px; left: 30px; background: #bf953f; color: #000; padding: 16px 40px; border-radius: 50px; text-decoration: none; font-weight: 900; z-index: 1000; }
+        /* 5. 브랜드 스토리 & 근사한 스크립트 */
+        .brand-section { margin-top: 100px; width: 100%; }
+        .brand-video { width: 100%; border-radius: 20px 20px 0 0; border: 1px solid #333; background: #000; }
+        .script-display { background: #000; border: 1px solid #333; border-top: none; padding: 25px; border-radius: 0 0 20px 20px; min-height: 80px; display: flex; align-items: center; justify-content: center; text-align: center; font-size: 16px; color: #bf953f; font-weight: 700; line-height: 1.6; box-shadow: 0 10px 30px rgba(0,0,0,0.5); }
 
-        @media (max-width: 768px) { .engine-display { flex-direction: column; height: 600px; } .chart-video-area { border-right: none; border-bottom: 1px solid #333; } }
+        .back-home { position: fixed; bottom: 35px; left: 35px; background: #bf953f; color: #000; padding: 18px 40px; border-radius: 50px; text-decoration: none; font-weight: 900; z-index: 1000; box-shadow: 0 15px 30px rgba(0,0,0,0.5); }
     </style>
 </head>
 <body>
 
     <nav class="top-nav">
         <div class="nav-content">
-            <img src="https://i.imgur.com/9VUt3sN.png" alt="Logo" class="nav-logo">
+            <img src="https://i.imgur.com/9VUt3sN.png" alt="Logo" class="nav-logo" onclick="location.href='#'">
             <div class="nav-links">
-                <a href="https://goldwave-notice.github.io/-/dashboard.html" class="nav-link">🏠 홈으로</a>
-                <button class="nav-link active" onclick="document.getElementById('logic-section').scrollIntoView()">시스템 로직 설명</button>
-                <button class="nav-link" onclick="document.getElementById('brand-story').scrollIntoView()">브랜드 스토리</button>
+                <button class="nav-link active" onclick="showTab(1)">시스템 로직 설명</button>
+                <a href="https://goldwave-notice.github.io/-/profit.html" class="nav-link">수익현황</a>
+                <button class="nav-link" onclick="document.getElementById('brand-story').scrollIntoView()">브랜드스토리</button>
             </div>
         </div>
     </nav>
@@ -109,80 +86,91 @@
             </div>
         </div>
 
-        <div id="logic-section" class="logic-card reveal active">
-            <div class="logic-title">📍 1️⃣ 메인 로직 : 파동 기반 추세 대응 전략</div>
+        <div class="tab-menu">
+            <button class="tab-btn active" id="btn1" onclick="showTab(1)">MAIN (GOLD)</button>
+            <button class="tab-btn" id="btn2" onclick="showTab(2)">LONDON (SILVER)</button>
+            <button class="tab-btn" id="btn3" onclick="showTab(3)">NEWYORK (WHITE)</button>
+        </div>
 
+        <div id="logic1" class="logic-card active">
+            <div class="logic-title">메인 로직 : 파동 기반 추세 대응 전략</div>
             <div class="engine-display">
-                <div class="chart-video-area">
+                <div class="chart-area">
                     <video autoplay loop muted playsinline><source src="https://goldwave-notice.github.io/-/수익그래프1.mp4" type="video/mp4"></video>
                 </div>
                 <div class="terminal-area">
-                    <div class="terminal-header"><span>DATA LOG CENTER</span><span class="live-text">● LIVE</span></div>
+                    <div class="terminal-header"><span>DATA LOG CENTER</span><span class="live-tag">● LIVE</span></div>
                     <div id="terminal-log"></div>
                 </div>
             </div>
-
             <div class="logic-body">
-                <p>시장 흐름(상승/하락 구조)을 기반으로 <span class="highlight-green">확률 높은 구간에서만 진입</span>하고, 단순 지표 진입이 아닌 <span class="highlight-green">구조 + 흐름 + 타점 결합 방식</span>이 특징입니다. 이는 불필요한 매매를 최소화하여 <span class="highlight-green">타점 중심 진입 안정적인 수익 누적 구조</span>로 이어지게 됩니다.</p>
+                <p>시장 흐름(상승/하락 구조)을 기반으로 <span class="highlight">확률 높은 구간에서만 진입</span>하고, 단순 지표 진입이 아닌 <span class="highlight">구조 + 흐름 + 타점 결합 방식</span>이 특징입니다.</p>
+                <p>이는 불필요한 매매를 최소화하여 <span class="highlight">타점 중심 진입 안정적인 수익 누적 구조</span>로 이어지게 됩니다.</p>
             </div>
-
             <div class="inner-gold-box">
                 <span>"시장 방향을 따라가는 구조 기반의 핵심 전략 입니다."</span>
             </div>
         </div>
 
-        <div class="logic-card reveal" style="opacity:0.3; border-style:dashed;">
-            <div class="logic-title">📍 2️⃣ 런던 세션 로직 (안정형)</div>
-            <p style="text-align:center; padding:40px;">[ 차후 업데이트 예정 ]</p>
-        </div>
-        <div class="logic-card reveal" style="opacity:0.3; border-style:dashed;">
-            <div class="logic-title">📍 3️⃣ 뉴욕 세션 로직 (확장형)</div>
-            <p style="text-align:center; padding:40px;">[ 차후 업데이트 예정 ]</p>
-        </div>
+        <div id="logic2" class="logic-card"><p style="text-align:center; padding:100px; color:#444;">LONDON SESSION ALGORITHM COMING SOON</p></div>
+        <div id="logic3" class="logic-card"><p style="text-align:center; padding:100px; color:#444;">NEWYORK SESSION ALGORITHM COMING SOON</p></div>
 
-        <div id="brand-story" class="reveal">
-            <div class="header-box" style="margin-top:60px;"><div class="header-text"><h1>GOLD WAVE BRAND STORY</h1></div></div>
-            
-            <video id="v" controls style="width:100%; border-radius:15px 15px 0 0; background:#000;"><source src="https://goldwave-notice.github.io/-/GOLDE WAVE MP4 VOICE.mp4" type="video/mp4"></video>
-            <div id="s" class="script-box">영상을 재생하면 핵심 전략 스크립트가 표시됩니다.</div>
+        <div id="brand-story" class="brand-section">
+            <div class="header-box">
+                <div class="header-text"><h1>GOLD WAVE BRAND STORY</h1></div>
+            </div>
+            <video id="brandVideo" class="brand-video" controls><source src="https://goldwave-notice.github.io/-/GOLDE WAVE MP4 VOICE.mp4" type="video/mp4"></video>
+            <div id="scriptArea" class="script-display">영상을 재생하면 실시간 전략 브리핑이 시작됩니다.</div>
 
-            <div class="header-box" style="margin-top:40px;"><div class="header-text"><h1>INVESTMENT PHILOSOPHY</h1></div></div>
-            <video controls style="width:100%; border-radius:15px; background:#000;"><source src="https://goldwave-notice.github.io/-/1_보완.mp4" type="video/mp4"></video>
+            <div class="header-box" style="margin-top:50px;">
+                <div class="header-text"><h1>INVESTMENT PHILOSOPHY</h1></div>
+            </div>
+            <video class="brand-video" controls style="border-radius:20px; margin-bottom:50px;"><source src="https://goldwave-notice.github.io/-/1_보완.mp4" type="video/mp4"></video>
         </div>
     </div>
 
-    <a href="https://goldwave-notice.github.io/-/dashboard.html" class="back-home">🏠 홈</a>
-
     <script>
-        // 📟 데이터 대시보드 (수익 강조 + 속도 업)
-        const logBox = document.getElementById('terminal-log');
-        const msgs = ["SCANNING XAU/USD...", "WAVE DETECTED: 0.882", "SIGNAL: SUCCESS", "PROFIT: +$1,540.20", "AI COORD: 2439.12", "PROFIT: +25.12%", "MARKET ENERGY FLOWING", "PROFIT: +$840.50"];
-        function pushLog() {
-            const line = document.createElement('div');
-            line.className = 'log-line';
-            const msg = msgs[Math.floor(Math.random() * msgs.length)];
-            if (msg.includes('+')) line.classList.add('log-profit');
-            line.innerText = `> ${msg}`;
-            logBox.prepend(line);
-            if (logBox.children.length > 15) logBox.removeChild(logBox.lastChild);
+        // 탭 전환 시스템
+        function showTab(n) {
+            document.querySelectorAll('.logic-card').forEach(c => c.classList.remove('active'));
+            document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+            document.getElementById('logic' + n).classList.add('active');
+            document.getElementById('btn' + n).classList.add('active');
         }
-        setInterval(pushLog, 300); // 0.3초 속도
 
-        // 🎬 실시간 스크립트 복구
-        const v = document.getElementById('v'), s = document.getElementById('s');
-        v.ontimeupdate = () => {
-            const t = v.currentTime;
-            if (t > 1 && t < 6) s.innerText = "골드웨이브는 단순한 트레이딩 도구가 아닌 과학적 파동 분석 시스템입니다.";
-            else if (t >= 6 && t < 12) s.innerText = "시장 구조와 흐름을 결합하여 고확률 타점만을 정밀하게 추적합니다.";
-            else if (t >= 12) s.innerText = "안정적인 수익 누적을 위한 GOLD WAVE의 핵심 전략을 확인하세요.";
+        // 데이터 로그 (중복 제거 + 수익 강조)
+        const logBox = document.getElementById('terminal-log');
+        const getLog = () => {
+            const val = (Math.random() * 1000 + 500).toLocaleString(undefined, {minimumFractionDigits: 2});
+            const p = (Math.random() * 30 + 5).toFixed(2);
+            return [
+                `ANALYZING MARKET STRUCTURE... [OK]`,
+                `WAVE PATTERN MATCHED: 0.942`,
+                `PROFIT REALIZED: <span class="log-profit">+$${val}</span>`,
+                `AI ENTRY CONFIRMED: #GW-${Math.floor(Math.random()*9000)}`,
+                `CURRENT RETURN: <span class="log-profit">+${p}%</span>`,
+                `SIGNAL VALIDATION: HIGH PROBABILITY`
+            ];
         };
 
-        // ✨ Reveal 애니메이션 제어
-        window.addEventListener('scroll', () => {
-            document.querySelectorAll('.reveal').forEach(el => {
-                if (el.getBoundingClientRect().top < window.innerHeight - 100) el.classList.add('active');
-            });
-        });
+        setInterval(() => {
+            const line = document.createElement('div');
+            line.className = 'log-line';
+            const pool = getLog();
+            line.innerHTML = `> ${pool[Math.floor(Math.random()*pool.length)]}`;
+            logBox.prepend(line);
+            if(logBox.children.length > 14) logBox.removeChild(logBox.lastChild);
+        }, 250);
+
+        // 실시간 스크립트 (그때 그 근사한 버전으로 복구)
+        const v = document.getElementById('brandVideo'), s = document.getElementById('scriptArea');
+        v.ontimeupdate = () => {
+            const t = v.currentTime;
+            if (t > 0.5 && t < 4) s.innerText = "시장에는 무수히 많은 파동이 존재하지만, 수익으로 연결되는 파동은 정해져 있습니다.";
+            else if (t >= 4 && t < 9) s.innerText = "GOLD WAVE는 단순한 보조지표가 아닌, 시장의 유동성과 구조적 결함을 파고듭니다.";
+            else if (t >= 9 && t < 15) s.innerText = "수천 개의 데이터를 정밀 필터링하여, 오직 통계적 우위를 가진 구간에서만 집행합니다.";
+            else if (t >= 15) s.innerText = "안정적인 수익 누적의 기술, 지금 GOLD WAVE의 알고리즘이 증명합니다.";
+        };
     </script>
 </body>
 </html>

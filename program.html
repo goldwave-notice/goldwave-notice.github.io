@@ -7,10 +7,9 @@
     <style>
         @import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css');
         body { margin: 0; padding: 0; background-color: #0b0d11; font-family: 'Pretendard', sans-serif; color: #e0e0e0; display: flex; flex-direction: column; align-items: center; padding-bottom: 150px; scroll-behavior: smooth; }
-        
         .container { width: 92%; max-width: 900px; margin-top: 50px; position: relative; }
 
-        /* 상단 메뉴 - 호버 후광 및 클릭 시 활성화 */
+        /* 상단 내비게이션 */
         .top-nav-fixed { position: fixed; top: 0; left: 0; width: 100%; height: 75px; background: rgba(5, 6, 8, 0.98); border-bottom: 2px solid #bf953f; display: flex; justify-content: center; align-items: center; z-index: 10000; backdrop-filter: blur(20px); }
         .nav-content { width: 92%; max-width: 900px; display: flex; justify-content: space-between; align-items: center; }
         .nav-links { display: flex; gap: 15px; }
@@ -34,7 +33,7 @@
         @keyframes slideIn { from { opacity: 0; transform: translateX(20px); } to { opacity: 1; transform: translateX(0); } }
         .logic-title-final { color: #ffffff; font-size: 32px; font-weight: 900; border-bottom: 2px solid rgba(191, 149, 63, 0.5); padding-bottom: 20px; margin-bottom: 35px; letter-spacing: -1.5px; }
 
-        /* 데이터 대시보드 (호박색 & LIVE) */
+        /* 데이터 대시보드 */
         .engine-display { width: 100%; height: 380px; display: flex; margin-bottom: 35px; border-radius: 12px; overflow: hidden; border: 1px solid #333; }
         .chart-area { flex: 1.6; position: relative; overflow: hidden; background: #000; border-right: 1px solid #333; }
         .chart-area video { width: 135%; height: auto; position: absolute; top: 48%; left: 50%; transform: translate(-50%, -50%); }
@@ -54,14 +53,11 @@
         @keyframes heartBeat { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.015); border-color: #bf953f; } }
         .summary-gold-box span { color: #ffdb8e; font-weight: 900; font-size: 21px; letter-spacing: 1.2px; text-shadow: 0 0 10px rgba(255, 219, 142, 0.4); }
 
-        /* 영상 카드 & 대본 박스 (program4 복구) */
+        /* 영상 카드 & 홈 버튼 */
         .main-video-card { width: 100%; background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(191, 149, 63, 0.15); border-radius: 20px; padding: 20px; margin-bottom: 80px; transition: 0.5s; position: relative; overflow: hidden; }
         .main-video-card.playing { border: 2px solid #bf953f; box-shadow: 0 0 30px rgba(191, 149, 63, 0.4); transform: scale(1.02); }
         .video-box { width: 100%; border-radius: 12px; overflow: hidden; border: 1px solid rgba(255,255,255,0.1); background: #000; }
         #script-box { display: none; padding: 40px 25px; line-height: 1.8; color: #ccc; margin-top: 25px; background: rgba(191, 149, 63, 0.08); border-radius: 15px; border: 1px dashed rgba(191, 149, 63, 0.4); animation: fadeIn 0.8s; }
-        @keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
-
-        /* 홈 버튼 */
         .back-home { position: fixed; bottom: 30px; left: 30px; background: linear-gradient(135deg, #bf953f, #aa771c); color: #000; padding: 15px 45px; border-radius: 50px; text-decoration: none; font-weight: 900; z-index: 10001; box-shadow: 0 10px 30px rgba(0,0,0,0.5); transition: 0.3s; }
     </style>
 </head>
@@ -85,9 +81,9 @@
             </div>
             
             <div class="tab-menu">
-                <button class="tab-btn active" id="tabBtn1" onclick="showTab(1)">MAIN (GOLD)</button>
-                <button class="tab-btn" id="tabBtn2" onclick="showTab(2)">LONDON (SILVER)</button>
-                <button class="tab-btn" id="tabBtn3" onclick="showTab(3)">NEWYORK (WHITE)</button>
+                <button class="tab-btn active" id="tabBtn1" onclick="showTab(1)">MAIN</button>
+                <button class="tab-btn" id="tabBtn2" onclick="showTab(2)">LONDON</button>
+                <button class="tab-btn" id="tabBtn3" onclick="showTab(3)">NEWYORK</button>
             </div>
 
             <div id="logic1" class="logic-card active">
@@ -110,9 +106,7 @@
             <div id="logic2" class="logic-card">
                 <div class="logic-title-final">런던 로직 : <span style="color:#aaa;">단기 / 안정형</span> - 시간대 특화 단기 전략</div>
                 <div class="engine-display">
-                    <div class="chart-area" style="background: #000; border: 1px dashed #444; display: flex; align-items: center; justify-content: center;">
-                        <p style="color:#444;">[ 런던 세션 그래프 데이터 비워둠 ]</p>
-                    </div>
+                    <div class="chart-area" style="background: #000; border: 1px dashed #444; display: flex; align-items: center; justify-content: center;"><p style="color:#444;">[ 런던 세션 데이터 대기 중 ]</p></div>
                     <div class="terminal-area">
                         <div class="terminal-header"><span>LONDON LOG CENTER</span><span class="live-tag">● LIVE</span></div>
                         <div id="terminal-log2"></div>
@@ -120,19 +114,29 @@
                 </div>
                 <div class="logic-text-final">
                     <p>유럽장 개장 <span class="point-focus">(KST 14~19시)</span> 하루 1회 진입합니다. <br>
-                    운영 방식은 1차 익절 후 일부 청산, 나머지는 <span class="point-focus">트레일링</span>,
+                    운영 방식은 1차 익절 후 일부 청산, 나머지는 <span class="point-focus">트레일링</span>, <br>
                     <span class="point-focus">22:00 강제 청산</span> 되게 합니다.</p>
                     <p>가장 큰 특징은 <span class="point-focus">당일 마감 구조</span>와 <span class="point-focus">짧고 빠른 수익 회수</span>입니다.</p>
                 </div>
-                <div class="summary-gold-box">
-                    <span>"짧게 먹고 끝내는 안정형 단기 전략"</span>
-                </div>
+                <div class="summary-gold-box"><span>"짧게 먹고 끝내는 안정형 단기 전략"</span></div>
             </div>
 
             <div id="logic3" class="logic-card">
-                <div class="logic-title-final">뉴욕 로직 : <span style="color:#eee;">추세 추종형</span> - 고유동성 돌파 전략</div>
-                <div class="engine-display"><div class="chart-area"></div><div class="terminal-area"></div></div>
-                <p style="text-align:center; padding:50px; color:#555;">[ NEWYORK SESSION SKELETON READY ]</p>
+                <div class="logic-title-final">뉴욕 로직 : <span style="color:#eee;">중기 / 확장형</span> - 변동성 활용 확장 전략</div>
+                <div class="engine-display">
+                    <div class="chart-area" style="background: #000; border: 1px dashed #555; display: flex; align-items: center; justify-content: center;"><p style="color:#555;">[ 뉴욕 세션 데이터 대기 중 ]</p></div>
+                    <div class="terminal-area">
+                        <div class="terminal-header"><span>NEWYORK LOG CENTER</span><span class="live-tag">● LIVE</span></div>
+                        <div id="terminal-log3"></div>
+                    </div>
+                </div>
+                <div class="logic-text-final">
+                    <p>런던 이후 이어지는 시장 흐름 활용해 <span class="point-focus">포지션 유지 시간</span> 더 길어졌습니댜. <br>
+                    운영 방식 조건 충족 시 진입, <span class="point-focus">시장 흐름</span> 따라 포지션을 유지합니다.</p>
+                    <p>특징은 <span class="point-focus">큰 변동성 구간</span>에 대응하며, 수익 확장이 가능합니다. <br>
+                    ( 런던 대비 공격적인 구조 )</p>
+                </div>
+                <div class="summary-gold-box"><span>"흐름 타고 크게 먹는 확장형 전략"</span></div>
             </div>
         </div>
 
@@ -147,10 +151,7 @@
             <div id="card-2" class="main-video-card">
                 <h2>PART 02. GOLD WAVE : 브랜드 소개 영상</h2>
                 <div class="video-box"><video id="intro-video" onplay="highlightCard('card-2'); document.getElementById('script-box').style.display='block';" onpause="removeHighlight('card-2')" controls><source src="https://goldwave-notice.github.io/-/GOLDE WAVE MP4 VOICE.mp4" type="video/mp4"></video></div>
-                <div id="script-box">
-                    <h3 style="color:#bf953f; font-size:20px; margin-bottom:15px; font-weight:800;">01. 왜 금(GOLD)인가?</h3>
-                    <p><span style="color:#ffcc00; font-weight:700;">금과 은</span>은 가장 오래 살아남은 자산입니다.</p>
-                </div>
+                <div id="script-box"><h3>01. 왜 금(GOLD)인가?</h3><p><span style="color:#ffcc00; font-weight:700;">금과 은</span>은 가장 오래 살아남은 자산입니다.</p></div>
             </div>
         </div>
     </div>
@@ -158,48 +159,30 @@
     <a href="https://goldwave-notice.github.io/-/dashboard.html" class="back-home">🏠 홈</a>
 
     <script>
-        // 탭 전환 기능
         function showTab(n) {
             document.querySelectorAll('.logic-card').forEach(c => c.classList.remove('active'));
             document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
             document.getElementById('logic' + n).classList.add('active');
             document.getElementById('tabBtn' + n).classList.add('active');
         }
-
-        // 스크롤 이동
         function scrollToSection(id) {
             document.getElementById(id).scrollIntoView({ behavior: 'smooth' });
             document.querySelectorAll('.nav-link').forEach(l => l.classList.remove('active'));
             if(id === 'logic-section') document.getElementById('nav-logic').classList.add('active');
             if(id === 'brand-story') document.getElementById('nav-brand').classList.add('active');
         }
-
-        // 데이터 대시보드 로직 (로직 1 & 2 각각)
-        const logBox1 = document.getElementById('terminal-log1');
-        const logBox2 = document.getElementById('terminal-log2');
-
-        const getLogMsg = (session) => {
-            const profit = (Math.random() * 2000 + 500).toLocaleString(undefined, {minimumFractionDigits: 2});
-            return `> ${session} ANALYSIS... [OK] | PROFIT: <span class="log-profit">+$${profit}</span>`;
+        const createLog = (id, session) => {
+            const box = document.getElementById(id);
+            setInterval(() => {
+                if(!box) return;
+                const line = document.createElement('div');
+                line.className = 'log-line';
+                line.innerHTML = `> ${session} ANALYSIS... [OK] | PROFIT: <span class="log-profit">+$${(Math.random()*2000+500).toLocaleString()}</span>`;
+                box.prepend(line);
+                if(box.children.length > 12) box.removeChild(box.lastChild);
+            }, 400);
         };
-
-        setInterval(() => {
-            if(logBox1) {
-                const line = document.createElement('div');
-                line.className = 'log-line';
-                line.innerHTML = getLogMsg('GOLD');
-                logBox1.prepend(line);
-                if(logBox1.children.length > 12) logBox1.removeChild(logBox1.lastChild);
-            }
-            if(logBox2) {
-                const line = document.createElement('div');
-                line.className = 'log-line';
-                line.innerHTML = getLogMsg('LONDON');
-                logBox2.prepend(line);
-                if(logBox2.children.length > 12) logBox2.removeChild(logBox2.lastChild);
-            }
-        }, 400);
-
+        createLog('terminal-log1', 'GOLD'); createLog('terminal-log2', 'LONDON'); createLog('terminal-log3', 'NEWYORK');
         function highlightCard(id) { document.getElementById(id).classList.add('playing'); }
         function removeHighlight(id) { document.getElementById(id).classList.remove('playing'); }
     </script>

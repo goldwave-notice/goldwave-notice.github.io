@@ -10,31 +10,20 @@
         
         .container { width: 92%; max-width: 900px; margin-top: 50px; position: relative; }
 
-        /* 상단 메뉴 고정 */
-        .top-nav-fixed { 
-            position: fixed; top: 0; left: 0; width: 100%; height: 75px; 
-            background: rgba(5, 6, 8, 0.98); border-bottom: 2px solid #bf953f;
-            display: flex; justify-content: center; align-items: center; z-index: 10000;
-            backdrop-filter: blur(20px);
-        }
+        /* 상단 메뉴 - 호버 후광 + 활성 탭 색상 채우기 */
+        .top-nav-fixed { position: fixed; top: 0; left: 0; width: 100%; height: 75px; background: rgba(5, 6, 8, 0.98); border-bottom: 2px solid #bf953f; display: flex; justify-content: center; align-items: center; z-index: 10000; backdrop-filter: blur(20px); }
         .nav-content { width: 92%; max-width: 900px; display: flex; justify-content: space-between; align-items: center; }
         .nav-links { display: flex; gap: 15px; }
-        .nav-link { 
-            background: none; border: 1px solid rgba(191,149,63,0.3); color: #aaa; padding: 12px 22px; 
-            border-radius: 50px; cursor: pointer; font-weight: 800; font-size: 14px; text-decoration: none; transition: 0.4s;
-        }
-        .nav-link:hover { 
-            border-color: #bf953f; color: #fff; 
-            box-shadow: 0 0 15px rgba(191, 149, 63, 0.7);
-        }
+        .nav-link { background: none; border: 1px solid rgba(191,149,63,0.3); color: #aaa; padding: 12px 22px; border-radius: 50px; cursor: pointer; font-weight: 800; font-size: 14px; text-decoration: none; transition: 0.4s; }
+        .nav-link:hover { border-color: #bf953f; color: #fff; box-shadow: 0 0 15px rgba(191, 149, 63, 0.7); transform: translateY(-2px); }
         .nav-link.active { background: #bf953f !important; color: #000 !important; border-color: #bf953f; font-weight: 900; box-shadow: 0 0 20px rgba(191, 149, 63, 0.5); }
 
+        /* 헤더 */
         .header-box { display: flex; align-items: center; border-left: 6px solid #bf953f; padding-left: 20px; margin-bottom: 30px; margin-top: 50px; }
-        .brand-logo { width: 45px; height: auto; margin-right: 18px; filter: drop-shadow(0 0 5px rgba(191, 149, 63, 0.5)); }
         .header-text h1 { color: #bf953f; font-size: 26px; margin: 0; font-weight: 800; }
         .header-text p { color: #ccc; font-size: 15px; margin-top: 7px; font-weight: 700; }
 
-        /* 로직 탭 전환 */
+        /* 로직 탭 메뉴 */
         .tab-menu { display: flex; gap: 10px; margin-bottom: 30px; width: 100%; }
         .tab-btn { flex: 1; padding: 18px; background: #14171d; border: 1px solid rgba(255,255,255,0.05); color: #666; border-radius: 12px; cursor: pointer; font-weight: 900; transition: 0.4s; font-size: 15px; }
         .tab-btn.active { background: #bf953f; color: #000; border-color: #bf953f; transform: translateY(-5px); box-shadow: 0 10px 20px rgba(0,0,0,0.4); }
@@ -44,7 +33,6 @@
         @keyframes slideIn { from { opacity: 0; transform: translateX(20px); } to { opacity: 1; transform: translateX(0); } }
 
         .logic-title-final { color: #ffffff; font-size: 32px; font-weight: 900; border-bottom: 2px solid rgba(191, 149, 63, 0.5); padding-bottom: 20px; margin-bottom: 35px; letter-spacing: -1.5px; }
-        .yellow-point { color: #ffcc00; }
 
         /* 대시보드 */
         .engine-display { width: 100%; height: 380px; display: flex; margin-bottom: 35px; border-radius: 12px; overflow: hidden; border: 1px solid #333; }
@@ -54,21 +42,22 @@
         .log-line { margin: 5px 0; color: #00ff41; font-weight: 600; }
         .log-profit { color: #ff3333 !important; font-weight: 900; }
 
-        /* 형광펜 포인트 및 심박동 */
+        /* 🟢 랑이의 '진짜' 형광펜 & 설명 텍스트 */
         .point-focus { font-weight: 800; color: #ffffff; background: linear-gradient(to top, rgba(0, 255, 0, 0.45) 45%, transparent 45%); padding: 0 4px; border-radius: 2px; }
         .logic-text-final p { font-size: 17px; line-height: 2.3; color: #ffffff; font-weight: 500; margin: 25px 0; }
+
+        /* 심박동 요약 박스 */
         .summary-gold-box { background: linear-gradient(145deg, #1a1d23, #0d0f14); border: 1px solid rgba(191, 149, 63, 0.6); border-radius: 15px; padding: 35px; text-align: center; margin-top: 45px; animation: heartBeat 3s infinite ease-in-out; }
         @keyframes heartBeat { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.015); border-color: #bf953f; } }
         .summary-gold-box span { color: #ffdb8e; font-weight: 900; font-size: 21px; letter-spacing: 1.2px; text-shadow: 0 0 10px rgba(255, 219, 142, 0.4); }
 
-        /* 영상 카드 (program4 오리지널) */
+        /* 영상 카드 스타일 */
         .main-video-card { width: 100%; background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(191, 149, 63, 0.15); border-radius: 20px; padding: 20px; margin-bottom: 80px; transition: 0.5s; position: relative; overflow: hidden; }
-        .main-video-card.playing { border: 2px solid #bf953f; box-shadow: 0 0 30px rgba(191, 149, 63, 0.4); transform: scale(1.02); background: rgba(191, 149, 63, 0.05); }
+        .main-video-card.playing { border: 2px solid #bf953f; box-shadow: 0 0 30px rgba(191, 149, 63, 0.4); transform: scale(1.02); }
         .video-box { width: 100%; border-radius: 12px; overflow: hidden; border: 1px solid rgba(255,255,255,0.1); }
         #script-box { display: none; padding: 40px 25px; line-height: 1.8; color: #ccc; margin-top: 25px; background: rgba(191, 149, 63, 0.08); border-radius: 15px; border: 1px dashed rgba(191, 149, 63, 0.4); }
-        .highlight { color: #ffcc00; font-weight: 700; }
 
-        /* 홈 버튼 고정 */
+        /* 홈 버튼 */
         .back-home { position: fixed; bottom: 30px; left: 30px; background: linear-gradient(135deg, #bf953f, #aa771c); color: #000; padding: 15px 45px; border-radius: 50px; text-decoration: none; font-weight: 900; z-index: 10001; box-shadow: 0 10px 30px rgba(0,0,0,0.5); }
     </style>
 </head>
@@ -88,7 +77,6 @@
     <div class="container">
         <div id="logic-section" style="padding-top:100px;">
             <div class="header-box">
-                <img src="https://i.imgur.com/9VUt3sN.png" alt="Logo" class="brand-logo">
                 <div class="header-text"><h1>GOLD WAVE PROGRAM</h1><p>차세대 AI 알고리즘의 과학적 설계 원리</p></div>
             </div>
             <div class="tab-menu">
@@ -97,14 +85,18 @@
                 <button class="tab-btn" onclick="showTab(3)">NEWYORK (WHITE)</button>
             </div>
             <div id="logic1" class="logic-card active">
-                <div class="logic-title-final">메인 로직 : <span class="yellow-point">파동 기반</span> 추세 대응 전략</div>
+                <div class="logic-title-final">메인 로직 : <span style="color:#ffcc00;">파동 기반</span> 추세 대응 전략</div>
                 <div class="engine-display">
                     <div class="chart-area"><video autoplay loop muted playsinline><source src="https://goldwave-notice.github.io/-/수익그래프1.mp4" type="video/mp4"></video></div>
-                    <div class="terminal-area"><div id="log-display"></div></div>
+                    <div class="terminal-area">
+                        <div class="terminal-header"><span>DATA LOG CENTER</span><span class="live-tag">● LIVE</span></div>
+                        <div id="terminal-log"></div>
+                    </div>
                 </div>
                 <div class="logic-text-final">
-                    <p>시장 흐름을 기반으로 <span class="point-focus">확률 높은 구간에서만 진입</span>하고, <br>
-                    단순 지표가 아닌 <span class="point-focus">구조 + 흐름 + 타점 결합 방식</span>이 특징입니다.</p>
+                    <p>시장 흐름(상승/하락 구조)을 기반으로 <span class="point-focus">확률 높은 구간에서만 진입</span>하고, <br>
+                    단순 지표 진입이 아닌 <span class="point-focus">구조 + 흐름 + 타점 결합 방식</span>이 특징입니다.</p>
+                    <p>이는 불필요한 매매를 최소화하여 <span class="point-focus">타점 중심 진입 안정적인 수익 누적 구조</span>로 이어지게 됩니다.</p>
                 </div>
                 <div class="summary-gold-box"><span>"시장 방향을 따라가는 구조 기반의 핵심 전략 입니다."</span></div>
             </div>
@@ -114,24 +106,18 @@
 
         <div id="brand-story" style="padding-top:100px; margin-top:50px;">
             <div class="header-box">
-                <div class="header-text">
-                    <h1>GOLD WAVE BRAND STORY</h1>
-                    <p>AI가 설계한 황금빛 물결, 투자의 새로운 패러다임</p>
-                </div>
+                <div class="header-text"><h1>GOLD WAVE BRAND STORY</h1><p>AI가 설계한 황금빛 물결, 투자의 새로운 패러다임</p></div>
             </div>
-            
             <div id="card-1" class="main-video-card">
                 <h2>PART 01. AI 시스템 투자 철학 : 리스크와 시스템</h2>
                 <div class="video-box"><video onplay="highlightCard('card-1')" onpause="removeHighlight('card-1')" controls><source src="https://goldwave-notice.github.io/-/1_보완.mp4" type="video/mp4"></video></div>
             </div>
-
             <div id="card-2" class="main-video-card">
                 <h2>PART 02. GOLD WAVE : 브랜드 소개 영상</h2>
                 <div class="video-box"><video id="intro-video" onplay="highlightCard('card-2'); document.getElementById('script-box').style.display='block';" onpause="removeHighlight('card-2')" controls><source src="https://goldwave-notice.github.io/-/GOLDE WAVE MP4 VOICE.mp4" type="video/mp4"></video></div>
                 <div id="script-box">
                     <h3>01. 왜 금(GOLD)인가?</h3>
                     <p>시장은 언제나 움직이지만, 모든 움직임이 기회가 되는 것은 아닙니다.</p>
-                    <p><span class="highlight">금과 은</span>은 가장 오래 살아남은 자산입니다.</p>
                 </div>
             </div>
         </div>
@@ -140,6 +126,16 @@
     <a href="https://goldwave-notice.github.io/-/dashboard.html" class="back-home">🏠 홈</a>
 
     <script>
+        // 📉 [program2 기반] 대시보드 로그 복구
+        const logBox = document.getElementById('terminal-log');
+        const getLogMsg = () => {
+            const profit = (Math.random() * 2000 + 500).toLocaleString(undefined, {minimumFractionDigits: 2});
+            const percent = (Math.random() * 30 + 10).toFixed(2);
+            const pool = [`ANALYZING MARKET STRUCTURE... [OK]`,`WAVE PATTERN MATCHED: 0.964`,`PROFIT REALIZED: <span class="log-profit">+$${profit}</span>`,`AI ENTRY CONFIRMED: #GW-${Math.floor(Math.random()*8999)+1000}`,`CURRENT RETURN: <span class="log-profit">+${percent}%</span>`,`SIGNAL VALIDATION: HIGH PROBABILITY` ];
+            return pool[Math.floor(Math.random()*pool.length)];
+        };
+        setInterval(() => { if(!logBox) return; const line = document.createElement('div'); line.className = 'log-line'; line.innerHTML = `> ${getLogMsg()}`; logBox.prepend(line); if(logBox.children.length > 15) logBox.removeChild(logBox.lastChild); }, 300);
+
         function scrollToSection(id) {
             document.getElementById(id).scrollIntoView({ behavior: 'smooth' });
             document.querySelectorAll('.nav-link').forEach(l => l.classList.remove('active'));
@@ -153,16 +149,6 @@
             document.getElementById('logic' + n).classList.add('active');
             event.currentTarget.classList.add('active');
         }
-
-        const logBox = document.getElementById('log-display');
-        setInterval(() => {
-            if(!logBox) return;
-            const line = document.createElement('div');
-            line.className = 'log-line';
-            line.innerHTML = `> PROFIT REALIZED: <span class="log-profit">+$${(Math.random()*1500+500).toFixed(2)}</span>`;
-            logBox.prepend(line);
-            if(logBox.children.length > 12) logBox.removeChild(logBox.lastChild);
-        }, 350);
 
         function highlightCard(id) { document.getElementById(id).classList.add('playing'); }
         function removeHighlight(id) { document.getElementById(id).classList.remove('playing'); }

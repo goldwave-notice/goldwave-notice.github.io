@@ -3,9 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>GOLD WAVE REAL-TIME PROFIT</title>
+  <title>GOLD WAVE - 수익 현황</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
   <style>
-    /* 1. 프리미엄 Pretendard 폰트 */
     @import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css');
 
     body {
@@ -17,103 +17,81 @@
       padding-bottom: 120px;
     }
 
+    /* 🔴 통일성 1: 상단 고정 헤더 디자인 */
+    .header-sticky { 
+        position: fixed; top: 0; width: 100%; 
+        background: rgba(26, 29, 35, 0.95); 
+        border-bottom: 1px solid rgba(191, 149, 63, 0.3); 
+        z-index: 1000; padding: 15px 0; 
+        text-align: center; backdrop-filter: blur(10px); 
+    }
+    .header-title { font-size: 13px; font-weight: 800; color: #bf953f; letter-spacing: 1px; }
+
+    /* 🔴 통일성 2: 뒤로가기 화살표 */
+    .back-nav {
+        position: absolute; left: 20px; top: 50%; transform: translateY(-50%);
+        text-decoration: none; color: #bf953f; font-size: 20px;
+        transition: 0.3s;
+    }
+    .back-nav:hover { filter: drop-shadow(0 0 8px #bf953f); transform: translateY(-50%) translateX(-3px); }
+
+    /* 🔴 통일성 3: 가이드 페이지와 동일한 600px 중앙 정렬 컨테이너 */
     .container {
-      width: 100%; max-width: 900px;
-      padding: 40px 20px;
-      box-sizing: border-box;
+      width: 92%; max-width: 600px;
+      margin-top: 100px; /* 상단바 공간 */
+      display: flex; flex-direction: column; align-items: center;
     }
 
-    .header-box {
-      display: flex;
-      align-items: center;
-      margin-bottom: 40px;
-      border-left: 6px solid #bf953f;
-      padding-left: 20px;
-    }
-    .brand-logo {
-      width: 45px; height: auto;
-      margin-right: 15px;
-      filter: drop-shadow(0 0 5px rgba(191, 149, 63, 0.5));
-    }
-    h1 {
-      color: #bf953f; font-size: 24px; margin: 0;
-      line-height: 1.2; letter-spacing: -0.5px;
-    }
+    /* 🔴 랑이 요청 헤더 섹션 (중앙 정렬) */
+    .header-box-centered { text-align: center; margin-bottom: 50px; width: 100%; }
+    
+    /* 1번: 로고 */
+    .brand-logo { width: 55px; height: auto; margin-bottom: 15px; filter: drop-shadow(0 0 8px rgba(191, 149, 63, 0.5)); }
+    
+    /* 2번: GOLD WAVE PROFIT REPORT (금색, 800) */
+    .header-text h1 { color: #bf953f; font-size: 26px; margin: 0; font-weight: 800; letter-spacing: -0.5px; }
+    
+    /* 3번: 실시간 수익 현황 및 공지 (#aaa, 14px) */
+    .header-text p { color: #aaa; font-size: 14px; margin-top: 8px; font-weight: 700; }
 
+    /* [기존 수익현황 디자인 유지] */
     .holiday-notice {
-      text-align: center;
-      padding: 30px;
-      background: rgba(191, 149, 63, 0.05);
-      border: 1px dashed rgba(191, 149, 63, 0.4);
-      border-radius: 20px;
-      margin-bottom: 50px;
-      box-shadow: inset 0 0 20px rgba(0,0,0,0.5);
+      width: 100%; text-align: center; padding: 30px; background: rgba(191, 149, 63, 0.05);
+      border: 1px dashed rgba(191, 149, 63, 0.4); border-radius: 20px; margin-bottom: 50px; box-sizing: border-box;
     }
     .holiday-notice p { color: #fcf6ba; font-size: 15px; margin: 0; line-height: 1.7; }
 
     .profit-section {
-      margin-bottom: 60px;
-      background: rgba(255, 255, 255, 0.02);
-      padding: 20px;
-      border-radius: 20px;
-      border: 1px solid rgba(255, 255, 255, 0.05);
-      transition: border 0.3s ease;
+      width: 100%; margin-bottom: 60px; background: rgba(255, 255, 255, 0.02);
+      padding: 20px; border-radius: 20px; border: 1px solid rgba(255, 255, 255, 0.05); box-sizing: border-box;
     }
-    .profit-section:hover {
-      border: 1px solid rgba(191, 149, 63, 0.4);
-    }
+    .date-badge { display: inline-block; background: linear-gradient(135deg, #bf953f, #fcf6ba); color: #000; padding: 5px 15px; border-radius: 30px; font-weight: 800; font-size: 13px; margin-bottom: 20px; }
+    .magnify-container { position: relative; overflow: hidden; border-radius: 12px; cursor: zoom-in; background-color: #000; box-shadow: 0 10px 40px rgba(0,0,0,0.8); }
+    .profit-img { width: 100%; height: auto; display: block; transition: transform 0.15s ease-out, filter 0.3s ease; transform-origin: center; }
 
-    .date-badge {
-      display: inline-block;
-      background: linear-gradient(135deg, #bf953f, #fcf6ba);
-      color: #000; padding: 5px 15px;
-      border-radius: 30px; font-weight: 800; font-size: 13px;
-      margin-bottom: 20px;
+    @media (max-width: 600px) { 
+        .header-text h1 { font-size: 22px; } 
+        .back-nav { left: 15px; }
     }
-
-    .magnify-container {
-      position: relative;
-      overflow: hidden;
-      border-radius: 12px;
-      /* ⭐ 여기만 zoom-in으로 바꿨습니다! ⭐ */
-      cursor: zoom-in; 
-      background-color: #000;
-      box-shadow: 0 10px 40px rgba(0,0,0,0.8);
-    }
-
-    .profit-img {
-      width: 100%;
-      height: auto;
-      display: block;
-      transition: transform 0.15s ease-out, filter 0.3s ease;
-      transform-origin: center;
-    }
-
-    .back-home {
-      position: fixed;
-      bottom: 30px;
-      background: linear-gradient(135deg, #bf953f, #aa771c);
-      color: #000;
-      padding: 14px 40px;
-      border-radius: 50px;
-      text-decoration: none;
-      font-weight: 800;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.8);
-      transition: 0.3s;
-      z-index: 1000;
-    }
-    .back-home:hover { transform: translateY(-5px) scale(1.05); background: #fcf6ba; }
   </style>
 </head>
 <body>
 
+  <div class="header-sticky">
+      <a href="dashboard-new.html" class="back-nav"><i class="fa-solid fa-arrow-left"></i></a>
+      <div class="header-title">GOLD WAVE 수익현황</div>
+  </div>
+
   <div class="container">
-    <div class="header-box">
-      <img src="https://i.imgur.com/9VUt3sN.png" alt="Gold Wave Logo" class="brand-logo">
-      <h1>GOLD WAVE<br>STRATEGY PROFIT REPORT</h1>
+    <div class="header-box-centered">
+        <img src="https://i.imgur.com/9VUt3sN.png" alt="Logo" class="brand-logo">
+        <div class="header-text">
+            <h1>GOLD WAVE PROFIT REPORT</h1>
+            <p>실시간 수익 현황 및 공지</p>
+        </div>
     </div>
 
-   <div class="profit-section">
+    <div class="profit-section">
       <div class="date-badge">2026. 04. 06 (MON)</div>
       <div class="magnify-container" id="zoom-4-6">
         <img src="https://i.imgur.com/XATyzP8.jpeg" alt="4/6 수익현황" class="profit-img">
@@ -139,18 +117,16 @@
     </div>
   </div>
 
-  <a href="dashboard.html" class="back-home">🏠 홈</a>
-
   <script>
     function enableWideZoom(containerId) {
       const container = document.getElementById(containerId);
       const img = container.querySelector('.profit-img');
+      if(!container) return;
 
       container.addEventListener('mousemove', (e) => {
         const { left, top, width, height } = container.getBoundingClientRect();
         const x = ((e.clientX - left) / width) * 100;
         const y = ((e.clientY - top) / height) * 100;
-
         img.style.transformOrigin = `${x}% ${y}%`;
         img.style.transform = "scale(2)";
         img.style.filter = "brightness(1.1)";
@@ -163,6 +139,8 @@
       });
     }
 
+    // 🔴 돋보기 기능 활성화 (ID 모두 반영)
+    enableWideZoom('zoom-4-6');
     enableWideZoom('zoom-4-2');
     enableWideZoom('zoom-4-1');
   </script>

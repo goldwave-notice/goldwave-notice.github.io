@@ -72,14 +72,19 @@
         .menu-card:hover .card-title { color: #fff; }
         .menu-card:hover .card-desc { color: #aaa; }
 
-        /* 4. 하단 버튼 */
+        /* 4. 하단 버튼 스타일 */
         .footer-links { display: flex; gap: 20px; margin-bottom: 100px; width: 92%; justify-content: center; }
         .f-btn {
-            background: rgba(255, 255, 255, 0.02); border: 1px solid rgba(255, 255, 255, 0.06);
-            border-radius: 50px; padding: 15px 30px; color: #777; font-size: 13px;
+            background: transparent; border: 1px solid #bf953f;
+            border-radius: 50px; padding: 15px 35px; color: #bf953f; 
+            font-size: 13px; font-weight: 700;
             text-decoration: none; display: flex; align-items: center; gap: 10px; transition: 0.3s;
         }
-        .f-btn:hover { background: rgba(255, 255, 255, 0.06); color: #fff; }
+        .f-btn:hover { 
+            background: rgba(191, 149, 63, 0.1); 
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+        }
 
         /* 모바일 최적화 (2열 고정) */
         @media (max-width: 768px) {
@@ -167,8 +172,11 @@
         </main>
 
         <footer class="footer-links">
-            <a href="https://t.me/goldwave_notice" class="f-btn"><i class="fa-brands fa-telegram"></i> 골드웨이브 공식 채널</a>
-            <a href="http://pf.kakao.com/_RxfuxdG" class="f-btn"><i class="fa-solid fa-comment-dots"></i> 카카오톡 상담문의</a>
+            <a href="https://t.me/+dsAFHK_m0WUxMmJl" target="_blank" class="f-btn"><i class="fa-brands fa-telegram"></i> 골드웨이브 공식 채널</a>
+            
+            <a href="https://t.me/GOLD_WAVE37" target="_blank" class="f-btn"><i class="fa-solid fa-headset"></i> 골드웨이브 상담채널</a>
+            
+            <a href="https://open.kakao.com/me/goldwave" target="_blank" class="f-btn"><i class="fa-solid fa-comment-dots"></i> 카카오톡 상담문의</a>
         </footer>
     </div>
 

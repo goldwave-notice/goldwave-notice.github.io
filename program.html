@@ -4,23 +4,37 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>GOLD WAVE - PROGRAM & LOGIC</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <style>
         @import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css');
         body { margin: 0; padding: 0; background-color: #0b0d11; font-family: 'Pretendard', sans-serif; color: #e0e0e0; display: flex; flex-direction: column; align-items: center; padding-bottom: 150px; scroll-behavior: smooth; }
-        .container { width: 92%; max-width: 900px; margin-top: 50px; position: relative; }
+        
+        /* 🔴 [1, 2번] 상단 고정 헤더 */
+        .header-sticky { 
+            position: fixed; top: 0; width: 100%; 
+            background: rgba(26, 29, 35, 0.95); 
+            border-bottom: 1px solid rgba(191, 149, 63, 0.3); 
+            z-index: 10000; padding: 15px 0; 
+            text-align: center; backdrop-filter: blur(10px); 
+        }
+        .header-title { font-size: 13px; font-weight: 800; color: #bf953f; letter-spacing: 1px; }
 
-        /* 상단 내비게이션 */
-        .top-nav-fixed { position: fixed; top: 0; left: 0; width: 100%; height: 75px; background: rgba(5, 6, 8, 0.98); border-bottom: 2px solid #bf953f; display: flex; justify-content: center; align-items: center; z-index: 10000; backdrop-filter: blur(20px); }
-        .nav-content { width: 92%; max-width: 900px; display: flex; justify-content: space-between; align-items: center; }
-        .nav-links { display: flex; gap: 15px; }
-        .nav-link { background: none; border: 1px solid rgba(191,149,63,0.3); color: #aaa; padding: 12px 22px; border-radius: 50px; cursor: pointer; font-weight: 800; font-size: 14px; text-decoration: none; transition: 0.4s; }
-        .nav-link:hover { border-color: #bf953f; color: #fff; box-shadow: 0 0 15px rgba(191, 149, 63, 0.7); transform: translateY(-2px); }
-        .nav-link.active { background: #bf953f !important; color: #000 !important; border-color: #bf953f; font-weight: 900; box-shadow: 0 0 20px rgba(191, 149, 63, 0.5); }
+        /* [1번] 뒤로가기 화살표 (dashboard-new.html 연결) */
+        .back-nav {
+            position: absolute; left: 20px; top: 50%; transform: translateY(-50%);
+            text-decoration: none; color: #bf953f; font-size: 20px;
+            transition: 0.3s;
+        }
+        .back-nav:hover { filter: drop-shadow(0 0 8px #bf953f); transform: translateY(-50%) translateX(-3px); }
 
-        /* 헤더 */
-        .header-box { display: flex; align-items: center; border-left: 6px solid #bf953f; padding-left: 20px; margin-bottom: 30px; margin-top: 50px; }
-        .header-text h1 { color: #bf953f; font-size: 26px; margin: 0; font-weight: 800; }
-        .header-text p { color: #ccc; font-size: 15px; margin-top: 7px; font-weight: 700; }
+        .container { width: 92%; max-width: 900px; margin-top: 100px; position: relative; }
+        
+        /* 🔴 [3, 4, 5번] 중앙 브랜드 헤더 */
+        .header-box-centered { text-align: center; margin-bottom: 60px; width: 100%; }
+        .brand-logo { width: 55px; height: auto; margin-bottom: 15px; filter: drop-shadow(0 0 8px rgba(191, 149, 63, 0.5)); }
+        .header-text h1 { color: #bf953f; font-size: 26px; margin: 0; font-weight: 800; letter-spacing: -0.5px; }
+        /* 5번: 골드웨이브 소개 (기존 페이지 스타일 통일) */
+        .header-text p { color: #aaa; font-size: 14px; margin-top: 8px; font-weight: 700; line-height: 1.6; }
 
         /* 로직 탭 메뉴 */
         .tab-menu { display: flex; gap: 10px; margin-bottom: 30px; width: 100%; }
@@ -44,42 +58,37 @@
         .log-line { margin: 5px 0; color: #00ff41; font-weight: 600; }
         .log-profit { color: #ff3333 !important; font-weight: 900; }
 
-        /* 형광 연두 포인트 */
         .point-focus { font-weight: 800; color: #ffffff; background: linear-gradient(to top, rgba(0, 255, 0, 0.45) 45%, transparent 45%); padding: 0 4px; border-radius: 2px; }
         .logic-text-final p { font-size: 17px; line-height: 2.3; color: #ffffff; font-weight: 500; margin: 25px 0; }
-
-        /* 요약 박스 */
         .summary-gold-box { background: linear-gradient(145deg, #1a1d23, #0d0f14); border: 1px solid rgba(191, 149, 63, 0.6); border-radius: 15px; padding: 35px; text-align: center; margin-top: 45px; animation: heartBeat 3s infinite ease-in-out; }
         @keyframes heartBeat { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.015); border-color: #bf953f; } }
         .summary-gold-box span { color: #ffdb8e; font-weight: 900; font-size: 21px; letter-spacing: 1.2px; text-shadow: 0 0 10px rgba(255, 219, 142, 0.4); }
 
-        /* 영상 카드 & 홈 버튼 */
         .main-video-card { width: 100%; background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(191, 149, 63, 0.15); border-radius: 20px; padding: 20px; margin-bottom: 80px; transition: 0.5s; position: relative; overflow: hidden; }
         .main-video-card.playing { border: 2px solid #bf953f; box-shadow: 0 0 30px rgba(191, 149, 63, 0.4); transform: scale(1.02); }
         .video-box { width: 100%; border-radius: 12px; overflow: hidden; border: 1px solid rgba(255,255,255,0.1); background: #000; }
         #script-box { display: none; padding: 40px 25px; line-height: 1.8; color: #ccc; margin-top: 25px; background: rgba(191, 149, 63, 0.08); border-radius: 15px; border: 1px dashed rgba(191, 149, 63, 0.4); animation: fadeIn 0.8s; }
-        .back-home { position: fixed; bottom: 30px; left: 30px; background: linear-gradient(135deg, #bf953f, #aa771c); color: #000; padding: 15px 45px; border-radius: 50px; text-decoration: none; font-weight: 900; z-index: 10001; box-shadow: 0 10px 30px rgba(0,0,0,0.5); transition: 0.3s; }
+
+        @media (max-width: 600px) { .header-text h1 { font-size: 22px; } .back-nav { left: 15px; } .engine-display { flex-direction: column; height: auto; } .chart-area { height: 250px; } .terminal-area { height: 150px; } }
     </style>
 </head>
 <body>
 
-    <nav class="top-nav-fixed">
-        <div class="nav-content">
-            <img src="https://i.imgur.com/9VUt3sN.png" alt="Logo" style="width:38px; cursor:pointer;" onclick="location.href='https://goldwave-notice.github.io/-/dashboard.html'">
-            <div class="nav-links">
-                <button id="nav-logic" class="nav-link active" onclick="scrollToSection('logic-section')">시스템 로직 설명</button>
-                <a href="https://goldwave-notice.github.io/-/profit.html" class="nav-link">수익현황</a>
-                <button id="nav-brand" class="nav-link" onclick="scrollToSection('brand-story')">브랜드스토리</button>
-            </div>
-        </div>
-    </nav>
+    <div class="header-sticky">
+        <a href="dashboard-new.html" class="back-nav"><i class="fa-solid fa-arrow-left"></i></a>
+        <div class="header-title">GOLD WAVE 프로그램</div>
+    </div>
 
     <div class="container">
-        <div id="logic-section" style="padding-top:100px;">
-            <div class="header-box">
-                <div class="header-text"><h1>GOLD WAVE PROGRAM</h1><p>차세대 AI 알고리즘의 과학적 설계 원리</p></div>
+        <div class="header-box-centered">
+            <img src="https://i.imgur.com/9VUt3sN.png" alt="Logo" class="brand-logo">
+            <div class="header-text">
+                <h1>GOLD WAVE PROGRAM</h1>
+                <p>골드웨이브 소개</p>
             </div>
-            
+        </div>
+        
+        <div id="logic-section">
             <div class="tab-menu">
                 <button class="tab-btn active" id="tabBtn1" onclick="showTab(1)">MAIN</button>
                 <button class="tab-btn" id="tabBtn2" onclick="showTab(2)">LONDON</button>
@@ -114,7 +123,7 @@
                 </div>
                 <div class="logic-text-final">
                     <p>유럽장 개장 <span class="point-focus">(KST 14~19시)</span> 하루 1회 진입합니다. <br>
-                    운영 방식은 1차 익절 후 일부 청산, 나머지는 <span class="point-focus">트레일링</span>, 
+                    운영 방식은 1차 익절 후 일부 청산, 나머지는 <span class="point-focus">트레일링</span>, <br>
                     <span class="point-focus">22:00 안에</span> 나오는 추세 전략입니다.</p>
                     <p>가장 큰 특징은 <span class="point-focus">당일 마감 구조</span>와 <span class="point-focus">짧고 빠른 수익 회수</span>입니다.</p>
                 </div>
@@ -140,10 +149,7 @@
             </div>
         </div>
 
-        <div id="brand-story" style="padding-top:100px; margin-top:50px;">
-            <div class="header-box">
-                <div class="header-text"><h1>GOLD WAVE BRAND STORY</h1><p>AI가 설계한 황금빛 물결, 투자의 새로운 패러다임</p></div>
-            </div>
+        <div id="brand-story" style="margin-top:100px;">
             <div id="card-1" class="main-video-card">
                 <h2>PART 01. AI 시스템 투자 철학 : 리스크와 시스템</h2>
                 <div class="video-box"><video onplay="highlightCard('card-1')" onpause="removeHighlight('card-1')" controls><source src="https://goldwave-notice.github.io/-/1_보완.mp4" type="video/mp4"></video></div>
@@ -156,20 +162,12 @@
         </div>
     </div>
 
-    <a href="https://goldwave-notice.github.io/-/dashboard.html" class="back-home">🏠 홈</a>
-
     <script>
         function showTab(n) {
             document.querySelectorAll('.logic-card').forEach(c => c.classList.remove('active'));
             document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
             document.getElementById('logic' + n).classList.add('active');
             document.getElementById('tabBtn' + n).classList.add('active');
-        }
-        function scrollToSection(id) {
-            document.getElementById(id).scrollIntoView({ behavior: 'smooth' });
-            document.querySelectorAll('.nav-link').forEach(l => l.classList.remove('active'));
-            if(id === 'logic-section') document.getElementById('nav-logic').classList.add('active');
-            if(id === 'brand-story') document.getElementById('nav-brand').classList.add('active');
         }
         const createLog = (id, session) => {
             const box = document.getElementById(id);

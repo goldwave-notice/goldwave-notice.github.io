@@ -67,18 +67,26 @@
         @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
         @keyframes slideUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
 
-        /* 📱 모바일 최적화 미디어 쿼리 (디자인은 유지, 비율만 조정) */
+        /* 📱 모바일 최적화 미디어 쿼리 (디자인 완전 유지, 기기 대응만 추가) */
         @media (max-width: 768px) {
-            .container { width: 92%; }
-            .header-text h1 { font-size: 26px; }
-            .logic-card { padding: 20px; margin-bottom: 60px; }
-            .logic-title-final { font-size: 20px; margin-bottom: 25px; padding-left: 15px; }
-            .engine-display { height: 240px; }
+            .container { width: 92%; margin-top: 80px; }
+            .header-text h1 { font-size: 24px; }
+            .logic-card { padding: 20px; margin-bottom: 50px; }
+            .logic-title-final { font-size: 18px; margin-bottom: 20px; padding-left: 12px; }
+            
+            /* 엔진 디스플레이 높이를 모바일 화면에 맞춰 정갈하게 조정 */
+            .engine-display { height: 210px; aspect-ratio: auto; }
             .terminal-area { padding: 10px; }
-            .log-line { font-size: 8px; }
-            .system-diag { font-size: 7px; padding: 5px; }
-            .logic-text-final p { font-size: 15px; line-height: 1.8; }
-            .point-box-3d span { font-size: 15px; }
+            .terminal-header { font-size: 9px; margin-bottom: 8px; }
+            .log-line { font-size: 8px; margin-bottom: 3px; }
+            .system-diag { font-size: 8px; margin-top: 10px; padding: 5px; }
+            
+            .logic-text-final p { font-size: 14px; line-height: 1.6; }
+            
+            /* 포인트 박스 내 글자 크기 모바일 대응 */
+            .point-box-3d { padding: 10px 5px; margin-top: 15px; }
+            .point-box-3d span { font-size: 14px; line-height: 1.4; word-break: keep-all; }
+            
             #brand-cards { grid-template-columns: 1fr; }
         }
     </style>

@@ -2,47 +2,48 @@
 <html lang="ko">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=1350"> 
   <title>GOLD WAVE PREMIUM REPORT - 26.04.06</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
   <style>
     @import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css');
     
-    html { -webkit-text-size-adjust: none; }
     body { 
       margin: 0; background-color: #0b0d11; font-family: 'Pretendard', sans-serif; color: #e0e0e0; 
-      display: flex; flex-direction: column; align-items: center; padding: 0 0 80px 0; overflow-x: hidden;
+      display: flex; flex-direction: column; align-items: center; padding: 0 0 80px 0;
+      /* PC 화면 크기를 고정합니다 */
+      min-width: 1350px; 
     }
 
-    /* 🔴 상단 고정 헤더 & 뒤로가기 화살표 */
+    /* 🔴 상단 고정 헤더 */
     .header-sticky { 
-        position: fixed; top: 0; width: 100%; 
+        position: fixed; top: 0; width: 100%; min-width: 1350px;
         background: rgba(26, 29, 35, 0.95); 
         border-bottom: 1px solid rgba(191, 149, 63, 0.3); 
         z-index: 1000; padding: 15px 0; 
         text-align: center; backdrop-filter: blur(10px); 
     }
     .header-title { font-size: 13px; font-weight: 800; color: #bf953f; letter-spacing: 1px; }
+
     .back-nav {
         position: absolute; left: 20px; top: 50%; transform: translateY(-50%);
         text-decoration: none; color: #bf953f; font-size: 20px;
-        transition: 0.3s;
     }
 
-    .container { width: 95%; max-width: 1350px; margin-top: 80px; }
+    .container { width: 1350px; margin-top: 80px; }
 
-    /* 🔴 메인 섹션: 좌우 배치 박제 */
-    .main-section { display: flex !important; flex-direction: row !important; gap: 40px; align-items: stretch; margin-bottom: 60px; }
-    .img-area { flex: 1; min-width: 0; display: flex; }
+    /* 🔴 메인 섹션: 좌우 배치 고정 */
+    .main-section { display: flex; gap: 40px; align-items: stretch; margin-bottom: 60px; }
+    
+    .img-area { flex: 1; display: flex; }
     .img-area img { 
-      width: 100%; height: 100%; 
+      width: 550px; height: 550px; /* PC 정사이즈 고정 */
       border-radius: 20px; border: 1px solid #bf953f; 
       object-fit: fill; 
-      background-color: #000;
       box-shadow: 0 30px 60px rgba(0,0,0,0.6); 
     }
 
-    .text-area { flex: 1.2; display: flex; flex-direction: column; gap: 20px; min-width: 0; }
+    .text-area { flex: 1.2; display: flex; flex-direction: column; gap: 20px; }
     .briefing-part { flex: 1; background: rgba(255,255,255,0.02); padding: 40px; border-radius: 20px; border: 1px solid rgba(191,149,63,0.1); display: flex; flex-direction: column; justify-content: center; }
     
     .vvip-strategy-box { 
@@ -66,7 +67,7 @@
       50% { box-shadow: 0 0 40px rgba(191, 149, 63, 0.5); border-color: rgba(252, 246, 186, 0.8); }
     }
 
-    /* 🔴 [복구] 스크롤 화살표 애니메이션 */
+    /* 🔴 스크롤 화살표 애니메이션 */
     .scroll-indicator { text-align: center; margin-bottom: 40px; color: #bf953f; animation: blink 1.2s infinite; font-size: 22px; font-weight: 900; line-height: 1.0; }
     @keyframes blink { 0%, 100% { opacity: 0; transform: translateY(-5px); } 50% { opacity: 1; transform: translateY(5px); } }
 
@@ -76,32 +77,13 @@
     .pop-card { background: #1e232d; padding: 35px; border-radius: 15px; border-top: 1px solid rgba(191,149,63,0.3); animation: goldenBreathing 1.8s infinite ease-in-out; }
 
     .archive-title-label { text-align: center; color: rgba(255,255,255,0.2); letter-spacing: 8px; font-size: 14px; font-weight: 700; margin-bottom: 30px; margin-top: 60px; }
-    .archive-section { width: 100%; display: grid !important; grid-template-columns: repeat(3, 1fr) !important; gap: 25px; }
-    .archive-card { background: rgba(255,255,255,0.03); padding: 25px; border-radius: 15px; border: 1px solid rgba(255,255,255,0.05); text-align: center; text-decoration: none; display: block; }
-    .archive-card:hover { transform: scale(1.05); border-color: #bf953f; background: rgba(191, 149, 63, 0.05); box-shadow: 0 0 20px rgba(191, 149, 63, 0.3); animation: heartbeat 0.8s infinite; }
+    .archive-section { width: 100%; display: grid; grid-template-columns: repeat(3, 1fr); gap: 25px; }
+    .archive-card { background: rgba(255,255,255,0.03); padding: 25px; border-radius: 15px; border: 1px solid rgba(255,255,255,0.05); text-align: center; text-decoration: none; }
     .archive-thumb { width: 100%; height: 180px; border-radius: 10px; object-fit: cover; margin-bottom: 15px; border: 1px solid rgba(191, 149, 63, 0.2); }
-    @keyframes heartbeat { 0%, 30%, 100% { transform: scale(1.05); } 15%, 45% { transform: scale(1.08); } }
 
     .insight-bar { background: linear-gradient(90deg, rgba(191, 149, 63, 0.2), rgba(191, 149, 63, 0.05)); padding: 30px; border-radius: 15px; border-left: 6px solid #00ff00; font-weight: 700; font-size: 20px; margin-top: 40px; }
 
-    /* 🔴 모바일 강제 축소 (PC 비율 박제) */
-    @media (max-width: 1000px) { 
-      .container { width: 98% !important; margin-top: 60px !important; }
-      .main-section { gap: 15px !important; }
-      .img-area { flex: 1 !important; }
-      .text-area { flex: 1.3 !important; gap: 10px !important; }
-      .briefing-part, .vvip-strategy-box { padding: 15px !important; }
-      .briefing-part h1, .vvip-title { font-size: 14px !important; margin-bottom: 8px !important; }
-      .vvip-list li::before { font-size: 8px !important; left: -12px !important; top: 2px !important; }
-      .vvip-list { font-size: 9px !important; line-height: 1.5 !important; padding-left: 15px !important; }
-      .scroll-indicator { font-size: 14px !important; margin-bottom: 20px !important; }
-      .logic-section { padding: 25px !important; }
-      .logic-title { font-size: 14px !important; margin-bottom: 15px !important; }
-      .logic-paragraph { font-size: 11px !important; line-height: 1.8 !important; }
-      .archive-section { gap: 10px !important; }
-      .archive-thumb { height: 70px !important; }
-      .archive-card b { font-size: 9px !important; }
-    }
+    /* 🔴 모바일 반응형 코드 완전히 삭제 (PC 화면 그대로 유지) */
   </style>
 </head>
 <body>

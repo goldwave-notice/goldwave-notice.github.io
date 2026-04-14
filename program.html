@@ -7,74 +7,75 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <style>
         @import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css');
-        body { margin: 0; padding: 0; background-color: #0b0d11; font-family: 'Pretendard', sans-serif; color: #e0e0e0; display: flex; flex-direction: column; align-items: center; padding-bottom: 100px; overflow-x: hidden; }
+        body { margin: 0; padding: 0; background-color: #0b0d11; font-family: 'Pretendard', sans-serif; color: #e0e0e0; display: flex; flex-direction: column; align-items: center; padding-bottom: 150px; scroll-behavior: smooth; overflow-x: hidden; }
         
         .header-sticky { position: fixed; top: 0; width: 100%; background: rgba(26, 29, 35, 0.95); border-bottom: 1px solid rgba(191, 149, 63, 0.3); z-index: 10000; padding: 15px 0; text-align: center; backdrop-filter: blur(10px); }
         .header-title { font-size: 13px; font-weight: 800; color: #bf953f; letter-spacing: 1px; }
         .back-nav { position: absolute; left: 20px; top: 50%; transform: translateY(-50%); text-decoration: none; color: #bf953f; font-size: 20px; }
 
-        .container { width: 92%; max-width: 1100px; margin-top: 100px; }
+        .container { width: 95%; max-width: 1100px; margin-top: 100px; }
 
-        .header-box-centered { text-align: center; margin-bottom: 60px; width: 100%; }
-        .brand-logo { width: 50px; height: auto; margin-bottom: 15px; filter: drop-shadow(0 0 8px rgba(191, 149, 63, 0.5)); }
-        .header-text h1 { color: #bf953f; font-size: 28px; font-weight: 900; letter-spacing: -1px; margin: 0; }
-        .header-text p { color: #aaa; font-size: 13px; margin-top: 8px; font-weight: 700; line-height: 1.6; }
+        .header-box-centered { text-align: center; margin-bottom: 80px; width: 100%; }
+        .brand-logo { width: 55px; height: auto; margin-bottom: 15px; filter: drop-shadow(0 0 8px rgba(191, 149, 63, 0.5)); }
+        .header-text h1 { color: #bf953f; font-size: 32px; font-weight: 900; letter-spacing: -1px; margin: 0; }
+        .header-text p { color: #aaa; font-size: 14px; margin-top: 8px; font-weight: 700; line-height: 1.6; }
 
-        .logic-card { background: #14171d; border: 1px solid rgba(191, 149, 63, 0.2); border-radius: 20px; padding: 25px; margin-bottom: 60px; box-shadow: 0 15px 30px rgba(0,0,0,0.4); box-sizing: border-box; width: 100%; }
-        .logic-title-final { color: #ffffff; font-size: 1.4rem; font-weight: 900; border-left: 5px solid #bf953f; padding-left: 15px; margin-bottom: 25px; text-align: left; line-height: 1.3; }
+        .logic-card { background: #14171d; border: 1px solid rgba(191, 149, 63, 0.2); border-radius: 25px; padding: 40px; margin-bottom: 100px; box-shadow: 0 20px 40px rgba(0,0,0,0.4); text-align: left; box-sizing: border-box; }
+        .logic-title-final { color: #ffffff; font-size: 28px; font-weight: 900; border-left: 5px solid #bf953f; padding-left: 20px; margin-bottom: 35px; text-align: left; }
 
-        .engine-display { width: 100%; display: flex; flex-direction: row; background: #000; border-radius: 12px; overflow: hidden; border: 1px solid #333; height: 280px; }
-        .chart-area { flex: 1.6; position: relative; background: #000; border-right: 1px solid #222; }
+        .engine-display { width: 100%; aspect-ratio: 16 / 9; max-height: 480px; display: flex; flex-direction: row; background: #000; border-radius: 15px; overflow: hidden; border: 1px solid #333; }
+        .chart-area { flex: 1.8; position: relative; background: #000; border-right: 1px solid #222; }
         .chart-area video { width: 100%; height: 100%; object-fit: cover; display: block; }
-        .video-watermark { position: absolute; top: 15px; right: 15px; width: 35px; opacity: 0.3; pointer-events: none; }
+        .video-watermark { position: absolute; top: 20px; right: 20px; width: 45px; opacity: 0.4; pointer-events: none; filter: grayscale(1); }
 
-        .terminal-area { flex: 1; background: #050608; padding: 12px; font-family: 'Courier New', monospace; display: flex; flex-direction: column; text-align: left; overflow: hidden; }
-        .terminal-header { color: #bf953f; font-size: 9px; font-weight: 900; border-bottom: 1px solid #222; padding-bottom: 6px; margin-bottom: 10px; display: flex; justify-content: space-between; }
+        .terminal-area { flex: 1; background: #050608; padding: 20px; font-family: 'Courier New', monospace; display: flex; flex-direction: column; position: relative; text-align: left; }
+        .terminal-header { color: #bf953f; font-size: 11px; font-weight: 900; border-bottom: 1px solid #222; padding-bottom: 10px; margin-bottom: 15px; display: flex; justify-content: space-between; }
         .log-scroll { flex: 1; overflow: hidden; }
-        .log-line { font-size: 8px; line-height: 1.4; margin-bottom: 4px; white-space: nowrap; }
-        .log-time { color: #555; margin-right: 5px; }
+        .log-line { font-size: 10px; line-height: 1.4; margin-bottom: 5px; white-space: nowrap; }
+        .log-time { color: #555; margin-right: 8px; }
         .log-status { color: #00ff41; font-weight: bold; }
         .log-profit { color: #ff3333; font-weight: 900; float: right; }
 
-        .system-diag { margin-top: 10px; padding: 8px; border-top: 1px solid #222; color: #00ff41; font-size: 8px; line-height: 1.4; background: rgba(0, 255, 65, 0.05); }
+        .system-diag { margin-top: 15px; padding: 10px; border-top: 1px solid #222; color: #00ff41; font-size: 9px; line-height: 1.5; background: rgba(0, 255, 65, 0.05); }
         .blink-slow { animation: blinker 2s linear infinite; }
         @keyframes blinker { 50% { opacity: 0; } }
 
-        .logic-text-final { margin: 25px 0; width: 100%; text-align: left; }
-        .logic-text-final p { font-size: 15px; line-height: 1.7; color: #ddd; font-weight: 500; margin: 0; letter-spacing: -0.5px; word-break: keep-all; }
+        .logic-text-final { margin: 30px 0; width: 100%; }
+        .logic-text-final p { font-size: 18px; line-height: 2.2; color: #ddd; font-weight: 500; margin: 0; white-space: nowrap; }
         
         .point-green { color: #00ff00; font-weight: 700; }
         .point-green-bold { color: #00ff00; font-weight: 800; }
         .point-bold { font-weight: 800; color: #fff; }
 
-        .point-box-3d { background: linear-gradient(145deg, #1e222a, #12151b); border: 1px solid rgba(191, 149, 63, 0.8); border-radius: 8px; padding: 12px 10px; margin-top: 20px; box-shadow: 0 0 15px rgba(191, 149, 63, 0.3); width: 100%; box-sizing: border-box; display: flex; justify-content: center; align-items: center; }
-        .point-box-3d span { color: #bf953f; font-weight: 900; font-size: 15px; letter-spacing: -0.5px; text-align: center; line-height: 1.4; word-break: keep-all; }
+        .point-box-3d { background: linear-gradient(145deg, #1e222a, #12151b); border: 1px solid rgba(191, 149, 63, 0.8); border-radius: 8px; padding: 12px 0; margin-top: 25px; box-shadow: 0 0 15px rgba(191, 149, 63, 0.3); width: 100%; display: flex; justify-content: center; align-items: center; }
+        .point-box-3d span { color: #bf953f; font-weight: 900; font-size: 22px; letter-spacing: 0.5px; text-align: center; }
 
-        /* 🔴 영상 카테고리 (Brand Story) 스타일 복구 */
         #brand-story-section { display: none; width: 100%; animation: fadeIn 0.8s; margin-top: 20px; }
-        .brand-video-box { width: 100%; aspect-ratio: 16/9; border-radius: 15px; overflow: hidden; border: 1px solid rgba(191, 149, 63, 0.3); margin-bottom: 30px; }
+        .brand-video-box { width: 100%; aspect-ratio: 16/9; border-radius: 20px; overflow: hidden; border: 1px solid rgba(191, 149, 63, 0.3); margin-bottom: 40px; }
         .brand-video-box video { width: 100%; display: block; }
-        
-        #brand-cards { display: grid; grid-template-columns: 1fr; gap: 15px; }
-        .story-card { background: #14171d; border: 1px solid rgba(191, 149, 63, 0.2); border-radius: 12px; padding: 20px; text-align: left; }
-        .story-card h3 { color: #bf953f; font-size: 16px; margin-bottom: 10px; font-weight: 900; }
-        .story-card p { color: #bbb; font-size: 13px; line-height: 1.6; margin: 0; font-weight: 500; }
+        #brand-cards { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+        .story-card { background: #14171d; border: 1px solid rgba(191, 149, 63, 0.2); border-radius: 15px; padding: 25px; text-align: left; }
+        .story-card h3 { color: #bf953f; font-size: 18px; margin-bottom: 12px; font-weight: 900; }
+        .story-card p { color: #bbb; font-size: 14px; line-height: 1.7; margin: 0; }
 
-        .brand-toggle-wrapper { margin-top: 40px; text-align: center; }
-        .toggle-btn { background: #1a1d23; border: 1px solid #bf953f; color: #bf953f; padding: 15px 30px; border-radius: 50px; font-weight: 900; cursor: pointer; font-size: 14px; }
+        .brand-toggle-wrapper { margin-top: 50px; text-align: center; }
+        .toggle-btn { background: #1a1d23; border: 1px solid #bf953f; color: #bf953f; padding: 20px 40px; border-radius: 50px; font-weight: 900; cursor: pointer; }
 
         @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
 
-        /* 💻 PC 전용 복구 (미디어쿼리) */
-        @media (min-width: 1024px) {
-            .container { width: 95%; }
-            .logic-title-final { font-size: 24px; }
-            .engine-display { height: 450px; }
-            .terminal-header { font-size: 11px; }
-            .log-line { font-size: 10px; }
-            .logic-text-final p { font-size: 18px; white-space: nowrap; letter-spacing: -0.8px; }
-            .point-box-3d span { font-size: 19px; white-space: nowrap; }
-            #brand-cards { grid-template-columns: 1fr 1fr; }
+        /* 📱 모바일 와이드 전용 스타일 */
+        @media (max-width: 768px) {
+            .container { width: 94%; }
+            .header-text h1 { font-size: 24px; }
+            .logic-card { padding: 20px; margin-bottom: 50px; }
+            .logic-title-final { font-size: 18px; margin-bottom: 20px; }
+            /* 엔진 디스플레이 가로 와이드 비율 강제 적용 */
+            .engine-display { height: 180px; aspect-ratio: auto; }
+            .terminal-area { padding: 10px; }
+            .log-line { font-size: 7px; }
+            .logic-text-final p { font-size: 13px; line-height: 1.5; letter-spacing: -0.5px; }
+            .point-box-3d span { font-size: 14px; }
+            #brand-cards { grid-template-columns: 1fr; }
         }
     </style>
 </head>
@@ -98,50 +99,50 @@
             <div class="logic-card">
                 <div class="logic-title-final"><span style="color:#f5c540">MAIN</span> : 구조 기반 추세 대응</div>
                 <div class="engine-display">
-                    <div class="chart-area"><video autoplay loop muted playsinline><source src="https://i.imgur.com/PaAy0hs.mp4" type="video/mp4"></video><img src="https://i.imgur.com/9VUt3sN.png" class="video-watermark"></div>
+                    <div class="chart-area"><video autoplay loop muted playsinline><source src="https://i.imgur.com/PaAy0hs.mp4"></video><img src="https://i.imgur.com/9VUt3sN.png" class="video-watermark"></div>
                     <div class="terminal-area">
                         <div class="terminal-header"><span>ANALYSIS CENTER</span><span style="color:#ff3333" class="blink-slow">● LIVE</span></div>
                         <div class="log-scroll" id="log-main"></div>
-                        <div class="system-diag"><span class="blink-slow">SYSTEM_READY:</span> LIQUIDITY_STABLE... [OK]<br>LOGIC_STATUS: FLOW_SYNC_COMPLETED.</div>
+                        <div class="system-diag">SYSTEM_READY: LIQUIDITY_STABLE...</div>
                     </div>
                 </div>
-                <div class="logic-text-final"><p><span class="point-green">구조적인 방향성</span>을 분석하여 진입합니다. <br><span class="point-bold">불필요한 매매를 최소화</span>하고 <span class="point-green">타점 중심으로 안정적인 수익을 누적</span>합니다. <div class="point-box-3d"><span>MAIN POINT.  시장 흐름 따라가는 핵심 베이스 전략</span></div></p></div>
+                <div class="logic-text-final"><p><span class="point-green">구조적인 방향성</span>을 분석하여 진입합니다. <br><span class="point-bold">불필요한 매매를 최소화</span>하고 <span class="point-green">타점 중심으로 안정적인 수익을 누적</span>합니다. <div class="point-box-3d"><span>MAIN POINT.  시장 흐름 따라가는 핵심 베이스 전략</span></div></p></div>
             </div>
 
             <div class="logic-card">
                 <div class="logic-title-final"><span style="color:#f5c540">LONDON 세션</span> : 단기 수익 회수 중심 전략</div>
                 <div class="engine-display">
-                    <div class="chart-area"><video autoplay loop muted playsinline><source src="https://i.imgur.com/rZa7TBQ.mp4" type="video/mp4"></video><img src="https://i.imgur.com/9VUt3sN.png" class="video-watermark"></div>
+                    <div class="chart-area"><video autoplay loop muted playsinline><source src="https://i.imgur.com/rZa7TBQ.mp4"></video><img src="https://i.imgur.com/9VUt3sN.png" class="video-watermark"></div>
                     <div class="terminal-area">
-                        <div class="terminal-header"><span>LONDON LOG</span><span style="color:#ff3333" class="blink-slow">● LIVE</span></div>
+                        <div class="terminal-header"><span>LONDON SESSION LOG</span><span style="color:#ff3333" class="blink-slow">● LIVE</span></div>
                         <div class="log-scroll" id="log-london"></div>
                     </div>
                 </div>
-                <div class="logic-text-final"><p><span class="point-bold">유럽장 개장 시간대인 오후 2시부터 오후5시 사이</span>에 집중하여 운용하며, <span class="point-green-bold">하루 1회 선별</span>적으로 <span class="point-green-bold">진입</span> 합니다. <br><span class="point-green-bold">모든 포지션은 당일 내 정리</span>하는 것을 <span class="point-green-bold">원칙</span>으로 합니다. <div class="point-box-3d"><span>LONDON POINT.  빠른 익절 구조와 리스크 제한을 기반으로 안정적인 수익 흐름을 지향</span></div></p></div>
+                <div class="logic-text-final"><p><span class="point-bold">유럽장 개장 시간대인 오후 2시부터 오후5시 사이</span>에 집중하여 운용하며, <span class="point-green-bold">하루 1회 선별</span>적으로 <span class="point-green-bold">진입</span> 합니다. <br><span class="point-green-bold">모든 포지션은 당일 내 정리</span>하는 것을 <span class="point-green-bold">원칙</span>으로 합니다. <div class="point-box-3d"><span>LONDON POINT.  빠른 익절 구조와 리스크 제한을 기반으로 안정적인 수익 흐름을 지향</span></div></p></div>
             </div>
 
             <div class="logic-card">
                 <div class="logic-title-final"><span style="color:#f5c540">NEW YORK 세션</span> : 변동성 활용 수익 확장 전략</div>
                 <div class="engine-display">
-                    <div class="chart-area"><video autoplay loop muted playsinline><source src="https://i.imgur.com/AoMt5gS.mp4" type="video/mp4"></video><img src="https://i.imgur.com/9VUt3sN.png" class="video-watermark"></div>
+                    <div class="chart-area"><video autoplay loop muted playsinline><source src="https://i.imgur.com/AoMt5gS.mp4"></video><img src="https://i.imgur.com/9VUt3sN.png" class="video-watermark"></div>
                     <div class="terminal-area">
-                        <div class="terminal-header"><span>NEWYORK LOG</span><span style="color:#ff3333" class="blink-slow">● LIVE</span></div>
+                        <div class="terminal-header"><span>NEWYORK SESSION LOG</span><span style="color:#ff3333" class="blink-slow">● LIVE</span></div>
                         <div class="log-scroll" id="log-ny"></div>
                     </div>
                 </div>
-                <div class="logic-text-final"><p><span class="point-bold">런던 이후 이어지는 흐름을 활용</span>해 <span class="point-green-bold">포지션을 더 길게 유지</span>하며 <span class="point-green-bold">큰 움직임 구간에 대응</span>합니다. <br><span class="point-green-bold">변동성 구간에서 수익을 극대화하는 런던 대비 공격적인 구조로 운영</span>됩니다. <div class="point-box-3d"><span>NEW YORK POINT.  장 흐름에 따른 확장형 추세 대응 전략, 흐름이 이어질수록 결과 확장 구조</span></div></p></div>
+                <div class="logic-text-final"><p><span class="point-bold">런던 이후 이어지는 흐름을 활용</span>해 <span class="point-green-bold">포지션을 더 길게 유지</span>하며 <span class="point-green-bold">큰 움직임 구간에 대응</span>합니다. <br><span class="point-green-bold">변동성 구간에서 수익을 극대화하는 런던 대비 공격적인 구조로 운영</span>됩니다. <div class="point-box-3d"><span>NEW YORK POINT.  장 흐름에 따른 확장형 추세 대응 전략, 흐름이 이어질수록 결과 확장 구조</span></div></p></div>
             </div>
 
             <div class="logic-card">
-                <div class="logic-title-final" style="font-size: 21px;"><span style="color:#f5c540">SILVER DELTA NEUTRAL REBALANCING</span> : 롱·숏 동시 운용 기반 자동 리밸런싱 전략</div>
+                <div class="logic-title-final" style="font-size: 24px;"><span style="color:#f5c540">SILVER DELTA NEUTRAL REBALANCING</span> : 롱·숏 동시 운용 기반 자동 리밸런싱 전략</div>
                 <div class="engine-display">
-                    <div class="chart-area"><video autoplay loop muted playsinline><source src="https://i.imgur.com/5U2dvAV.mp4" type="video/mp4"></video><img src="https://i.imgur.com/9VUt3sN.png" class="video-watermark"></div>
+                    <div class="chart-area"><video autoplay loop muted playsinline><source src="https://i.imgur.com/5U2dvAV.mp4"></video><img src="https://i.imgur.com/9VUt3sN.png" class="video-watermark"></div>
                     <div class="terminal-area">
-                        <div class="terminal-header"><span>SILVER NEUTRAL</span><span style="color:#3399ff" class="blink-slow">● LIVE</span></div>
+                        <div class="terminal-header"><span>SILVER REBALANCING</span><span style="color:#3399ff" class="blink-slow">● LIVE</span></div>
                         <div class="log-scroll" id="log-silver"></div>
                     </div>
                 </div>
-                <div class="logic-text-final"><p>초기: <span class="point-bold">롱 50% / 숏 50% 중립 진입</span>합니다. <br>방향 신호 발생 시 → <span class="point-green-bold">유리한 방향 비중 확대</span> → <span class="point-green-bold">반대 방향은 최소 헷지 유지</span> <div class="point-box-3d"><span>DELTA POINT.  시장 상황에 따라 비중이 자동으로 조정되는 구조</span></div></p></div>
+                <div class="logic-text-final"><p>초기: <span class="point-bold">롱 50% / 숏 50% 중립 진입</span>합니다. <br>방향 신호 발생 시 <br>→ <span class="point-green-bold">유리한 방향 비중 확대</span> <br>→ <span class="point-green-bold">반대 방향은 최소 헷지 유지</span> <div class="point-box-3d"><span>DELTA POINT.  시장 상황에 따라 비중이 자동으로 조정되는 구조</span></div></p></div>
             </div>
         </div>
 
@@ -152,10 +153,10 @@
                 </video>
             </div>
             <div id="brand-cards">
-                <div class="story-card"><h3>01. 시스템의 원칙</h3><p>단순한 지표의 나열이 아닌, 시장의 유동성과 구조적 결함을 파악하여 선별합니다.</p></div>
-                <div class="story-card"><h3>02. 안정적 우상향</h3><p>작은 수익이라도 촘촘하게 누적하는 것이 최고의 복리임을 믿습니다. 리스크를 통제하는 것이 제1원칙입니다.</p></div>
-                <div class="story-card"><h3>03. 기술의 가치</h3><p>24시간 감시되는 자동 리밸런싱 시스템을 통해 인간의 감정이 배제된 정교한 매매 환경을 제공합니다.</p></div>
-                <div class="story-card"><h3>04. 브랜드의 약속</h3><p>GOLD WAVE는 단순한 도구를 넘어, 변화하는 시장에서 당신의 자산을 지키는 가장 견고한 파트너가 됩니다.</p></div>
+                <div class="story-card"><h3>01. 시스템의 원칙</h3><p>시장의 유동성과 구조적 결함을 파악하여 가장 확률 높은 구간을 선별합니다.</p></div>
+                <div class="story-card"><h3>02. 안정적 우상향</h3><p>작은 수익이라도 촘촘하게 누적하는 것이 최고의 복리임을 믿습니다.</p></div>
+                <div class="story-card"><h3>03. 기술의 가치</h3><p>24시간 감정이 배제된 정교한 매매 환경을 자동 리밸런싱 시스템으로 제공합니다.</p></div>
+                <div class="story-card"><h3>04. 브랜드의 약속</h3><p>GOLD WAVE는 변화하는 시장에서 당신의 자산을 지키는 견고한 파트너가 됩니다.</p></div>
             </div>
         </div>
 
@@ -195,7 +196,7 @@
                 line.className = 'log-line';
                 line.innerHTML = `<span class="log-time">[${timeStr}]</span> <span class="log-status">${step}</span> OK <span class="log-profit">+$${profit}</span>`;
                 box.prepend(line);
-                if(box.children.length > 25) box.removeChild(box.lastChild);
+                if(box.children.length > 20) box.removeChild(box.lastChild);
             }, speed); 
         };
         createLog('log-main', ["STRUCT_CHECK", "WAVE_ANALYSIS", "FLOW_MATCH", "ENTRY_POINT"], 500, {min: 5, max: 10});

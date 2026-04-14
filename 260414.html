@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=1350"> 
+  <title>GOLD WAVE PREMIUM REPORT - 26.04.14</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <style>
+    @import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css');
+    
+    html { -webkit-text-size-adjust: none; }
+    
+    body { 
+      margin: 0; background-color: #0b0d11; font-family: 'Pretendard', sans-serif; color: #e0e0e0; 
+      display: flex; flex-direction: column; align-items: center; padding: 0 0 80px 0; overflow-x: hidden;
+      /* PC 화면 크기 최소 너비 고정 */
+      min-width: 1350px; 
+    }
+
+    /* 🔴 상단 고정 헤더 & 뒤로가기 화살표 */
+    .header-sticky { 
+        position: fixed; top: 0; width: 100%; min-width: 1350px;
+        background: rgba(26, 29, 35, 0.95); 
+        border-bottom: 1px solid rgba(191, 149, 63, 0.3); 
+        z-index: 1000; padding: 15px 0; 
+        text-align: center; backdrop-filter: blur(10px); 
+    }
+    .header-title { font-size: 13px; font-weight: 800; color: #bf953f; letter-spacing: 1px; }
+
+    .back-nav {
+        position: absolute; left: 20px; top: 50%; transform: translateY(-50%);
+        text-decoration: none; color: #bf953f; font-size: 20px;
+        transition: 0.3s;
+    }
+    .back-nav:hover { filter: drop-shadow(0 0 8px #bf953f); transform: translateY(-50%) translateX(-3px); }
+
+    .container { width: 1350px; margin-top: 80px; }
+
+    /* 메인 섹션: 좌우 배치 고정 */
+    .main-section { display: flex; gap: 40px; align-items: stretch; margin-bottom: 60px; }
+    .img-area { flex: 1; display: flex; }
+    .img-area img { 
+      width: 100%; height: 100%; 
+      border-radius: 20px; border: 1px solid #bf953f; 
+      object-fit: fill; 
+      box-shadow: 0 30px 60px rgba(0,0,0,0.6); 
+    }
+
+    .text-area { flex: 1.2; display: flex; flex-direction: column; gap: 20px; }
+    .briefing-part { flex: 1; background: rgba(255,255,255,0.02); padding: 40px; border-radius: 20px; border: 1px solid rgba(191,149,63,0.1); display: flex; flex-direction: column; justify-content: center; }
+    
+    .vvip-strategy-box { 
+      flex: 1; background: #161a21; padding: 40px; border-radius: 20px; 
+      border: 1px solid rgba(191,149,63,0.4); border-left: 6px solid #bf953f; 
+      display: flex; flex-direction: column; justify-content: center;
+      animation: goldenBreathing 1.8s infinite ease-in-out;
+    }
+
+    .briefing-part h1, .vvip-title { color: #bf953f; font-size: 24px; margin: 0 0 20px 0; font-weight: 800; }
+    .briefing-part h1 { border-left: 6px solid #bf953f; padding-left: 15px; }
+    .vvip-list { padding-left: 20px; margin: 0; font-size: 16px; color: #bbb; line-height: 2.3; }
+    .vvip-list li { list-style: none; position: relative; margin-bottom: 12px; }
+    /* 시그니처 삼각형 복구 */
+    .vvip-list li::before { content: "▶"; color: #bf953f; font-size: 12px; position: absolute; left: -20px; top: 2px; }
+
+    .point-focus { font-weight: 800; color: #ffffff; background: linear-gradient(to top, rgba(0, 255, 0, 0.45) 45%, transparent 45%); padding: 0 4px; border-radius: 2px; }
+    .neon-text { color: #00ff00; font-weight: 700; }
+
+    @keyframes goldenBreathing {
+      0%, 100% { box-shadow: 0 0 15px rgba(191, 149, 63, 0.1); border-color: rgba(191, 149, 63, 0.4); }
+      50% { box-shadow: 0 0 40px rgba(191, 149, 63, 0.5); border-color: rgba(252, 246, 186, 0.8); }
+    }
+
+    /* 🔴 스크롤 화살표 애니메이션 복구 */
+    .scroll-indicator { text-align: center; margin-bottom: 40px; color: #bf953f; animation: blink 1.2s infinite; font-size: 22px; font-weight: 900; line-height: 1.0; }
+    @keyframes blink { 0%, 100% { opacity: 0; transform: translateY(-5px); } 50% { opacity: 1; transform: translateY(5px); } }
+
+    .logic-section { width: 100%; background: #1a1e26; padding: 60px; border-radius: 25px; border-top: 5px solid #bf953f; box-sizing: border-box; text-align: left; }
+    .logic-title { font-size: 24px; font-weight: 800; color: #fcf6ba; margin-bottom: 40px; border-bottom: 1px solid rgba(191,149,63,0.1); padding-bottom: 20px; }
+    .logic-paragraph { margin-bottom: 40px; line-height: 2.3; font-size: 18px; color: #e5e5e5; }
+
+    .pop-card {
+      background: #1e232d; padding: 35px; border-radius: 15px;
+      box-shadow: inset 1px 1px 1px rgba(255,255,255,0.05), 8px 8px 25px rgba(0,0,0,0.5);
+      border-top: 1px solid rgba(191,149,63,0.3); margin-top: 20px;
+      animation: goldenBreathing 1.8s infinite ease-in-out;
+    }
+
+    /* 하단 카운터 */
+    .footer-counter { margin-top: 80px; text-align: center; padding-bottom: 50px; border-top: 1px solid rgba(255,255,255,0.05); padding-top: 40px; }
+    .counter-label { font-size: 11px; color: #555; letter-spacing: 2px; text-transform: uppercase; font-weight: 700; }
+    #busuanzi_value_page_pv { margin-left: 5px; color: #bf953f; font-weight: bold; opacity: 0.6; }
+
+    /* 아카이브 섹션 3열 고정 & 하트비트 */
+    .archive-title-label { text-align: center; color: rgba(255,255,255,0.2); letter-spacing: 8px; font-size: 14px; font-weight: 700; margin-bottom: 30px; margin-top: 60px; }
+    .archive-section { width: 100%; display: grid; grid-template-columns: repeat(3, 1fr); gap: 25px; }
+    .archive-card { background: rgba(255,255,255,0.03); padding: 25px; border-radius: 15px; border: 1px solid rgba(255,255,255,0.05); text-align: center; transition: 0.3s; text-decoration: none; display: block; }
+    .archive-card:hover { transform: scale(1.05); border-color: #bf953f; background: rgba(191, 149, 63, 0.05); box-shadow: 0 0 20px rgba(191, 149, 63, 0.3); animation: heartbeat 0.8s infinite; }
+    .archive-thumb { width: 100%; height: 180px; border-radius: 10px; object-fit: cover; margin-bottom: 15px; border: 1px solid rgba(191, 149, 63, 0.2); }
+    @keyframes heartbeat { 0%, 30%, 100% { transform: scale(1.05); } 15%, 45% { transform: scale(1.08); } }
+
+    .insight-bar { background: linear-gradient(90deg, rgba(191, 149, 63, 0.2), rgba(191, 149, 63, 0.05)); padding: 30px; border-radius: 15px; border-left: 6px solid #00ff00; text-align: left; font-weight: 700; font-size: 20px; margin-top: 40px; }
+
+    /* 🔴 모바일 반응형 코드 완전히 삭제 (PC 화면 그대로 유지) */
+  </style>
+</head>
+<body>
+
+<div class="header-sticky">
+    <a href="archive.html" class="back-nav"><i class="fa-solid fa-arrow-left"></i></a>
+    <div class="header-title">GOLD WAVE 뉴스 리포트</div>
+</div>
+
+<div class="container">
+  <div class="main-section">
+    <div class="img-area"><img src="https://i.imgur.com/8DsLOhA.png" alt="4/14 GOLDWAVE NEWS"></div>
+    <div class="text-area">
+      <div class="briefing-part">
+        <h1>📌 오늘의 핵심 브리핑</h1>
+        <div style="margin-bottom: 25px; padding-bottom: 20px; border-bottom: 1px solid rgba(191,149,63,0.15);">
+          <div style="color: #fcf6ba; font-size: 21px; font-weight: 800; line-height: 1.5; letter-spacing: -0.5px;">
+            달러 약세 전환 속 금값 반등 성공… ‘차익실현’ vs ‘인플레 헤지’ 팽팽
+          </div>
+        </div>
+        <div style="font-size:16.5px; line-height:2.0; color:#ccc;">
+          그간 금 가격을 압박하던 <span class="neon-text">차가운 달러 강세</span>가 약세로 돌아서며 금 시장에 강력한 반등 모멘텀을 제공했습니다.<br><br>
+          중동 지정학적 긴장 완화는 호재이나, 여전히 높은 <span class="point-focus">인플레이션 우려</span>와 단기 급등에 따른 차익실현 매물이 출회되며 방향성 탐색이 이어지고 있습니다.
+        </div>
+      </div>
+      <div class="vvip-strategy-box">
+        <div class="vvip-title">💡 골드웨이브 VVIP 전략 가이드 (4/14)</div>
+        <ul class="vvip-list">
+          <li>수급 변화: 차익실현 매물 소화 과정 및 실물 수급 동향 주시</li>
+          <li>매크로 대응: 달러 인덱스 반전 여부 및 미 금리 경로 모니터링</li>
+          <li>리스크 관리: 인플레이션 헤지 수요와 위험자산 선호 심리 간 균형 체크</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="scroll-indicator">v<br>v<br>v</div>
+
+  <div class="logic-section">
+    <div class="logic-title">📌 GOLDWAVE 데이터 증명: 차이니스 풋의 귀환</div>
+    <div class="logic-paragraph">
+      단순한 반등이 아닙니다. 달러 약세라는 기회요인 속에서 <span class="point-focus">중국 중앙은행(PBoC)의 공격적인 금 매수</span>가 하방을 탄탄하게 지지하고 있습니다.<br><br>
+      GOLDWAVE는 미 단기 국채보다 금의 실질 수요가 추월한 이 역사적인 전환점이 새로운 상승 동력으로 작용할 것으로 분석합니다.
+    </div>
+    <div class="pop-card">
+      <div style="font-size: 19px; line-height: 2.2; color: #fff;">
+        "차가운 달러의 무기화가 황금의 질주를 재점화합니다."<br>
+        <span class="neon-text">금 ≠ 달러</span>라는 새로운 통화 질서의 질서 재편 속에 우리는 살아남는 법을 읽어야 합니다.
+      </div>
+    </div>
+  </div>
+
+  <div class="insight-bar">✔ 거시적 흐름을 읽는 자만이 시스템의 변화를 기회로 만듭니다.</div>
+
+  <div class="archive-title-label">PREVIOUS REPORT</div>
+  <div class="archive-section">
+    <a href="260413.html" class="archive-card">
+        <img src="https://i.imgur.com/8HqOaKH.png" class="archive-thumb" alt="4/13 뉴스">
+        <span style="font-size:12px; color:#666; display:block; margin-bottom:10px;">2026.04.13</span>
+        <b style="font-size:15px; color:#aaa;">금 ETF 역사상 최대 유출, 이란 전쟁의 영향</b>
+    </a>
+    <a href="260410.html" class="archive-card">
+        <img src="https://i.imgur.com/RZupDdk.jpeg" class="archive-thumb" alt="4/10 뉴스">
+        <span style="font-size:12px; color:#666; display:block; margin-bottom:10px;">2026.04.10</span>
+        <b style="font-size:15px; color:#aaa;">“달러 시대 종말?”… 중앙은행, 금 매수</b>
+    </a>
+    <a href="260409.html" class="archive-card">
+        <img src="https://i.imgur.com/udVSPai.png" class="archive-thumb" alt="4/9 뉴스">
+        <span style="font-size:12px; color:#666; display:block; margin-bottom:10px;">2026.04.09</span>
+        <b style="font-size:15px; color:#aaa;">휴전 속 ‘인하기대’ vs ‘위험선호’ 줄다리기</b>
+    </a>
+    </div>
+
+  <div class="footer-counter">
+    <span class="counter-label">TODAY VIEWS : <span id="busuanzi_value_page_pv">0</span></span>
+  </div>
+</div>
+
+<script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+</body>
+</html>

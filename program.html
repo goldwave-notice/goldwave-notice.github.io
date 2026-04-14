@@ -9,24 +9,20 @@
         @import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css');
         body { margin: 0; padding: 0; background-color: #0b0d11; font-family: 'Pretendard', sans-serif; color: #e0e0e0; display: flex; flex-direction: column; align-items: center; padding-bottom: 150px; scroll-behavior: smooth; overflow-x: hidden; }
         
-        /* [고정] 상단 고정 헤더 */
         .header-sticky { position: fixed; top: 0; width: 100%; background: rgba(26, 29, 35, 0.95); border-bottom: 1px solid rgba(191, 149, 63, 0.3); z-index: 10000; padding: 15px 0; text-align: center; backdrop-filter: blur(10px); }
         .header-title { font-size: 13px; font-weight: 800; color: #bf953f; letter-spacing: 1px; }
         .back-nav { position: absolute; left: 20px; top: 50%; transform: translateY(-50%); text-decoration: none; color: #bf953f; font-size: 20px; }
 
         .container { width: 95%; max-width: 1100px; margin-top: 100px; }
 
-        /* [고정] 중앙 브랜드 헤더 */
         .header-box-centered { text-align: center; margin-bottom: 80px; width: 100%; }
         .brand-logo { width: 55px; height: auto; margin-bottom: 15px; filter: drop-shadow(0 0 8px rgba(191, 149, 63, 0.5)); }
         .header-text h1 { color: #bf953f; font-size: 32px; font-weight: 900; letter-spacing: -1px; margin: 0; }
         .header-text p { color: #aaa; font-size: 14px; margin-top: 8px; font-weight: 700; line-height: 1.6; }
 
-        /* 로직 카드 공통 스타일 */
         .logic-card { background: #14171d; border: 1px solid rgba(191, 149, 63, 0.2); border-radius: 25px; padding: 40px; margin-bottom: 100px; box-shadow: 0 20px 40px rgba(0,0,0,0.4); text-align: center; box-sizing: border-box; }
         .logic-title-final { color: #ffffff; font-size: 28px; font-weight: 900; border-left: 5px solid #bf953f; padding-left: 20px; margin-bottom: 35px; text-align: left; }
 
-        /* [PC] 엔진 디스플레이 */
         .engine-display { width: 100%; aspect-ratio: 16 / 9; max-height: 480px; display: flex; flex-direction: row; background: #000; border-radius: 15px; overflow: hidden; border: 1px solid #333; }
         .chart-area { flex: 1.8; position: relative; background: #000; border-right: 1px solid #222; }
         .chart-area video { width: 100%; height: 100%; object-fit: cover; display: block; }
@@ -71,27 +67,18 @@
         @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
         @keyframes slideUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
 
-        /* 📱 [모바일 와이드 최적화] 768px 이하 */
         @media (max-width: 768px) {
             .container { width: 96%; margin-top: 70px; }
             .header-text h1 { font-size: 22px; }
             .logic-card { padding: 15px; margin-bottom: 40px; border-radius: 15px; }
             .logic-title-final { font-size: 16px; margin-bottom: 15px; padding-left: 10px; }
-            
-            /* 🔴 엔진 디스플레이 와이드형 (가로 비율 강조) */
-            .engine-display { height: 160px; aspect-ratio: auto; border-radius: 8px; }
-            .terminal-area { padding: 8px; flex: 1.2; }
+            .engine-display { height: 210px; aspect-ratio: auto; border-radius: 8px; }
+            .terminal-area { padding: 8px; flex: 1.5; }
             .terminal-header { font-size: 8px; margin-bottom: 5px; }
-            .log-line { font-size: 7px; margin-bottom: 2px; }
-            .system-diag { display: none; } /* 공간 확보를 위해 모바일에선 진단창 제거 */
-            
-            .logic-text-final { margin: 15px 0; }
+            .log-line { font-size: 8px; margin-bottom: 2px; }
+            .system-diag { display: block; font-size: 7px; margin-top: 5px; padding: 5px; line-height: 1.3; }
             .logic-text-final p { font-size: 13px; line-height: 1.5; }
-            
-            /* 🔴 포인트 박스 와이드형 (얇고 길게) */
-            .point-box-3d { padding: 8px 5px; margin-top: 12px; border-radius: 5px; }
-            .point-box-3d span { font-size: 13px; letter-spacing: -0.5px; word-break: keep-all; }
-            
+            .point-box-3d span { font-size: 13px; word-break: keep-all; }
             #brand-cards { grid-template-columns: 1fr; }
         }
     </style>
@@ -116,10 +103,11 @@
             <div class="logic-card">
                 <div class="logic-title-final"><span style="color:#f5c540">MAIN</span> : 구조 기반 추세 대응</div>
                 <div class="engine-display">
-                    <div class="chart-area"><video autoplay loop muted playsinline><source src="https://i.imgur.com/PaAy0hs.mp4" type="video/mp4"></video><img src="https://i.imgur.com/9VUt3sN.png" class="video-watermark"></div>
+                    <div class="chart-area"><video autoplay loop muted playsinline><source src="https://i.imgur.com/PaAy0hs.mp4"></video><img src="https://i.imgur.com/9VUt3sN.png" class="video-watermark"></div>
                     <div class="terminal-area">
                         <div class="terminal-header"><span>ANALYSIS CENTER</span><span style="color:#ff3333" class="blink-slow">● LIVE</span></div>
                         <div class="log-scroll" id="log-main"></div>
+                        <div class="system-diag"><span class="blink-mid">SYSTEM_READY:</span> LIQUIDITY_STABLE... [OK]<br>LOGIC_STATUS: FLOW_SYNC_COMPLETED.<br><span style="color:#bf953f;">시장 방향에 따라 로직이 안정적으로 움직입니다.</span></div>
                     </div>
                 </div>
                 <div class="logic-text-final"><p><span class="point-green">구조적인 방향성</span>을 분석하여 진입합니다. <br><span class="point-bold">불필요한 매매를 최소화</span>하고 <span class="point-green">타점 중심으로 안정적인 수익을 누적</span>합니다. <div class="point-box-3d"><span>MAIN POINT.  시장 흐름 따라가는 핵심 베이스 전략</span></div></p></div>
@@ -128,13 +116,14 @@
             <div class="logic-card">
                 <div class="logic-title-final"><span style="color:#f5c540">LONDON 세션</span> : 단기 수익 회수 중심 전략</div>
                 <div class="engine-display">
-                    <div class="chart-area"><video autoplay loop muted playsinline><source src="https://i.imgur.com/rZa7TBQ.mp4" type="video/mp4"></video><img src="https://i.imgur.com/9VUt3sN.png" class="video-watermark"></div>
+                    <div class="chart-area"><video autoplay loop muted playsinline><source src="https://i.imgur.com/rZa7TBQ.mp4"></video><img src="https://i.imgur.com/9VUt3sN.png" class="video-watermark"></div>
                     <div class="terminal-area">
-                        <div class="terminal-header"><span>LONDON SESSION</span><span style="color:#ff3333" class="blink-mid">● LIVE</span></div>
+                        <div class="terminal-header"><span>LONDON SESSION LOG</span><span style="color:#ff3333" class="blink-mid">● LIVE</span></div>
                         <div class="log-scroll" id="log-london"></div>
+                        <div class="system-diag"><span class="blink-mid">SESSION_ACTIVE:</span> VOLATILITY_SCANNING... [OK]<br>LOGIC_STATUS: SCAL_MODE_ENABLED.<br><span style="color:#bf953f;">런던 세션의 변동성을 활용하여 단기 수익을 추적합니다.</span></div>
                     </div>
                 </div>
-                <div class="logic-text-final"><p><span class="point-bold">유럽장 개장 시간대인 오후 2시부터 오후7시 사이</span>에 집중하여 운용하며, <span class="point-green-bold">하루 1회 선별</span>적으로 <span class="point-green-bold">진입</span> 합니다. <br><span class="point-green-bold">모든 포지션은 당일 내 정리</span>하는 것을 <span class="point-green-bold">원칙</span>으로 합니다. <div class="point-box-3d"><span>LONDON POINT.  빠른 익절 구조와 리스크 제한을 기반으로 안정적인 수익 흐름을 지향</span></div></p></div>
+                <div class="logic-text-final"><p><span class="point-bold">유럽장 개장 시간대인 오후 2시부터 오후5시 사이</span>에 집중하여 운용하며, <span class="point-green-bold">하루 1회 선별</span>적으로 <span class="point-green-bold">진입</span> 합니다. <br><span class="point-green-bold">모든 포지션은 당일 내 정리</span>하는 것을 <span class="point-green-bold">원칙</span>으로 합니다. <div class="point-box-3d"><span>LONDON POINT.  빠른 익절 구조와 리스크 제한을 기반으로 안정적인 수익 흐름을 지향</span></div></p></div>
             </div>
 
             <div class="logic-card">
@@ -142,8 +131,9 @@
                 <div class="engine-display">
                     <div class="chart-area"><video autoplay loop muted playsinline><source src="https://i.imgur.com/AoMt5gS.mp4" type="video/mp4"></video><img src="https://i.imgur.com/9VUt3sN.png" class="video-watermark"></div>
                     <div class="terminal-area">
-                        <div class="terminal-header"><span>NEWYORK SESSION</span><span style="color:#ff3333" class="blink-fast">● LIVE</span></div>
+                        <div class="terminal-header"><span>NEWYORK SESSION LOG</span><span style="color:#ff3333" class="blink-fast">● LIVE</span></div>
                         <div class="log-scroll" id="log-ny"></div>
+                        <div class="system-diag"><span class="blink-mid">EXPANSION_MODE:</span> VOLATILITY_HIGH... [OK]<br>LOGIC_STATUS: TREND_TRACKING_ACTIVE.<br><span style="color:#bf953f;">뉴욕 시장의 확장 에너지에 맞춰 포지션을 관리합니다.</span></div>
                     </div>
                 </div>
                 <div class="logic-text-final"><p><span class="point-bold">런던 이후 이어지는 흐름을 활용</span>해 <span class="point-green-bold">포지션을 더 길게 유지</span>하며 <span class="point-green-bold">큰 움직임 구간에 대응</span>합니다. <br><span class="point-green-bold">변동성 구간에서 수익을 극대화하는 런던 대비 공격적인 구조로 운영</span>됩니다. <div class="point-box-3d"><span>NEW YORK POINT.  장 흐름에 따른 확장형 추세 대응 전략, 흐름이 이어질수록 결과 확장 구조</span></div></p></div>
@@ -156,6 +146,7 @@
                     <div class="terminal-area">
                         <div class="terminal-header"><span>SILVER REBALANCING</span><span style="color:#3399ff" class="blink-mid">● LIVE</span></div>
                         <div class="log-scroll" id="log-silver"></div>
+                        <div class="system-diag"><span class="blink-mid">DELTA_NEUTRAL:</span> MONITORING... [OK]<br>LOGIC_STATUS: AUTO_REBALANCING_ACTIVE.<br><span style="color:#bf953f;">시장 상황에 따라 비중이 자동으로 조정되는 구조입니다.</span></div>
                     </div>
                 </div>
                 <div class="logic-text-final"><p>초기: <span class="point-bold">롱 50% / 숏 50% 중립 진입</span>합니다. <br>방향 신호 발생 시 <br>→ <span class="point-green-bold">유리한 방향 비중 확대</span> <br>→ <span class="point-green-bold">반대 방향은 최소 헷지 유지</span> <div class="point-box-3d"><span>DELTA POINT.  시장 상황에 따라 비중이 자동으로 조정되는 구조</span></div></p></div>
@@ -169,8 +160,10 @@
                 </video>
             </div>
             <div id="brand-cards">
-                <div class="story-card"><h3>01. 시스템의 원칙</h3><p>시장의 유동성과 구조적 결함을 파악하여 가장 확률 높은 구간을 선별합니다.</p></div>
-                <div class="story-card"><h3>02. 안정적 우상향</h3><p>작은 수익이라도 촘촘하게 누적하는 것이 최고의 복리임을 믿습니다.</p></div>
+                <div class="story-card"><h3>01. 시스템의 원칙</h3><p>단순한 지표의 나열이 아닌, 시장의 유동성과 구조적 결함을 파악하여 선별합니다.</p></div>
+                <div class="story-card"><h3>02. 안정적 우상향</h3><p>작은 수익이라도 촘촘하게 누적하는 것이 최고의 복리임을 믿습니다. 리스크를 통제하는 것이 제1원칙입니다.</p></div>
+                <div class="story-card"><h3>03. 기술의 가치</h3><p>24시간 감시되는 자동 리밸런싱 시스템을 통해 인간의 감정이 배제된 정교한 매매 환경을 제공합니다.</p></div>
+                <div class="story-card"><h3>04. 브랜드의 약속</h3><p>GOLD WAVE는 단순한 도구를 넘어, 변화하는 시장에서 당신의 자산을 지키는 가장 견고한 파트너가 됩니다.</p></div>
             </div>
         </div>
 
@@ -191,14 +184,14 @@
                 logicGroup.style.display = 'none';
                 storySection.style.display = 'block';
                 btn.innerHTML = 'SYSTEM LOGIC 다시보기 <i class="fa-solid fa-chevron-up"></i>';
-                window.scrollTo({top: 120, behavior: 'smooth'});
+                window.scrollTo({top: 150, behavior: 'smooth'});
             } else {
                 logicGroup.style.display = 'block';
                 storySection.style.display = 'none';
                 cards.style.display = 'none';
                 brandVid.pause();
                 btn.innerHTML = 'BRAND STORY 열기 <i class="fa-solid fa-chevron-down"></i>';
-                window.scrollTo({top: 120, behavior: 'smooth'});
+                window.scrollTo({top: 150, behavior: 'smooth'});
             }
         }
 
@@ -206,7 +199,7 @@
             const cards = document.getElementById('brand-cards');
             if(cards.style.display === 'none' || cards.style.display === '') {
                 cards.style.display = 'grid';
-                setTimeout(() => { window.scrollBy({ top: 250, behavior: 'smooth' }); }, 100);
+                setTimeout(() => { window.scrollBy({ top: 300, behavior: 'smooth' }); }, 100);
             }
         }
 
@@ -222,7 +215,9 @@
                 line.className = 'log-line';
                 line.innerHTML = `<span class="log-time">[${timeStr}]</span> <span class="log-status">${step}</span> OK <span class="log-profit">+$${profit}</span>`;
                 box.prepend(line);
-                if(box.children.length > 12) box.removeChild(box.lastChild);
+                
+                // 🔴 로그 개수 제한을 대폭 늘려 빈 공간을 채웁니다. (기존 10개 -> 30개로 상향)
+                if(box.children.length > 30) box.removeChild(box.lastChild);
             }, speed); 
         };
         createLog('log-main', ["STRUCT_CHECK", "WAVE_ANALYSIS", "FLOW_MATCH", "ENTRY_POINT"], 500, {min: 5, max: 10});

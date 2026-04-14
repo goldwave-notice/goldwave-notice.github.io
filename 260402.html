@@ -15,7 +15,7 @@
         padding-bottom: 50px; 
     }
 
-    /* 🔴 [추가] 모든 뉴스 페이지 공통 상단 고정 헤더 디자인 */
+    /* 상단 고정 헤더 */
     .header-sticky { 
         position: fixed; top: 0; width: 100%; 
         background: rgba(26, 29, 35, 0.95); 
@@ -25,7 +25,6 @@
     }
     .header-title { font-size: 13px; font-weight: 800; color: #bf953f; letter-spacing: 1px; }
 
-    /* 🔴 [추가] 뒤로가기 화살표 (뉴스 목록 archive.html로 연결) */
     .back-nav {
         position: absolute; left: 20px; top: 50%; transform: translateY(-50%);
         text-decoration: none; color: #bf953f; font-size: 20px;
@@ -33,13 +32,13 @@
     }
     .back-nav:hover { filter: drop-shadow(0 0 8px #bf953f); transform: translateY(-50%) translateX(-3px); }
 
+    /* 🔴 랑이님 원본 규격: max-width 800px 유지 */
     .container { 
         width: 100%; max-width: 800px; 
-        margin-top: 80px; /* 🔴 상단바 공간을 위해 50px에서 80px로 조정했습니다 */
+        margin-top: 80px; 
         padding: 20px; box-sizing: border-box; text-align: center; 
     }
 
-    /* [기존 디자인 보존] */
     .main-card { width: 100%; border-radius: 15px; box-shadow: 0 20px 40px rgba(0,0,0,0.6); margin-top: 20px; }
     .report-box { margin-top: 40px; text-align: left; background: rgba(255, 255, 255, 0.03); padding: 30px; border-radius: 20px; border: 1px solid rgba(191, 149, 63, 0.2); }
     h1 { color: #bf953f; font-size: 24px; margin-bottom: 20px; border-left: 4px solid #bf953f; padding-left: 15px; line-height: 1.4; }
@@ -49,24 +48,42 @@
     li { margin-bottom: 10px; color: #ccc; }
     b { color: #ffffff; }
 
-    /* 지난뉴스 하단 카드 스타일 유지 */
-    .prev-section-title { color: #555; font-size: 12px; letter-spacing: 4px; margin-top: 80px; margin-bottom: 30px; text-transform: uppercase; font-weight: 700; }
-    .prev-card {
-      display: flex; align-items: center; background: #161a21;
-      border-radius: 20px; border: 1px solid rgba(255,255,255,0.05);
-      padding: 25px; text-decoration: none; text-align: left; transition: 0.3s;
-      max-width: 650px; margin: 0 auto;
+    /* 🔴 [수정] 아카이브 영역: 260401-2의 3열 그리드 스타일 이식 */
+    .prev-section-title { color: #555; font-size: 12px; letter-spacing: 4px; margin-top: 80px; margin-bottom: 30px; text-transform: uppercase; font-weight: 700; text-align: center; }
+    
+    .archive-grid {
+      display: grid !important;
+      grid-template-columns: repeat(3, 1fr) !important; /* 800px 내 3열 공간 확보 */
+      gap: 15px;
+      width: 100%;
     }
-    .prev-card:hover { border-color: rgba(191,149,63,0.5); transform: translateY(-5px); box-shadow: 0 10px 30px rgba(0,0,0,0.5); }
-    .prev-thumb { width: 100px; height: 100px; border-radius: 12px; margin-right: 25px; object-fit: cover; }
-    .prev-info { flex: 1; }
-    .prev-label { color: #bf953f; font-size: 12px; font-weight: 800; margin-bottom: 8px; display: block; }
-    .prev-title { color: #ffffff; font-size: 18px; font-weight: 700; line-height: 1.5; }
+
+    .history-card {
+      display: flex; align-items: center;
+      background: rgba(255, 255, 255, 0.03); border-radius: 15px; padding: 12px;
+      text-decoration: none; border: 1px solid rgba(191, 149, 63, 0.1);
+      transition: 0.3s;
+    }
+
+    .history-card:hover {
+      border-color: #bf953f; background: rgba(255, 255, 255, 0.05);
+      transform: translateY(-3px);
+    }
+
+    .history-thumb {
+      width: 60px; height: 60px; /* 컴팩트 사이즈 유지 */
+      border-radius: 10px; object-fit: cover; margin-right: 12px;
+    }
+
+    .history-info { text-align: left; }
+    .history-tag { font-size: 9px; color: #bf953f; font-weight: bold; margin-bottom: 3px; display: block; }
+    .history-text { font-size: 13px; color: #fff; font-weight: 600; line-height: 1.3; }
 
     .footer-links { margin-top: 60px; font-size: 12px; color: #333; letter-spacing: 1px; }
 
     @media (max-width: 600px) { 
         .back-nav { left: 15px; }
+        .archive-grid { grid-template-columns: 1fr !important; } /* 모바일은 세로로 */
     }
   </style>
 </head>
@@ -95,13 +112,23 @@
     </div>
 
     <div class="prev-section-title">PREVIOUS REPORT</div>
-    <a href="206401-2.html" class="prev-card">
-      <img src="https://i.imgur.com/DQ55lYw.png" class="prev-thumb" alt="지난뉴스">
-      <div class="prev-info">
-        <span class="prev-label">LATEST REPORT #02</span>
-        <div class="prev-title">6년 만의 재현...<br>비트코인 폭등 '골든 시그널' 포착 분석</div>
-      </div>
-    </a>
+    <div class="archive-grid">
+        <a href="260401-2.html" class="history-card">
+          <img src="https://i.imgur.com/DQ55lYw.png" alt="뉴스" class="history-thumb">
+          <div class="history-info">
+            <span class="history-tag">REPORT #02</span>
+            <span class="history-text">비트코인 폭등<br>골든 시그널</span>
+          </div>
+        </a>
+
+        <a href="index.html" class="history-card">
+          <img src="https://i.imgur.com/mCh2kQV.png" alt="뉴스" class="history-thumb">
+          <div class="history-info">
+            <span class="history-tag">REPORT #01</span>
+            <span class="history-text">국제 금값 4,680대<br>회복 시그널</span>
+          </div>
+        </a>
+    </div>
 
     <div class="footer-links">© GOLD WAVE. All rights reserved.</div>
   </div>

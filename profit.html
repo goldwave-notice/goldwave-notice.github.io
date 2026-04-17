@@ -7,7 +7,7 @@
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://goldwave-notice.github.io/-/profit.html">
   <meta property="og:title" content="GOLD WAVE - 수익 현황">
-  <meta property="og:description" content="수익 리포트">
+  <meta property="og:description" content="일일 수익 리포트">
 
   <meta property="og:image" content="https://github.com/goldwave-notice/-/blob/main/%EC%88%98%EC%9D%B5%EB%A7%81%ED%81%AC%EC%9D%B4%EB%AF%B8%EC%A7%80.png?raw=true">
   <meta property="og:image:width" content="1200">
@@ -18,13 +18,13 @@
   <style>
     @import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css');
 
-    /* 🔴 배경은 유지하되 모바일 축소를 위해 최소 너비 제거 */
     html, body {
       margin: 0; padding: 0;
       background-color: #0b0d11; 
       font-family: 'Pretendard', sans-serif;
       color: #e0e0e0;
       overflow-x: hidden;
+      width: 100%;
     }
 
     body {
@@ -32,7 +32,7 @@
       padding-bottom: 120px;
     }
 
-    /* 🔴 상단 고정 헤더: 모바일 화면 너비에 맞게 100%로 수정 */
+    /* 상단 고정 헤더 */
     .header-sticky { 
         position: fixed; top: 0; left: 0; width: 100%;
         background: rgba(26, 29, 35, 0.95); 
@@ -45,38 +45,71 @@
     .back-nav {
         position: absolute; left: 20px; top: 50%; transform: translateY(-50%);
         text-decoration: none; color: #bf953f; font-size: 24px;
-        transition: 0.3s;
     }
 
-    /* 🔴 컨테이너: PC 규격을 유지하면서 모바일 화면 비율에 맞춰 자동 축소 */
+    /* 컨테이너 */
     .container {
-      width: 1200px;
-      transform: scale(calc(100vw / 1200)); 
-      transform-origin: top center;
+      width: 92%; 
+      max-width: 1000px; 
       margin-top: 100px; 
       display: flex; flex-direction: column; align-items: center;
-      /* 축소로 생기는 하단 공백 제거 */
-      margin-bottom: calc(-1200px + 100vh);
     }
 
-    .header-box-centered { text-align: center; margin-bottom: 70px; width: 100%; }
-    .brand-logo { width: 65px; height: auto; margin-bottom: 20px; filter: drop-shadow(0 0 8px rgba(191, 149, 63, 0.5)); }
-    .header-text h1 { color: #bf953f; font-size: 36px; margin: 0; font-weight: 800; letter-spacing: -1px; }
-    .header-text p { color: #aaa; font-size: 18px; margin-top: 12px; font-weight: 700; }
-
-    .holiday-notice {
-      width: 100%; text-align: center; padding: 40px; background: rgba(191, 149, 63, 0.05);
-      border: 1px dashed rgba(191, 149, 63, 0.4); border-radius: 25px; margin-bottom: 60px; box-sizing: border-box;
-    }
-    .holiday-notice p { color: #fcf6ba; font-size: 18px; margin: 0; line-height: 1.8; }
+    .header-box-centered { text-align: center; margin-bottom: 50px; width: 100%; }
+    .brand-logo { width: 60px; height: auto; margin-bottom: 15px; filter: drop-shadow(0 0 8px rgba(191, 149, 63, 0.5)); }
+    .header-text h1 { color: #bf953f; font-size: 28px; margin: 0; font-weight: 800; letter-spacing: -1px; }
+    .header-text p { color: #aaa; font-size: 16px; margin-top: 10px; font-weight: 700; }
 
     .profit-section {
-      width: 100%; margin-bottom: 80px; background: rgba(255, 255, 255, 0.02);
-      padding: 30px; border-radius: 25px; border: 1px solid rgba(255, 255, 255, 0.05); box-sizing: border-box;
+      width: 100%; 
+      margin-bottom: 40px; 
+      background: rgba(255, 255, 255, 0.02);
+      padding: 20px; 
+      border-radius: 20px; 
+      border: 1px solid rgba(255, 255, 255, 0.05); 
+      box-sizing: border-box;
     }
-    .date-badge { display: inline-block; background: linear-gradient(135deg, #bf953f, #fcf6ba); color: #000; padding: 8px 20px; border-radius: 40px; font-weight: 800; font-size: 16px; margin-bottom: 25px; }
-    .magnify-container { position: relative; overflow: hidden; border-radius: 15px; cursor: zoom-in; background-color: #000; box-shadow: 0 15px 50px rgba(0,0,0,0.8); }
-    .profit-img { width: 100%; height: auto; display: block; transition: transform 0.15s ease-out; transform-origin: center; }
+
+    .date-badge { 
+      display: inline-block; 
+      background: linear-gradient(135deg, #bf953f, #fcf6ba); 
+      color: #000; 
+      padding: 6px 16px; 
+      border-radius: 40px; 
+      font-weight: 800; 
+      font-size: 14px; 
+      margin-bottom: 20px; 
+    }
+
+    .magnify-container { 
+      position: relative; 
+      overflow: hidden; 
+      border-radius: 12px; 
+      cursor: zoom-in; 
+      background-color: #000; 
+      box-shadow: 0 10px 30px rgba(0,0,0,0.8);
+      width: 100%;
+    }
+
+    .profit-img { 
+      width: 100%; 
+      height: auto; 
+      display: block; 
+      transition: transform 0.15s ease-out; 
+      transform-origin: center; 
+    }
+
+    .holiday-notice {
+      width: 100%; text-align: center; padding: 30px; background: rgba(191, 149, 63, 0.05);
+      border: 1px dashed rgba(191, 149, 63, 0.4); border-radius: 20px; margin-bottom: 40px; box-sizing: border-box;
+    }
+    .holiday-notice p { color: #fcf6ba; font-size: 15px; margin: 0; line-height: 1.6; }
+
+    @media (min-width: 1024px) {
+      .header-text h1 { font-size: 36px; }
+      .header-text p { font-size: 18px; }
+      .holiday-notice p { font-size: 18px; }
+    }
   </style>
 </head>
 <body>
@@ -176,6 +209,7 @@
       });
     }
 
+    // 🔴 줌 기능 한땀한땀 연결
     enableWideZoom('zoom-4-16');    
     enableWideZoom('zoom-4-15');    
     enableWideZoom('zoom-4-14');

@@ -16,6 +16,7 @@
         @import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css');
         body { margin: 0; padding: 0; background-color: #0b0d11; font-family: 'Pretendard', sans-serif; color: #e0e0e0; display: flex; flex-direction: column; align-items: center; padding-bottom: 100px; }
         
+        /* 상단 고정 헤더 */
         .header-sticky { 
             position: fixed; top: 0; width: 100%; 
             background: rgba(26, 29, 35, 0.95); 
@@ -55,8 +56,11 @@
         
         .faq-list { width: 100%; }
         .faq-item { margin-bottom: 12px; border: 1px solid rgba(255,255,255,0.05); border-radius: 15px; overflow: hidden; background: rgba(255,255,255,0.02); transition: 0.3s; }
-        .faq-question { padding: 22px; cursor: pointer; display: flex; justify-content: space-between; align-items: center; font-weight: 700; font-size: 16px; text-align: left; }
-        .faq-question span { font-size: 12px; color: #bf953f; transition: 0.3s; }
+        
+        /* 질문 우측 끝 정렬 반영 */
+        .faq-question { padding: 22px; cursor: pointer; display: flex; justify-content: space-between; align-items: center; font-weight: 700; font-size: 16px; text-align: left; width: 100%; box-sizing: border-box; }
+        .faq-question div { flex: 1; margin-right: 15px; } /* 질문 텍스트 영역 */
+        .faq-question span { font-size: 12px; color: #bf953f; transition: 0.3s; flex-shrink: 0; } /* 화살표 영역 */
         
         .best-label { color: #bf953f; font-size: 11px; font-weight: 900; margin-right: 6px; letter-spacing: 1px; }
 
@@ -106,7 +110,7 @@
         <div class="group-chip-container"><div class="group-chip">GOLD WAVE 시작하기</div></div>
         <div class="faq-list">
             <div class="faq-item">
-                <div class="faq-question">Q. GOLDWAVE 는 어떤 서비스인가요? <span>▼</span></div>
+                <div class="faq-question"><div>Q. GOLDWAVE 는 어떤 서비스인가요?</div> <span>▼</span></div>
                 <div class="faq-answer">
                     <div class="answer-content">
                         <p><strong>GOLDWAVE</strong>는 <strong>자동매매 프로그램 기반의 시스템</strong>으로, 시장 데이터를 분석하여 매매를 자동으로 수행하는 기술서비스입니다.</p>
@@ -115,7 +119,7 @@
                 </div>
             </div>
             <div class="faq-item">
-                <div class="faq-question">Q. 처음인데 어렵지 않을까요? <span>▼</span></div>
+                <div class="faq-question"><div>Q. 처음인데 어렵지 않을까요?</div> <span>▼</span></div>
                 <div class="faq-answer">
                     <div class="answer-content">
                         <p>MT5 계정 개설 후 <strong>간단한 설정</strong>만으로 자동매매가 가능합니다.</p>
@@ -124,7 +128,7 @@
                 </div>
             </div>
             <div class="faq-item">
-                <div class="faq-question">Q. 고객 지원은 어떻게 이루어지나요? <span>▼</span></div>
+                <div class="faq-question"><div>Q. 고객 지원은 어떻게 이루어지나요?</div> <span>▼</span></div>
                 <div class="faq-answer">
                     <div class="answer-content">
                         <p>유선 및 채팅을 통해 <strong><span style="color:#00ff00; font-weight:600;">실시간에 가까운 즉각적인 대응</span></strong>이 이루어집니다.</p>
@@ -132,7 +136,7 @@
                 </div>
             </div>
             <div class="faq-item">
-                <div class="faq-question"><div><span class="best-label">BEST</span>Q. 지금 시작해도 괜찮을까요? <span>▼</span></div></div>
+                <div class="faq-question"><div><span class="best-label">BEST</span>Q. 지금 시작해도 괜찮을까요?</div> <span>▼</span></div>
                 <div class="faq-answer">
                     <div class="answer-content">
                         <p>지금 시작하셔도 괜찮습니다.</p>
@@ -145,7 +149,7 @@
         <div class="group-chip-container"><div class="group-chip">거래소 및 시스템 보안</div></div>
         <div class="faq-list">
             <div class="faq-item">
-                <div class="faq-question"><div><span class="best-label">BEST</span>Q. XM 거래소와 MT5는 믿을 수 있는 환경인가요? <span>▼</span></div></div>
+                <div class="faq-question"><div><span class="best-label">BEST</span>Q. XM 거래소와 MT5는 믿을 수 있는 환경인가요?</div> <span>▼</span></div>
                 <div class="faq-answer">
                     <div class="answer-content">
                         <p>네, 저희 서비스는 전 세계적으로 검증된 MT5 플랫폼과 글로벌 대형 브로커인 XM 거래소를 통해 안전한 거래 환경을 제공합니다.</p>
@@ -158,7 +162,7 @@
                 </div>
             </div>
             <div class="faq-item">
-                <div class="faq-question"><div><span class="best-label">BEST</span>Q. MT5 트레이더 비밀번호를 왜 우리한테 공유해야하는지 <span>▼</span></div></div>
+                <div class="faq-question"><div><span class="best-label">BEST</span>Q. MT5 트레이더 비밀번호를 왜 우리한테 공유해야하는지</div> <span>▼</span></div>
                 <div class="faq-answer">
                     <div class="answer-content">
                         <p>우리가 <strong>골드웨이브 프로그램을 자동으로 사용</strong>하게 하려면 저 비번이 있어야 <strong>서버 오픈</strong>을 할 수 있습니다!</p>
@@ -168,7 +172,7 @@
                 </div>
             </div>
             <div class="faq-item">
-                <div class="faq-question">Q. 소액으로도 테스트가 가능할까요? <span>▼</span></div>
+                <div class="faq-question"><div>Q. 소액으로도 테스트가 가능할까요?</div> <span>▼</span></div>
                 <div class="faq-answer">
                     <div class="answer-content">
                         <p><strong>네, 가능합니다.</strong></p>
@@ -181,7 +185,7 @@
         <div class="group-chip-container"><div class="group-chip">수익 모델 및 리스크 관리</div></div>
         <div class="faq-list">
             <div class="faq-item">
-                <div class="faq-question"><div><span class="best-label">BEST</span>Q. 자동매매, 진짜 수익이 나나요? <span>▼</span></div></div>
+                <div class="faq-question"><div><span class="best-label">BEST</span>Q. 자동매매, 진짜 수익이 나나요?</div> <span>▼</span></div>
                 <div class="faq-answer">
                     <div class="answer-content">
                         <p>단순한 방향 예측이 아닌 <strong>시장 구조 기반 전략</strong>으로 운영되기 때문에 변동성 구간에서도<br>
@@ -190,7 +194,7 @@
                 </div>
             </div>
             <div class="faq-item">
-                <div class="faq-question"><div><span class="best-label">BEST</span>Q. 리스크 관리는 어떻게 되나요? <span>▼</span></div></div>
+                <div class="faq-question"><div><span class="best-label">BEST</span>Q. 리스크 관리는 어떻게 되나요?</div> <span>▼</span></div>
                 <div class="faq-answer">
                     <div class="answer-content">
                         <p><strong>GOLDWAVE</strong>는 단순 진입이 아닌 <strong>리스크를 우선으로 설계된 구조</strong>입니다.</p>
@@ -206,7 +210,7 @@
                 </div>
             </div>
             <div class="faq-item">
-                <div class="faq-question"><div><span class="best-label">BEST</span>Q. 방향 틀리면 바로 손실 아닌가요? <span>▼</span></div></div>
+                <div class="faq-question"><div><span class="best-label">BEST</span>Q. 방향 틀리면 바로 손실 아닌가요?</div> <span>▼</span></div>
                 <div class="faq-answer">
                     <div class="answer-content">
                         <p><strong>GOLDWAVE</strong>는 <strong>단일 방향 베팅</strong>이 아닌, <strong><span style="color:#00ff00; font-weight:600;">세션 분산 기반의 구조 대응 전략</span></strong>으로 운영됩니다.</p>
@@ -215,7 +219,7 @@
                 </div>
             </div>
             <div class="faq-item">
-                <div class="faq-question">Q. 요즘처럼 변동성이 심한 장에서도 가능한가요? <span>▼</span></div>
+                <div class="faq-question"><div>Q. 요즘처럼 변동성이 심한 장에서도 가능한가요?</div> <span>▼</span></div>
                 <div class="faq-answer">
                     <div class="answer-content">
                         <p>오히려 변동성이 큰 구간일수록 <strong>AI</strong>는 더 보수적으로 진입을 실행하며, <strong>선별된 타점</strong>에서만 반응합니다.</p>
@@ -224,7 +228,7 @@
                 </div>
             </div>
             <div class="faq-item">
-                <div class="faq-question">Q. 자동매매면 계속 매매하나요? <span>▼</span></div>
+                <div class="faq-question"><div>Q. 자동매매면 계속 매매하나요?</div> <span>▼</span></div>
                 <div class="faq-answer">
                     <div class="answer-content">
                         <p>아닙니다. <strong>조건이 충족될 때만 진입</strong>하는 구조로 운영되기 때문에 <span style="color:#00ff00; font-weight:600;">불필요한 매매는 최소화</span>됩니다.</p>

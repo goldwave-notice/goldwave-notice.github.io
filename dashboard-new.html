@@ -192,45 +192,55 @@
     </div>
 
     <script>
-    // 1. 날짜 표시 로직 (기존 유지)
-    const todayObj = new Date();
-    const year = todayObj.getFullYear();
-    const month = String(todayObj.getMonth() + 1).padStart(2, '0');
-    const date = String(todayObj.getDate()).padStart(2, '0');
-    const dateStr = `${year}${month}${date}`; // 20260422 형태
-    document.getElementById('date-display').innerText = `📅 ${year}.${month}.${date}`;
+        const todayObj = new Date();
+        const year = todayObj.getFullYear();
+        const month = String(todayObj.getMonth() + 1).padStart(2, '0');
+        const date = String(todayObj.getDate()).padStart(2, '0');
+        const dateStr = `${year}${month}${date}`;
+        document.getElementById('date-display').innerText = `📅 ${year}.${month}.${date}`;
 
-    // 2. 모든 기기에서 동일한 랜덤 숫자를 생성하는 함수 (Seed 기반)
-    function getSyncRandom(seed, min, max) {
-        const x = Math.sin(seed) * 10000;
-        const rand = x - Math.floor(x);
-        return Math.floor(rand * (max - min + 1)) + min;
-    }
+        function getSyncRandom(seed, min, max) {
+            const x = Math.sin(seed) * 10000;
+            const rand = x - Math.floor(x);
+            return Math.floor(rand * (max - min + 1)) + min;
+        }
 
-    function updateCounters() {
-        // [TODAY 카운팅 로직]
-        // 오늘 날짜(seed)를 기반으로 30~150 사이의 '시작 숫자'를 모든 기기에서 동일하게 생성
-        const startCount = getSyncRandom(parseInt(dateStr), 30, 150);
-        
-        // 현재 시간(분 단위)을 더해서 시간이 지날수록 숫자가 조금씩 올라가게 설정 (모든 기기 동기화)
-        const minutesPassed = todayObj.getHours() * 60 + todayObj.getMinutes();
-        const increment = Math.floor(minutesPassed / 15); // 15분마다 1명씩 증가하는 효과
-        
-        const finalToday = startCount + increment;
-        document.getElementById('today-count').innerText = "TODAY " + finalToday;
+        function updateCounters() {
+            // 모든 기기에서 동일한 랜덤 시작 숫자 (30~150 사이)
+            const startCount = getSyncRandom(parseInt(dateStr), 30, 150);
+            
+            // 15분마다 1명씩 자연스럽게 증가하는 효과
+            const minutesPassed = todayObj.getHours() * 60 + todayObj.getMinutes();
+            const increment = Math.floor(minutesPassed / 15);
+            
+            const finalToday = startCount + increment;
+            document.getElementById('today-count').innerText = "TODAY " + finalToday;
 
-        // [TOTAL 카운팅 로직]
-        // 시작일로부터 흐른 날짜를 계산하여 자연스럽게 증가하는 전체 카운트
-        const startDate = new Date("2024-01-01"); // 기준일
-        const diffDays = Math.floor((todayObj - startDate) / (1000 * 60 * 60 * 24));
-        const baseTotal = 15240; // 기본 베이스 숫자
-        const finalTotal = baseTotal + (diffDays * 45) + increment; // 하루 평균 45명 방문 가정
-        
-        document.getElementById('total-count').innerText = "TOTAL " + finalTotal.toLocaleString();
-    }
+            // 전체 카운트 (기본 베이스 + 날짜별 증가분)
+            const startDate = new Date("2024-01-01");
+            const diffDays = Math.floor((todayObj - startDate) / (1000 * 60 * 60 * 24));
+            const baseTotal = 15240; 
+            const finalTotal = baseTotal + (diffDays * 45) + increment;
+            
+            document.getElementById('total-count').innerText = "TOTAL " + finalTotal.toLocaleString();
+        }
 
-    // 페이지 로드 시 실행
-    window.onload = updateCounters;
-</script>
+        window.onload = updateCounters;
+    </script>
+
+    <script type="text/javascript">
+        var sc_project=13223645; 
+        var sc_invisible=1; 
+        var sc_security="0539aabe"; 
+    </script>
+    <script type="text/javascript" src="https://www.statcounter.com/counter/counter.js" async></script>
+    <noscript>
+        <div class="statcounter">
+            <a title="web counter" href="https://statcounter.com/" target="_blank">
+                <img class="statcounter" src="https://c.statcounter.com/13223645/0/0539aabe/1/" alt="web counter" referrerPolicy="no-referrer-when-downgrade">
+            </a>
+        </div>
+    </noscript>
+
 </body>
 </html>

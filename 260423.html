@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=1350"> 
+  <title>GOLD WAVE PREMIUM REPORT - 26.04.23</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <style>
+    @import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css');
+    
+    html { -webkit-text-size-adjust: none; }
+    
+    body { 
+      margin: 0; background-color: #0b0d11; font-family: 'Pretendard', sans-serif; color: #e0e0e0; 
+      display: flex; flex-direction: column; align-items: center; padding: 0 0 80px 0; overflow-x: hidden;
+      min-width: 1350px; 
+    }
+
+    .header-sticky { 
+        position: fixed; top: 0; width: 100%; min-width: 1350px;
+        background: rgba(26, 29, 35, 0.95); border-bottom: 1px solid rgba(191, 149, 63, 0.3); 
+        z-index: 1000; padding: 15px 0; text-align: center; backdrop-filter: blur(10px); 
+    }
+    .header-title { font-size: 13px; font-weight: 800; color: #bf953f; letter-spacing: 1px; }
+
+    .back-nav {
+        position: absolute; left: 20px; top: 50%; transform: translateY(-50%);
+        text-decoration: none; color: #bf953f; font-size: 20px; transition: 0.3s;
+    }
+    .back-nav:hover { filter: drop-shadow(0 0 8px #bf953f); transform: translateY(-50%) translateX(-3px); }
+
+    .container { width: 1350px; margin-top: 80px; }
+
+    .main-section { display: flex; gap: 40px; align-items: stretch; margin-bottom: 60px; }
+    .img-area { flex: 1; display: flex; }
+    .img-area img { width: 100%; height: 100%; border-radius: 20px; border: 1px solid #bf953f; object-fit: fill; box-shadow: 0 30px 60px rgba(0,0,0,0.6); }
+
+    .text-area { flex: 1.2; display: flex; flex-direction: column; gap: 20px; }
+    .briefing-part { flex: 1; background: rgba(255,255,255,0.02); padding: 40px; border-radius: 20px; border: 1px solid rgba(191,149,63,0.1); display: flex; flex-direction: column; justify-content: center; }
+    
+    .vvip-strategy-box { 
+      flex: 1; background: #161a21; padding: 40px; border-radius: 20px; 
+      border: 1px solid rgba(191, 149, 63, 0.4); border-left: 6px solid #bf953f; 
+      display: flex; flex-direction: column; justify-content: center;
+      animation: goldenBreathing 1.8s infinite ease-in-out;
+    }
+
+    .briefing-part h1, .vvip-title { color: #bf953f; font-size: 24px; margin: 0 0 20px 0; font-weight: 800; }
+    .briefing-part h1 { border-left: 6px solid #bf953f; padding-left: 15px; }
+    .vvip-list { padding-left: 20px; margin: 0; font-size: 16px; color: #bbb; line-height: 2.3; }
+    .vvip-list li { list-style: none; position: relative; margin-bottom: 12px; }
+    .vvip-list li::before { content: "▶"; color: #bf953f; font-size: 12px; position: absolute; left: -20px; top: 2px; }
+
+    .point-focus { font-weight: 800; color: #ffffff; background: linear-gradient(to top, rgba(0, 255, 0, 0.45) 45%, transparent 45%); padding: 0 4px; border-radius: 2px; }
+    .neon-text { color: #00ff00; font-weight: 700; }
+
+    @keyframes goldenBreathing { 
+      0%, 100% { box-shadow: 0 0 15px rgba(191, 149, 63, 0.1); border-color: rgba(191, 149, 63, 0.4); }
+      50% { box-shadow: 0 0 40px rgba(191, 149, 63, 0.5); border-color: rgba(252, 246, 186, 0.8); } 
+    }
+
+    .scroll-indicator { text-align: center; margin-bottom: 40px; color: #bf953f; animation: blink 1.2s infinite; font-size: 22px; font-weight: 900; line-height: 1.0; }
+    @keyframes blink { 0%, 100% { opacity: 0; transform: translateY(-5px); } 50% { opacity: 1; transform: translateY(5px); } }
+
+    .logic-section { width: 100%; background: #1a1e26; padding: 60px; border-radius: 25px; border-top: 5px solid #bf953f; box-sizing: border-box; text-align: left; }
+    .logic-title { font-size: 24px; font-weight: 800; color: #fcf6ba; margin-bottom: 40px; border-bottom: 1px solid rgba(191,149,63,0.1); padding-bottom: 20px; }
+    .logic-paragraph { margin-bottom: 40px; line-height: 2.3; font-size: 18px; color: #e5e5e5; }
+
+    .pop-card {
+      background: #1e232d; padding: 35px; border-radius: 15px;
+      box-shadow: inset 1px 1px 1px rgba(255,255,255,0.05), 8px 8px 25px rgba(0,0,0,0.5);
+      border-top: 1px solid rgba(191,149,63,0.3); margin-top: 20px;
+      animation: goldenBreathing 1.8s infinite ease-in-out;
+    }
+
+    .archive-title-label { text-align: center; color: rgba(255,255,255,0.2); letter-spacing: 8px; font-size: 14px; font-weight: 700; margin-bottom: 30px; margin-top: 60px; }
+    .archive-section { width: 100%; display: grid; grid-template-columns: repeat(3, 1fr); gap: 25px; }
+    .archive-card { background: rgba(255,255,255,0.03); padding: 20px; border-radius: 15px; border: 1px solid rgba(255,255,255,0.05); text-align: center; transition: 0.3s; text-decoration: none; display: block; }
+    .archive-card:hover { transform: scale(1.05); border-color: #bf953f; background: rgba(191, 149, 63, 0.05); box-shadow: 0 0 20px rgba(191, 149, 63, 0.3); animation: heartbeat 0.8s infinite; }
+    .archive-thumb { width: 100%; height: 110px; border-radius: 10px; object-fit: cover; margin-bottom: 15px; border: 1px solid rgba(191, 149, 63, 0.2); }
+    @keyframes heartbeat { 0%, 30%, 100% { transform: scale(1.05); } 15%, 45% { transform: scale(1.08); } }
+
+    .insight-bar { background: linear-gradient(90deg, rgba(191, 149, 63, 0.2), rgba(191, 149, 63, 0.05)); padding: 30px; border-radius: 15px; border-left: 6px solid #00ff00; text-align: left; font-weight: 700; font-size: 20px; margin-top: 40px; }
+
+    .footer-counter { 
+      width: 1350px; margin-top: 80px; text-align: center; padding-bottom: 50px; 
+      border-top: 1px solid rgba(255,255,255,0.05); padding-top: 40px; 
+      background: transparent !important; box-shadow: none !important; 
+    }
+    .counter-label { font-size: 11px; color: #555; letter-spacing: 2px; text-transform: uppercase; font-weight: 700; }
+    #busuanzi_value_page_pv { margin-left: 5px; color: #bf953f; font-weight: bold; opacity: 0.6; }
+
+  </style>
+</head>
+<body>
+
+<div class="header-sticky">
+    <a href="archive.html" class="back-nav"><i class="fa-solid fa-arrow-left"></i></a>
+    <div class="header-title">GOLD WAVE 뉴스 리포트</div>
+</div>
+
+<div class="container">
+  <div class="main-section">
+    <div class="img-area"><img src="https://i.imgur.com/6E03kfq.png" alt="260423 NEWS"></div>
+    <div class="text-area">
+      <div class="briefing-part">
+        <h1>📌 오늘의 핵심 브리핑</h1>
+        <div style="margin-bottom: 25px; padding-bottom: 20px; border-bottom: 1px solid rgba(191,149,63,0.15);">
+          <div style="color: #fcf6ba; font-size: 21px; font-weight: 800; line-height: 1.5; letter-spacing: -0.5px;">
+            금값, 이란 휴전 연장에 ‘안도 랠리’… 온스당 4738달러 박스권 횡보
+          </div>
+        </div>
+        <div style="font-size:16.5px; line-height:2.0; color:#ccc;">
+          중동 지정학적 리스크 완화와 유가 하락의 영향으로 금값이 온스당 <span class="neon-text">4738.73달러</span>를 기록하며 반등했습니다.<br><br>
+          트럼프 대통령의 휴전 연장 조치가 <span class="point-focus">인플레이션 압력 완화</span> 기대를 자극했으나, 미 연준의 통화정책 불확실성이 상단을 제한하며 뚜렷한 방향성 탐색 국면에 진입했습니다.
+        </div>
+      </div>
+      <div class="vvip-strategy-box">
+        <div class="vvip-title">💡 VVIP 전략 가이드</div>
+        <ul class="vvip-list">
+          <li>기술적 지지: 단기적으로 4700달러 초중반 지지 확인 및 4780달러 저항 시험</li>
+          <li>매크로 분석: 달러 인덱스 방향성 경쟁 및 연준 의장 지명자 '케빈 워시' 발언 주시</li>
+          <li>리스크 관리: 휴전 연장에도 불구하고 호르무즈 해협 재개방 거부 등 잔존 긴장 대비</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="scroll-indicator">v<br>v<br>v</div>
+
+  <div class="logic-section">
+    <div class="logic-title">📌 GOLDWAVE 알고리즘 증명: 안개 속의 지지선 분석</div>
+    <div class="logic-paragraph">
+      단기 반등에도 불구하고 중기 조정 압력은 여전히 시장의 부담 요인입니다. 최근 1개월간 <span class="point-focus">6.07%</span> 상승했으나, 고점 대비 약 10% 하락한 구간은 에너지가 응축되는 박스권임을 시사합니다.<br><br>
+      GOLDWAVE는 통화정책 프레임워크의 변화 가능성과 지정학적 노이즈를 결합하여, 단순한 가격 반등이 아닌 <span class="neon-text">구조적 지지력</span>이 형성되는 타점을 정밀하게 추적하고 있습니다.
+    </div>
+    <div class="pop-card">
+      <div style="font-size: 19px; line-height: 2.2; color: #fff;">
+        "명확한 평화 경로가 나오기 전까지 금은 달러와 팽팽한 줄다리기를 이어갑니다."<br>
+        불확실성이 완전히 해소되지 않은 지금, <span class="neon-text">골드웨이브</span>의 데이터 대응만이 랑이님의 포트폴리오를 완벽하게 보호하는 방패가 됩니다.
+      </div>
+    </div>
+  </div>
+
+  <div class="insight-bar">✔ 방향성 탐색의 시기, 원칙을 지키는 자가 마지막에 웃습니다.</div>
+
+  <div class="archive-title-label">PREVIOUS REPORT</div>
+  <div class="archive-section">
+    <a href="260422.html" class="archive-card">
+        <img src="https://i.imgur.com/lor3wxQ.jpeg" class="archive-thumb">
+        <span style="font-size:12px; color:#666; display:block; margin-bottom:10px;">2026.04.22</span>
+        <b style="font-size:15px; color:#aaa;">중국 금 수입량 162톤! 탈달러 가속화</b>
+    </a>
+    <a href="260421.html" class="archive-card">
+        <img src="https://i.imgur.com/h2SwnPe.jpeg" class="archive-thumb">
+        <span style="font-size:12px; color:#666; display:block; margin-bottom:10px;">2026.04.21</span>
+        <b style="font-size:15px; color:#aaa;">금값 6000달러 시대를 향한 서막</b>
+    </a>
+    <a href="260420.html" class="archive-card">
+        <img src="https://i.imgur.com/Zu8Vtk2.png" class="archive-thumb">
+        <span style="font-size:12px; color:#666; display:block; margin-bottom:10px;">2026.04.20</span>
+        <b style="font-size:15px; color:#aaa;">시장의 불확실성, 지금은 방향보다 <타이밍></b>
+    </a>
+    <a href="260417.html" class="archive-card">
+        <img src="https://i.imgur.com/KjYUILG.png" class="archive-thumb">
+        <span style="font-size:12px; color:#666; display:block; margin-bottom:10px;">2026.04.17</span>
+        <b style="font-size:15px; color:#aaa;">휴전 소식···금 값의 '폭풍전야' 귀추 주목</b>
+    </a>
+    <a href="260415-2.html" class="archive-card">
+        <img src="https://i.imgur.com/8HqOaKH.png" class="archive-thumb">
+        <span style="font-size:12px; color:#666; display:block; margin-bottom:10px;">2026.04.15(2)</span>
+        <b style="font-size:15px; color:#aaa;">블랙록 “AI 위기 독자수익 찾아라”</b>
+    </a>
+    <a href="260415.html" class="archive-card">
+        <img src="https://i.imgur.com/Zu8Vtk2.png" class="archive-thumb">
+        <span style="font-size:12px; color:#666; display:block; margin-bottom:10px;">2026.04.15</span>
+        <b style="font-size:15px; color:#aaa;">금값 4800달러선 반등 성공</b>
+    </a>
+    <a href="260414.html" class="archive-card">
+        <img src="https://i.imgur.com/8DsLOhA.png" class="archive-thumb">
+        <span style="font-size:12px; color:#666; display:block; margin-bottom:10px;">2026.04.14</span>
+        <b style="font-size:15px; color:#aaa;">인플레 공포·금값 숨고르기</b>
+    </a>
+    <a href="260413.html" class="archive-card">
+        <img src="https://i.imgur.com/8HqOaKH.png" class="archive-thumb">
+        <span style="font-size:12px; color:#666; display:block; margin-bottom:10px;">2026.04.13</span>
+        <b style="font-size:15px; color:#aaa;">금 ETF 역사상 최대 유출</b>
+    </a>
+    <a href="260410.html" class="archive-card">
+        <img src="https://i.imgur.com/RZupDdk.jpeg" class="archive-thumb">
+        <span style="font-size:12px; color:#666; display:block; margin-bottom:10px;">2026.04.10</span>
+        <b style="font-size:15px; color:#aaa;">“달러 시대 종말?” 금 매수</b>
+    </a>
+    <a href="260409.html" class="archive-card">
+        <img src="https://i.imgur.com/udVSPai.png" class="archive-thumb">
+        <span style="font-size:12px; color:#666; display:block; margin-bottom:10px;">2026.04.09</span>
+        <b style="font-size:15px; color:#aaa;">휴전 속 인하기대 줄다리기</b>
+    </a>
+    <a href="260407.html" class="archive-card">
+      <img src="https://i.imgur.com/L5mMTjI.jpeg" class="archive-thumb">
+      <span style="font-size:12px; color:#666; display:block; margin-bottom:10px;">2026.04.07</span>
+      <b style="font-size:15px; color:#aaa;">미 국채도 밀린 금 유동성</b>
+    </a>
+    <a href="260406-2.html" class="archive-card">
+      <img src="https://i.imgur.com/r1kCrUH.png" class="archive-thumb">
+      <span style="font-size:12px; color:#666; display:block; margin-bottom:10px;">2026.04.06(2)</span>
+      <b style="font-size:15px; color:#aaa;">상승 막히나? 4600 고비</b>
+    </a>
+    <a href="260406.html" class="archive-card">
+      <img src="https://i.imgur.com/G0IbFbd.jpeg" class="archive-thumb">
+      <span style="font-size:12px; color:#666; display:block; margin-bottom:10px;">2026.04.06</span>
+      <b style="font-size:15px; color:#aaa;">비트코인·증시 먹구름 지지</b>
+    </a>
+    <a href="260402.html" class="archive-card">
+      <img src="https://i.imgur.com/EskBuKu.jpeg" class="archive-thumb">
+      <span style="font-size:12px; color:#666; display:block; margin-bottom:10px;">2026.04.02</span>
+      <b style="font-size:15px; color:#aaa;">금 선물 4,600달러 붕괴</b>
+    </a>
+     <a href="260401-2.html" class="archive-card">
+      <img src="https://i.imgur.com/DQ55lYw.png" class="archive-thumb">
+      <span style="font-size:12px; color:#666; display:block; margin-bottom:10px;">2026.04.01(2)</span>
+      <b style="font-size:15px; color:#aaa;">비트코인 폭등 골든 시그널</b>
+    </a>
+    <a href="index.html" class="archive-card">
+      <img src="https://i.imgur.com/mCh2kQV.png" class="archive-thumb">
+      <span style="font-size:12px; color:#666; display:block; margin-bottom:10px;">2026.04.01</span>
+      <b style="font-size:15px; color:#aaa;">국제 금값 회복 시그널</b>
+    </a>
+  </div>
+</div> 
+
+<div class="footer-counter">
+  <span class="counter-label">TODAY VIEWS : <span id="busuanzi_value_page_pv">0</span></span>
+</div>
+
+<script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+</body>
+</html>

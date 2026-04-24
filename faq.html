@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://goldwave-notice.github.io/-/faq.html">
+    <meta property="og:url" content="https://goldwave-notice.github.io/faq.html">
     <meta property="og:title" content="GOLD WAVE - Q&A">
     <meta property="og:description" content="자주 묻는 질문">
     <meta property="og:image" content="https://github.com/goldwave-notice/-/blob/main/%EC%A7%88%EB%AC%B8%20%EB%A7%81%ED%81%AC%EC%9D%B4%EB%AF%B8%EC%A7%80.png?raw=true">
@@ -16,24 +16,11 @@
         @import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css');
         body { margin: 0; padding: 0; background-color: #0b0d11; font-family: 'Pretendard', sans-serif; color: #e0e0e0; display: flex; flex-direction: column; align-items: center; padding-bottom: 100px; }
         
-        /* 상단 고정 헤더 */
-        .header-sticky { 
-            position: fixed; top: 0; width: 100%; 
-            background: rgba(26, 29, 35, 0.95); 
-            border-bottom: 1px solid rgba(191, 149, 63, 0.3); 
-            z-index: 1000; padding: 15px 0; 
-            text-align: center; backdrop-filter: blur(10px); 
-        }
+        .header-sticky { position: fixed; top: 0; width: 100%; background: rgba(26, 29, 35, 0.95); border-bottom: 1px solid rgba(191, 149, 63, 0.3); z-index: 1000; padding: 15px 0; text-align: center; backdrop-filter: blur(10px); }
         .header-title { font-size: 13px; font-weight: 800; color: #bf953f; letter-spacing: 1px; }
-
-        .back-nav {
-            position: absolute; left: 20px; top: 50%; transform: translateY(-50%);
-            text-decoration: none; color: #bf953f; font-size: 20px;
-            transition: 0.3s;
-        }
+        .back-nav { position: absolute; left: 20px; top: 50%; transform: translateY(-50%); text-decoration: none; color: #bf953f; font-size: 20px; transition: 0.3s; }
 
         .container { width: 92%; max-width: 600px; margin-top: 100px; display: flex; flex-direction: column; align-items: center; } 
-        
         .header-box-centered { text-align: center; margin-bottom: 50px; width: 100%; }
         .brand-logo { width: 55px; height: auto; margin-bottom: 15px; filter: drop-shadow(0 0 8px rgba(191, 149, 63, 0.5)); }
         .header-text h1 { color: #bf953f; font-size: 26px; margin: 0; font-weight: 800; letter-spacing: -0.5px; }
@@ -45,28 +32,22 @@
         .video-placeholder { width: 100%; aspect-ratio: 16/9; background: #000; border: 1px solid rgba(255,255,255,0.1); border-radius: 15px; display: flex; align-items: center; justify-content: center; overflow: hidden; }
         .video-placeholder p { color: #bf953f; font-weight: 700; font-size: 14px; }
 
-        .section-title { width: 100%; font-size: 20px; color: #fff; margin: 25px 0; font-weight: 800; display: flex; align-items: center; text-align: left; }
+        .section-title { width: 100%; font-size: 20px; color: #fff; margin: 25px 0 10px; font-weight: 800; display: flex; align-items: center; text-align: left; }
         .section-title::before { content: ""; width: 4px; height: 18px; background: #bf953f; margin-right: 12px; border-radius: 2px; }
+        .section-desc { width: 100%; font-size: 13px; color: #888; margin-bottom: 25px; text-align: left; line-height: 1.5; font-weight: 500; }
 
         .group-chip-container { width: 100%; text-align: left; }
-        .group-chip { 
-            display: inline-block; background: rgba(191, 149, 63, 0.1); border: 1px solid rgba(191, 149, 63, 0.3); 
-            color: #fcf6ba; padding: 8px 18px; border-radius: 50px; font-size: 13px; font-weight: 800; margin: 30px 0 15px; 
-        }
+        .group-chip { display: inline-block; background: rgba(191, 149, 63, 0.1); border: 1px solid rgba(191, 149, 63, 0.3); color: #fcf6ba; padding: 8px 18px; border-radius: 50px; font-size: 13px; font-weight: 800; margin: 30px 0 15px; }
         
         .faq-list { width: 100%; }
         .faq-item { margin-bottom: 12px; border: 1px solid rgba(255,255,255,0.05); border-radius: 15px; overflow: hidden; background: rgba(255,255,255,0.02); transition: 0.3s; }
-        
-        /* 질문 우측 끝 정렬 반영 */
         .faq-question { padding: 22px; cursor: pointer; display: flex; justify-content: space-between; align-items: center; font-weight: 700; font-size: 16px; text-align: left; width: 100%; box-sizing: border-box; }
-        .faq-question div { flex: 1; margin-right: 15px; } /* 질문 텍스트 영역 */
-        .faq-question span { font-size: 12px; color: #bf953f; transition: 0.3s; flex-shrink: 0; } /* 화살표 영역 */
-        
+        .faq-question div { flex: 1; margin-right: 15px; } 
+        .faq-question span { font-size: 12px; color: #bf953f; transition: 0.3s; flex-shrink: 0; } 
         .best-label { color: #bf953f; font-size: 11px; font-weight: 900; margin-right: 6px; letter-spacing: 1px; }
 
         .faq-answer { max-height: 0; overflow: hidden; transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1); background: rgba(0,0,0,0.2); }
         .answer-content { padding: 25px; font-size: 15px; line-height: 1.8; color: #ccc; border-top: 1px solid rgba(191, 149, 63, 0.1); text-align: left; }
-        
         .faq-item.active { border-color: rgba(191, 149, 63, 0.4); background: rgba(191, 149, 63, 0.03); }
         .faq-item.active .faq-answer { max-height: 1200px; }
         .faq-item.active .faq-question { color: #bf953f; }
@@ -74,11 +55,24 @@
 
         .interview-grid { width: 100%; display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; margin-bottom: 50px; }
         .interview-card { background: #1a1d23; border-radius: 15px; overflow: hidden; border: 1px solid rgba(191, 149, 63, 0.1); transition: 0.3s; cursor: pointer; }
-        .thumb-box { width: 100%; aspect-ratio: 16/9; background: #000; display: flex; align-items: center; justify-content: center; position: relative; }
-        .thumb-box::after { content: "▶"; color: #bf953f; font-size: 30px; opacity: 0.5; }
+        .thumb-box { width: 100%; aspect-ratio: 16/9; background: #000; display: flex; align-items: center; justify-content: center; position: relative; overflow: hidden; }
+        .thumb-box img { width: 100%; height: 100%; object-fit: cover; transition: 0.3s; }
+        .play-icon { position: absolute; z-index: 2; color: #bf953f; font-size: 30px; opacity: 0.8; }
         .card-info { padding: 20px; text-align: center; background: linear-gradient(to bottom, #1a1d23, #111); }
         .card-info h4 { font-size: 15px; color: #fcf6ba; margin: 0; font-weight: 800; line-height: 1.4; word-break: keep-all; }
         .card-info p { font-size: 13px; color: #888; margin-top: 8px; font-weight: 600; }
+
+        .modal { display: none; position: fixed; z-index: 2000; left: 0; top: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.9); backdrop-filter: blur(5px); justify-content: center; align-items: center; padding: 20px; box-sizing: border-box; }
+        .modal-content { background: #1a1d23; width: 100%; max-width: 500px; border-radius: 20px; border: 1px solid rgba(191, 149, 63, 0.3); overflow-y: auto; max-height: 90vh; position: relative; }
+        .close-modal { position: absolute; top: 15px; right: 20px; font-size: 24px; color: #fff; cursor: pointer; z-index: 10; }
+        .modal-body { padding: 30px; text-align: left; }
+        .modal-stats { background: rgba(191, 149, 63, 0.1); border-left: 4px solid #bf953f; padding: 20px; margin-bottom: 25px; border-radius: 0 10px 10px 0; }
+        .modal-stats div { display: flex; justify-content: space-between; margin-bottom: 8px; font-size: 14px; }
+        .modal-stats .stat-label { color: #aaa; font-weight: 600; }
+        .modal-stats .stat-value { color: #fcf6ba; font-weight: 700; }
+        .modal-stats .highlight-value { color: #00ff00; font-size: 18px; font-weight: 800; }
+        .modal-text { font-size: 15px; line-height: 1.8; color: #ccc; margin-bottom: 25px; position: relative; padding-left: 15px; border-left: 2px solid rgba(191, 149, 63, 0.3); }
+        .graph-img { width: 100%; border-radius: 10px; border: 1px solid rgba(191, 149, 63, 0.2); margin-bottom: 20px; }
 
         @media (max-width: 600px) { .interview-grid { grid-template-columns: 1fr; } .header-text h1 { font-size: 22px; } }
     </style>
@@ -106,43 +100,40 @@
         </div>
 
         <div class="section-title">3분 Q&A 핵심 정리</div>
+       <div style="width: 100%; display: flex; justify-content: flex-end; margin-top: -10px; margin-bottom: 20px;">
+    <button onclick="scrollToReviews()" style="background: rgba(191, 149, 63, 0.1); border: 1px solid #bf953f; color: #fcf6ba; padding: 8px 15px; border-radius: 8px; font-size: 13px; font-weight: 700; cursor: pointer; display: flex; align-items: center; gap: 6px; transition: 0.3s;">
+        <i class="fa-solid fa-comment-dots"></i> 실제 회원 후기 보기
+    </button>
+</div>
 
         <div class="group-chip-container"><div class="group-chip">GOLD WAVE 시작하기</div></div>
         <div class="faq-list">
             <div class="faq-item">
                 <div class="faq-question"><div>Q. GOLDWAVE 는 어떤 서비스인가요?</div> <span>▼</span></div>
-                <div class="faq-answer">
-                    <div class="answer-content">
-                        <p><strong>GOLDWAVE</strong>는 <strong>자동매매 프로그램 기반의 시스템</strong>으로, 시장 데이터를 분석하여 매매를 자동으로 수행하는 기술서비스입니다.</p>
-                        <p><span style="color:#00ff00; font-weight:600;">투자일임이나 자산운용 서비스가 아닙니다.</span></p>
-                    </div>
-                </div>
+                <div class="faq-answer"><div class="answer-content">
+                    <p><strong>GOLDWAVE</strong>는 <strong>자동매매 프로그램 기반의 시스템</strong>으로, 시장 데이터를 분석하여 매매를 자동으로 수행하는 기술서비스입니다.</p>
+                    <p><span style="color:#00ff00; font-weight:600;">투자일임이나 자산운용 서비스가 아닙니다.</span></p>
+                </div></div>
             </div>
             <div class="faq-item">
                 <div class="faq-question"><div>Q. 처음인데 어렵지 않을까요?</div> <span>▼</span></div>
-                <div class="faq-answer">
-                    <div class="answer-content">
-                        <p>MT5 계정 개설 후 <strong>간단한 설정</strong>만으로 자동매매가 가능합니다.</p>
-                        <p><strong>초기 세팅부터 실제 운영까지</strong><span style="color:#00ff00; font-weight:600;"> 전담 지원</span>으로 안내드려 어렵지 않게 시작하실 수 있습니다.</p>
-                    </div>
-                </div>
+                <div class="faq-answer"><div class="answer-content">
+                    <p>MT5 계정 개설 후 <strong>간단한 설정</strong>만으로 자동매매가 가능합니다.</p>
+                    <p><strong>초기 세팅부터 실제 운영까지</strong><span style="color:#00ff00; font-weight:600;"> 전담 지원</span>으로 안내드려 어렵지 않게 시작하실 수 있습니다.</p>
+                </div></div>
             </div>
             <div class="faq-item">
                 <div class="faq-question"><div>Q. 고객 지원은 어떻게 이루어지나요?</div> <span>▼</span></div>
-                <div class="faq-answer">
-                    <div class="answer-content">
-                        <p>유선 및 채팅을 통해 <strong><span style="color:#00ff00; font-weight:600;">실시간에 가까운 즉각적인 대응</span></strong>이 이루어집니다.</p>
-                    </div>
-                </div>
+                <div class="faq-answer"><div class="answer-content">
+                    <p>유선 및 채팅을 통해 <strong><span style="color:#00ff00; font-weight:600;">실시간에 가까운 즉각적인 대응</span></strong>이 이루어집니다.</p>
+                </div></div>
             </div>
             <div class="faq-item">
                 <div class="faq-question"><div><span class="best-label">BEST</span>Q. 지금 시작해도 괜찮을까요?</div> <span>▼</span></div>
-                <div class="faq-answer">
-                    <div class="answer-content">
-                        <p>지금 시작하셔도 괜찮습니다.</p>
-                        <p>시장은 <strong>예측보다 대응의 영역</strong>이며<span style="color:#00ff00; font-weight:600;"> 타이밍이 아니라 <strong><span style="color:#00ff00; font-weight:600;">구조가 결과를 만듭니다.</span></strong></span></p>
-                    </div>
-                </div>
+                <div class="faq-answer"><div class="answer-content">
+                    <p>지금 시작하셔도 괜찮습니다.</p>
+                    <p>시장은 <strong>예측보다 대응의 영역</strong>이며<span style="color:#00ff00; font-weight:600;"> 타이밍이 아니라 <strong><span style="color:#00ff00; font-weight:600;">구조가 결과를 만듭니다.</span></strong></span></p>
+                </div></div>
             </div>
         </div>
 
@@ -150,35 +141,28 @@
         <div class="faq-list">
             <div class="faq-item">
                 <div class="faq-question"><div><span class="best-label">BEST</span>Q. XM 거래소와 MT5는 믿을 수 있는 환경인가요?</div> <span>▼</span></div>
-                <div class="faq-answer">
-                    <div class="answer-content">
-                        <p>네, 저희 서비스는 전 세계적으로 검증된 MT5 플랫폼과 글로벌 대형 브로커인 XM 거래소를 통해 안전한 거래 환경을 제공합니다.</p>
-                        <p><strong>쉽게 비유하자면 이렇습니다:</strong></p>
-                        <p>• <strong>XM 거래소 = '은행'</strong> : 고객님의 소중한 자금이 보관되는 안전한 금융사입니다. 전 세계 190개국에서 엄격한 규제를 준수하며 운영됩니다.</p>
-                        <p>• <strong>MT5 = '뱅킹 앱'</strong> : 거래소에 있는 자금을 확인하고 실제로 거래를 체결시키는 최첨단 프로그램입니다.</p>
-                        <p>검증된 기술력(MT5)과 강력한 금융 라이선스(XM)가 결합된 환경에서 서비스가 운영되므로<br>
-                        <span style="color:#00ff00; font-weight:600;">자금 안전에 대해 안심하고 이용하셔도 좋습니다.</span></p>
-                    </div>
-                </div>
+                <div class="faq-answer"><div class="answer-content">
+                    <p>네, 저희 서비스는 전 세계적으로 검증된 MT5 플랫폼과 글로벌 대형 브로커인 XM 거래소를 통해 안전한 거래 환경을 제공합니다.</p>
+                    <p><strong>쉽게 비유하자면 이렇습니다:</strong></p>
+                    <p>• <strong>XM 거래소 = '은행'</strong> : 고객님의 소중한 자금이 보관되는 안전한 금융사입니다. 전 세계 190개국에서 엄격한 규제를 준수하며 운영됩니다.</p>
+                    <p>• <strong>MT5 = '뱅킹 앱'</strong> : 거래소에 있는 자금을 확인하고 실제로 거래를 체결시키는 최첨단 프로그램입니다.</p>
+                    <p>검증된 기술력(MT5)과 강력한 금융 라이선스(XM)가 결합된 환경에서 서비스가 운영되므로<br>
+                    <span style="color:#00ff00; font-weight:600;">자금 안전에 대해 안심하고 이용하셔도 좋습니다.</span></p>
+                </div></div>
             </div>
             <div class="faq-item">
                 <div class="faq-question"><div><span class="best-label">BEST</span>Q. MT5 트레이더 비밀번호를 왜 우리한테 공유해야하는지</div> <span>▼</span></div>
-                <div class="faq-answer">
-                    <div class="answer-content">
-                        <p>우리가 <strong>골드웨이브 프로그램을 자동으로 사용</strong>하게 하려면 저 비번이 있어야 <strong>서버 오픈</strong>을 할 수 있습니다!</p>
-                        <p>고성능 서버가 24시간 시장을 감시하며 실시간으로 대응하기 위해서는 해당 비밀번호를 통한 서버 연동이 필수적입니다.</p>
-                        <p><span style="color:#00ff00; font-weight:600;">해당 비밀번호로는 오직 매매만 가능할 뿐, 고객님의 자산을 출금할 수 있는 권한은 서비스 구조상 아예 부여되지 않습니다.</span> 자산 안전을 최우선으로 관리하오니 안심하셔도 됩니다.</p>
-                    </div>
-                </div>
+                <div class="faq-answer"><div class="answer-content">
+                    <p>우리가 <strong>골드웨이브 프로그램을 자동으로 사용</strong>하게 하려면 저 비번이 있어야 <strong>서버 오픈</strong>을 할 수 있습니다!</p>
+                    <p>고성능 서버가 24시간 시장을 감시하며 실시간으로 대응하기 위해서는 해당 비밀번호를 통한 서버 연동이 필수적입니다.</p>
+                    <p><span style="color:#00ff00; font-weight:600;">해당 비밀번호로는 오직 매매만 가능할 뿐, 고객님의 자산을 출금할 수 있는 권한은 서비스 구조상 아예 부여되지 않습니다.</span> 자산 안전을 최우선으로 관리하오니 안심하셔도 됩니다.</p>
+                </div></div>
             </div>
             <div class="faq-item">
                 <div class="faq-question"><div>Q. 소액으로도 테스트가 가능할까요?</div> <span>▼</span></div>
-                <div class="faq-answer">
-                    <div class="answer-content">
-                        <p><strong>네, 가능합니다.</strong></p>
-                        <p>실제로 많은 분들이 <span style="color:#00ff00; font-weight:600;">소액 테스트 → 검증 → 증액</span> 순으로 진행하고 있습니다.</p>
-                    </div>
-                </div>
+                <div class="faq-answer"><div class="answer-content">
+                    <p><strong>네, 가능합니다.</strong> 실제로 많은 분들이 <span style="color:#00ff00; font-weight:600;">소액 테스트 → 검증 → 증액</span> 순으로 진행하고 있습니다.</p>
+                </div></div>
             </div>
         </div>
 
@@ -186,101 +170,102 @@
         <div class="faq-list">
             <div class="faq-item">
                 <div class="faq-question"><div><span class="best-label">BEST</span>Q. 자동매매, 진짜 수익이 나나요?</div> <span>▼</span></div>
-                <div class="faq-answer">
-                    <div class="answer-content">
-                        <p>단순한 방향 예측이 아닌 <strong>시장 구조 기반 전략</strong>으로 운영되기 때문에 변동성 구간에서도<br>
-                        <span style="color:#00ff00; font-weight:600;">실제 수익 흐름이 만들어지고 있습니다.</span></p>
-                    </div>
-                </div>
+                <div class="faq-answer"><div class="answer-content">
+                    <p>단순한 방향 예측이 아닌 <strong>시장 구조 기반 전략</strong>으로 운영되기 때문에 변동성 구간에서도<br>
+                    <span style="color:#00ff00; font-weight:600;">실제 수익 흐름이 만들어지고 있습니다.</span></p>
+                </div></div>
             </div>
             <div class="faq-item">
                 <div class="faq-question"><div><span class="best-label">BEST</span>Q. 리스크 관리는 어떻게 되나요?</div> <span>▼</span></div>
-                <div class="faq-answer">
-                    <div class="answer-content">
-                        <p><strong>GOLDWAVE</strong>는 단순 진입이 아닌 <strong>리스크를 우선으로 설계된 구조</strong>입니다.</p>
-                        <ul style="list-style: none; padding-left: 0; margin: 15px 0; color: #ccc; line-height: 2;">
-                            <li>• 계좌 잔고 기준 자동 포지션 조절</li>
-                            <li>• 변동성 확대 시 진입 기준 강화</li>
-                            <li>• 손실 기준 초과 시 자동 청산 후 중립 복귀</li>
-                        </ul>
-                        <p style="margin-top: 15px; border-top: 1px solid rgba(191,149,63,0.1); padding-top: 15px;">
-                            <span style="color:#00ff00; font-weight:600;">시장 상황에 따라 무리한 진입 없이 보수적으로 대응하는 것이 핵심입니다.</span>
-                        </p>
-                    </div>
-                </div>
+                <div class="faq-answer"><div class="answer-content">
+                    <p><strong>GOLDWAVE</strong>는 단순 진입이 아닌 <strong>리스크를 우선으로 설계된 구조</strong>입니다.</p>
+                    <ul style="list-style: none; padding-left: 0; margin: 15px 0; color: #ccc; line-height: 2;">
+                        <li>• 계좌 잔고 기준 자동 포지션 조절</li>
+                        <li>• 변동성 확대 시 진입 기준 강화</li>
+                        <li>• 손실 기준 초과 시 자동 청산 후 중립 복귀</li>
+                    </ul>
+                    <p style="margin-top: 15px; border-top: 1px solid rgba(191,149,63,0.1); padding-top: 15px;">
+                        <span style="color:#00ff00; font-weight:600;">시장 상황에 따라 무리한 진입 없이 보수적으로 대응하는 것이 핵심입니다.</span>
+                    </p>
+                </div></div>
             </div>
             <div class="faq-item">
                 <div class="faq-question"><div><span class="best-label">BEST</span>Q. 방향 틀리면 바로 손실 아닌가요?</div> <span>▼</span></div>
-                <div class="faq-answer">
-                    <div class="answer-content">
-                        <p><strong>GOLDWAVE</strong>는 <strong>단일 방향 베팅</strong>이 아닌, <strong><span style="color:#00ff00; font-weight:600;">세션 분산 기반의 구조 대응 전략</span></strong>으로 운영됩니다.</p>
-                        <p><span style="color:#00ff00; font-weight:600;">시장 상황에 따라 유연하게 대응하는 것이 특징입니다.</span></p>
-                    </div>
-                </div>
+                <div class="faq-answer"><div class="answer-content">
+                    <p><strong>GOLDWAVE</strong>는 <strong>단일 방향 베팅</strong>이 아닌, <strong><span style="color:#00ff00; font-weight:600;">세션 분산 기반의 구조 대응 전략</span></strong>으로 운영됩니다.</p>
+                    <p><span style="color:#00ff00; font-weight:600;">시장 상황에 따라 유연하게 대응하는 것이 특징입니다.</span></p>
+                </div></div>
             </div>
             <div class="faq-item">
                 <div class="faq-question"><div>Q. 요즘처럼 변동성이 심한 장에서도 가능한가요?</div> <span>▼</span></div>
-                <div class="faq-answer">
-                    <div class="answer-content">
-                        <p>오히려 변동성이 큰 구간일수록 <strong>AI</strong>는 더 보수적으로 진입을 실행하며, <strong>선별된 타점</strong>에서만 반응합니다.</p>
-                        <p>변동성에 맞춰 대응 방식이 달라지기 때문에 <span style="color:#00ff00; font-weight:600;">안정적인 운영</span>이 가능합니다.</p>
-                    </div>
-                </div>
+                <div class="faq-answer"><div class="answer-content">
+                    <p>오히려 변동성이 큰 구간일수록 <strong>AI</strong>는 더 보수적으로 진입을 실행하며, <strong>선별된 타점</strong>에서만 반응합니다. <span style="color:#00ff00; font-weight:600;">안정적인 운영</span>이 가능합니다.</p>
+                </div></div>
             </div>
             <div class="faq-item">
                 <div class="faq-question"><div>Q. 자동매매면 계속 매매하나요?</div> <span>▼</span></div>
-                <div class="faq-answer">
-                    <div class="answer-content">
-                        <p>아닙니다. <strong>조건이 충족될 때만 진입</strong>하는 구조로 운영되기 때문에 <span style="color:#00ff00; font-weight:600;">불필요한 매매는 최소화</span>됩니다.</p>
-                    </div>
-                </div>
+                <div class="faq-answer"><div class="answer-content">
+                    <p>아닙니다. <strong>조건이 충족될 때만 진입</strong>하는 구조로 운영되기 때문에 <span style="color:#00ff00; font-weight:600;">불필요한 매매는 최소화</span>됩니다.</p>
+                </div></div>
             </div>
         </div>
 
         <div class="section-title">실제 회원 성공 스토리</div>
+        <div class="section-desc">회원님들의 소중한 개인정보 보호와 진솔한 후기 전달을 위해 서면 인터뷰로 먼저 공개됩니다.</div>
+        
         <div class="interview-grid">
-            <div class="interview-card">
-                <div class="thumb-box"></div>
-                <div class="card-info">
-                    <h4>"여유로운 노후 준비의 시작을 골드웨이브와 함께"</h4>
-                    <p>회원 김OO님 인터뷰</p>
-                </div>
-            </div>
-            <div class="interview-card">
-                <div class="thumb-box"></div>
-                <div class="card-info">
-                    <h4>"바쁜 직장인에게 딱 맞는 투자 고민 해결사"</h4>
-                    <p>회원 이OO님 인터뷰</p>
-                </div>
-            </div>
-            <div class="interview-card">
-                <div class="thumb-box"></div>
-                <div class="card-info">
-                    <h4>"AI 트레이딩의 신세계를 경험하고 있습니다"</h4>
-                    <p>회원 박OO님 인터뷰</p>
-                </div>
-            </div>
-            <div class="interview-card">
-                <div class="thumb-box"></div>
-                <div class="card-info">
-                    <h4>"왜 이제야 알았나 싶을 정도로 만족스러워요"</h4>
-                    <p>회원 최OO님 인터뷰</p>
-                </div>
-            </div>
+            <div class="interview-card" onclick="openModal('modal-kim')"><div class="thumb-box"><img src="https://i.imgur.com/utBmehF.png" style="filter: blur(5px) brightness(0.6);"><i class="fa-solid fa-magnifying-glass-plus play-icon"></i></div><div class="card-info"><h4>"여유로운 노후 준비의 시작"</h4><p>회원 김OO님</p></div></div>
+            <div class="interview-card" onclick="openModal('modal-park')"><div class="thumb-box"><img src="https://i.imgur.com/7sWVH3s.png" style="filter: blur(5px) brightness(0.6);"><i class="fa-solid fa-magnifying-glass-plus play-icon"></i></div><div class="card-info"><h4>"AI 트레이딩의 신세계 경험"</h4><p>회원 박OO님</p></div></div>
+            <div class="interview-card" onclick="openModal('modal-choi')"><div class="thumb-box"><img src="https://i.imgur.com/WPA5C7U.png" style="filter: blur(5px) brightness(0.6);"><i class="fa-solid fa-magnifying-glass-plus play-icon"></i></div><div class="card-info"><h4>"왜 이제야 알았나 싶은 만족도"</h4><p>회원 최OO님</p></div></div>
+            <div class="interview-card" onclick="openModal('modal-lee')"><div class="thumb-box"><img src="https://i.imgur.com/UuWV1LB.jpeg" style="filter: blur(5px) brightness(0.6);"><i class="fa-solid fa-magnifying-glass-plus play-icon"></i></div><div class="card-info"><h4>"직장인을 위한 최고의 해결사"</h4><p>회원 이OO님</p></div></div>
         </div>
     </div>
 
+    <div id="modal-kim" class="modal"><div class="modal-content"><span class="close-modal" onclick="closeModal('modal-kim')">&times;</span><div class="modal-body"><h2 style="color:#bf953f; font-size:18px; margin-bottom:20px; font-weight:800; text-align: center;">실제 운용 데이터 상세 확인</h2><img src="https://i.imgur.com/08bjxmW.png" class="graph-img"><div class="modal-stats"><div><span class="stat-label">초기 자산</span> <span class="stat-value">34,270,000원</span></div><div><span class="stat-label">운용 기간</span> <span class="stat-value">17일</span></div><div style="margin-top:10px; border-top:1px solid rgba(191,149,63,0.2); padding-top:10px;"><span class="stat-label" style="color:#fff;">현재 수익률</span> <span class="highlight-value">+80%</span></div><div><span class="stat-label" style="color:#fff;">최종 자산</span> <span class="stat-value" style="color:#fff;">약 61,686,000원</span></div></div><div class="modal-text">
+        <p style="color:#bf953f; font-weight:700; margin-bottom:8px;">[전직 공무원 / 60대 후반]</p>
+        "평생 모은 노후 자금을 어떻게 굴려야 하나 고민이 참 많았어요. 은행에 두자니 이자가 너무 짜고, 주식은 무서워서 못 하겠더라고요. 고민하다가 자금 중 일부만 떼서 시작해 봤는데, 매일 눈으로 수익이 찍히는 걸 보니 이제는 마음이 푹 놓입니다. 큰 욕심 없이 원금 잘 지키면서 가는 게 목적이었는데, 생각보다 수익도 쏠쏠하고 든든한 노후 파트너가 생긴 기분이에요."
+    </div></div></div></div>
+
+    <div id="modal-park" class="modal"><div class="modal-content"><span class="close-modal" onclick="closeModal('modal-park')">&times;</span><div class="modal-body"><h2 style="color:#bf953f; font-size:18px; margin-bottom:20px; font-weight:800; text-align: center;">실제 운용 데이터 상세 확인</h2><img src="https://i.imgur.com/w8lJQpE.png" class="graph-img"><div class="modal-stats"><div><span class="stat-label">초기 자산</span> <span class="stat-value">15,040,000원</span></div><div><span class="stat-label">운용 기간</span> <span class="stat-value">19일</span></div><div style="margin-top:10px; border-top:1px solid rgba(191,149,63,0.2); padding-top:10px;"><span class="stat-label" style="color:#fff;">현재 수익률</span> <span class="highlight-value">+68%</span></div><div><span class="stat-label" style="color:#fff;">최종 자산</span> <span class="stat-value" style="color:#fff;">약 25,235,200원</span></div></div><div class="modal-text">
+        <p style="color:#bf953f; font-weight:700; margin-bottom:8px;">[관리사무소 근무 / 40대 후반]</p>
+        "요즘 하도 AI 프로그램이다 뭐다 사기가 판을 쳐서, 솔직히 저도 처음엔 '이것도 그런 거 아냐?' 하고 엄청 경계했어요. 그래서 일단 500만 원 소액으로만 시작해 봤거든요? 근데 진짜 말한 대로 돈이 벌리더라고요. 수익 나는 거 내 눈으로 딱 확인하고 나서는 믿음이 생겨서 바로 투자금 확 늘렸고, 지금은 제 동생이랑 올케까지 돌리고 있습니다. 여긴 진짜 다른 업체들이랑은 차원이 달라요."
+    </div></div></div></div>
+
+    <div id="modal-choi" class="modal"><div class="modal-content"><span class="close-modal" onclick="closeModal('modal-choi')">&times;</span><div class="modal-body"><h2 style="color:#bf953f; font-size:18px; margin-bottom:20px; font-weight:800; text-align: center;">실제 운용 데이터 상세 확인</h2><img src="https://i.imgur.com/9hGQoqJ.png" class="graph-img"><div class="modal-stats"><div><span class="stat-label">초기 자산</span> <span class="stat-value">21,560,000원</span></div><div><span class="stat-label">운용 기간</span> <span class="stat-value">35일</span></div><div style="margin-top:10px; border-top:1px solid rgba(191,149,63,0.2); padding-top:10px;"><span class="stat-label" style="color:#fff;">현재 수익률</span> <span class="highlight-value">+39.4%</span></div><div><span class="stat-label" style="color:#fff;">최종 자산</span> <span class="stat-value" style="color:#fff;">약 30,059,840원</span></div></div><div class="modal-text">
+        <p style="color:#bf953f; font-weight:700; margin-bottom:8px;">[골프 레슨 프로 / 40대 초반]</p>
+        "제가 원래 성격이 좀 까칠해서 의심도 많고 서비스가 조금만 맘에 안 들어도 불만을 다 말하는 편입니다. 반신반의하며 시작했는데, 감정에 안 휘둘리고 딱딱 원칙대로 매매하는 거 보면서 점차 믿음이 가더군요. 제가 골프 레슨을 하는데, 수익이 꾸준히 잘 나다 보니 요새는 저한테 레슨받는 회원들한테도 제가 먼저 추천해 주고 있습니다. 저처럼 까다로운 사람이 남한테 소개해 줄 정도면 말 다 했죠."
+    </div></div></div></div>
+
+    <div id="modal-lee" class="modal"><div class="modal-content"><span class="close-modal" onclick="closeModal('modal-lee')">&times;</span><div class="modal-body"><h2 style="color:#bf953f; font-size:18px; margin-bottom:20px; font-weight:800; text-align: center;">실제 운용 데이터 상세 확인</h2><img src="https://i.imgur.com/H5Nr5ro.png" class="graph-img"><div class="modal-stats"><div><span class="stat-label">초기 자산</span> <span class="stat-value">6,600,000원</span></div><div><span class="stat-label">운용 기간</span> <span class="stat-value">17일</span></div><div style="margin-top:10px; border-top:1px solid rgba(191,149,63,0.2); padding-top:10px;"><span class="stat-label" style="color:#fff;">현재 수익률</span> <span class="highlight-value">+16.8%</span></div><div><span class="stat-label" style="color:#fff;">최종 자산</span> <span class="stat-value" style="color:#fff;">약 7,708,800원</span></div></div><div class="modal-text">
+        <p style="color:#bf953f; font-weight:700; margin-bottom:8px;">[일반 직장인 / 30대 초반]</p>
+        "30대 직장인이라 월급만으로는 한계가 있더라고요. 사실 차 할부금이 매달 나가는 게 너무 부담이라 이거라도 좀 보태보자 싶어 시작했는데, 지금은 할부금 다 내고도 돈이 남아서 따로 저축까지 하고 있어요. 일하느라 바쁠 때도 AI가 알아서 다 해주니까 차트 볼 일도 없고 너무 편합니다. 수익금 쌓이는 재미에 요새 퇴근길 발걸음이 가벼워졌네요."
+    </div></div></div></div>
     <script>
         const faqItems = document.querySelectorAll('.faq-item');
         faqItems.forEach(item => {
             const question = item.querySelector('.faq-question');
             question.addEventListener('click', () => {
-                faqItems.forEach(otherItem => {
-                    if (otherItem !== item) otherItem.classList.remove('active');
-                });
+                faqItems.forEach(otherItem => { if (otherItem !== item) otherItem.classList.remove('active'); });
                 item.classList.toggle('active');
             });
         });
+        function openModal(id) { document.getElementById(id).style.display = 'flex'; document.body.style.overflow = 'hidden'; }
+        function closeModal(id) { document.getElementById(id).style.display = 'none'; document.body.style.overflow = 'auto'; }
+        window.onclick = function(event) { if (event.target.classList.contains('modal')) { event.target.style.display = "none"; document.body.style.overflow = 'auto'; } }
+
+// 회원 후기 섹션으로 부드럽게 스크롤 이동
+function scrollToReviews() {
+    // 모든 섹션 타이틀을 다 찾아서
+    const titles = document.querySelectorAll('.section-title');
+    
+    titles.forEach(title => {
+        // 타이틀 텍스트에 '실제 회원 성공 스토리'가 포함되어 있다면!
+        if(title.textContent.includes('실제 회원 성공 스토리')) {
+            // 그 위치로 스르륵 이동해라
+            title.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+    });
+}
     </script>
 </body>
 </html>

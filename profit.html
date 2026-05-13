@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://goldwave-notice.github.io/-/profit.html">
+  <meta property="og:title" content="GOLD WAVE - 수익 현황">
+  <meta property="og:description" content="일일 수익 리포트">
+
+  <meta property="og:image" content="https://github.com/goldwave-notice/-/blob/main/profit-main.png?raw=true">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+
+  <title>GOLD WAVE - 수익 현황</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <style>
+    @import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css');
+
+    html, body {
+      margin: 0; padding: 0;
+      background-color: #0b0d11; 
+      font-family: 'Pretendard', sans-serif;
+      color: #e0e0e0;
+      overflow-x: hidden;
+      width: 100%;
+    }
+
+    body {
+      display: flex; flex-direction: column; align-items: center;
+      padding-bottom: 120px;
+    }
+
+    /* 상단 고정 헤더 */
+    .header-sticky { 
+        position: fixed; top: 0; left: 0; width: 100%;
+        background: rgba(26, 29, 35, 0.95); 
+        border-bottom: 1px solid rgba(191, 149, 63, 0.3); 
+        z-index: 1000; padding: 15px 0; 
+        text-align: center; backdrop-filter: blur(10px); 
+    }
+    .header-title { font-size: 16px; font-weight: 800; color: #bf953f; letter-spacing: 1px; }
+
+    .back-nav {
+        position: absolute; left: 20px; top: 50%; transform: translateY(-50%);
+        text-decoration: none; color: #bf953f; font-size: 24px;
+    }
+
+    /* 컨테이너 */
+    .container {
+      width: 92%; 
+      max-width: 1000px; 
+      margin-top: 100px; 
+      display: flex; flex-direction: column; align-items: center;
+    }
+
+    .header-box-centered { text-align: center; margin-bottom: 50px; width: 100%; }
+    .brand-logo { width: 60px; height: auto; margin-bottom: 15px; filter: drop-shadow(0 0 8px rgba(191, 149, 63, 0.5)); }
+    .header-text h1 { color: #bf953f; font-size: 28px; margin: 0; font-weight: 800; letter-spacing: -1px; }
+    .header-text p { color: #aaa; font-size: 16px; margin-top: 10px; font-weight: 700; }
+
+    .profit-section {
+      width: 100%; 
+      margin-bottom: 40px; 
+      background: rgba(255, 255, 255, 0.02);
+      padding: 20px; 
+      border-radius: 20px; 
+      border: 1px solid rgba(255, 255, 255, 0.05); 
+      box-sizing: border-box;
+    }
+
+    .date-badge { 
+      display: inline-block; 
+      background: linear-gradient(135deg, #bf953f, #fcf6ba); 
+      color: #000; 
+      padding: 6px 16px; 
+      border-radius: 40px; 
+      font-weight: 800; 
+      font-size: 14px; 
+      margin-bottom: 20px; 
+    }
+
+    .magnify-container { 
+      position: relative; 
+      overflow: hidden; 
+      border-radius: 12px; 
+      cursor: zoom-in; 
+      background-color: #000; 
+      box-shadow: 0 10px 30px rgba(0,0,0,0.8);
+      width: 100%;
+    }
+
+    .profit-img { 
+      width: 100%; 
+      height: auto; 
+      display: block; 
+      transition: transform 0.15s ease-out; 
+      transform-origin: center; 
+    }
+
+    .holiday-notice {
+      width: 100%; text-align: center; padding: 30px; background: rgba(191, 149, 63, 0.05);
+      border: 1px dashed rgba(191, 149, 63, 0.4); border-radius: 20px; margin-bottom: 40px; box-sizing: border-box;
+    }
+    .holiday-notice p { color: #fcf6ba; font-size: 15px; margin: 0; line-height: 1.6; }
+
+    @media (min-width: 1024px) {
+      .header-text h1 { font-size: 36px; }
+      .header-text p { font-size: 18px; }
+      .holiday-notice p { font-size: 18px; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="header-sticky">
+      <a href="dashboard-new.html" class="back-nav"><i class="fa-solid fa-arrow-left"></i></a>
+      <div class="header-title">GOLD WAVE 수익현황</div>
+  </div>
+
+  <div class="container">
+    <div class="header-box-centered">
+        <img src="https://i.imgur.com/9VUt3sN.png" alt="Logo" class="brand-logo">
+        <div class="header-text">
+            <h1>GOLD WAVE PROFIT REPORT</h1>
+            <p>실시간 수익 현황 및 공지</p>
+        </div>
+    </div>
+<div class="profit-section">
+      <div class="date-badge">2026. 05. 11 (THU)</div>
+      <div class="magnify-container" id="zoom-5-11">
+        <img src="https://i.imgur.com/H1qiZyG.jpeg" alt="5/11 수익현황" class="profit-img">
+      </div>
+    </div> 
+
+<div class="profit-section">
+      <div class="date-badge">2026. 05. 07 (THU)</div>
+      <div class="magnify-container" id="zoom-5-7">
+        <img src="https://i.imgur.com/oiwgN6w.jpeg" alt="5/7 수익현황" class="profit-img">
+      </div>
+    </div> 
+
+<div class="profit-section">
+      <div class="date-badge">2026. 05. 06 (WED)</div>
+      <div class="magnify-container" id="zoom-5-6">
+        <img src="https://i.imgur.com/E3fEpLP.jpeg" alt="5/6 수익현황" class="profit-img">
+      </div>
+    </div> 
+
+<div class="profit-section">
+      <div class="date-badge">2026. 05. 05 (TUE)</div>
+      <div class="magnify-container" id="zoom-5-5">
+        <img src="https://i.imgur.com/Y74vhJN.jpeg" alt="5/5 수익현황" class="profit-img">
+      </div>
+    </div> 
+
+<div class="profit-section">
+      <div class="date-badge">2026. 05. 01 (FRI)</div>
+      <div class="magnify-container" id="zoom-5-1">
+        <img src="https://i.imgur.com/7edvSKc.jpeg" alt="5/1 수익현황" class="profit-img">
+      </div>
+    </div> 
+
+<div class="profit-section">
+      <div class="date-badge">2026. 04. 29 (WED)</div>
+      <div class="magnify-container" id="zoom-4-29">
+        <img src="https://i.imgur.com/C8CL5u0.jpeg" alt="4/29 수익현황" class="profit-img">
+      </div>
+    </div> 
+
+<div class="profit-section">
+      <div class="date-badge">2026. 04. 27 (MON)</div>
+      <div class="magnify-container" id="zoom-4-27">
+        <img src="https://i.imgur.com/svlNNNy.jpeg" alt="4/27 수익현황" class="profit-img">
+      </div>
+    </div> 
+
+ <div class="profit-section">
+      <div class="date-badge">2026. 04. 24 (FRI)</div>
+      <div class="magnify-container" id="zoom-4-24">
+        <img src="https://i.imgur.com/yPEXDaM.jpeg" alt="4/24 수익현황" class="profit-img">
+      </div>
+    </div> 
+  
+ <div class="profit-section">
+      <div class="date-badge">2026. 04. 22 (WED)</div>
+      <div class="magnify-container" id="zoom-4-22">
+        <img src="https://i.imgur.com/Vls9pLG.jpeg" alt="4/22 수익현황" class="profit-img">
+      </div>
+    </div>
+
+   <div class="profit-section">
+      <div class="date-badge">2026. 04. 21 (TUE)</div>
+      <div class="magnify-container" id="zoom-4-21">
+        <img src="https://i.imgur.com/qX9jxjk.jpeg" alt="4/21 수익현황" class="profit-img">
+      </div>
+    </div>
+
+     <div class="profit-section">
+      <div class="date-badge">2026. 04. 17 (FRI)</div>
+      <div class="magnify-container" id="zoom-4-17">
+        <img src="https://i.imgur.com/yJ7puV4.jpeg" alt="4/17 수익현황" class="profit-img">
+      </div>
+    </div>
+
+    <div class="profit-section">
+      <div class="date-badge">2026. 04. 16 (THU)</div>
+      <div class="magnify-container" id="zoom-4-16">
+        <img src="https://i.imgur.com/VzFL8fm.jpeg" alt="4/16 수익현황" class="profit-img">
+      </div>
+    </div>
+
+    <div class="profit-section">
+      <div class="date-badge">2026. 04. 15 (WED)</div>
+      <div class="magnify-container" id="zoom-4-15">
+        <img src="https://i.imgur.com/WstwFjE.jpeg" alt="4/15 수익현황" class="profit-img">
+      </div>
+    </div>
+
+    <div class="profit-section">
+      <div class="date-badge">2026. 04. 14 (TUE)</div>
+      <div class="magnify-container" id="zoom-4-14">
+        <img src="https://i.imgur.com/WyP4zCG.jpeg" alt="4/14 수익현황" class="profit-img">
+      </div>
+    </div>
+
+    <div class="profit-section">
+      <div class="date-badge">2026. 04. 13 (MON)</div>
+      <div class="magnify-container" id="zoom-4-13">
+        <img src="https://i.imgur.com/F7EN6bO.jpeg" alt="4/13 수익현황" class="profit-img">
+      </div>
+    </div>
+
+    <div class="profit-section">
+      <div class="date-badge">2026. 04. 10 (FRI)</div>
+      <div class="magnify-container" id="zoom-4-10">
+        <img src="https://i.imgur.com/c1gkfzM.jpeg" alt="4/10 수익현황" class="profit-img">
+      </div>
+    </div>
+
+    <div class="profit-section">
+      <div class="date-badge">2026. 04. 06 (MON)</div>
+      <div class="magnify-container" id="zoom-4-6">
+        <img src="https://i.imgur.com/vMC7pbx.jpeg" alt="4/6 수익현황" class="profit-img">
+      </div>
+    </div>
+
+    <div class="holiday-notice">
+      <p>⚠️ 2026. 04. 03 - 04. 05<br>부활절 연휴 글로벌 시장 휴장으로 인한<br>AI 자동 트레이딩 시스템 일시 정지 (리스크 관리)</p>
+    </div>
+
+    <div class="profit-section">
+      <div class="date-badge">2026. 04. 02 (THU)</div>
+      <div class="magnify-container" id="zoom-4-2">
+        <img src="https://i.imgur.com/TDWiUm3.jpeg" alt="4/2 수익현황" class="profit-img">
+      </div>
+    </div>
+
+    <div class="profit-section">
+      <div class="date-badge">2026. 04. 01 (WED)</div>
+      <div class="magnify-container" id="zoom-4-1">
+        <img src="https://i.imgur.com/4kis9Pu.jpeg" alt="4/1 수익현황" class="profit-img">
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function enableWideZoom(containerId) {
+      const container = document.getElementById(containerId);
+      if(!container) return;
+      const img = container.querySelector('.profit-img');
+
+      container.addEventListener('mousemove', (e) => {
+        const { left, top, width, height } = container.getBoundingClientRect();
+        const x = ((e.clientX - left) / width) * 100;
+        const y = ((e.clientY - top) / height) * 100;
+        img.style.transformOrigin = `${x}% ${y}%`;
+        img.style.transform = "scale(1.8)";
+      });
+
+      container.addEventListener('mouseleave', () => {
+        img.style.transformOrigin = "center";
+        img.style.transform = "scale(1)";
+      });
+    }
+
+    // 🔴 줌 기능 한땀한땀 연결
+    enableWideZoom('zoom-5-11'); 
+    enableWideZoom('zoom-5-7'); 
+    enableWideZoom('zoom-5-6');  
+    enableWideZoom('zoom-5-5');  
+    enableWideZoom('zoom-5-1');  
+    enableWideZoom('zoom-4-29');  
+    enableWideZoom('zoom-4-27');     
+    enableWideZoom('zoom-4-24'); 
+    enableWideZoom('zoom-4-22'); 
+    enableWideZoom('zoom-4-21'); 
+    enableWideZoom('zoom-4-20'); 
+    enableWideZoom('zoom-4-17'); 
+    enableWideZoom('zoom-4-16');    
+    enableWideZoom('zoom-4-15');    
+    enableWideZoom('zoom-4-14');
+    enableWideZoom('zoom-4-13');
+    enableWideZoom('zoom-4-10');
+    enableWideZoom('zoom-4-6');
+    enableWideZoom('zoom-4-2');
+    enableWideZoom('zoom-4-1');
+  </script>
+
+</body>
+</html>

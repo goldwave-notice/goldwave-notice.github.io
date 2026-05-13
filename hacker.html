@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GOLD WAVE QUANTUM CODES (MATRIX MODE)</title>
+    <style>
+        body { margin: 0; padding: 0; background-color: #000; overflow: hidden; height: 100vh; display: flex; align-items: center; justify-content: center; color: #0f0; font-family: 'Consolas', monospace; }
+        canvas { position: absolute; top: 0; left: 0; z-index: 1; }
+        
+        /* 중앙에 텍스트 (랑랑쌤 요청 시 주석 해제) */
+        /* .info { position: relative; z-index: 10; background: rgba(0,0,0,0.8); padding: 20px; border-radius: 10px; text-align: center; border: 1px solid #0f0; } */
+    </style>
+</head>
+<body>
+    
+    <canvas id="matrix"></canvas>
+
+    <script>
+        const canvas = document.getElementById('matrix');
+        const ctx = canvas.getContext('2d');
+
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+
+        const matrix = "GOLDWAVE QUANTUM CORE SIMULATION 10101011000101";
+        const characters = matrix.split("");
+
+        const fontSize = 16;
+        const columns = canvas.width / fontSize;
+        const drops = [];
+
+        for (let x = 0; x < columns; x++) drops[x] = 1;
+
+        function draw() {
+            // 배경을 살짝 까맣게 투명하게 칠해서 잔상 효과를 냄
+            ctx.fillStyle = "rgba(0, 0, 0, 0.04)";
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+            // 글자색 설정 (라임색 핵커 감성!)
+            ctx.fillStyle = "#0f0";
+            ctx.font = fontSize + "px Consolas";
+
+            for (let i = 0; i < drops.length; i++) {
+                const text = characters[Math.floor(Math.random() * characters.length)];
+                ctx.fillText(text, i * fontSize, drops[i] * fontSize);
+
+                // 바닥에 닿으면 다시 위로 올림 (랜덤하게)
+                if (drops[i] * fontSize > canvas.height && Math.random() > 0.975) {
+                    drops[i] = 0;
+                }
+
+                drops[i]++;
+            }
+        }
+
+        // 애니메이션 시작 (속도는 숫자가 작을수록 빠름)
+        setInterval(draw, 35);
+    </script>
+</body>
+</html>

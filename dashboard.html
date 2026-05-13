@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GOLD WAVE PREMIUM DASHBOARD</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@900&family=Pretendard:wght@100;300;700&display=swap" rel="stylesheet">
+    <style>
+        body { margin: 0; padding: 0; background-color: #ffffff; font-family: 'Pretendard', sans-serif; color: #333; display: flex; flex-direction: column; align-items: center; }
+        .hero-section { width: 100%; background-color: #000000; background-image: radial-gradient(1px 1px at 10% 20%, #ffffff 100%, transparent), radial-gradient(1.5px 1.5px at 35% 45%, #bf953f 100%, transparent), radial-gradient(2px 2px at 70% 15%, #ffcc00 100%, transparent), radial-gradient(1px 1px at 85% 80%, #ffffff 80%, transparent), radial-gradient(2px 2px at 50% 60%, #bf953f 100%, transparent), radial-gradient(1.5px 1.5px at 20% 85%, #ffcc00 100%, transparent); background-size: 250px 250px, 350px 350px, 400px 400px, 200px 200px, 300px 300px, 280px 280px; padding: 60px 0 65px 0; text-align: center; position: relative; border-bottom: 3px solid #bf953f; }
+        .premium-logo { width: 70px; height: auto; margin-bottom: 15px; position: relative; z-index: 10; animation: gold-pulse 2.5s infinite ease-in-out; }
+        @keyframes gold-pulse { 0%, 100% { filter: drop-shadow(0 0 5px rgba(191, 149, 63, 0.4)); transform: scale(1); } 50% { filter: drop-shadow(0 0 25px rgba(255, 215, 0, 0.9)); transform: scale(1.08); } }
+        .brand-title { margin: 0; font-family: 'Montserrat', sans-serif; font-size: 46px; letter-spacing: 8px; font-weight: 900; text-transform: uppercase; font-style: italic; position: relative; z-index: 10; background: linear-gradient(to bottom, #fff6a5 0%, #ffcc00 25%, #bf953f 50%, #fcf6ba 75%, #aa771c 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; -webkit-text-stroke: 1px #bf953f; filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.9)); }
+        .slogan-en { margin-top: 15px; font-family: 'Montserrat', sans-serif; font-size: 15px; font-weight: 700; color: #d4af37; letter-spacing: 4px; text-transform: uppercase; }
+        .slogan-ko { margin-top: 10px; font-family: 'Pretendard', sans-serif; font-size: 10.5px; font-weight: 100; color: rgba(255, 255, 255, 0.6); letter-spacing: 1px; }
+        .content-container { width: 100%; max-width: 950px; padding: 40px 20px 100px 20px; display: flex; flex-direction: column; align-items: center; }
+        .status-badge { display: inline-flex; align-items: center; margin-bottom: 12px; padding: 6px 18px; background: #ffffff; border: 1px solid #bf953f; border-radius: 25px; box-shadow: 0 4px 12px rgba(191, 149, 63, 0.15); }
+        .status-dot { width: 9px; height: 9px; background-color: #00ff00; border-radius: 50%; margin-right: 12px; box-shadow: 0 0 10px #00ff00; animation: light-blink 1.5s infinite; }
+        @keyframes light-blink { 0%, 100% { transform: scale(1); opacity: 1; } 50% { transform: scale(1.3); opacity: 0.5; } }
+        .info-bar { margin-bottom: 40px; font-size: 14px; color: #888; font-weight: 700; letter-spacing: 1px; }
+        .dashboard-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 15px; width: 100%; }
+        .nav-card { border-radius: 20px; background: #fff; transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275); cursor: pointer; aspect-ratio: 546 / 402; box-shadow: 0 6px 25px rgba(0,0,0,0.06); border: 1px solid #f2f2f2; overflow: hidden; display: flex; align-items: center; justify-content: center; }
+        .nav-card img { width: 100%; height: 100%; object-fit: contain; display: block; }
+        .nav-card:hover { transform: translateY(-12px); box-shadow: 0 25px 50px rgba(191, 149, 63, 0.25); border: 2px solid #bf953f; }
+
+        /* 🛠️ 플로팅 버튼 영역 스타일 */
+        .floating-cta-container { position: fixed; bottom: 30px; right: 30px; z-index: 9999999; display: flex; flex-direction: column; align-items: center; gap: 15px; }
+        
+        /* 1. 공식채널 이미지 버튼 스타일 */
+        .official-channel-link { text-decoration: none; transition: 0.3s; }
+        .official-icon-img { width: 115px; height: auto; filter: drop-shadow(0 8px 15px rgba(0,0,0,0.3)); transition: 0.3s; }
+        .official-channel-link:hover .official-icon-img { transform: translateY(-8px); filter: drop-shadow(0 15px 25px rgba(191, 149, 63, 0.4)); }
+
+        /* 2. 기존 상담 및 문의 스타일 유지 */
+        .telegram-link, .kakao-link { text-decoration: none; display: flex; flex-direction: column; align-items: center; cursor: pointer; }
+        .telegram-icon, .kakao-icon { width: 130px; height: auto; filter: drop-shadow(0 10px 20px rgba(0,0,0,0.2)); transition: 0.3s; }
+        .medal-text { margin: 2px 0 0 0; font-family: 'Pretendard', sans-serif; font-size: 11.5px; font-weight: 800; color: #aa771c; text-align: center; background: rgba(255, 255, 255, 0.9); padding: 4px 10px; border-radius: 10px; line-height: 1.3; }
+        .telegram-link:hover .telegram-icon, .kakao-link:hover .kakao-icon { transform: translateY(-8px); }
+
+        @media (max-width: 700px) { 
+            .dashboard-grid { grid-template-columns: repeat(2, 1fr); } 
+            .brand-title { font-size: 30px; letter-spacing: 4px; } 
+            .floating-cta-container { right: 15px; bottom: 15px; gap: 10px; } 
+            .telegram-icon, .kakao-icon { width: 95px; }
+            .official-icon-img { width: 85px; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="hero-section">
+        <img src="https://i.imgur.com/9VUt3sN.png" alt="Logo" class="premium-logo">
+        <h1 class="brand-title">GOLD WAVE</h1>
+        <div class="slogan-en">STAY AHEAD, RIGHT HERE.</div>
+        <div class="slogan-ko">앞서 나가고 싶은 당신, 이곳이 바로 출발점입니다.</div>
+    </div>
+
+    <div class="content-container">
+        <div class="status-badge">
+            <div class="status-dot"></div>
+            <span style="color: #bf953f; font-size: 12px; font-weight: 900; letter-spacing: 1px;">SYSTEM STATUS: ACTIVE</span>
+        </div>
+
+        <div class="info-bar">
+            <span id="date-display"></span>
+            <span style="margin: 0 10px; opacity: 0.3;">|</span>
+            <span>TODAY: <span id="today-count" style="color: #b38728; font-weight: 800;">0</span></span>
+            <span style="margin: 0 10px; opacity: 0.3;">|</span>
+            <span>TOTAL: <span id="total-count" style="color: #b38728; font-weight: 800;">1,527</span></span>
+        </div>
+
+        <div class="dashboard-grid">
+            <div class="nav-card" onclick="location.href='https://goldwave-notice.github.io/-/guide.html'">
+                <img src="https://i.imgur.com/LLMMLE6.png" alt="사용설명서">
+            </div>
+            <div class="nav-card" onclick="location.href='https://goldwave-notice.github.io/-/faq.html'">
+                <img src="https://i.imgur.com/EHzDZon.png" alt="FAQ">
+            </div>
+            <div class="nav-card" onclick="location.href='https://goldwave-notice.github.io/-/profit.html'">
+                <img src="https://i.imgur.com/TKsOsPT.png" alt="수익현황">
+            </div>
+            <div class="nav-card" onclick="location.href='https://goldwave-notice.github.io/-/archive.html'">
+                <img src="https://i.imgur.com/Xles7rX.png" alt="아카이브">
+            </div>
+            <div class="nav-card" onclick="location.href='https://goldwave-notice.github.io/-/program.html'">
+                <img src="https://i.imgur.com/IDCz5AI.png" alt="프로그램">
+            </div>
+            <div class="nav-card" onclick="location.href='https://goldwave-notice.github.io/-/remote.html'">
+                <img src="https://i.imgur.com/7yMg3bx.png" alt="원격지원">
+            </div>
+        </div>
+    </div>
+
+    <div class="floating-cta-container">
+        <a href="https://t.me/+dsAFHK_m0WUxMmJl" target="_blank" class="official-channel-link">
+            <img src="https://i.imgur.com/3QA8YxM.png" alt="Gold Wave Official Channel" class="official-icon-img">
+            <p class="medal-text">골드웨이브 공식<br>채널 바로가기</p>
+        </a>
+
+        </a>
+
+        <a href="https://t.me/GOLD_WAVE37" target="_blank" class="telegram-link">
+            <img src="https://i.imgur.com/59W2FIk.png" alt="Telegram Logo" class="telegram-icon">
+            <p class="medal-text">골드웨이브 상담<br>채널 바로가기</p>
+        </a>
+
+        <a href="https://open.kakao.com/me/goldwave" target="_blank" class="kakao-link">
+            <img src="https://i.imgur.com/73WFeLl.png" alt="Kakao Inquiry" class="kakao-icon">
+        </a>
+    </div>
+
+    <script>
+        const todayObj = new Date();
+        const y = todayObj.getFullYear();
+        const m = String(todayObj.getMonth() + 1).padStart(2, '0');
+        const d = String(todayObj.getDate()).padStart(2, '0');
+        document.getElementById('date-display').innerText = `📅 ${y}.${m}.${d}`;
+
+        function updateCounters() {
+            const todayStr = todayObj.toLocaleDateString();
+            let dailyData = JSON.parse(localStorage.getItem('gw_daily')) || { date: "", count: 0 };
+            if (dailyData.date !== todayStr) {
+                dailyData = { date: todayStr, count: Math.floor(Math.random() * 5) + 1 };
+            } else {
+                dailyData.count += (Math.floor(Math.random() * 2) + 1);
+            }
+            localStorage.setItem('gw_daily', JSON.stringify(dailyData));
+            document.getElementById('today-count').innerText = dailyData.count;
+
+            let totalCount = parseInt(localStorage.getItem('gw_total')) || 1527;
+            totalCount += (Math.floor(Math.random() * 3) + 2);
+            localStorage.setItem('gw_total', totalCount);
+            document.getElementById('total-count').innerText = totalCount.toLocaleString();
+        }
+        window.onload = updateCounters;
+    </script>
+</body>
+</html>

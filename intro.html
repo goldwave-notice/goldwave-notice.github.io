@@ -1,0 +1,616 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GOLD WAVE | 신규고객 소개자료</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;900&family=Montserrat:wght@400;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+        :root {
+            --gold: #d4af37;
+            --gold-light: #f3cf65;
+            --gold-dim: rgba(212,175,55,0.08);
+            --gold-grad: linear-gradient(135deg, #ffe082 0%, #d4af37 50%, #aa7c11 100%);
+            --bg: #08090c;
+            --bg2: #10121a;
+            --bg3: #161924;
+            --border: #23283a;
+            --text: #ffffff;
+            --muted: #a0aec0;
+            --muted2: #8fa0b5;
+            --teal: #4ecdc4;
+        }
+
+        html, body {
+            width: 100%; height: 100%;
+            background: var(--bg);
+            color: var(--text);
+            font-family: 'Noto Sans KR', sans-serif;
+            letter-spacing: -0.03em;
+            scroll-snap-type: y mandatory;
+            overflow-y: scroll;
+            overflow-x: hidden;
+        }
+
+        /* 크롬/사파리 스크롤바 숨겨서 완전한 PPT 느낌 구현 */
+        html::-webkit-scrollbar, body::-webkit-scrollbar { display: none; }
+
+        /* ── 공통 슬라이드 ── */
+        .slide {
+            width: 100%; min-height: 100vh;
+            display: flex; flex-direction: column;
+            justify-content: center; align-items: center;
+            padding: 60px 10%;
+            position: relative;
+            scroll-snap-align: start;
+            overflow: hidden;
+        }
+
+        .slide::before {
+            content: attr(data-num);
+            position: absolute; bottom: 36px; right: 5%;
+            font-size: 13px; color: rgba(255,255,255,0.2);
+            font-family: 'Montserrat', sans-serif; font-weight: 700; letter-spacing: 2px;
+        }
+
+        /* 골드 그라데이션 및 네온 효과 */
+        .gold { 
+            background: var(--gold-grad); -webkit-background-clip: text; -webkit-text-fill-color: transparent; 
+            display: inline-block;
+            text-shadow: 0 0 30px rgba(212,175,55,0.2);
+        }
+        .gold-text { color: var(--gold-light); font-weight: 700; }
+
+        /* 배지 */
+        .badge {
+            display: inline-block;
+            background: rgba(212,175,55,0.1); border: 1px solid rgba(243,207,101,0.6);
+            color: var(--gold-light); padding: 6px 18px; border-radius: 20px;
+            font-size: 11px; font-weight: 700; letter-spacing: 2px;
+            text-transform: uppercase; margin-bottom: 28px;
+            font-family: 'Montserrat', sans-serif;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+        }
+
+        /* 섹션 레이블 */
+        .sec-label {
+            font-size: 12px; color: var(--gold-light); font-weight: 700;
+            letter-spacing: 4px; text-transform: uppercase;
+            font-family: 'Montserrat', sans-serif; margin-bottom: 20px;
+            text-align: center;
+        }
+
+        /* 큰 제목 가독성 개선 */
+        .big-title {
+            font-size: clamp(1.8rem, 4.5vw, 3.2rem); font-weight: 900;
+            line-height: 1.35; margin-bottom: 32px; text-align: center;
+            word-break: keep-all;
+        }
+
+        /* 카드 기본 구조 강화 */
+        .card {
+            background: var(--bg3); border: 1px solid var(--border);
+            border-radius: 16px; padding: 36px 28px;
+            transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+            position: relative;
+        }
+        .card:hover { border-color: var(--gold); transform: translateY(-6px); box-shadow: 0 10px 25px rgba(212,175,55,0.1); }
+        
+        /* 유연한 반응형 그리드 시스템 배치 */
+        .grid-2 { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 24px; width: 100%; max-width: 1000px; }
+        .grid-3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px; width: 100%; max-width: 1100px; }
+        .grid-4 { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 16px; width: 100%; max-width: 900px; }
+
+        /* 전략 및 상세 공통 */
+        .silver-wrap { display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 60px; align-items: center; width: 100%; max-width: 1000px; margin-top: 20px; }
+        .silver-checks { list-style: none; margin-top: 28px; }
+        .silver-checks li { display: flex; align-items: center; gap: 14px; padding: 18px 0; border-bottom: 1px solid var(--border); font-size: 16px; font-weight: 500; }
+        .silver-checks li:last-child { border: none; }
+        .silver-checks li i { color: var(--gold-light); font-size: 14px; }
+        .silver-visual { background: var(--bg3); border: 1px solid var(--border); border-radius: 24px; padding: 56px 32px; text-align: center; box-shadow: inset 0 0 40px rgba(0,0,0,0.5); }
+        .sv-big { font-family: 'Montserrat', sans-serif; font-size: 3.5rem; font-weight: 900; letter-spacing: 2px; opacity: 0.15; line-height: 1; }
+        .sv-big.g { color: var(--gold); opacity: 0.3; }
+        .sv-big.s { color: #c0c0c0; }
+        .sv-plus { font-size: 1.8rem; color: var(--muted); margin: 12px 0; }
+        .sv-note { font-size: 13px; color: var(--muted); margin-top: 24px; line-height: 1.9; }
+
+        .point-box { background: rgba(212,175,55,0.06); border-left: 4px solid var(--gold); padding: 16px; border-radius: 0 12px 12px 0; margin-top: 15px; }
+        .point-box .pb-title { font-size: 11px; color: var(--gold-light); letter-spacing: 2px; font-family:'Montserrat',sans-serif; font-weight: 700; margin-bottom: 6px; }
+        .point-box .pb-desc { font-size: 14px; color: #fff; font-weight: 700; line-height: 1.6; }
+
+        /* ── 슬라이드 07: 실제 결과 ── */
+        .slide-result { background: var(--bg); }
+        .result-row { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; width: 100%; max-width: 700px; margin: 20px 0 32px; }
+        .result-card { background: var(--bg3); border: 1px solid var(--border); border-radius: 16px; padding: 40px 20px; text-align: center; transition: all 0.3s; }
+        .result-card.accent { border-color: rgba(212,175,55,0.4); background: rgba(212,175,55,0.05); }
+        .r-label { font-size: 14px; color: var(--muted); margin-bottom: 12px; font-weight: 500; }
+        .r-val { font-size: 3.2rem; font-weight: 900; color: #fff; letter-spacing: -0.05em; }
+        .r-val.gold-val { background: var(--gold-grad); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+
+        /* ── 슬라이드 08: 복리 인트로 ── */
+        .slide-compound-cover { background: radial-gradient(circle at 30% 50%, #141724 0%, var(--bg) 70%); }
+        .compound-big { font-family: 'Noto Sans KR', sans-serif; font-size: clamp(1.8rem, 4vw, 2.8rem); font-weight: 900; line-height: 1.3; }
+
+        /* ── 슬라이드 09: 단리 vs 복리 ── */
+        .vs-wrap { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; width: 100%; max-width: 900px; margin-top: 20px; }
+        .vs-card { background: var(--bg3); border: 1px solid var(--border); border-radius: 18px; padding: 40px 32px; transition: all 0.3s; }
+        .vs-card.hl { border-color: rgba(212,175,55,0.4); background: rgba(212,175,55,0.04); box-shadow: 0 8px 25px rgba(212,175,55,0.05); }
+        .vs-badge { display: inline-block; padding: 6px 14px; border-radius: 6px; font-size: 11px; font-weight: 700; margin-bottom: 16px; letter-spacing: 1px; }
+        .vs-badge.plain { background: rgba(255,255,255,0.06); color: var(--muted); }
+        .vs-badge.gld { background: rgba(212,175,55,0.15); border: 1px solid rgba(212,175,55,0.3); color: var(--gold-light); }
+        .vs-rate { font-family: 'Montserrat', sans-serif; font-size: 2.8rem; font-weight: 900; margin-bottom: 8px; }
+        .vs-rate.dim { color: rgba(255,255,255,0.15); }
+        .vs-rate.bright { background: var(--gold-grad); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .vs-desc { font-size: 14px; color: var(--muted); margin-bottom: 24px; }
+        .vs-steps { list-style: none; }
+        .vs-steps li { font-size: 14px; color: var(--muted2); padding: 8px 0; border-bottom: 1px solid rgba(255,255,255,0.03); }
+        .vs-steps li strong { color: #fff; font-weight: 500; }
+        .vs-steps li:last-child { border: none; }
+        .vs-note { text-align: center; font-size: 14px; color: var(--muted); margin-top: 32px; }
+
+        /* ── 슬라이드 10: 월별 스텝 ── */
+        .steps { list-style: none; width: 100%; max-width: 720px; margin-top: 20px; }
+        .step { display: flex; gap: 28px; padding: 28px 0; border-bottom: 1px solid var(--border); align-items: center; }
+        .step:last-child { border: none; }
+        .step-n { font-family: 'Montserrat', sans-serif; font-size: 3.5rem; font-weight: 900; color: rgba(255,255,255,0.05); min-width: 70px; line-height: 1; }
+        .step-month { color: var(--gold-light); font-size: 12px; font-weight: 700; margin-bottom: 6px; }
+        .step-profit { font-size: 1.4rem; font-weight: 700; color: var(--teal); margin-bottom: 4px; }
+        .step-balance { font-size: 1.9rem; font-weight: 900; color: #fff; }
+
+        /* ── 슬라이드 11: 시뮬레이션 ── */
+        .sim-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; width: 100%; max-width: 1100px; margin-top: 20px; }
+        .sim-card { background: var(--bg3); border: 1px solid var(--border); border-radius: 20px; padding: 36px 24px; position: relative; }
+        .sim-card.feat { border-color: var(--gold); }
+        .sim-seed { font-size: 14px; color: var(--muted); margin-bottom: 24px; font-weight: 700; }
+        .sim-seed span { color: #fff; }
+        .sim-item { background: rgba(255,255,255,0.03); border-radius: 12px; padding: 18px; margin-bottom: 14px; display: flex; justify-content: space-between; align-items: center; }
+        .sim-item:last-child { margin-bottom: 0; }
+        .sim-period { font-size: 13px; color: var(--muted); }
+        .sim-amount { font-size: 16px; font-weight: 700; color: #fff; }
+        .sim-amount.g { color: var(--gold-light); }
+        .sim-gain { font-size: 12px; color: var(--teal); font-weight: 500; }
+        .sim-disclaimer { margin-top: 32px; font-size: 12px; color: rgba(255,255,255,0.25); text-align: center; line-height: 1.6; }
+
+        /* ── 슬라이드 12: 시드 비교표 ── */
+        .seed-th-row { display: grid; grid-template-columns: 1fr 1fr 1fr; padding: 0 0 12px; max-width: 760px; width: 100%; margin-top: 30px; text-align: center; }
+        .seed-th { font-size: 11px; color: var(--muted); letter-spacing: 1px; font-weight: 700; padding: 0; text-align: center; }
+        .seed-wrap { display: flex; flex-direction: column; gap: 16px; width: 100%; max-width: 760px; margin-top: 20px; }
+        .seed-row { display: grid; grid-template-columns: 1fr 1fr 1fr; background: var(--bg3); border: 1px solid var(--border); border-radius: 16px; overflow: hidden; transition: all 0.3s; text-align: center; }
+        .seed-row.featured { border-color: rgba(212,175,55,0.5); background: rgba(212,175,55,0.04); }
+        .seed-col { padding: 24px 10px; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; }
+        .seed-col:not(:last-child) { border-right: 1px solid var(--border); }
+        .seed-col-val { font-size: 1.2rem; font-weight: 700; color: #fff; display: flex; align-items: center; justify-content: center; gap: 12px; }
+        .seed-bar { width: 3px; height: 14px; background: var(--gold); border-radius: 2px; }
+        .seed-after-val { font-size: 1.3rem; font-weight: 700; color: #fff; }
+        .seed-profit-val { font-size: 1.3rem; font-weight: 700; color: var(--teal); }
+        .tagline { margin-top: 32px; font-size: 16px; color: var(--muted); text-align: center; }
+
+        /* ── 슬라이드 13: 운영 방식 ── */
+        .ops-list { list-style: none; width: 100%; max-width: 720px; margin-top: 20px; }
+        .ops-item { display: flex; align-items: center; gap: 24px; padding: 22px 0; border-bottom: 1px solid var(--border); }
+        .ops-item:last-child { border: none; }
+        .ops-icon { width: 48px; height: 48px; background: rgba(212,175,55,0.1); border-radius: 14px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; border: 1px solid rgba(212,175,55,0.2); }
+        .ops-icon i { color: var(--gold-light); font-size: 18px; }
+        .ops-t { font-size: 16px; font-weight: 700; color: #fff; margin-bottom: 4px; }
+        .ops-s { font-size: 13px; color: var(--muted); line-height: 1.5; }
+
+        /* ── 슬라이드 15: FAQ ── */
+        .faq-wrap { width: 100%; max-width: 840px; margin-top: 20px; }
+        .faq-cats { display: flex; gap: 12px; flex-wrap: wrap; margin-bottom: 36px; justify-content: center; }
+        .faq-cat { background: var(--bg3); border: 1px solid var(--border); border-radius: 100px; padding: 10px 22px; font-size: 13px; color: var(--muted); cursor: pointer; transition: all 0.25s; font-weight: 500; }
+        .faq-cat.on, .faq-cat:hover { border-color: var(--gold); color: var(--gold-light); background: rgba(212,175,55,0.1); }
+        .faq-group { display: none; }
+        .faq-group.on { display: block; }
+        .faq-item { border-bottom: 1px solid var(--border); }
+        .faq-q { width: 100%; background: none; border: none; color: #fff; font-size: 15px; font-weight: 700; text-align: left; padding: 22px 0; cursor: pointer; display: flex; justify-content: space-between; gap: 16px; }
+        .faq-q:hover { color: var(--gold-light); }
+        .faq-q .arr { font-size: 14px; color: var(--muted); transition: transform 0.3s; }
+        .faq-q.open .arr { transform: rotate(180deg); color: var(--gold-light); }
+        .faq-a { max-height: 0; overflow: hidden; transition: max-height 0.4s cubic-bezier(0.25, 1, 0.5, 1); }
+        .faq-a-inner { padding: 0 0 22px; font-size: 14px; color: var(--muted); line-height: 1.9; }
+
+        /* 노란색 버튼 컨셉의 FAQ 하단 링크 */
+        .faq-more-btn { 
+            display: inline-flex; align-items: center; gap: 8px; margin-top: 36px; 
+            padding: 12px 30px; border-radius: 50px; border: 1px solid var(--gold);
+            background: rgba(212, 175, 55, 0.05); color: var(--gold-light);
+            text-decoration: none; font-size: 14px; font-weight: 700;
+            transition: all 0.3s ease;
+        }
+        .faq-more-btn:hover { background: var(--gold-grad); color: #08090c; border-color: transparent; }
+
+        /* ── 슬라이드 16: CTA ── */
+        .cta-inner { max-width: 800px; width: 100%; text-align: center; }
+        .cta-title { font-size: clamp(1.8rem, 4.5vw, 3rem); font-weight: 900; line-height: 1.35; margin-bottom: 24px; }
+        .cta-sub { color: var(--muted2); font-size: 15px; line-height: 1.8; margin-bottom: 36px; }
+        .cta-checks { display: flex; justify-content: center; gap: 24px; flex-wrap: wrap; margin-bottom: 40px; }
+        .cta-check { font-size: 13px; color: var(--muted); display: flex; align-items: center; gap: 8px; }
+        .cta-check i { color: var(--gold-light); font-size: 11px; }
+        .cta-btns { display: flex; justify-content: center; gap: 16px; margin-bottom: 48px; }
+        .btn-gold { background: var(--gold-grad); color: #08090c; padding: 18px 44px; border-radius: 100px; font-weight: 700; font-size: 16px; text-decoration: none; display: inline-flex; align-items: center; gap: 10px; box-shadow: 0 8px 24px rgba(212,175,55,0.25); transition: transform 0.25s; }
+        .btn-gold:hover { transform: translateY(-3px); }
+        .btn-ghost { border: 1px solid var(--border); color: #fff; padding: 18px 44px; border-radius: 100px; font-weight: 700; font-size: 16px; text-decoration: none; display: inline-flex; align-items: center; gap: 10px; transition: all 0.25s; }
+        .btn-ghost:hover { border-color: var(--gold); color: var(--gold-light); background: rgba(212,175,55,0.05); }
+        .cta-closing { font-size: 15px; color: var(--muted); line-height: 1.8; }
+
+        @media (max-width: 768px) {
+            html, body { scroll-snap-type: none; height: auto; }
+            .slide { min-height: auto; padding: 70px 24px; scroll-snap-align: none; }
+            .grid-4, .vs-wrap, .silver-wrap, .sim-grid { grid-template-columns: 1fr !important; gap: 20px !important; }
+            .seed-th-row, .seed-row { grid-template-columns: 1fr 1fr 1fr !important; }
+            .cta-btns { flex-direction: column; gap: 12px; align-items: center; }
+            .btn-gold, .btn-ghost { width: 100%; justify-content: center; }
+        }
+    </style>
+</head>
+<body>
+
+<section class="slide slide-cover" data-num="01 / 16">
+    <div class="badge">GOLD WAVE — I.N.C</div>
+    <h1 class="big-title">망설이는 지금 이 순간에도<br><span class="gold">상위 1%의 격차</span>는<br>벌어집니다.</h1>
+    <p class="sub" style="max-width:560px; margin: 0 auto;">기회는 모두에게 주어지지만, 결과는 선택하는 사람의 몫입니다.<br>수익보다 먼저, 지켜야 할 건 내 자산입니다.</p>
+    <div class="scroll-hint" style="text-align: center; margin-top: 40px; font-size: 12px; color: var(--muted); letter-spacing: 2px;">스크롤을 내려 가치를 확인하세요 ↓</div>
+</section>
+
+<section class="slide" style="background:var(--bg2);" data-num="02 / 16">
+    <div style="max-width:1000px; width:100%; text-align:center;">
+        <div class="sec-label">왜 다른가</div>
+        <h2 class="big-title">"매일 진입하는 <span class="gold">시스템이 아닙니다.</span>"</h2>
+        <p style="color:var(--muted2); font-size:16px; margin-bottom:48px; line-height:1.9;">시장 흐름 · 변동성 · 세션 조건을 분석해 오직 확실한 유효 구간만 선별 진입합니다.</p>
+        <div class="grid-4">
+            <div class="card" style="padding: 28px 20px; text-align: center;">
+                <div style="font-family:'Montserrat',sans-serif; font-size:12px; color:var(--gold-light); font-weight:700; margin-bottom:12px;">01</div>
+                <div style="font-size:16px; font-weight:700; color:#fff; margin-bottom:8px;">메인 로직</div>
+                <div style="font-size:13px; color:var(--muted); line-height:1.6;">구조 기반<br>추세 대응</div>
+            </div>
+            <div class="card" style="padding: 28px 20px; text-align: center;">
+                <div style="font-family:'Montserrat',sans-serif; font-size:12px; color:var(--gold-light); font-weight:700; margin-bottom:12px;">02</div>
+                <div style="font-size:16px; font-weight:700; color:#fff; margin-bottom:8px;">런던 세션</div>
+                <div style="font-size:13px; color:var(--muted); line-height:1.6;">단기 수익<br>회수 중심</div>
+            </div>
+            <div class="card" style="padding: 28px 20px; text-align: center;">
+                <div style="font-family:'Montserrat',sans-serif; font-size:12px; color:var(--gold-light); font-weight:700; margin-bottom:12px;">03</div>
+                <div style="font-size:16px; font-weight:700; color:#fff; margin-bottom:8px;">뉴욕 세션</div>
+                <div style="font-size:13px; color:var(--muted); line-height:1.6;">변동성 활용<br>수익 확장</div>
+            </div>
+             <div class="card" style="padding: 28px 20px; text-align: center;">
+                <div style="font-family:'Montserrat',sans-serif; font-size:12px; color:var(--gold-light); font-weight:700; margin-bottom:12px;">04 NEW</div>
+                <div style="font-size:16px; font-weight:700; color:#fff; margin-bottom:8px;">실버 헷징</div>
+                <div style="font-size:13px; color:var(--muted); line-height:1.6;">롱·숏 하이브리드<br>리밸런싱</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="slide" data-num="03 / 16">
+    <div class="sec-label">STRATEGY 01</div>
+    <h2 class="big-title">구조 기반 <span class="gold">추세 대응</span></h2>
+    <div class="silver-wrap">
+        <div>
+            <ul class="silver-checks">
+                <li><i class="fa-solid fa-check"></i>구조적인 방향성을 분석하여 진입합니다.</li>
+                <li><i class="fa-solid fa-check"></i>불필요한 매매를 최소화하고 타점 중심으로 안정적인 수익을 누적합니다.</li>
+            </ul>
+            <div class="point-box">
+                <div class="pb-title">MAIN POINT</div>
+                <div class="pb-desc">시장 흐름 따라가는 핵심 베이스 전략</div>
+            </div>
+        </div>
+        <div class="silver-visual">
+            <div class="sv-big g">MAIN</div>
+            <div class="sv-big s">LOGIC</div>
+            <div class="sv-note">모든 전략의 근간이 되는<br><span class="gold-text">핵심 베이스 로직</span> 시스템입니다.</div>
+        </div>
+    </div>
+</section>
+
+<section class="slide" style="background:var(--bg2);" data-num="04 / 16">
+    <div class="sec-label">STRATEGY 02</div>
+    <h2 class="big-title">단기 수익 <span class="gold">회수 중심 전략</span></h2>
+    <div class="silver-wrap">
+        <div>
+            <ul class="silver-checks">
+                <li><i class="fa-solid fa-check"></i>유럽장 개장 시간대인 오후 2시부터 오후 5시 사이에 집중하여 운용</li>
+                <li><i class="fa-solid fa-check"></i>하루 1회 선별적으로 진입 합니다.</li>
+                <li><i class="fa-solid fa-check"></i>모든 포지션은 당일 내 정리하는 것을 원칙으로 합니다.</li>
+            </ul>
+            <div class="point-box">
+                <div class="pb-title">LONDON POINT</div>
+                <div class="pb-desc">빠른 익절 구조와 리스크 제한을 기반으로 안정적인 수익 흐름을 지향</div>
+            </div>
+        </div>
+        <div class="silver-visual">
+            <div class="sv-big g">LONDON</div>
+            <div class="sv-big s">SESSION</div>
+            <div class="sv-note">오버나잇 리스크를 완전히 소멸시키는<br><span class="gold-text">당일 절대 청산</span> 시스템입니다.</div>
+        </div>
+    </div>
+</section>
+
+<section class="slide" data-num="05 / 16">
+    <div class="sec-label">STRATEGY 03</div>
+    <h2 class="big-title">변동성 활용 <span class="gold">수익 확장 전략</span></h2>
+    <div class="silver-wrap">
+        <div>
+            <ul class="silver-checks">
+                <li><i class="fa-solid fa-check"></i>런던 이후 이어지는 흐름을 활용해 포지션을 더 길게 유지하며 큰 움직임 구간에 대응합니다.</li>
+                <li><i class="fa-solid fa-check"></i>변동성 구간에서 수익을 극대화하는 런던 대비 공격적인 구조로 운영됩니다.</li>
+            </ul>
+            <div class="point-box">
+                <div class="pb-title">NEW YORK POINT</div>
+                <div class="pb-desc">장 흐름에 따른 확장형 추세 대응, 흐름이 이어질수록 결과 확장 구조</div>
+            </div>
+        </div>
+        <div class="silver-visual">
+            <div class="sv-big g">NEW YORK</div>
+            <div class="sv-big s">SESSION</div>
+            <div class="sv-note">추세 폭발 강도에 따라<br><span class="gold-text">수익의 극대화</span>가 전개되는 스케일 모델입니다.</div>
+        </div>
+    </div>
+</section>
+
+<section class="slide" style="background:var(--bg2);" data-num="06 / 16">
+    <div class="sec-label">STRATEGY 04 — NEW</div>
+    <h2 class="big-title">롱·숏 하이브리드 <span class="gold">리밸런싱</span></h2>
+    <div class="silver-wrap">
+        <div>
+            <p style="color:var(--muted2); font-size:15px; line-height:1.9; word-break:keep-all;">최근 실버(Silver)는 독자적이고 강력한 추세성 자산으로 움직이고 있습니다. GOLD WAVE는 새로운 실버 헷징 시스템을 추가탑재하여 완벽한 포트폴리오 다각화를 이뤄냈습니다.</p>
+            <ul class="silver-checks">
+                <li><i class="fa-solid fa-check"></i>초기: 롱 50% / 숏 50% 중립 진입합니다.</li>
+                <li><i class="fa-solid fa-check"></i>방향 신호 발생 시 → 유리한 방향 비중 확대</li>
+                <li><i class="fa-solid fa-check"></i>반대 방향은 최소 헷지 유지</li>
+            </ul>
+            <div class="point-box">
+                <div class="pb-title">DELTA POINT</div>
+                <div class="pb-desc">시장 상황에 따라 비중이 자동으로 조정되는 구조</div>
+            </div>
+        </div>
+        <div class="silver-visual">
+            <div class="sv-big g">GOLD</div>
+            <div class="sv-big s">SILVER</div>
+            <div class="sv-note">두 자산의 유기적 흐름을 실시간 교차 분석,<br>수익 밸런스를 빈틈없이 지켜냅니다.</div>
+        </div>
+    </div>
+</section>
+
+<section class="slide slide-result" data-num="07 / 16">
+    <div class="sec-label">진짜 실력의 기준</div>
+    <h2 class="big-title">"중요한 건 <span class="gold">승률이 아닙니다.</span>"</h2>
+    <div class="result-row">
+        <div class="result-card accent"><div class="r-label">수익 청산은</div><div class="r-val gold-val">길게</div></div>
+        <div class="result-card"><div class="r-label">손절 커트는</div><div class="r-val" style="color: var(--muted2);">짧게</div></div>
+    </div>
+    <p style="color:var(--muted2); font-size:15px; text-align:center; max-width:600px; line-height:1.9;">4가지 다중 구조 독립 전략이 교차 방어하기 때문에, 일부 개별 손절이 발생하더라도 월말 최종 스코어는 결국 플러스 우상향을 마크하는 안정적인 구조를 구현합니다.</p>
+</section>
+
+<section class="slide slide-compound-cover" data-num="08 / 16">
+    <div style="max-width:850px; width:100%;">
+        <div class="sec-label" style="text-align:left;">복리(Compound)의 마법</div>
+        <div class="compound-big gold">오늘 쌓인 수익금이</div>
+        <div class="compound-big" style="color:#fff;">내일 다시 돈을 버는 구조</div>
+        <p style="color:var(--muted2); font-size:1.15rem; margin-top:28px; line-height:1.9; max-width:540px; word-break:keep-all;">시간이 흐를수록 강력한 가속도가 붙어, 내가 직접 개입하지 않아도 투자 시드가 알아서 스스로 불어나는 압도적인 스노우볼 메커니즘을 전개합니다.</p>
+    </div>
+</section>
+
+<section class="slide slide-vs" data-num="09 / 16">
+    <div class="sec-label">단리 vs 복리 비교</div>
+    <h2 class="big-title">같은 10%, <span class="gold">시간 뒤의 결과는 다릅니다.</span></h2>
+    <div class="vs-wrap">
+        <div class="vs-card">
+            <div class="vs-badge plain">일반 단리 구조</div>
+            <div class="vs-rate dim">+10%</div>
+            <p class="vs-desc">매달 고정 원금에만 단순 이자가 붙는 구조</p>
+            <ul class="vs-steps">
+                <li>1개월차 : 초기 원금 × 10%</li>
+                <li>2개월차 : 초기 원금 × 10%</li>
+                <li>3개월차 : 초기 원금 × 10%</li>
+            </ul>
+        </div>
+        <div class="vs-card hl">
+            <div class="vs-badge gld">GOLD WAVE 복리 시스템</div>
+            <div class="vs-rate bright">+10%</div>
+            <p class="vs-desc">매달 누적 수익이 원금에 100% 합산되어 재투자</p>
+            <ul class="vs-steps">
+                <li>1개월차 : 초기 원금 × 10%</li>
+                <li>2개월차 : (원금 + 1월 수익) × 10%</li>
+                <li>3개월차 : <strong>(원금 + 1월·2월 누적수익) × 10%</strong></li>
+            </ul>
+        </div>
+    </div>
+    <div class="vs-note">수익이 다시 새로운 수익을 출산하는 스노우볼 효과 — 시간이 흐를수록 격차는 상상을 초월합니다.</div>
+</section>
+
+<section class="slide slide-steps" data-num="10 / 16">
+    <div class="sec-label">수익금 자동 합산 프로세스 예시</div>
+    <h2 class="big-title">시작 원금 1,000만원의 <span class="gold">현실적 스노우볼</span></h2>
+    <ul class="steps">
+        <li class="step">
+            <div class="step-n">01</div>
+            <div>
+                <div class="step-month">1개월차 운영 — 순수 기본 원금으로 스타트</div>
+                <div class="step-profit">+100만원 안전 수익 달성</div>
+                <div class="step-balance">종료 잔액 1,100만원</div>
+            </div>
+        </li>
+        <li class="step">
+            <div class="step-n">02</div>
+            <div>
+                <div class="step-month">2개월차 운영 — 불어난 1,100만원 전체가 새로운 기초자산으로 투입</div>
+                <div class="step-profit">+110만원 복리 수익 복제</div>
+                <div class="step-balance">종료 잔액 1,210만원</div>
+            </div>
+        </li>
+        <li class="step">
+            <div class="step-n">03</div>
+            <div>
+                <div class="step-month">3개월차 운영 — 1,210만원의 확장된 체급으로 매매 가동</div>
+                <div class="step-profit">+121만원 가속 수익 마감</div>
+                <div class="step-balance">종료 잔액 1,331만원</div>
+            </div>
+        </li>
+    </ul>
+</section>
+
+<section class="slide slide-sim" data-num="11 / 16">
+    <div class="sec-label">기간별 복리 시뮬레이션 데이터</div>
+    <h2 class="big-title">내 준비 시드에 따른 <span class="gold">시간별 기대 가치</span></h2>
+    <div class="sim-grid">
+        <div class="sim-card">
+            <div class="sim-seed">시드금 <span>1,000만원</span> 설정 시</div>
+            <div class="sim-item"><div class="sim-period">3개월 운영 후</div><div class="sim-amount">1,331만원</div><div class="sim-gain">+331만원</div></div>
+            <div class="sim-item"><div class="sim-period">6개월 운영 후</div><div class="sim-amount">1,772만원</div><div class="sim-gain">+772만원</div></div>
+            <div class="sim-item"><div class="sim-period">12개월 운영 후</div><div class="sim-amount g">3,138만원</div><div class="sim-gain">+2,138만원</div></div>
+        </div>
+        <div class="sim-card">
+            <div class="sim-seed">시드금 <span>5,000만원</span> 설정 시</div>
+            <div class="sim-item"><div class="sim-period">3개월 운영 후</div><div class="sim-amount">6,655만원</div><div class="sim-gain">+1,655만원</div></div>
+            <div class="sim-item"><div class="sim-period">6개월 운영 후</div><div class="sim-amount">8,858만원</div><div class="sim-gain">+3,858만원</div></div>
+            <div class="sim-item"><div class="sim-period">12개월 운영 후</div><div class="sim-amount g">1억 5,692만원</div><div class="sim-gain">+1억 692만원</div></div>
+        </div>
+        <div class="sim-card feat">
+            <div class="sim-seed">프리미엄 시드 <span>1억원</span> 설정 시</div>
+            <div class="sim-item"><div class="sim-period">3개월 운영 후</div><div class="sim-amount">1억 3,310만원</div><div class="sim-gain">+3,310만원</div></div>
+            <div class="sim-item"><div class="sim-period">6개월 운영 후</div><div class="sim-amount">1억 7,716만원</div><div class="sim-gain">+7,716만원</div></div>
+            <div class="sim-item"><div class="sim-period">12개월 운영 후</div><div class="sim-amount g">3억 1,384만원</div><div class="sim-gain">+2억 1,384만원</div></div>
+        </div>
+    </div>
+    <p class="sim-disclaimer">*월 평균 <strong style="color: var(--gold-light);">수익률 10%는 최소 기준</strong>으로 실제 수익은 시장 상황에 따라 변동됩니다.</p>
+</section>
+
+<section class="slide slide-seed" data-num="12 / 16">
+    <div class="sec-label">체급의 한계 돌파</div>
+    <h2 class="big-title">오늘 확보한 1원이 <span class="gold">내일의 거대한 100원</span>으로.</h2>
+
+    <div class="seed-th-row">
+        <div class="seed-th">투입 시드</div>
+        <div class="seed-th">12개월 복리 잔액</div>
+        <div class="seed-th">최종 누적 수익</div>
+    </div>
+
+    <div class="seed-wrap">
+        <div class="seed-row">
+            <div class="seed-col"><div class="seed-col-val"><div class="seed-bar"></div>1,000만원</div></div>
+            <div class="seed-col"><div class="seed-after-val">3,138만원</div></div>
+            <div class="seed-col"><div class="seed-profit-val">+2,138만원</div></div>
+        </div>
+        <div class="seed-row">
+            <div class="seed-col"><div class="seed-col-val"><div class="seed-bar"></div>5,000만원</div></div>
+            <div class="seed-col"><div class="seed-after-val">1억 5,692만원</div></div>
+            <div class="seed-col"><div class="seed-profit-val">+1억 692만원</div></div>
+        </div>
+        <div class="seed-row featured">
+            <div class="seed-col"><div class="seed-col-val"><div class="seed-bar"></div>1억원</div></div>
+            <div class="seed-col"><div class="seed-after-val">3억 1,384만원</div></div>
+            <div class="seed-col"><div class="seed-profit-val">+2억 1,384만원</div></div>
+        </div>
+    </div>
+
+    <p class="tagline">망설임으로 날리는 시간이 <span class="gold">가장 비싼 대가입니다.</span></p>
+</section>
+
+<section class="slide slide-ops" style="background:var(--bg2);" data-num="13 / 16">
+    <div class="sec-label">투명한 리스크 매니지먼트</div>
+    <h2 class="big-title">"모든 자금은 오직 <span class="gold">고객 계좌 내에서만.</span>"</h2>
+    <ul class="ops-list">
+        <li class="ops-item"><div class="ops-icon"><i class="fa-solid fa-user-shield"></i></div><div><div class="ops-t">안전한 독립적 고객 명의 계좌</div><div class="ops-s">운용되는 자금 주체는 언제나 고객 본인 소유의 안전한 계좌입니다.</div></div></li>
+        <li class="ops-item"><div class="ops-icon"><i class="fa-solid fa-lock"></i></div><div><div class="ops-t">입출금 원천 통제 권한</div><div class="ops-s">GOLD WAVE는 어떠한 경우에도 자금에 무단 접근하거나 이동·출금할 권한이 없습니다.</div></div></li>
+        <li class="ops-item"><div class="ops-icon"><i class="fa-solid fa-gears"></i></div><div><div class="ops-t">글로벌 규격 MT5 오토 연동</div><div class="ops-s">세계적인 MetaTrader 5 전문 플랫폼 보안 API 프로토콜을 통해 실시간 자동 매매 연동됩니다.</div></div></li>
+    </ul>
+</section>
+
+<section class="slide" data-num="14 / 16">
+    <div class="sec-label">PARTNERSHIP</div>
+    <h2 class="big-title">"고객의 수익이 <span class="gold">우리의 유일한 목표</span>입니다"</h2>
+    <div class="silver-wrap">
+        <div>
+            <p style="color:var(--muted2); font-size:15px; line-height:1.9; word-break:keep-all; margin-bottom:20px;">우리는 투명하고 합리적인 <strong>성과 기반 파트너십</strong>을 지향합니다.</p>
+            <ul class="silver-checks">
+                <li><i class="fa-solid fa-check"></i><strong>시작 시 초기 진입 비용 0원</strong></li>
+                <li><i class="fa-solid fa-check"></i>고객님의 실제 수익이 확정된 후에만 성과 분배</li>
+                <li><i class="fa-solid fa-check"></i>손실이 발생한 달에는 어떠한 정산도 요구하지 않습니다.</li>
+            </ul>
+            <div class="point-box">
+                <div class="pb-title">MUTUAL BENEFIT</div>
+                <div class="pb-desc">고객이 돈을 벌어야만 우리도 성장하는 완벽한 상생 구조</div>
+            </div>
+        </div>
+        <div class="silver-visual">
+            <div class="sv-big g">WIN</div>
+            <div class="sv-plus"><i class="fa-solid fa-handshake"></i></div>
+            <div class="sv-big s">WIN</div>
+            <div class="sv-note">성공을 공유할 때 가치는 더 커집니다.<br><span class="gold-text">신뢰를 기반으로</span> 함께 동행하겠습니다.</div>
+        </div>
+    </div>
+</section>
+
+<section class="slide slide-faq" style="background:var(--bg2);" data-num="15 / 16">
+    <div class="sec-label">자주 묻는 핵심 질문</div>
+    <h2 class="big-title">의문점을 해결하는 <span class="gold">3분 Q&A</span></h2>
+    <div class="faq-wrap">
+        <div class="faq-cats">
+            <button class="faq-cat on" onclick="showFaq('service',this)">프로그램 기본 안내</button>
+            <button class="faq-cat" onclick="showFaq('risk',this)">손실 리스크 대책</button>
+            <button class="faq-cat" onclick="showFaq('test',this)">소액 테스트 및 시작</button>
+        </div>
+        
+        <div class="faq-group on" id="faq-service">
+            <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)"><span>GOLD WAVE는 구체적으로 어떤 서비스인가요?</span><i class="fa-solid fa-chevron-down arr"></i></button><div class="faq-a"><div class="faq-a-inner">GOLD WAVE는 <strong>오토 알고리즘 기반 금·은 자산 자동매매 프로그램 서비스</strong>입니다. 고객 본인의 MT5 계좌에 연동되어 정밀 세션 매매를 수행하고, 발생한 익절 수익을 고도화된 복리 구조로 자동 누적 재투자합니다.</div></div></div>
+            <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)"><span>투자 경험이 전혀 없는 초보자도 가능한가요?</span><i class="fa-solid fa-chevron-down arr"></i></button><div class="faq-a"><div class="faq-a-inner">네, 무조건 가능합니다. 초기 계좌 개설 절차부터 프로그램 연동 API 세팅까지 <strong>담당 매니저가 1:1 원격 지원으로 완벽하게 마감</strong>해 드립니다. 가동 후에는 신경 쓰실 일 없이 자동 구동됩니다.</div></div></div>
+        </div>
+        
+        <div class="faq-group" id="faq-risk">
+            <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)"><span>리스크 관리는 어떻게 되나요?</span><i class="fa-solid fa-chevron-down arr"></i></button><div class="faq-a"><div class="faq-a-inner">GOLDWAVE는 단순 진입이 아닌 <strong>리스크를 우선으로 설계된 구조</strong>입니다.<br><br>• 계좌 잔고 기준 자동 포지션 조절<br>• 변동성 확대 시 진입 기준 강화<br>• 손실 기준 초과 시 자동 청산 후 중립 복귀<br><br>시장 상황에 따라 무리한 진입 없이 보수적으로 대응하는 것이 핵심입니다.</div></div></div>
+        </div>
+        
+        <div class="faq-group" id="faq-test">
+            <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)"><span>소액으로도 테스트가 가능할까요?</span><i class="fa-solid fa-chevron-down arr"></i></button><div class="faq-a"><div class="faq-a-inner">네, 가능합니다. <strong>실제로 많은 분들이 소액 테스트 → 검증 → 증액 순</strong>으로 진행하고 있습니다. 부담 없는 소액으로 직접 가동 메커니즘을 경험해보시는 것을 강력하게 권장합니다.</div></div></div>
+        </div>
+        <div style="text-align: center;">
+            <a href="https://goldwave-notice.github.io/faq.html" target="_blank" class="faq-more-btn">전체 FAQ 보러가기 <i class="fa-solid fa-arrow-right"></i></a>
+        </div>
+    </div>
+</section>
+
+<section class="slide slide-cta" data-num="16 / 16">
+    <div class="cta-inner">
+        <div class="badge">I.N.C — GOLD WAVE</div>
+        <h2 class="cta-title">오늘의 망설임을 끝내고,<br><span class="gold">진짜 자산의 변화</span>를 시작할 때</h2>
+        <p class="cta-sub">우물쭈물하며 미루는 자에게 최고의 진입 타이밍이란 영원히 오지 않습니다.<br><span style="white-space: nowrap;">바로 지금이 가장 빠르고 효율적인 기회입니다.</span><br>검증된 실시간 구조를 내 계좌에서 직관적으로 경험해 보세요.</p>
+        <div class="cta-checks">
+            <span class="cta-check"><i class="fa-solid fa-check"></i>실시간 공식 공지 텔레그램 운영</span>
+            <span class="cta-check"><i class="fa-solid fa-check"></i>실 운용 투명 데이터 완벽 가시화</span>
+            <span class="cta-check"><i class="fa-solid fa-check"></i>1:1 담당 기술진 원격 런칭 전격 지원</span>
+        </div>
+        <div class="cta-btns">
+            <a href="https://forms.gle/4JNRwWaEBxJc3dfq7" target="_blank" class="btn-gold"><i class="fa-solid fa-file-signature"></i>GOLD WAVE 상담 신청서 작성</a>
+            <a href="https://t.me/GOLD_WAVE37" target="_blank" class="btn-ghost"><i class="fa-brands fa-telegram"></i>실시간 1:1 텔레그램 문의</a>
+        </div>
+        <div class="cta-closing">"시장의 파도는 언제나 격렬하게 흔들리지만,<br><strong>골드웨이브가 구축한 구조는 결코 흔들리지 않습니다.</strong>"</div>
+    </div>
+</section>
+
+<script>
+function showFaq(id, btn) {
+    document.querySelectorAll('.faq-group').forEach(g => g.classList.remove('on'));
+    document.querySelectorAll('.faq-cat').forEach(b => b.classList.remove('on'));
+    document.getElementById('faq-' + id).classList.add('on');
+    btn.classList.add('on');
+}
+function toggleFaq(btn) {
+    const a = btn.nextElementSibling;
+    const isOpen = btn.classList.contains('open');
+    btn.closest('.faq-group').querySelectorAll('.faq-q').forEach(q => {
+        q.classList.remove('open');
+        q.nextElementSibling.style.maxHeight = null;
+    });
+    if (!isOpen) { 
+        btn.classList.add('open'); 
+        a.style.maxHeight = a.scrollHeight + 'px'; 
+    }
+}
+</script>
+</body>
+</html>

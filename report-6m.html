@@ -9,17 +9,6 @@
     * { margin:0; padding:0; box-sizing:border-box; }
     body { background:#1a1a1a; font-family:'Pretendard',sans-serif; color:#e0e0e0; display:flex; flex-direction:column; align-items:center; padding:40px 20px 60px; gap:16px; }
 
-    .save-btn {
-      width:680px; border:none; border-radius:12px; padding:15px;
-      color:#0b0d11; font-family:'Pretendard',sans-serif;
-      font-size:15px; font-weight:800; letter-spacing:1px; cursor:pointer;
-      background:linear-gradient(90deg,#bf953f,#fcf6ba,#bf953f);
-      background-size:200% auto;
-      animation:shimmer 2.5s linear infinite;
-    }
-    .save-btn:active { transform:scale(0.98); }
-    @keyframes shimmer { 0%{background-position:200% center} 100%{background-position:0% center} }
-
     .gw { background:#0b0d11; width:680px; padding:32px 28px 36px; border-radius:18px; border:1px solid rgba(191,149,63,0.12); display:flex; flex-direction:column; }
     .gw-logo-row { display:flex; align-items:center; justify-content:center; gap:10px; margin-bottom:6px; }
     .gw-logo { width:30px; height:30px; object-fit:contain; }
@@ -91,7 +80,6 @@
 </head>
 <body>
 
-<button class="save-btn" onclick="savePage('page1','goldwave_report_1of2.png')">📷 1장 PNG 저장</button>
 <div class="gw" id="page1">
   <div class="gw-logo-row">
     <img src="https://i.imgur.com/9VUt3sN.png" class="gw-logo" crossorigin="anonymous" alt="logo">
@@ -138,7 +126,7 @@
   </div>
   <div class="gw-section-label">누적 자산 성장 추이</div>
   <div style="position:relative;width:100%;height:220px;margin-bottom:16px;">
-    <canvas id="growthChart" role="img" aria-label="누적 자산 성장 추이">3,000만원 → 1억2,908만원</canvas>
+    <canvas id="growthChart" role="img" aria-label="누적 자산 성장 추이"></canvas>
   </div>
   <div class="gw-footer">
     <div class="gw-footer-brand">GOLD WAVE</div>
@@ -146,7 +134,6 @@
   </div>
 </div>
 
-<button class="save-btn" onclick="savePage('page2','goldwave_report_2of2.png')">📷 2장 PNG 저장</button>
 <div class="gw" id="page2">
   <div class="gw-logo-row">
     <img src="https://i.imgur.com/9VUt3sN.png" class="gw-logo" crossorigin="anonymous" alt="logo">
@@ -156,7 +143,6 @@
   <hr class="gw-divider">
   <div class="gw-issues-title">월별 이슈 & 수익률 상관관계</div>
   <div class="gw-issues-list">
-
     <div class="gw-issue-card high">
       <div class="gw-issue-month-box"><span class="gw-issue-month-txt">1월</span></div>
       <div class="gw-issue-rate-box">
@@ -168,7 +154,6 @@
         <div class="gw-issue-result">→ <b>알고리즘 매수 집중 타이밍 적중</b>, 6개월 최대 수익</div>
       </div>
     </div>
-
     <div class="gw-issue-card">
       <div class="gw-issue-month-box"><span class="gw-issue-month-txt">2월</span></div>
       <div class="gw-issue-rate-box">
@@ -180,7 +165,6 @@
         <div class="gw-issue-result">→ <b>안전자산 수요 급감</b>, 금값 상승 동력 약화로 수익 폭 축소</div>
       </div>
     </div>
-
     <div class="gw-issue-card high">
       <div class="gw-issue-month-box"><span class="gw-issue-month-txt">3월</span></div>
       <div class="gw-issue-rate-box">
@@ -192,7 +176,6 @@
         <div class="gw-issue-result">→ <b>위기 감지 즉시 알고리즘 대응 성공</b>, 강한 반등 수익</div>
       </div>
     </div>
-
     <div class="gw-issue-card">
       <div class="gw-issue-month-box"><span class="gw-issue-month-txt">4월</span></div>
       <div class="gw-issue-rate-box">
@@ -204,7 +187,6 @@
         <div class="gw-issue-result">→ <b>리스크 관리 모드 전환</b>, 손실 없이 소폭 수익 방어</div>
       </div>
     </div>
-
     <div class="gw-issue-card mid">
       <div class="gw-issue-month-box"><span class="gw-issue-month-txt">5월</span></div>
       <div class="gw-issue-rate-box">
@@ -216,7 +198,6 @@
         <div class="gw-issue-result">→ <b>분할 매수 전략</b>으로 변동성 활용, 안정적 중간 수익</div>
       </div>
     </div>
-
     <div class="gw-issue-card">
       <div class="gw-issue-month-box"><span class="gw-issue-month-txt">6월</span></div>
       <div class="gw-issue-rate-box">
@@ -228,7 +209,6 @@
         <div class="gw-issue-result">→ <b>알고리즘 보수적 운용</b>, 리스크 최소화하며 수익 유지 중</div>
       </div>
     </div>
-
   </div>
   <div class="gw-disclaimer">
     * 본 수치는 실제 운용 계좌 기준이며, 과거 성과가 미래 수익을 보장하지 않습니다.<br>
@@ -241,7 +221,6 @@
 </div>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
 <script>
 new Chart(document.getElementById('growthChart'), {
   type: 'line',
@@ -275,22 +254,12 @@ new Chart(document.getElementById('growthChart'), {
     },
     scales: {
       x: {
-        ticks: {
-          color: (ctx) => ctx.index === 6 ? '#bf953f' : '#666',
-          font: { size:11, weight:'700' }, autoSkip:false
-        },
+        ticks: { color: (ctx) => ctx.index === 6 ? '#bf953f' : '#666', font: { size:11, weight:'700' }, autoSkip:false },
         grid: { color:'rgba(255,255,255,0.04)' },
         border: { color:'rgba(255,255,255,0.08)' }
       },
       y: {
-        ticks: {
-          color:'#555', font:{size:10},
-          callback: (v) => {
-            if(v >= 10000) return (v/10000).toFixed(1) + '억';
-            if(v >= 1000) return (v/1000).toFixed(0) + '천';
-            return v;
-          }
-        },
+        ticks: { color:'#555', font:{size:10}, callback: (v) => { if(v >= 10000) return (v/10000).toFixed(1) + '억'; if(v >= 1000) return (v/1000).toFixed(0) + '천'; return v; } },
         grid: { color:'rgba(255,255,255,0.04)' },
         border: { color:'rgba(255,255,255,0.08)' },
         min: 0
@@ -298,36 +267,6 @@ new Chart(document.getElementById('growthChart'), {
     }
   }
 });
-
-function equalizeHeight() {
-  const p1 = document.getElementById('page1');
-  const p2 = document.getElementById('page2');
-  const maxH = Math.max(p1.offsetHeight, p2.offsetHeight);
-  p1.style.minHeight = maxH + 'px';
-  p2.style.minHeight = maxH + 'px';
-}
-window.addEventListener('load', () => { setTimeout(equalizeHeight, 400); });
-
-function savePage(id, filename) {
-  const btn = event.target;
-  const orig = btn.textContent;
-  btn.textContent = '저장 중...';
-  btn.disabled = true;
-  html2canvas(document.getElementById(id), {
-    backgroundColor: '#0b0d11', scale: 2, useCORS: true, logging: false
-  }).then(canvas => {
-    const link = document.createElement('a');
-    link.download = filename;
-    link.href = canvas.toDataURL('image/png');
-    link.click();
-    btn.textContent = orig;
-    btn.disabled = false;
-  }).catch(() => {
-    btn.textContent = orig;
-    btn.disabled = false;
-    alert('저장 실패!');
-  });
-}
 </script>
 </body>
 </html>

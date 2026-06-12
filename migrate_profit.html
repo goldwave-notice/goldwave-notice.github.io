@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head><meta charset="UTF-8"><title>Profit Migration</title></head>
+<body>
+<h2>수익현황 이미지 Firestore 마이그레이션</h2>
+<button onclick="migrate()" style="padding:15px 30px; background:#bf953f; border:none; border-radius:8px; font-size:16px; font-weight:700; cursor:pointer;">마이그레이션 실행</button>
+<div id="log" style="margin-top:20px; font-family:monospace; font-size:13px; line-height:1.8;"></div>
+
+<script type="module">
+  import { initializeApp } from 'https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js';
+  import { getFirestore, doc, setDoc } from 'https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js';
+
+  const firebaseConfig = {
+    apiKey: "AIzaSyAGCPGRXXNUiiT-mK1y_xLKvCJpz5sHY8Y",
+    authDomain: "inc-management-161be.firebaseapp.com",
+    projectId: "inc-management-161be",
+    storageBucket: "inc-management-161be.firebasestorage.app",
+    messagingSenderId: "1098276603524",
+    appId: "1:1098276603524:web:0ae75899d5b9a2a3c524d1"
+  };
+
+  const app = initializeApp(firebaseConfig);
+  const db = getFirestore(app);
+
+  const days = ['SUN','MON','TUE','WED','THU','FRI','SAT'];
+
+  const profitData = [
+    { date: '2026.06.10', url: 'https://i.imgur.com/dmXXgkC.jpeg' },
+    { date: '2026.06.09', url: 'https://i.imgur.com/l1Cm4jI.jpeg' },
+    { date: '2026.06.08', url: 'https://i.imgur.com/sSyrRTZ.jpeg' },
+    { date: '2026.06.05', url: 'https://i.imgur.com/LrHyCoT.jpeg' },
+    { date: '2026.06.04', url: 'https://i.imgur.com/pbkW5or.jpeg' },
+    { date: '2026.06.02', url: 'https://i.imgur.com/WMscCOy.jpeg' },
+    { date: '2026.06.01', url: 'https://i.imgur.com/haNmwXA.jpeg' },
+    { date: '2026.05.28', url: 'https://i.imgur.com/22oiDT4.jpeg' },
+    { date: '2026.05.12', url: 'https://i.imgur.com/U2RqGxp.jpeg' },
+    { date: '2026.05.11', url: 'https://i.imgur.com/H1qiZyG.jpeg' },
+    { date: '2026.05.07', url: 'https://i.imgur.com/oiwgN6w.jpeg' },
+    { date: '2026.05.06', url: 'https://i.imgur.com/E3fEpLP.jpeg' },
+    { date: '2026.05.05', url: 'https://i.imgur.com/Y74vhJN.jpeg' },
+    { date: '2026.05.01', url: 'https://i.imgur.com/7edvSKc.jpeg' },
+    { date: '2026.04.29', url: 'https://i.imgur.com/C8CL5u0.jpeg' },
+    { date: '2026.04.27', url: 'https://i.imgur.com/svlNNNy.jpeg' },
+    { date: '2026.04.24', url: 'https://i.imgur.com/yPEXDaM.jpeg' },
+    { date: '2026.04.22', url: 'https://i.imgur.com/Vls9pLG.jpeg' },
+    { date: '2026.04.21', url: 'https://i.imgur.com/qX9jxjk.jpeg' },
+    { date: '2026.04.17', url: 'https://i.imgur.com/yJ7puV4.jpeg' },
+    { date: '2026.04.16', url: 'https://i.imgur.com/VzFL8fm.jpeg' },
+    { date: '2026.04.15', url: 'https://i.imgur.com/WstwFjE.jpeg' },
+    { date: '2026.04.14', url: 'https://i.imgur.com/WyP4zCG.jpeg' },
+    { date: '2026.04.13', url: 'https://i.imgur.com/F7EN6bO.jpeg' },
+    { date: '2026.04.10', url: 'https://i.imgur.com/c1gkfzM.jpeg' },
+    { date: '2026.04.06', url: 'https://i.imgur.com/vMC7pbx.jpeg' },
+    { date: '2026.04.02', url: 'https://i.imgur.com/TDWiUm3.jpeg' },
+    { date: '2026.04.01', url: 'https://i.imgur.com/4kis9Pu.jpeg' },
+  ];
+
+  window.migrate = async function() {
+    const log = document.getElementById('log');
+    log.innerHTML = '시작...<br>';
+    let count = 0;
+    for (const item of profitData) {
+      const parts = item.date.split('.');
+      const year = parseInt(parts[0]);
+      const month = parseInt(parts[1]);
+      const day = parseInt(parts[2]);
+      const d = new Date(year, month-1, day);
+      const docId = 'profit_' + year + String(month).padStart(2,'0') + String(day).padStart(2,'0');
+      await setDoc(doc(db, 'profitImages', docId), {
+        date: item.date,
+        year, month, day,
+        dayOfWeek: days[d.getDay()],
+        imageUrl: item.url,
+        docId,
+        createdAt: new Date().toISOString()
+      });
+      count++;
+      log.innerHTML += '✅ ' + item.date + ' 완료<br>';
+    }
+    log.innerHTML += '<br><b>🎉 총 ' + count + '건 완료!</b>';
+  };
+</script>
+</body>
+</html>

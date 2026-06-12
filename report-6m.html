@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GOLDWAVE 6개월 검증 리포트</title>
+  <style>
+    @import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css');
+    * { margin:0; padding:0; box-sizing:border-box; }
+    body { background:#1a1a1a; font-family:'Pretendard',sans-serif; color:#e0e0e0; display:flex; flex-direction:column; align-items:center; padding:40px 20px 60px; gap:16px; }
+
+    .save-btn {
+      width:680px; border:none; border-radius:12px; padding:15px;
+      color:#0b0d11; font-family:'Pretendard',sans-serif;
+      font-size:15px; font-weight:800; letter-spacing:1px; cursor:pointer;
+      background:linear-gradient(90deg,#bf953f,#fcf6ba,#bf953f);
+      background-size:200% auto;
+      animation:shimmer 2.5s linear infinite;
+    }
+    .save-btn:active { transform:scale(0.98); }
+    @keyframes shimmer { 0%{background-position:200% center} 100%{background-position:0% center} }
+
+    .gw { background:#0b0d11; width:680px; padding:32px 28px 36px; border-radius:18px; border:1px solid rgba(191,149,63,0.12); display:flex; flex-direction:column; }
+    .gw-logo-row { display:flex; align-items:center; justify-content:center; gap:10px; margin-bottom:6px; }
+    .gw-logo { width:30px; height:30px; object-fit:contain; }
+    .gw-brand { color:#bf953f; font-size:17px; font-weight:800; letter-spacing:2px; }
+    .gw-subtitle { color:#666; font-size:11px; letter-spacing:3px; font-weight:700; text-align:center; text-transform:uppercase; }
+    .gw-divider { border:none; border-top:1px solid rgba(191,149,63,0.2); margin:16px 0; }
+    .gw-section-label { color:#bf953f; font-size:11px; font-weight:800; letter-spacing:2px; text-align:center; text-transform:uppercase; margin-bottom:12px; }
+
+    .gw-seed-row { display:flex; gap:12px; margin-bottom:14px; align-items:center; }
+    .gw-seed-card { flex:1; background:rgba(191,149,63,0.07); border:1px solid rgba(191,149,63,0.2); border-radius:12px; padding:14px 16px; text-align:center; }
+    .gw-seed-label { color:#666; font-size:10px; font-weight:700; letter-spacing:1px; margin-bottom:8px; text-transform:uppercase; }
+    .gw-seed-value { color:#fff; font-size:18px; font-weight:800; }
+    .gw-arrow { color:#bf953f; font-size:22px; font-weight:900; }
+
+    .gw-highlight-card {
+      flex:1; background:rgba(191,149,63,0.1);
+      border-radius:12px; padding:14px 16px; text-align:center;
+      border:2px solid #fcf6ba;
+      box-shadow:
+        0 0 12px rgba(252,246,186,0.5),
+        0 0 28px rgba(191,149,63,0.4),
+        0 0 50px rgba(191,149,63,0.2);
+    }
+
+    .gw-return-box { background:rgba(191,149,63,0.1); border:1px solid rgba(191,149,63,0.35); border-radius:12px; padding:14px; text-align:center; margin-bottom:14px; }
+    .gw-return-label { color:#aaa; font-size:11px; font-weight:700; margin-bottom:4px; }
+    .gw-return-value { color:#00cc66; font-size:26px; font-weight:800; }
+    .gw-return-sub { color:#bf953f; font-size:12px; font-weight:700; margin-top:3px; }
+
+    .gw-monthly-grid { display:grid; grid-template-columns:repeat(6,1fr); gap:6px; margin-bottom:14px; }
+    .gw-month-card { background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.07); border-radius:8px; padding:10px 4px; text-align:center; }
+    .gw-month-name { color:#555; font-size:10px; font-weight:700; margin-bottom:5px; }
+    .gw-month-rate { color:#00cc66; font-size:14px; font-weight:800; }
+    .gw-month-ing { color:#bf953f; font-size:9px; font-weight:700; margin-top:3px; }
+
+    .gw-fx-row { background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.06); border-radius:10px; padding:12px 16px; display:flex; justify-content:space-between; align-items:center; margin-bottom:14px; }
+    .gw-fx-label { color:#777; font-size:12px; font-weight:700; }
+    .gw-fx-value { color:#bf953f; font-size:16px; font-weight:800; }
+
+    .gw-issues-title { color:#fcf6ba; font-size:15px; font-weight:800; letter-spacing:1px; text-align:center; margin-bottom:14px; }
+    .gw-issues-list { display:flex; flex-direction:column; gap:8px; margin-bottom:20px; flex:1; }
+
+    .gw-issue-card { display:flex; align-items:center; border-radius:12px; border:1px solid rgba(255,255,255,0.07); background:rgba(255,255,255,0.02); overflow:hidden; }
+    .gw-issue-card.high { border-color:rgba(0,204,102,0.2); background:rgba(0,204,102,0.03); }
+    .gw-issue-card.mid { border-color:rgba(126,200,110,0.15); background:rgba(126,200,110,0.02); }
+
+    .gw-issue-month-box { width:58px; min-width:58px; align-self:stretch; display:flex; flex-direction:column; align-items:center; justify-content:center; border-right:1px solid rgba(255,255,255,0.06); padding:16px 6px; }
+    .gw-issue-card.high .gw-issue-month-box { border-right-color:rgba(0,204,102,0.15); background:rgba(0,204,102,0.04); }
+    .gw-issue-month-txt { color:#bf953f; font-size:14px; font-weight:800; }
+
+    .gw-issue-rate-box { width:78px; min-width:78px; align-self:stretch; display:flex; flex-direction:column; align-items:center; justify-content:center; border-right:1px solid rgba(255,255,255,0.06); padding:16px 8px; gap:7px; }
+    .gw-rate-num { font-size:16px; font-weight:800; }
+    .gw-rate-bar-wrap { width:100%; background:rgba(255,255,255,0.06); border-radius:3px; height:4px; }
+    .gw-rate-bar { height:4px; border-radius:3px; }
+
+    .gw-issue-content { flex:1; padding:16px; }
+    .gw-issue-main { color:#ccc; font-size:13.5px; font-weight:700; line-height:1.65; margin-bottom:6px; word-break:keep-all; }
+    .gw-issue-main b { color:#fff; }
+    .gw-issue-result { color:#888; font-size:12.5px; line-height:1.65; word-break:keep-all; }
+    .gw-issue-result b { color:#bf953f; font-weight:700; }
+
+    .gw-ing-badge { display:inline-block; background:rgba(191,149,63,0.15); border:1px solid rgba(191,149,63,0.4); border-radius:4px; color:#bf953f; font-size:9px; font-weight:700; padding:1px 5px; margin-left:4px; vertical-align:middle; white-space:nowrap; }
+
+    .gw-disclaimer { color:#3a3a3a; font-size:10px; text-align:center; line-height:1.7; margin-bottom:12px; }
+    .gw-footer { text-align:center; border-top:1px solid rgba(191,149,63,0.12); padding-top:14px; margin-top:auto; }
+    .gw-footer-brand { color:#bf953f; font-size:12px; font-weight:800; letter-spacing:2px; }
+    .gw-footer-copy { color:#2a2a2a; font-size:10px; margin-top:3px; }
+  </style>
+</head>
+<body>
+
+<button class="save-btn" onclick="savePage('page1','goldwave_report_1of2.png')">📷 1장 PNG 저장</button>
+<div class="gw" id="page1">
+  <div class="gw-logo-row">
+    <img src="https://i.imgur.com/9VUt3sN.png" class="gw-logo" crossorigin="anonymous" alt="logo">
+    <span class="gw-brand">GOLD WAVE</span>
+  </div>
+  <div class="gw-subtitle">6 Month Verified Report</div>
+  <hr class="gw-divider">
+  <div style="text-align:center; margin-bottom:16px;">
+    <div style="color:#fcf6ba; font-size:18px; font-weight:800; margin-bottom:4px;">실제 운용 계좌 6개월 검증 리포트</div>
+    <div style="color:#bf953f; font-size:12px; font-weight:700;">2026년 1월 ~ 6월 | 골드웨이브 오토트레이딩</div>
+  </div>
+  <div class="gw-seed-row">
+    <div class="gw-seed-card">
+      <div class="gw-seed-label">초기 투자금</div>
+      <div class="gw-seed-value">3,000만원</div>
+    </div>
+    <div class="gw-arrow">→</div>
+    <div class="gw-highlight-card">
+      <div class="gw-seed-label" style="color:#bf953f;">현재 평가금액</div>
+      <div class="gw-seed-value" style="color:#fcf6ba;font-size:22px;">1억 2,908만원</div>
+    </div>
+  </div>
+  <div class="gw-return-box">
+    <div class="gw-return-label">6개월 누적 수익률</div>
+    <div class="gw-return-value">+330%</div>
+    <div class="gw-return-sub">환율 효과 +674만원 포함</div>
+  </div>
+  <div class="gw-section-label">월별 수익률</div>
+  <div class="gw-monthly-grid">
+    <div class="gw-month-card"><div class="gw-month-name">1월</div><div class="gw-month-rate">+109%</div></div>
+    <div class="gw-month-card"><div class="gw-month-name">2월</div><div class="gw-month-rate">+11%</div></div>
+    <div class="gw-month-card"><div class="gw-month-name">3월</div><div class="gw-month-rate">+38%</div></div>
+    <div class="gw-month-card"><div class="gw-month-name">4월</div><div class="gw-month-rate">+8%</div></div>
+    <div class="gw-month-card"><div class="gw-month-name">5월</div><div class="gw-month-rate">+15%</div></div>
+    <div class="gw-month-card">
+      <div class="gw-month-name">6월</div>
+      <div class="gw-month-rate">+8%</div>
+      <div class="gw-month-ing">진행중</div>
+    </div>
+  </div>
+  <div class="gw-fx-row">
+    <span class="gw-fx-label">환율 효과 (달러 강세)</span>
+    <span class="gw-fx-value">+ 674만원</span>
+  </div>
+  <div class="gw-section-label">누적 자산 성장 추이</div>
+  <div style="position:relative;width:100%;height:220px;margin-bottom:16px;">
+    <canvas id="growthChart" role="img" aria-label="누적 자산 성장 추이">3,000만원 → 1억2,908만원</canvas>
+  </div>
+  <div class="gw-footer">
+    <div class="gw-footer-brand">GOLD WAVE</div>
+    <div class="gw-footer-copy">© 2026 아이노커머스 | Designed by I Know Commerce</div>
+  </div>
+</div>
+
+<button class="save-btn" onclick="savePage('page2','goldwave_report_2of2.png')">📷 2장 PNG 저장</button>
+<div class="gw" id="page2">
+  <div class="gw-logo-row">
+    <img src="https://i.imgur.com/9VUt3sN.png" class="gw-logo" crossorigin="anonymous" alt="logo">
+    <span class="gw-brand">GOLD WAVE</span>
+  </div>
+  <div class="gw-subtitle">6 Month Verified Report</div>
+  <hr class="gw-divider">
+  <div class="gw-issues-title">월별 이슈 & 수익률 상관관계</div>
+  <div class="gw-issues-list">
+
+    <div class="gw-issue-card high">
+      <div class="gw-issue-month-box"><span class="gw-issue-month-txt">1월</span></div>
+      <div class="gw-issue-rate-box">
+        <span class="gw-rate-num" style="color:#00cc66;">+109%</span>
+        <div class="gw-rate-bar-wrap"><div class="gw-rate-bar" style="width:100%;background:#00cc66;"></div></div>
+      </div>
+      <div class="gw-issue-content">
+        <div class="gw-issue-main"><b>달러 약세 + 금리 인하 기대감</b> 최고조로 금값 강세</div>
+        <div class="gw-issue-result">→ <b>알고리즘 매수 집중 타이밍 적중</b>, 6개월 최대 수익</div>
+      </div>
+    </div>
+
+    <div class="gw-issue-card">
+      <div class="gw-issue-month-box"><span class="gw-issue-month-txt">2월</span></div>
+      <div class="gw-issue-rate-box">
+        <span class="gw-rate-num" style="color:#888;">+11%</span>
+        <div class="gw-rate-bar-wrap"><div class="gw-rate-bar" style="width:10%;background:#555;"></div></div>
+      </div>
+      <div class="gw-issue-content">
+        <div class="gw-issue-main"><b>미·이란 핵협상 진전</b>으로 지정학 리스크 완화</div>
+        <div class="gw-issue-result">→ <b>안전자산 수요 급감</b>, 금값 상승 동력 약화로 수익 폭 축소</div>
+      </div>
+    </div>
+
+    <div class="gw-issue-card high">
+      <div class="gw-issue-month-box"><span class="gw-issue-month-txt">3월</span></div>
+      <div class="gw-issue-rate-box">
+        <span class="gw-rate-num" style="color:#00cc66;">+38%</span>
+        <div class="gw-rate-bar-wrap"><div class="gw-rate-bar" style="width:35%;background:#00cc66;"></div></div>
+      </div>
+      <div class="gw-issue-content">
+        <div class="gw-issue-main"><b>이란 협상 결렬 + 중동 긴장 재점화</b>로 금값 급등</div>
+        <div class="gw-issue-result">→ <b>위기 감지 즉시 알고리즘 대응 성공</b>, 강한 반등 수익</div>
+      </div>
+    </div>
+
+    <div class="gw-issue-card">
+      <div class="gw-issue-month-box"><span class="gw-issue-month-txt">4월</span></div>
+      <div class="gw-issue-rate-box">
+        <span class="gw-rate-num" style="color:#888;">+8%</span>
+        <div class="gw-rate-bar-wrap"><div class="gw-rate-bar" style="width:7%;background:#555;"></div></div>
+      </div>
+      <div class="gw-issue-content">
+        <div class="gw-issue-main"><b>연준 매파 발언 + 달러 강세</b> 전환으로 금값 조정</div>
+        <div class="gw-issue-result">→ <b>리스크 관리 모드 전환</b>, 손실 없이 소폭 수익 방어</div>
+      </div>
+    </div>
+
+    <div class="gw-issue-card mid">
+      <div class="gw-issue-month-box"><span class="gw-issue-month-txt">5월</span></div>
+      <div class="gw-issue-rate-box">
+        <span class="gw-rate-num" style="color:#7ec86e;">+15%</span>
+        <div class="gw-rate-bar-wrap"><div class="gw-rate-bar" style="width:14%;background:#7ec86e;"></div></div>
+      </div>
+      <div class="gw-issue-content">
+        <div class="gw-issue-main"><b>PPI 쇼크</b>로 인플레이션 재점화, 변동성 확대</div>
+        <div class="gw-issue-result">→ <b>분할 매수 전략</b>으로 변동성 활용, 안정적 중간 수익</div>
+      </div>
+    </div>
+
+    <div class="gw-issue-card">
+      <div class="gw-issue-month-box"><span class="gw-issue-month-txt">6월</span></div>
+      <div class="gw-issue-rate-box">
+        <span class="gw-rate-num" style="color:#bf953f;">+8%</span>
+        <div class="gw-rate-bar-wrap"><div class="gw-rate-bar" style="width:7%;background:#bf953f;"></div></div>
+      </div>
+      <div class="gw-issue-content">
+        <div class="gw-issue-main"><b>박스권 등락</b>, 시장 방향성 탐색 구간 <span class="gw-ing-badge">진행중</span></div>
+        <div class="gw-issue-result">→ <b>알고리즘 보수적 운용</b>, 리스크 최소화하며 수익 유지 중</div>
+      </div>
+    </div>
+
+  </div>
+  <div class="gw-disclaimer">
+    * 본 수치는 실제 운용 계좌 기준이며, 과거 성과가 미래 수익을 보장하지 않습니다.<br>
+    * 투자 원금 손실 가능성이 있으며, 투자 결정은 본인의 책임입니다.
+  </div>
+  <div class="gw-footer">
+    <div class="gw-footer-brand">GOLD WAVE</div>
+    <div class="gw-footer-copy">© 2026 아이노커머스 | Designed by I Know Commerce</div>
+  </div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+<script>
+new Chart(document.getElementById('growthChart'), {
+  type: 'line',
+  data: {
+    labels: ['시작','1월','2월','3월','4월','5월','6월\n(진행중)'],
+    datasets:[{
+      data: [3000, 6270, 6960, 9605, 10373, 11929, 12908],
+      borderColor: '#bf953f',
+      borderWidth: 2.5,
+      pointBackgroundColor: ['#fcf6ba','#fcf6ba','#fcf6ba','#fcf6ba','#fcf6ba','#fcf6ba','#bf953f'],
+      pointBorderColor: ['#bf953f','#bf953f','#bf953f','#bf953f','#bf953f','#bf953f','#fcf6ba'],
+      pointBorderWidth: [1,1,1,1,1,1,2],
+      pointRadius: [5,5,5,5,5,5,7],
+      fill: true,
+      backgroundColor: 'rgba(191,149,63,0.08)',
+      tension: 0.35
+    }]
+  },
+  options: {
+    responsive: true, maintainAspectRatio: false,
+    plugins: {
+      legend: { display: false },
+      tooltip: {
+        callbacks: {
+          title: (items) => items[0].label.replace('\n',' '),
+          label: (c) => Math.round(c.parsed.y).toLocaleString() + '만원'
+        },
+        backgroundColor: '#1a1e26', titleColor: '#bf953f', bodyColor: '#fcf6ba',
+        borderColor: 'rgba(191,149,63,0.4)', borderWidth: 1
+      }
+    },
+    scales: {
+      x: {
+        ticks: {
+          color: (ctx) => ctx.index === 6 ? '#bf953f' : '#666',
+          font: { size:11, weight:'700' }, autoSkip:false
+        },
+        grid: { color:'rgba(255,255,255,0.04)' },
+        border: { color:'rgba(255,255,255,0.08)' }
+      },
+      y: {
+        ticks: {
+          color:'#555', font:{size:10},
+          callback: (v) => {
+            if(v >= 10000) return (v/10000).toFixed(1) + '억';
+            if(v >= 1000) return (v/1000).toFixed(0) + '천';
+            return v;
+          }
+        },
+        grid: { color:'rgba(255,255,255,0.04)' },
+        border: { color:'rgba(255,255,255,0.08)' },
+        min: 0
+      }
+    }
+  }
+});
+
+function equalizeHeight() {
+  const p1 = document.getElementById('page1');
+  const p2 = document.getElementById('page2');
+  const maxH = Math.max(p1.offsetHeight, p2.offsetHeight);
+  p1.style.minHeight = maxH + 'px';
+  p2.style.minHeight = maxH + 'px';
+}
+window.addEventListener('load', () => { setTimeout(equalizeHeight, 400); });
+
+function savePage(id, filename) {
+  const btn = event.target;
+  const orig = btn.textContent;
+  btn.textContent = '저장 중...';
+  btn.disabled = true;
+  html2canvas(document.getElementById(id), {
+    backgroundColor: '#0b0d11', scale: 2, useCORS: true, logging: false
+  }).then(canvas => {
+    const link = document.createElement('a');
+    link.download = filename;
+    link.href = canvas.toDataURL('image/png');
+    link.click();
+    btn.textContent = orig;
+    btn.disabled = false;
+  }).catch(() => {
+    btn.textContent = orig;
+    btn.disabled = false;
+    alert('저장 실패!');
+  });
+}
+</script>
+</body>
+</html>

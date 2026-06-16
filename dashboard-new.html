@@ -197,14 +197,12 @@
 
         async function fetchGoldPrice() {
             try {
-                const targetUrl = 'https://query1.finance.yahoo.com/v8/finance/chart/GC%3DF?interval=1d&range=1d';
-                const proxyUrl = 'https://api.allorigins.win/raw?url=' + encodeURIComponent(targetUrl);
-                const res = await fetch(proxyUrl);
+                const APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbw1HF_9dmWVS3zINSaup62grWmGszVOx4clmWjMLbicgIn32Ws_cKOkH5w2UeEHteG7pA/exec';
+                const res = await fetch(APPS_SCRIPT_URL + '?action=goldPrice');
                 const data = await res.json();
-                const meta = data.chart.result[0].meta;
-                const price = meta.regularMarketPrice;
-                const prevClose = meta.chartPreviousClose;
-                const changePct = (price - prevClose) / prevClose * 100;
+                if (!data.success) throw new Error('no data');
+                const price = data.price;
+                const changePct = (price - data.prevClose) / data.prevClose * 100;
                 const sign = changePct >= 0 ? '▲' : '▼';
                 const color = changePct >= 0 ? '#00cc66' : '#ff5050';
                 const now = new Date();

@@ -45,6 +45,20 @@
         .menu-card:hover .card-title { color: #fff; }
         .menu-card:hover .card-desc { color: #aaa; }
 
+        .gold-ticker { 
+            display: flex; align-items: center; justify-content: center; gap: 12px;
+            width: 92%; max-width: 500px;
+            background: rgba(191,149,63,0.05); 
+            border: 1px solid rgba(191,149,63,0.2); 
+            border-radius: 100px; 
+            padding: 10px 30px; 
+            margin-bottom: 40px;
+            font-size: 13px; font-weight: 700;
+        }
+        .ticker-label { color: #bf953f; font-size: 11px; letter-spacing: 2px; font-weight: 900; }
+        .ticker-divider { color: rgba(255,255,255,0.1); }
+        .ticker-time { color: #444; font-size: 11px; }
+
         .footer-links { display: flex; gap: 20px; margin-bottom: 100px; width: 92%; justify-content: center; }
         .f-btn { background: transparent; border: 1px solid #bf953f; border-radius: 50px; padding: 15px 35px; color: #bf953f; font-size: 13px; font-weight: 700; text-decoration: none; display: flex; align-items: center; gap: 10px; transition: 0.3s; }
         .f-btn:hover { background: rgba(191, 149, 63, 0.1); transform: translateY(-3px); box-shadow: 0 5px 15px rgba(0,0,0,0.3); }
@@ -80,6 +94,14 @@
             <div class="status-item"><span id="date-display" class="status-value"></span></div>
             <div class="status-item"><span id="today-count" class="status-value gold">0</span></div>
             <div class="status-item"><span id="total-count" class="status-value gold">0</span></div>
+        </div>
+
+        <!-- 금 시세 바 -->
+        <div class="gold-ticker" id="gold-ticker">
+            <span class="ticker-label">GOLD</span>
+            <span id="gold-price" style="color:#fcf6ba; font-weight:900;">—</span>
+            <span id="gold-change">—</span>
+            <span class="ticker-time" id="gold-time"></span>
         </div>
 
         <main class="menu-grid">
@@ -168,7 +190,31 @@
             document.getElementById('total-count').innerText = "TOTAL " + finalTotal.toLocaleString();
         }
 
-        window.onload = updateCounters;
+        window.onload = function() {
+            updateCounters();
+            fetchGoldPrice();
+        };
+
+        async function fetchGoldPrice() {
+            try {
+                const res = await fetch('https://metals.live/api/spot');
+                const data = await res.json();
+                const gold = data.find(d => d.currency === 'XAU' || d.metal === 'gold' || d.symbol === 'XAU');
+                if (!gold) return;
+                const price = Number(gold.price || gold.ask || gold.bid || 0);
+                const change = Number(gold.change || gold.ch || 0);
+                const changePct = Number(gold.percentChange || gold.chp || 0);
+                const sign = change >= 0 ? '▲' : '▼';
+                const color = change >= 0 ? '#00cc66' : '#ff5050';
+                const now = new Date();
+                const timeStr = String(now.getHours()).padStart(2,'0') + ':' + String(now.getMinutes()).padStart(2,'0');
+                document.getElementById('gold-price').textContent = '$' + price.toFixed(2);
+                document.getElementById('gold-change').innerHTML = `<span style="color:${color};">${sign} ${Math.abs(changePct).toFixed(2)}%</span>`;
+                document.getElementById('gold-time').textContent = timeStr + ' 기준';
+            } catch(e) {
+                document.getElementById('gold-price').textContent = '—';
+            }
+        }
     </script>
 
     <script type="text/javascript">

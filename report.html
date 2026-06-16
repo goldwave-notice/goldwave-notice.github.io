@@ -48,6 +48,18 @@
     .coming-soon h3 { color: #bf953f; font-size: 18px; font-weight: 800; margin-bottom: 10px; }
     .coming-soon p { color: #555; font-size: 14px; line-height: 1.8; }
     .coming-soon .badge { display: inline-block; background: rgba(191,149,63,0.1); border: 1px solid rgba(191,149,63,0.3); color: #bf953f; font-size: 12px; font-weight: 700; padding: 6px 16px; border-radius: 20px; margin-top: 15px; }
+
+    /* 리포트 카드 (일별/주별/월별) */
+    .rpt-card { width: 100%; background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.07); border-radius: 14px; padding: 20px; margin-bottom: 12px; box-sizing: border-box; }
+    .rpt-card-top { display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px; gap: 10px; }
+    .rpt-date { color: #bf953f; font-size: 13px; font-weight: 800; }
+    .rpt-rate { font-size: 20px; font-weight: 900; white-space: nowrap; }
+    .rpt-bar-wrap { width: 100%; height: 4px; background: rgba(255,255,255,0.06); border-radius: 3px; margin-bottom: 14px; overflow: hidden; }
+    .rpt-bar { height: 4px; border-radius: 3px; }
+    .rpt-issue { color: #fff; font-size: 14px; font-weight: 700; line-height: 1.6; margin-bottom: 6px; word-break: keep-all; }
+    .rpt-corr { color: #888; font-size: 12.5px; line-height: 1.6; word-break: keep-all; }
+    .rpt-ongoing { display: inline-block; background: rgba(191,149,63,0.15); border: 1px solid rgba(191,149,63,0.4); border-radius: 4px; color: #bf953f; font-size: 9px; font-weight: 700; padding: 1px 5px; margin-left: 4px; vertical-align: middle; white-space: nowrap; }
+    .rpt-loading { text-align: center; color: #555; padding: 60px 0; width: 100%; }
   </style>
 </head>
 <body>
@@ -80,49 +92,107 @@
 
     <!-- 탭 메뉴 -->
     <div class="tab-menu">
-      <div class="tab-btn active" onclick="switchTab('daily', this)"><i class="fa-solid fa-calendar-day"></i> 일별</div>
-      <div class="tab-btn" onclick="switchTab('weekly', this)"><i class="fa-solid fa-calendar-week"></i> 주별</div>
+      <div class="tab-btn active" onclick="switchTab('weekly', this)"><i class="fa-solid fa-calendar-week"></i> 주별</div>
       <div class="tab-btn" onclick="switchTab('monthly', this)"><i class="fa-solid fa-calendar-days"></i> 월별</div>
     </div>
 
-    <!-- 일별 -->
-    <div id="tab-daily" class="tab-content active">
-      <div class="coming-soon">
-        <i class="fa-solid fa-calendar-day"></i>
-        <h3>일별 트레이딩 리포트</h3>
-        <p>매 거래일의 수익률과 주요 이슈,<br>골드웨이브 상관관계를 기록합니다.</p>
-        <span class="badge">🔜 업데이트 예정</span>
-      </div>
-    </div>
-
     <!-- 주별 -->
-    <div id="tab-weekly" class="tab-content">
-      <div class="coming-soon">
-        <i class="fa-solid fa-calendar-week"></i>
-        <h3>주별 트레이딩 리포트</h3>
-        <p>매주 금요일 발행되는 주간 성과 요약.<br>그 주의 일별 이슈들을 간략히 정리합니다.</p>
-        <span class="badge">🔜 업데이트 예정</span>
-      </div>
+    <div id="tab-weekly" class="tab-content active">
+      <div class="rpt-loading"><i class="fa-solid fa-spinner fa-spin"></i> 불러오는 중...</div>
     </div>
 
     <!-- 월별 -->
     <div id="tab-monthly" class="tab-content">
-      <div class="coming-soon">
-        <i class="fa-solid fa-calendar-days"></i>
-        <h3>월별 트레이딩 리포트</h3>
-        <p>매월 말일 발행되는 월간 성과 리포트.<br>주별 이슈 요약과 누적 수익률을 담습니다.</p>
-        <span class="badge">🔜 업데이트 예정</span>
-      </div>
+      <div class="rpt-loading"><i class="fa-solid fa-spinner fa-spin"></i> 불러오는 중...</div>
     </div>
   </div>
 
-  <script>
-    function switchTab(tab, el) {
+  <script type="module">
+    import { initializeApp } from 'https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js';
+    import { getFirestore, collection, getDocs } from 'https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js';
+
+    const firebaseConfig = {
+      apiKey: "AIzaSyAGCPGRXXNUiiT-mK1y_xLKvCJpz5sHY8Y",
+      authDomain: "inc-management-161be.firebaseapp.com",
+      projectId: "inc-management-161be",
+      storageBucket: "inc-management-161be.firebasestorage.app",
+      messagingSenderId: "1098276603524",
+      appId: "1:1098276603524:web:0ae75899d5b9a2a3c524d1"
+    };
+
+    const app = initializeApp(firebaseConfig);
+    const db = getFirestore(app);
+
+    const COMING_SOON = {
+      daily: { icon:'fa-calendar-day', title:'일별 트레이딩 리포트', desc:'매 거래일의 수익률과 주요 이슈,<br>골드웨이브 상관관계를 기록합니다.' },
+      weekly: { icon:'fa-calendar-week', title:'주별 트레이딩 리포트', desc:'매주 금요일 발행되는 주간 성과 요약.<br>그 주의 일별 이슈들을 간략히 정리합니다.' },
+      monthly: { icon:'fa-calendar-days', title:'월별 트레이딩 리포트', desc:'매월 말일 발행되는 월간 성과 리포트.<br>주별 이슈 요약과 누적 수익률을 담습니다.' }
+    };
+
+    function comingSoonHtml(type) {
+      const c = COMING_SOON[type];
+      return `<div class="coming-soon">
+        <i class="fa-solid ${c.icon}"></i>
+        <h3>${c.title}</h3>
+        <p>${c.desc}</p>
+        <span class="badge">🔜 업데이트 예정</span>
+      </div>`;
+    }
+
+    let allReports = null;
+    async function loadAllReports() {
+      if (allReports) return allReports;
+      const snap = await getDocs(collection(db, 'tradingReports'));
+      allReports = snap.docs.map(d => d.data());
+      return allReports;
+    }
+
+    function rateColor(rate) {
+      if (rate > 0) return '#00cc66';
+      if (rate < 0) return '#ff5050';
+      return '#888';
+    }
+
+    async function renderTab(type) {
+      const container = document.getElementById('tab-' + type);
+      const data = await loadAllReports();
+      const filtered = data.filter(r => r.type === type).sort((a,b) => b.docId.localeCompare(a.docId));
+
+      if (!filtered.length) {
+        container.innerHTML = comingSoonHtml(type);
+        return;
+      }
+
+      let html = '';
+      filtered.forEach(r => {
+        const rate = Number(r.returnRate) || 0;
+        const color = rateColor(rate);
+        const barWidth = Math.min(Math.abs(rate) / 20, 100);
+        const ongoing = r.ongoing === 'Y' ? '<span class="rpt-ongoing">진행중</span>' : '';
+        const amountStr = '$' + Math.abs(rate).toLocaleString(undefined, {minimumFractionDigits:2, maximumFractionDigits:2});
+        html += `<div class="rpt-card">
+          <div class="rpt-card-top">
+            <span class="rpt-date">${r.dateLabel}</span>
+            <span class="rpt-rate" style="color:${color};">${rate>=0?'+':'-'}${amountStr}</span>
+          </div>
+          <div class="rpt-bar-wrap"><div class="rpt-bar" style="width:${barWidth}%;background:${color};"></div></div>
+          <div class="rpt-issue">${r.issue}${ongoing}</div>
+          <div class="rpt-corr">→ ${r.correlation}</div>
+        </div>`;
+      });
+      container.innerHTML = html;
+    }
+
+    window.switchTab = function(tab, el) {
       document.querySelectorAll('.tab-content').forEach(t => t.classList.remove('active'));
       document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
       document.getElementById('tab-' + tab).classList.add('active');
       el.classList.add('active');
-    }
+      renderTab(tab);
+    };
+
+    // 초기 로드 (주별)
+    renderTab('weekly');
   </script>
 </body>
 </html>

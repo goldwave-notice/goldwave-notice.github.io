@@ -197,22 +197,34 @@
 
         async function fetchGoldPrice() {
             try {
-                const res = await fetch('https://metals.live/api/spot');
+                // XAU/USD 실시간 시세 (무료 CORS 허용 API)
+                const res = await fetch('https://api.frankfurter.app/latest?from=XAU&to=USD');
                 const data = await res.json();
-                const gold = data.find(d => d.currency === 'XAU' || d.metal === 'gold' || d.symbol === 'XAU');
-                if (!gold) return;
-                const price = Number(gold.price || gold.ask || gold.bid || 0);
-                const change = Number(gold.change || gold.ch || 0);
-                const changePct = Number(gold.percentChange || gold.chp || 0);
-                const sign = change >= 0 ? '▲' : '▼';
-                const color = change >= 0 ? '#00cc66' : '#ff5050';
+                const price = data.rates && data.rates.USD ? Number(data.rates.USD) : null;
+                if (!price) throw new Error('no data');
                 const now = new Date();
                 const timeStr = String(now.getHours()).padStart(2,'0') + ':' + String(now.getMinutes()).padStart(2,'0');
                 document.getElementById('gold-price').textContent = '$' + price.toFixed(2);
-                document.getElementById('gold-change').innerHTML = `<span style="color:${color};">${sign} ${Math.abs(changePct).toFixed(2)}%</span>`;
+                document.getElementById('gold-change').innerHTML = '';
                 document.getElementById('gold-time').textContent = timeStr + ' 기준';
             } catch(e) {
-                document.getElementById('gold-price').textContent = '—';
+                // fallback: Yahoo Finance 프록시
+                try {
+                    const res2 = await fetch('https://query1.finance.yahoo.com/v8/finance/chart/GC%3DF?interval=1d&range=1d');
+                    const data2 = await res2.json();
+                    const price = data2.chart.result[0].meta.regularMarketPrice;
+                    const prevClose = data2.chart.result[0].meta.chartPreviousClose;
+                    const changePct = ((price - prevClose) / prevClose * 100);
+                    const sign = changePct >= 0 ? '▲' : '▼';
+                    const color = changePct >= 0 ? '#00cc66' : '#ff5050';
+                    const now = new Date();
+                    const timeStr = String(now.getHours()).padStart(2,'0') + ':' + String(now.getMinutes()).padStart(2,'0');
+                    document.getElementById('gold-price').textContent = '$' + price.toFixed(2);
+                    document.getElementById('gold-change').innerHTML = `<span style="color:${color};">${sign} ${Math.abs(changePct).toFixed(2)}%</span>`;
+                    document.getElementById('gold-time').textContent = timeStr + ' 기준';
+                } catch(e2) {
+                    document.getElementById('gold-price').textContent = '—';
+                }
             }
         }
     </script>

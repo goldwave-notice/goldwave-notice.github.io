@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=1350"> 
+  <title>GOLD WAVE PREMIUM REPORT - 26.08.31</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <style>
+    @import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css');
+    html { -webkit-text-size-adjust: none; }
+    body { margin: 0; background-color: #0b0d11; font-family: 'Pretendard', sans-serif; color: #e0e0e0; display: flex; flex-direction: column; align-items: center; padding: 0 0 80px 0; overflow-x: hidden; min-width: 1350px; }
+    .header-sticky { position: fixed; top: 0; width: 100%; min-width: 1350px; background: rgba(26, 29, 35, 0.95); border-bottom: 1px solid rgba(191, 149, 63, 0.3); z-index: 1000; padding: 15px 0; text-align: center; backdrop-filter: blur(10px); }
+    .header-title { font-size: 13px; font-weight: 800; color: #bf953f; letter-spacing: 1px; }
+    .back-nav { position: absolute; left: 20px; top: 50%; transform: translateY(-50%); text-decoration: none; color: #bf953f; font-size: 20px; transition: 0.3s; }
+    .back-nav:hover { filter: drop-shadow(0 0 8px #bf953f); transform: translateY(-50%) translateX(-3px); }
+    .container { width: 1350px; margin-top: 80px; }
+    .main-section { display: flex; gap: 40px; align-items: stretch; margin-bottom: 60px; }
+    .img-area { flex: 1; display: flex; }
+    .img-area img { width: 100%; height: 100%; border-radius: 20px; border: 1px solid #bf953f; object-fit: fill; box-shadow: 0 30px 60px rgba(0,0,0,0.6); }
+    .text-area { flex: 1.2; display: flex; flex-direction: column; gap: 20px; }
+    .briefing-part { flex: 1; background: rgba(255,255,255,0.02); padding: 40px; border-radius: 20px; border: 1px solid rgba(191,149,63,0.1); display: flex; flex-direction: column; justify-content: center; }
+    .vvip-strategy-box { flex: 1; background: #161a21; padding: 40px; border-radius: 20px; border: 1px solid rgba(191, 149, 63, 0.4); border-left: 6px solid #bf953f; display: flex; flex-direction: column; justify-content: center; animation: goldenBreathing 1.8s infinite ease-in-out; }
+    .briefing-part h1, .vvip-title { color: #bf953f; font-size: 24px; margin: 0 0 20px 0; font-weight: 800; }
+    .briefing-part h1 { border-left: 6px solid #bf953f; padding-left: 15px; }
+    .vvip-list { padding-left: 20px; margin: 0; font-size: 16px; color: #bbb; line-height: 2.3; }
+    .vvip-list li { list-style: none; position: relative; margin-bottom: 12px; }
+    .vvip-list li::before { content: "▶"; color: #bf953f; font-size: 12px; position: absolute; left: -20px; top: 2px; }
+    .point-focus { font-weight: 800; color: #ffffff; background: linear-gradient(to top, rgba(0, 255, 0, 0.45) 45%, transparent 45%); padding: 0 4px; border-radius: 2px; }
+    .neon-text { color: #00ff00; font-weight: 700; }
+    @keyframes goldenBreathing { 0%, 100% { box-shadow: 0 0 15px rgba(191, 149, 63, 0.1); border-color: rgba(191, 149, 63, 0.4); } 50% { box-shadow: 0 0 40px rgba(191, 149, 63, 0.5); border-color: rgba(252, 246, 186, 0.8); } }
+    .scroll-indicator { text-align: center; margin-bottom: 40px; color: #bf953f; animation: blink 1.2s infinite; font-size: 22px; font-weight: 900; line-height: 1.0; }
+    @keyframes blink { 0%, 100% { opacity: 0; transform: translateY(-5px); } 50% { opacity: 1; transform: translateY(5px); } }
+    .logic-section { width: 100%; background: #1a1e26; padding: 60px; border-radius: 25px; border-top: 5px solid #bf953f; box-sizing: border-box; text-align: left; }
+    .logic-title { font-size: 24px; font-weight: 800; color: #fcf6ba; margin-bottom: 40px; border-bottom: 1px solid rgba(191,149,63,0.1); padding-bottom: 20px; }
+    .logic-paragraph { margin-bottom: 40px; line-height: 2.3; font-size: 18px; color: #e5e5e5; }
+    .pop-card { background: #1e232d; padding: 35px; border-radius: 15px; box-shadow: inset 1px 1px 1px rgba(255,255,255,0.05), 8px 8px 25px rgba(0,0,0,0.5); border-top: 1px solid rgba(191,149,63,0.3); margin-top: 20px; animation: goldenBreathing 1.8s infinite ease-in-out; }
+    .archive-title-label { text-align: center; color: rgba(255,255,255,0.2); letter-spacing: 8px; font-size: 14px; font-weight: 700; margin-bottom: 30px; margin-top: 60px; }
+    .archive-section { width: 100%; display: grid; grid-template-columns: repeat(3, 1fr); gap: 25px; }
+    .archive-card { background: rgba(255,255,255,0.03); padding: 20px; border-radius: 15px; border: 1px solid rgba(255,255,255,0.05); text-align: center; transition: 0.3s; text-decoration: none; display: block; }
+    .archive-card:hover { transform: scale(1.05); border-color: #bf953f; background: rgba(191, 149, 63, 0.05); box-shadow: 0 0 20px rgba(191, 149, 63, 0.3); }
+    .archive-thumb { width: 100%; height: 110px; border-radius: 10px; object-fit: cover; margin-bottom: 15px; border: 1px solid rgba(191, 149, 63, 0.2); }
+    .insight-bar { background: linear-gradient(90deg, rgba(191, 149, 63, 0.2), rgba(191, 149, 63, 0.05)); padding: 30px; border-radius: 15px; border-left: 6px solid #bf953f; text-align: left; font-weight: 700; font-size: 20px; margin-top: 40px; }
+    .footer-counter { width: 1350px; margin-top: 80px; text-align: center; padding-bottom: 50px; border-top: 1px solid rgba(255,255,255,0.05); padding-top: 40px; }
+    .counter-label { font-size: 11px; color: #555; letter-spacing: 2px; text-transform: uppercase; font-weight: 700; }
+    #busuanzi_value_page_pv { margin-left: 5px; color: #bf953f; font-weight: bold; opacity: 0.6; }
+
+    /* 고용보고서 D-4 배너 */
+    .event-banner {
+      width: 100%; background: linear-gradient(90deg, rgba(191,149,63,0.15), rgba(191,149,63,0.05));
+      border: 1px solid rgba(191,149,63,0.4); border-left: 6px solid #bf953f;
+      border-radius: 15px; padding: 18px 30px; margin-bottom: 30px;
+      display: flex; align-items: center; gap: 15px;
+    }
+    .event-banner .badge { background: #bf953f; color: #0b0d11; font-size: 12px; font-weight: 900; padding: 4px 12px; border-radius: 20px; white-space: nowrap; }
+    .event-banner .text { font-size: 15px; font-weight: 700; color: #fcf6ba; }
+  </style>
+</head>
+<body>
+<div class="header-sticky">
+    <a href="archive.html" class="back-nav"><i class="fa-solid fa-arrow-left"></i></a>
+    <div class="header-title">GOLD WAVE PREMIUM REPORT</div>
+</div>
+<div class="container">
+
+  <!-- 고용보고서 D-4 배너 -->
+  <div class="event-banner">
+    <span class="badge">📅 고용보고서 D-4</span>
+    <span class="text">9월 4일(목) 8월 비농업 고용보고서 발표 예정 — 9월 FOMC 금리 결정의 최대 변수</span>
+  </div>
+
+  <div class="main-section">
+    <div class="img-area"><img src="https://i.imgur.com/5xDKXfO.jpeg" alt="260831 NEWS"></div>
+    <div class="text-area">
+      <div class="briefing-part">
+        <h1>📌 오늘의 핵심 브리핑</h1>
+        <div style="margin-bottom: 25px; padding-bottom: 20px; border-bottom: 1px solid rgba(191,149,63,0.15);">
+          <div style="color: #fcf6ba; font-size: 21px; font-weight: 800; line-height: 1.5;">
+            워시 매파 발언에 9월 금리 인상 확률 35%→60%… 고용보고서가 판가름
+          </div>
+        </div>
+        <div style="font-size:16.5px; line-height:2.0; color:#ccc;">
+          잭슨홀에서 워시 연준 의장이 <span class="neon-text">인플레이션이 여전히 높고 통화정책이 충분히 제약적이지 않다</span>고 발언하며 9월 금리 인상 확률이 35%에서 <span class="point-focus">60%로 급등</span>했습니다.<br><br>
+          이번 주 최대 변수는 9월 4일 발표되는 <span class="neon-text">8월 고용보고서</span>입니다. 예상치(+5.8만명)를 하회하면 인상 기대 후퇴 → 달러 약세 → 금 반등 구도가 열립니다.
+        </div>
+      </div>
+      <div class="vvip-strategy-box">
+        <div class="vvip-title">💡 VVIP 전략 가이드</div>
+        <ul class="vvip-list">
+          <li>인상 60% vs 동결 40%: 고용 둔화 확인 시 확률 역전 → 달러 약세·금 반등</li>
+          <li>고용 강세 시: 인상 확정 → 단기 달러 강세 → 금 단기 압박, 중장기 구조는 불변</li>
+          <li>장기금리 고공 지속: 재정 불신 구조 유지 → 금 헤지 수요 장기 지지</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="scroll-indicator">v<br>v<br>v</div>
+  <div class="logic-section">
+    <div class="logic-title">📌 GOLDWAVE 알고리즘 증명: 인상이든 동결이든 — 금의 구조적 방향은 바뀌지 않습니다</div>
+    <div class="logic-paragraph">
+      9월 인상 가능성이 60%까지 올랐습니다. 그러나 이것이 금의 장기 구조를 바꾸는 것은 아닙니다. <span class="point-focus">고용이 둔화하면 인상 기대가 꺾이며 달러 약세·금 반등 구도가 열립니다. 고용이 강하면 인상 후 경기 하강 우려가 커지며 안전자산 수요가 강화됩니다.</span><br><br>
+      워시 의장이 매파적 발언을 했지만 블랙록 CIO는 "반드시 인상으로 연결되지 않는다"고 선을 그었습니다. <span class="neon-text">미국 부채 40조달러, 재정적자 구조, 달러 약세 흐름 — 이 구조는 한 번의 FOMC 결정으로 해소되지 않습니다.</span> GOLDWAVE는 단기 변동성이 아닌 이 구조 위에서 운용됩니다.
+    </div>
+    <div class="pop-card">
+      <div style="font-size: 19px; line-height: 2.2; color: #fff;">
+        "9월 인상이든 동결이든, 재정 구조가 바뀌지 않는 한 금의 방향은 하나입니다. <span class="neon-text">골드웨이브는 단기 노이즈가 아닌 구조 위에서 작동합니다."</span><br>
+        고용보고서 D-4 — 어느 결과가 나오든 대응은 완료돼 있습니다.
+      </div>
+    </div>
+  </div>
+  <div class="insight-bar">✔ 워시 매파 발언 → 9월 인상 60% → 이번 주 고용보고서(9/4)가 최대 변수 — 어느 방향이든 GOLDWAVE 알고리즘은 이미 준비돼 있습니다.</div>
+
+  <div class="archive-title-label">PREVIOUS REPORT</div>
+  <div class="archive-section">
+    <a href="260828.html" class="archive-card"><img src="https://i.imgur.com/8bm6prC.jpeg" class="archive-thumb"><span style="font-size:12px; color:#666; display:block; margin-bottom:10px;">2026.08.28</span><b style="font-size:15px; color:#aaa;">닷새 70억달러 역대 최대 머니무브, 달러 대신 금</b></a>
+    <a href="260827.html" class="archive-card"><img src="https://i.imgur.com/NzcG3rD.jpeg" class="archive-thumb"><span style="font-size:12px; color:#666; display:block; margin-bottom:10px;">2026.08.27</span><b style="font-size:15px; color:#aaa;">PCE 예상 상회, 금 1.4% 조정 매수 기회</b></a>
+    <a href="260826.html" class="archive-card"><img src="https://i.imgur.com/G7V25l5.jpeg" class="archive-thumb"><span style="font-size:12px; color:#666; display:block; margin-bottom:10px;">2026.08.26</span><b style="font-size:15px; color:#aaa;">트럼프 "호르무즈 기뢰 완파" 재설치 즉각 파괴</b></a>
+    <a href="260825.html" class="archive-card"><img src="https://i.imgur.com/l8aFA75.jpeg" class="archive-thumb"><span style="font-size:12px; color:#666; display:block; margin-bottom:10px;">2026.08.25</span><b style="font-size:15px; color:#aaa;">금 3개월 최고 4620달러, 화폐가치 희석 거래 부활</b></a>
+    <a href="260824.html" class="archive-card"><img src="https://i.imgur.com/9vShMDH.jpeg" class="archive-thumb"><span style="font-size:12px; color:#666; display:block; margin-bottom:10px;">2026.08.24</span><b style="font-size:15px; color:#aaa;">UBS·골드만삭스 동시 5400달러 목표 제시</b></a>
+    <a href="260821.html" class="archive-card"><img src="https://i.imgur.com/A9loATW.jpeg" class="archive-thumb"><span style="font-size:12px; color:#666; display:block; margin-bottom:10px;">2026.08.21</span><b style="font-size:15px; color:#aaa;">재무부 개입 하루 만에 약발 끝났나, 금 숨고르기</b></a>
+    <a href="260820.html" class="archive-card"><img src="https://i.imgur.com/6V9c59c.jpeg" class="archive-thumb"><span style="font-size:12px; color:#666; display:block; margin-bottom:10px;">2026.08.20</span><b style="font-size:15px; color:#aaa;">재무부 바이백 2배 확대, 금 4% 급등·달러 최저</b></a>
+    <a href="260819.html" class="archive-card"><img src="https://i.imgur.com/dujwZww.jpeg" class="archive-thumb"><span style="font-size:12px; color:#666; display:block; margin-bottom:10px;">2026.08.19</span><b style="font-size:15px; color:#aaa;">채권시장 경고, AI 집중 리스크 금으로 분산하라</b></a>
+    <a href="260818.html" class="archive-card"><img src="https://i.imgur.com/cTdYxPd.jpeg" class="archive-thumb"><span style="font-size:12px; color:#666; display:block; margin-bottom:10px;">2026.08.18</span><b style="font-size:15px; color:#aaa;">30년물 5.29% 2007년 이후 최고, 재정 불신이 금을 민다</b></a>
+    <a href="260814.html" class="archive-card"><img src="https://i.imgur.com/3Q60yi4.jpeg" class="archive-thumb"><span style="font-size:12px; color:#666; display:block; margin-bottom:10px;">2026.08.14</span><b style="font-size:15px; color:#aaa;">한국은행 13년 만에 금 ETF 매입</b></a>
+    <a href="260813.html" class="archive-card"><img src="https://i.imgur.com/dUL4FW3.jpeg" class="archive-thumb"><span style="font-size:12px; color:#666; display:block; margin-bottom:10px;">2026.08.13</span><b style="font-size:15px; color:#aaa;">트럼프 발언 월 10만 달러, 자동매매는 더 빠르다</b></a>
+    <a href="260812.html" class="archive-card"><img src="https://i.imgur.com/xDhr5Xa.jpeg" class="archive-thumb"><span style="font-size:12px; color:#666; display:block; margin-bottom:10px;">2026.08.12</span><b style="font-size:15px; color:#aaa;">파키스탄 "호르무즈 타결 임박" 미·이란 강경 대립</b></a>
+    <a href="260811.html" class="archive-card"><img src="https://i.imgur.com/imXzn8B.jpeg" class="archive-thumb"><span style="font-size:12px; color:#666; display:block; margin-bottom:10px;">2026.08.11</span><b style="font-size:15px; color:#aaa;">금 4400달러 돌파, JP모건 4Q 6000달러 전망</b></a>
+    <a href="260810.html" class="archive-card"><img src="https://i.imgur.com/crRpFfX.jpeg" class="archive-thumb"><span style="font-size:12px; color:#666; display:block; margin-bottom:10px;">2026.08.10</span><b style="font-size:15px; color:#aaa;">금 4200달러 안착, 1월 이후 최대 주간 상승</b></a>
+    <a href="260807.html" class="archive-card"><img src="https://i.imgur.com/9Rv9VFD.jpeg" class="archive-thumb"><span style="font-size:12px; color:#666; display:block; margin-bottom:10px;">2026.08.07</span><b style="font-size:15px; color:#aaa;">구리값 사상 최고치, AI·공급난이 끌어올렸다</b></a>
+    <a href="260806.html" class="archive-card"><img src="https://i.imgur.com/wT3wtNs.jpeg" class="archive-thumb"><span style="font-size:12px; color:#666; display:block; margin-bottom:10px;">2026.08.06</span><b style="font-size:15px; color:#aaa;">이란·오만 호르무즈 재개방 초안 합의</b></a>
+    <a href="260805.html" class="archive-card"><img src="https://i.imgur.com/tB6CAp0.jpeg" class="archive-thumb"><span style="font-size:12px; color:#666; display:block; margin-bottom:10px;">2026.08.05</span><b style="font-size:15px; color:#aaa;">국채 강세, 시장은 연준보다 유가를 본다</b></a>
+    <a href="260804.html" class="archive-card"><img src="https://i.imgur.com/70hN4Zc.jpeg" class="archive-thumb"><span style="font-size:12px; color:#666; display:block; margin-bottom:10px;">2026.08.04</span><b style="font-size:15px; color:#aaa;">트럼프 "이란 마지막 기회" 유가 4.6% 급락</b></a>
+    <a href="260803.html" class="archive-card"><img src="https://i.imgur.com/UA8Q854.png" class="archive-thumb"><span style="font-size:12px; color:#666; display:block; margin-bottom:10px;">2026.08.03</span><b style="font-size:15px; color:#aaa;">레이 달리오 "비트코인 1%, 금이 최상의 자산"</b></a>
+    <a href="260731.html" class="archive-card"><img src="https://i.imgur.com/N6YS3eL.png" class="archive-thumb"><span style="font-size:12px; color:#666; display:block; margin-bottom:10px;">2026.07.31</span><b style="font-size:15px; color:#aaa;">월가 "연준 인플레 신뢰 흔들려" BofA 3회 인상</b></a>
+    <a href="260730.html" class="archive-card"><img src="https://i.imgur.com/L6LKMty.png" class="archive-thumb"><span style="font-size:12px; color:#666; display:block; margin-bottom:10px;">2026.07.30</span><b style="font-size:15px; color:#aaa;">연준 동결 · 달러 약세 · 30년물 20년 최고</b></a>
+    <a href="260729.html" class="archive-card"><img src="https://i.imgur.com/NBlRI1o.png" class="archive-thumb"><span style="font-size:12px; color:#666; display:block; margin-bottom:10px;">2026.07.29</span><b style="font-size:15px; color:#aaa;">TD증권 "동결 시 달러 0.5% 하락" D-1</b></a>
+    <a href="260728.html" class="archive-card"><img src="https://i.imgur.com/E2rVj9G.png" class="archive-thumb"><span style="font-size:12px; color:#666; display:block; margin-bottom:10px;">2026.07.28</span><b style="font-size:15px; color:#aaa;">유가 8% 급락, 금리↓ 금↑ 4077달러</b></a>
+    <a href="260727.html" class="archive-card"><img src="https://i.imgur.com/R2Qjwq6.png" class="archive-thumb"><span style="font-size:12px; color:#666; display:block; margin-bottom:10px;">2026.07.27</span><b style="font-size:15px; color:#aaa;">FOMC·PCE·GDP 폭격 주간, 하반기 방향 결정</b></a>
+    <a href="260724.html" class="archive-card"><img src="https://i.imgur.com/9ACpDos.jpeg" class="archive-thumb"><span style="font-size:12px; color:#666; display:block; margin-bottom:10px;">2026.07.24</span><b style="font-size:15px; color:#aaa;">브렌트유 100달러 돌파, 금값 단기 변동성</b></a>
+    <a href="260723.html" class="archive-card"><img src="https://i.imgur.com/GUQdjFw.jpeg" class="archive-thumb"><span style="font-size:12px; color:#666; display:block; margin-bottom:10px;">2026.07.23</span><b style="font-size:15px; color:#aaa;">미국인 5명 중 1명 비트코인, 중앙은행은 금</b></a>
+    <a href="260722.html" class="archive-card"><img src="https://i.imgur.com/kg3gwJ8.png" class="archive-thumb"><span style="font-size:12px; color:#666; display:block; margin-bottom:10px;">2026.07.22</span><b style="font-size:15px; color:#aaa;">이란 휴전 기대에 금값 4077달러 돌파</b></a>
+    <a href="260721.html" class="archive-card"><img src="https://i.imgur.com/KjpLCAm.png" class="archive-thumb"><span style="font-size:12px; color:#666; display:block; margin-bottom:10px;">2026.07.21</span><b style="font-size:15px; color:#aaa;">중동 불안에 달러·금리 상승, 금 4000달러 지지</b></a>
+    <a href="260720.html" class="archive-card"><img src="https://i.imgur.com/awb9l0k.png" class="archive-thumb"><span style="font-size:12px; color:#666; display:block; margin-bottom:10px;">2026.07.20</span><b style="font-size:15px; color:#aaa;">베선트 "포트녹스 금 안전" 달러는 신용화폐</b></a>
+    <a href="260717.html" class="archive-card"><img src="https://i.imgur.com/42tEsdr.jpeg" class="archive-thumb"><span style="font-size:12px; color:#666; display:block; margin-bottom:10px;">2026.07.17</span><b style="font-size:15px; color:#aaa;">미·이란 충돌 격화, 브렌트유 주간 11% 급등</b></a>
+    <a href="260716.html" class="archive-card"><img src="https://i.imgur.com/aHPLqFw.png" class="archive-thumb"><span style="font-size:12px; color:#666; display:block; margin-bottom:10px;">2026.07.16</span><b style="font-size:15px; color:#aaa;">PPI도 예상 하회, 달러·금리 하락 금값 반등</b></a>
+    <a href="260715.html" class="archive-card"><img src="https://i.imgur.com/HDv89t2.png" class="archive-thumb"><span style="font-size:12px; color:#666; display:block; margin-bottom:10px;">2026.07.15</span><b style="font-size:15px; color:#aaa;">CPI 예상 하회, 금값 4051달러 돌파</b></a>
+    <a href="260714.html" class="archive-card"><img src="https://i.imgur.com/ldecbgw.jpeg" class="archive-thumb"><span style="font-size:12px; color:#666; display:block; margin-bottom:10px;">2026.07.14</span><b style="font-size:15px; color:#aaa;">중동 전면전에도 금·BTC 약세, 연준이 핵심</b></a>
+    <a href="260713.html" class="archive-card"><img src="https://i.imgur.com/M6Vv1ci.png" class="archive-thumb"><span style="font-size:12px; color:#666; display:block; margin-bottom:10px;">2026.07.13</span><b style="font-size:15px; color:#aaa;">CPI에 쏠린 시선, 금·BTC·나스닥 방향 가른다</b></a>
+    <a href="260710.html" class="archive-card"><img src="https://i.imgur.com/gi3CX8b.png" class="archive-thumb"><span style="font-size:12px; color:#666; display:block; margin-bottom:10px;">2026.07.10</span><b style="font-size:15px; color:#aaa;">중동 긴장에도 달러 약세, 금 1% 반등</b></a>
+    <a href="260709.html" class="archive-card"><img src="https://i.imgur.com/IBeL2Ai.png" class="archive-thumb"><span style="font-size:12px; color:#666; display:block; margin-bottom:10px;">2026.07.09</span><b style="font-size:15px; color:#aaa;">트럼프 "이란 합의 끝났다" 유가 7% 급등</b></a>
+    <a href="260708.html" class="archive-card"><img src="https://i.imgur.com/3ItwqZZ.png" class="archive-thumb"><span style="font-size:12px; color:#666; display:block; margin-bottom:10px;">2026.07.08</span><b style="font-size:15px; color:#aaa;">블룸버그 "금 약세장 진입" 중앙은행은 매수 중</b></a>
+    <a href="260707.html" class="archive-card"><img src="https://i.imgur.com/giMJsVo.png" class="archive-thumb"><span style="font-size:12px; color:#666; display:block; margin-bottom:10px;">2026.07.07</span><b style="font-size:15px; color:#aaa;">달러·금리 내리고 금값 4164달러 랠리</b></a>
+    <a href="260706.html" class="archive-card"><img src="https://i.imgur.com/2XGfZA1.png" class="archive-thumb"><span style="font-size:12px; color:#666; display:block; margin-bottom:10px;">2026.07.06</span><b style="font-size:15px; color:#aaa;">FOMC 의사록 주목, 금값 4200달러 저항선</b></a>
+    <a href="260703.html" class="archive-card"><img src="https://i.imgur.com/m7gL4g4.png" class="archive-thumb"><span style="font-size:12px; color:#666; display:block; margin-bottom:10px;">2026.07.03</span><b style="font-size:15px; color:#aaa;">NFP 쇼크, 금값 4122달러 돌파</b></a>
+    <a href="260702.html" class="archive-card"><img src="https://i.imgur.com/6OYmtwk.png" class="archive-thumb"><span style="font-size:12px; color:#666; display:block; margin-bottom:10px;">2026.07.02</span><b style="font-size:15px; color:#aaa;">중앙은행장 "금리 힌트 없다" 포워드 가이던스 폐기</b></a>
+    <a href="260701.html" class="archive-card"><img src="https://i.imgur.com/PuqC5my.png" class="archive-thumb"><span style="font-size:12px; color:#666; display:block; margin-bottom:10px;">2026.07.01</span><b style="font-size:15px; color:#aaa;">소비자신뢰 91.2 반등, 고용 불안 5년 최고</b></a>
+    <a href="260630.html" class="archive-card"><img src="https://i.imgur.com/FuU1Eou.png" class="archive-thumb"><span style="font-size:12px; color:#666; display:block; margin-bottom:10px;">2026.06.30</span><b style="font-size:15px; color:#aaa;">골드만삭스 "금 랠리 안 끝났다" 4900달러</b></a>
+    <a href="260629.html" class="archive-card"><img src="https://i.imgur.com/w0P0O1Y.png" class="archive-thumb"><span style="font-size:12px; color:#666; display:block; margin-bottom:10px;">2026.06.29</span><b style="font-size:15px; color:#aaa;">달러 강세에 금·은·BTC 동반 약세</b></a>
+    <a href="260626.html" class="archive-card"><img src="https://i.imgur.com/7LqKh18.png" class="archive-thumb"><span style="font-size:12px; color:#666; display:block; margin-bottom:10px;">2026.06.26</span><b style="font-size:15px; color:#aaa;">PCE 예상 하회, 금값 4000달러 재탈환</b></a>
+    <a href="260625.html" class="archive-card"><img src="https://i.imgur.com/h4bINGs.png" class="archive-thumb"><span style="font-size:12px; color:#666; display:block; margin-bottom:10px;">2026.06.25</span><b style="font-size:15px; color:#aaa;">월가 금값 목표 하향, 3800달러 경고</b></a>
+    <a href="260624.html" class="archive-card"><img src="https://i.imgur.com/PFfZdcN.png" class="archive-thumb"><span style="font-size:12px; color:#666; display:block; margin-bottom:10px;">2026.06.24</span><b style="font-size:15px; color:#aaa;">달러 101 돌파·금값 1.66% 급락</b></a>
+    <a href="260623.html" class="archive-card"><img src="https://i.imgur.com/TelRhxI.png" class="archive-thumb"><span style="font-size:12px; color:#666; display:block; margin-bottom:10px;">2026.06.23</span><b style="font-size:15px; color:#aaa;">연준발 긴축 공포, 금값 4190달러 하락</b></a>
+    <a href="260622.html" class="archive-card"><img src="https://i.imgur.com/NLXAjaV.png" class="archive-thumb"><span style="font-size:12px; color:#666; display:block; margin-bottom:10px;">2026.06.22</span><b style="font-size:15px; color:#aaa;">워시 매파 발언에 2년물 금리 급등</b></a>
+    <a href="260618.html" class="archive-card"><img src="https://i.imgur.com/ttSmWBT.png" class="archive-thumb"><span style="font-size:12px; color:#666; display:block; margin-bottom:10px;">2026.06.18</span><b style="font-size:15px; color:#aaa;">워시 매파 신호, PCE 3.6% 급등</b></a>
+    <a href="260617.html" class="archive-card"><img src="https://i.imgur.com/4TQhp1l.jpeg" class="archive-thumb"><span style="font-size:12px; color:#666; display:block; margin-bottom:10px;">2026.06.17</span><b style="font-size:15px; color:#aaa;">美·이란 19일 서명, 60일 협상의 시작</b></a>
+    <a href="260616.html" class="archive-card"><img src="https://i.imgur.com/XoIzKoI.png" class="archive-thumb"><span style="font-size:12px; color:#666; display:block; margin-bottom:10px;">2026.06.16</span><b style="font-size:15px; color:#aaa;">유가 5% 급락, 금값 상승 경로 열렸다</b></a>
+    <a href="260615.html" class="archive-card"><img src="https://i.imgur.com/Ylij8w0.jpeg" class="archive-thumb"><span style="font-size:12px; color:#666; display:block; margin-bottom:10px;">2026.06.15</span><b style="font-size:15px; color:#aaa;">美·이란 평화 합의, 호르무즈 봉쇄 해제</b></a>
+    <a href="260612.html" class="archive-card"><img src="https://i.imgur.com/TlaFyuB.png" class="archive-thumb"><span style="font-size:12px; color:#666; display:block; margin-bottom:10px;">2026.06.12</span><b style="font-size:15px; color:#aaa;">트럼프 공습 철회, 금값 3.49% 폭등</b></a>
+    <a href="260611.html" class="archive-card"><img src="https://i.imgur.com/n71Bieu.png" class="archive-thumb"><span style="font-size:12px; color:#666; display:block; margin-bottom:10px;">2026.06.11</span><b style="font-size:15px; color:#aaa;">금값 3개월 최저, 저점이 기회다</b></a>
+    <a href="260610.html" class="archive-card"><img src="https://i.imgur.com/fE67EOX.png" class="archive-thumb"><span style="font-size:12px; color:#666; display:block; margin-bottom:10px;">2026.06.10</span><b style="font-size:15px; color:#aaa;">CPI 발표일, 어느 결과든 대비 완료</b></a>
+    <a href="260609.html" class="archive-card"><img src="https://i.imgur.com/EAXvdZC.png" class="archive-thumb"><span style="font-size:12px; color:#666; display:block; margin-bottom:10px;">2026.06.09</span><b style="font-size:15px; color:#aaa;">이란·이스라엘 공격 중단, 금값 저점 반등</b></a>
+    <a href="260608.html" class="archive-card"><img src="https://i.imgur.com/dX0mItH.png" class="archive-thumb"><span style="font-size:12px; color:#666; display:block; margin-bottom:10px;">2026.06.08</span><b style="font-size:15px; color:#aaa;">원/달러 1555원, 달러 수익이 빛난다</b></a>
+    <a href="260605.html" class="archive-card"><img src="https://i.imgur.com/D8UIPoh.png" class="archive-thumb"><span style="font-size:12px; color:#666; display:block; margin-bottom:10px;">2026.06.05</span><b style="font-size:15px; color:#aaa;">이란 휴전 기대, 달러 꺾이고 금 반등</b></a>
+    <a href="260604.html" class="archive-card"><img src="https://i.imgur.com/bC59DPY.png" class="archive-thumb"><span style="font-size:12px; color:#666; display:block; margin-bottom:10px;">2026.06.04</span><b style="font-size:15px; color:#aaa;">관세發 인플레, 금값 반등 이끈다</b></a>
+    <a href="260603.html" class="archive-card"><img src="https://i.imgur.com/xwBeJEe.png" class="archive-thumb"><span style="font-size:12px; color:#666; display:block; margin-bottom:10px;">2026.06.03</span><b style="font-size:15px; color:#aaa;">PCE 3.8% 최고치, 인플레 길수록 금이 빛난다</b></a>
+    <a href="260602.html" class="archive-card"><img src="https://i.imgur.com/KqoyEzE.png" class="archive-thumb"><span style="font-size:12px; color:#666; display:block; margin-bottom:10px;">2026.06.02</span><b style="font-size:15px; color:#aaa;">유가 급등·달러 강세, 금값 조정 매수 기회</b></a>
+    <a href="260601.html" class="archive-card"><img src="https://i.imgur.com/L4RCN3W.jpeg" class="archive-thumb"><span style="font-size:12px; color:#666; display:block; margin-bottom:10px;">2026.06.01</span><b style="font-size:15px; color:#aaa;">협상 결렬 시 군사 공격 재개 경고</b></a>
+    <a href="260529.html" class="archive-card"><img src="https://i.imgur.com/hvw0baZ.png" class="archive-thumb"><span style="font-size:12px; color:#666; display:block; margin-bottom:10px;">2026.05.29</span><b style="font-size:15px; color:#aaa;">JP모건 경고, 금 반등 시나리오 포착</b></a>
+    <a href="260528.html" class="archive-card"><img src="https://i.imgur.com/DmoiSKn.png" class="archive-thumb"><span style="font-size:12px; color:#666; display:block; margin-bottom:10px;">2026.05.28</span><b style="font-size:15px; color:#aaa;">달러 강세 속 금값 조정, 매수 기회</b></a>
+    <a href="260526.html" class="archive-card"><img src="https://i.imgur.com/FwHf3sg.png" class="archive-thumb"><span style="font-size:12px; color:#666; display:block; margin-bottom:10px;">2026.05.26</span><b style="font-size:15px; color:#aaa;">토큰화 시장도 금이 99.8% 독점</b></a>
+    <a href="260521.html" class="archive-card"><img src="https://i.imgur.com/XfPLWvG.jpeg" class="archive-thumb"><span style="font-size:12px; color:#666; display:block; margin-bottom:10px;">2026.05.21</span><b style="font-size:15px; color:#aaa;">채권 붕괴 종착점, 금으로 도피하라</b></a>
+    <a href="260520.html" class="archive-card"><img src="https://i.imgur.com/aMb3kG2.jpeg" class="archive-thumb"><span style="font-size:12px; color:#666; display:block; margin-bottom:10px;">2026.05.20</span><b style="font-size:15px; color:#aaa;">위기의 끝엔 항상 금이 있었다</b></a>
+    <a href="260519.html" class="archive-card"><img src="https://i.imgur.com/siW2aCP.png" class="archive-thumb"><span style="font-size:12px; color:#666; display:block; margin-bottom:10px;">2026.05.19</span><b style="font-size:15px; color:#aaa;">유가 쇼크, 금값 안전자산 반등</b></a>
+    <a href="260515.html" class="archive-card"><img src="https://i.imgur.com/mAulWLD.png" class="archive-thumb"><span style="font-size:12px; color:#666; display:block; margin-bottom:10px;">2026.05.15</span><b style="font-size:15px; color:#aaa;">수입물가 쇼크, 금리인상 확률 급등</b></a>
+    <a href="260514.html" class="archive-card"><img src="https://i.imgur.com/zcN9NkS.png" class="archive-thumb"><span style="font-size:12px; color:#666; display:block; margin-bottom:10px;">2026.05.14</span><b style="font-size:15px; color:#aaa;">연내 금리 인상론 대두</b></a>
+    <a href="260513.html" class="archive-card"><img src="https://i.imgur.com/rqod369.jpeg" class="archive-thumb"><span style="font-size:12px; color:#666; display:block; margin-bottom:10px;">2026.05.13</span><b style="font-size:15px; color:#aaa;">구리값 1.4만달러, 역대 최고가 코앞</b></a>
+    <a href="260511-2.html" class="archive-card"><img src="https://i.imgur.com/MfHPVif.jpeg" class="archive-thumb"><span style="font-size:12px; color:#666; display:block; margin-bottom:10px;">2026.05.11(2)</span><b style="font-size:15px; color:#aaa;">은, 하락 추세 벗어나나?</b></a>
+    <a href="260511.html" class="archive-card"><img src="https://i.imgur.com/Vio2eam.png" class="archive-thumb"><span style="font-size:12px; color:#666; display:block; margin-bottom:10px;">2026.05.11</span><b style="font-size:15px; color:#aaa;">글로벌 금 ETF 66억 달러 유입 반전</b></a>
+    <a href="260508.html" class="archive-card"><img src="https://i.imgur.com/isRwN1b.jpeg" class="archive-thumb"><span style="font-size:12px; color:#666; display:block; margin-bottom:10px;">2026.05.08</span><b style="font-size:15px; color:#aaa;">이란 협상 거부에 달러·금리 반등</b></a>
+    <a href="260507.html" class="archive-card"><img src="https://i.imgur.com/YscaQDP.jpeg" class="archive-thumb"><span style="font-size:12px; color:#666; display:block; margin-bottom:10px;">2026.05.07</span><b style="font-size:15px; color:#aaa;">종전 합의 임박에 금값 폭등</b></a>
+    <a href="260506.html" class="archive-card"><img src="https://i.imgur.com/2fTHtMX.jpeg" class="archive-thumb"><span style="font-size:12px; color:#666; display:block; margin-bottom:10px;">2026.05.06</span><b style="font-size:15px; color:#aaa;">비트코인 폰지설 vs AI 그록 반격</b></a>
+    <a href="260504.html" class="archive-card"><img src="https://i.imgur.com/JVBWhry.jpeg" class="archive-thumb"><span style="font-size:12px; color:#666; display:block; margin-bottom:10px;">2026.05.04</span><b style="font-size:15px; color:#aaa;">트럼프 '프로젝트 프리덤' 선언</b></a>
+    <a href="260501.html" class="archive-card"><img src="https://i.imgur.com/uE1vScE.jpeg" class="archive-thumb"><span style="font-size:12px; color:#666; display:block; margin-bottom:10px;">2026.05.01</span><b style="font-size:15px; color:#aaa;">日 개입에 달러 급락, 금값 반등</b></a>
+    <a href="260430.html" class="archive-card"><img src="https://i.imgur.com/6w5GhpC.jpeg" class="archive-thumb"><span style="font-size:12px; color:#666; display:block; margin-bottom:10px;">2026.04.30</span><b style="font-size:15px; color:#aaa;">연준 분열에 금리 급등, 매수 적기!</b></a>
+    <a href="260429.html" class="archive-card"><img src="https://i.imgur.com/LLxKLo3.png" class="archive-thumb"><span style="font-size:12px; color:#666; display:block; margin-bottom:10px;">2026.04.29</span><b style="font-size:15px; color:#aaa;">금,은 동반 하락···자동매매의 방향은?</b></a>
+    <a href="260428.html" class="archive-card"><img src="https://i.imgur.com/S0WpBZX.jpeg" class="archive-thumb"><span style="font-size:12px; color:#666; display:block; margin-bottom:10px;">2026.04.28</span><b style="font-size:15px; color:#aaa;">금값 방향성 탐색, 금리 동결 주시</b></a>
+    <a href="260427.html" class="archive-card"><img src="https://i.imgur.com/0Ra2R8q.png" class="archive-thumb"><span style="font-size:12px; color:#666; display:block; margin-bottom:10px;">2026.04.27</span><b style="font-size:15px; color:#aaa;">파월 수사 종료! 금값 지지</b></a>
+    <a href="260424.html" class="archive-card"><img src="https://i.imgur.com/u0wrett.png" class="archive-thumb"><span style="font-size:12px; color:#666; display:block; margin-bottom:10px;">2026.04.24</span><b style="font-size:15px; color:#aaa;">고유가발 금리 인하 공포</b></a>
+    <a href="260423.html" class="archive-card"><img src="https://i.imgur.com/6E03kfq.png" class="archive-thumb"><span style="font-size:12px; color:#666; display:block; margin-bottom:10px;">2026.04.23</span><b style="font-size:15px; color:#aaa;">유가 하락으로 금 값 4738달러</b></a>
+    <a href="260422.html" class="archive-card"><img src="https://i.imgur.com/lor3wxQ.jpeg" class="archive-thumb"><span style="font-size:12px; color:#666; display:block; margin-bottom:10px;">2026.04.22</span><b style="font-size:15px; color:#aaa;">중국 금 수입량 162톤!</b></a>
+    <a href="260421.html" class="archive-card"><img src="https://i.imgur.com/h2SwnPe.jpeg" class="archive-thumb"><span style="font-size:12px; color:#666; display:block; margin-bottom:10px;">2026.04.21</span><b style="font-size:15px; color:#aaa;">금값 6000달러 시대를 향한 서막</b></a>
+    <a href="260420.html" class="archive-card"><img src="https://i.imgur.com/O9rda8U.png" class="archive-thumb"><span style="font-size:12px; color:#666; display:block; margin-bottom:10px;">2026.04.20</span><b style="font-size:15px; color:#aaa;">방향보다 타이밍이 중요한 지금</b></a>
+    <a href="260417.html" class="archive-card"><img src="https://i.imgur.com/KjYUILG.png" class="archive-thumb"><span style="font-size:12px; color:#666; display:block; margin-bottom:10px;">2026.04.17</span><b style="font-size:15px; color:#aaa;">휴전 소식···금 값의 폭풍전야</b></a>
+    <a href="260416.html" class="archive-card"><img src="https://i.imgur.com/Ncf0eyI.png" class="archive-thumb"><span style="font-size:12px; color:#666; display:block; margin-bottom:10px;">2026.04.16</span><b style="font-size:15px; color:#aaa;">블랙록 "AI 위기 독자수익 찾아라"</b></a>
+    <a href="260415.html" class="archive-card"><img src="https://i.imgur.com/Zu8Vtk2.png" class="archive-thumb"><span style="font-size:12px; color:#666; display:block; margin-bottom:10px;">2026.04.15</span><b style="font-size:15px; color:#aaa;">금값 4800달러선 반등 성공</b></a>
+    <a href="260414.html" class="archive-card"><img src="https://i.imgur.com/8DsLOhA.png" class="archive-thumb"><span style="font-size:12px; color:#666; display:block; margin-bottom:10px;">2026.04.14</span><b style="font-size:15px; color:#aaa;">인플레 공포·금값 숨고르기</b></a>
+    <a href="260413.html" class="archive-card"><img src="https://i.imgur.com/8HqOaKH.png" class="archive-thumb"><span style="font-size:12px; color:#666; display:block; margin-bottom:10px;">2026.04.13</span><b style="font-size:15px; color:#aaa;">금 ETF 역사상 최대 유출</b></a>
+    <a href="260410.html" class="archive-card"><img src="https://i.imgur.com/RZupDdk.jpeg" class="archive-thumb"><span style="font-size:12px; color:#666; display:block; margin-bottom:10px;">2026.04.10</span><b style="font-size:15px; color:#aaa;">"달러 시대 종말?" 금 매수</b></a>
+    <a href="260409.html" class="archive-card"><img src="https://i.imgur.com/udVSPai.png" class="archive-thumb"><span style="font-size:12px; color:#666; display:block; margin-bottom:10px;">2026.04.09</span><b style="font-size:15px; color:#aaa;">휴전 속 인하기대 줄다리기</b></a>
+    <a href="260407.html" class="archive-card"><img src="https://i.imgur.com/L5mMTjI.jpeg" class="archive-thumb"><span style="font-size:12px; color:#666; display:block; margin-bottom:10px;">2026.04.07</span><b style="font-size:15px; color:#aaa;">미 국채도 밀린 금 유동성</b></a>
+    <a href="index.html" class="archive-card"><img src="https://i.imgur.com/mCh2kQV.png" class="archive-thumb"><span style="font-size:12px; color:#666; display:block; margin-bottom:10px;">2026.04.01</span><b style="font-size:15px; color:#aaa;">국제 금값 회복 시그널</b></a>
+  </div>
+</div>
+<div class="footer-counter">
+  <span class="counter-label">TODAY VIEWS : <span id="busuanzi_value_page_pv">0</span></span>
+</div>
+<script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+</body>
+</html>

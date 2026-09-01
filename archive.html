@@ -25,23 +25,26 @@
         .report-title { color: #ffffff; font-size: 15px; font-weight: 600; line-height: 1.4; word-break: keep-all; text-align: left; }
         .arrow { color: #bf953f; font-size: 18px; font-weight: bold; margin-left: 15px; }
 
+        /* 월 구분 레이블 */
+        .month-label { width: 100%; text-align: center; color: rgba(191,149,63,0.5); font-size: 12px; font-weight: 800; letter-spacing: 4px; margin: 10px 0 15px 0; }
+
+        /* 토글 버튼 */
         .archive-toggle-btn { 
             width: 100%; background: #1a1d23; border: 1px dashed rgba(191, 149, 63, 0.5); border-radius: 15px; 
             color: #bf953f; padding: 18px; cursor: pointer; font-weight: 800; font-size: 14px; 
-            display: flex; justify-content: center; align-items: center; gap: 12px; 
+            display: flex; justify-content: center; align-items: center; gap: 12px; margin-bottom: 0;
         }
-        #archive-2607 { display: none; margin-top: 20px; }
-        #archive-2606 { display: none; margin-top: 20px; }
-        #archive-2605 { display: none; margin-top: 20px; }
-        #archive-2604 { display: none; margin-top: 20px; }
-        
+        .archive-section { display: none; width: 100%; margin-top: 20px; }
+        .archive-section.open { display: flex; flex-direction: column; gap: 18px; }
         .show-when-open { display: none; }
         .is-open .show-when-closed { display: none; }
         .is-open .show-when-open { display: inline-block; }
+
+        /* BEYOND GOLD 배지 */
+        .badge-beyond { display: inline-block; background: #1a1410; border: 1px solid #bf953f; color: #bf953f; font-size: 10px; font-weight: 800; padding: 2px 8px; border-radius: 10px; margin-right: 6px; vertical-align: middle; white-space: nowrap; }
     </style>
 </head>
 <body>
-
     <div class="header-sticky">
         <a href="dashboard-new.html" class="back-nav"><i class="fa-solid fa-arrow-left"></i></a>
         <div class="header-title">GOLD WAVE 1분 뉴스 리포트</div>
@@ -53,247 +56,138 @@
             <div class="header-text"><h1>GOLD WAVE ARCHIVE</h1><p>핵심만 담은 일간 뉴스 리포트</p></div>
         </div>
 
-        <!-- [8월 구역] -->
+        <!-- ====== 9월 구역 (펼침) ====== -->
+        <div class="month-label">— 2026. 09 —</div>
         <div class="report-list">
-            <a href="https://goldwave-notice.github.io/260831.html" class="report-item">
-    <div class="report-info">
-        <span class="report-date">2026. 08. 31</span>
-        <span class="report-title">"워시 매파 발언에 9월 금리 인상 확률 35%→60%… 고용보고서가 판가름"</span>
-    </div>
-    <span class="arrow">→</span>
-</a>
-            <a href="https://goldwave-notice.github.io/260827.html" class="report-item">
-    <div class="report-info">
-        <span class="report-date">2026. 08. 27</span>
-        <span class="report-title">"PCE 예상 상회에 달러·금리 동반 상승… 금 1.4% 조정, 매수 기회"</span>
-    </div>
-    <span class="arrow">→</span>
-</a>
-            <a href="https://goldwave-notice.github.io/260826.html" class="report-item">
-    <div class="report-info">
-        <span class="report-date">2026. 08. 26</span>
-        <span class="report-title">"트럼프 '호르무즈 기뢰 완파'… 재설치 선박은 즉각 파괴 경고"</span>
-    </div>
-    <span class="arrow">→</span>
-</a>
-            <a href="https://goldwave-notice.github.io/260825.html" class="report-item">
-    <div class="report-info">
-        <span class="report-date">2026. 08. 25</span>
-        <span class="report-title">"금 3개월 최고치 4620달러… '화폐가치 희석 거래'가 돌아왔다"</span>
-    </div>
-    <span class="arrow">→</span>
-</a>
-            <a href="https://goldwave-notice.github.io/260824.html" class="report-item">
-    <div class="report-info">
-        <span class="report-date">2026. 08. 24</span>
-        <span class="report-title">"UBS '12개월 내 금 5400달러'… 골드만삭스도 같은 목표 제시"</span>
-    </div>
-    <span class="arrow">→</span>
-</a>
-            <a href="https://goldwave-notice.github.io/260821.html" class="report-item">
-    <div class="report-info">
-        <span class="report-date">2026. 08. 21</span>
-        <span class="report-title">"재무부 개입 하루 만에 약발 끝났나… 10년물 4.7%·달러 다시 강세"</span>
-    </div>
-    <span class="arrow">→</span>
-</a>
-            <a href="https://goldwave-notice.github.io/260820.html" class="report-item">
-    <div class="report-info">
-        <span class="report-date">2026. 08. 20</span>
-        <span class="report-title">"미 재무부 장기 국채 바이백 2배 확대… 금 4% 급등·달러 2개월 최저"</span>
-    </div>
-    <span class="arrow">→</span>
-</a>
-            <a href="https://goldwave-notice.github.io/260819.html" class="report-item">
-    <div class="report-info">
-        <span class="report-date">2026. 08. 19</span>
-        <span class="report-title">"채권시장 강력 경고… AI 집중 리스크, 금으로 분산하라"</span>
-    </div>
-    <span class="arrow">→</span>
-</a>
-            <a href="https://goldwave-notice.github.io/260818.html" class="report-item">
-    <div class="report-info">
-        <span class="report-date">2026. 08. 18</span>
-        <span class="report-title">"미 30년물 국채금리 5.29%… 2007년 이후 최고, 재정 불신이 금을 밀어올린다"</span>
-    </div>
-    <span class="arrow">→</span>
-</a>
-            <a href="https://goldwave-notice.github.io/260814.html" class="report-item">
-    <div class="report-info">
-        <span class="report-date">2026. 08. 14</span>
-        <span class="report-title">"한국은행, 13년 만에 금 ETF 매입… 중앙은행도 금을 선택했다"</span>
-    </div>
-    <span class="arrow">→</span>
-</a>
-           <a href="https://goldwave-notice.github.io/260813.html" class="report-item">
-    <div class="report-info">
-        <span class="report-date">2026. 08. 13</span>
-        <span class="report-title">
-            <span style="background: #1a1410; border: 1px solid #bf953f; color: #bf953f; font-size: 10px; font-weight: 900; padding: 2px 8px; border-radius: 20px; letter-spacing: 1px; margin-right: 6px;">BEYOND GOLD</span>
-            "트럼프 발언 먼저 보려면 월 10만 달러… 자동매매는 이미 더 빠릅니다"
-        </span>
-    </div>
-    <span class="arrow">→</span>
-</a>
-            <a href="https://goldwave-notice.github.io/260812.html" class="report-item">
-    <div class="report-info">
-        <span class="report-date">2026. 08. 12</span>
-        <span class="report-title">"파키스탄 '호르무즈 타결 임박'… 미·이란 강경 대립은 여전히 진행 중"</span>
-    </div>
-    <span class="arrow">→</span>
-</a>
-            <a href="https://goldwave-notice.github.io/260811.html" class="report-item">
-    <div class="report-info">
-        <span class="report-date">2026. 08. 11</span>
-        <span class="report-title">"금값 4400달러 돌파… JP모건 '4분기 6000달러' 연말 5000달러 전망"</span>
-    </div>
-    <span class="arrow">→</span>
-</a>
-            <a href="https://goldwave-notice.github.io/260810.html" class="report-item">
-    <div class="report-info">
-        <span class="report-date">2026. 08. 10</span>
-        <span class="report-title">"금값 4200달러 안착… 1월 이후 최대 주간 상승 달성"</span>
-    </div>
-    <span class="arrow">→</span>
-</a>
-            <a href="https://goldwave-notice.github.io/260807.html" class="report-item">
-    <div class="report-info">
-        <span class="report-date">2026. 08. 07</span>
-        <span class="report-title">"구리값 사상 최고치… 경기 회복이 아닌 AI·공급난이 끌어올렸다"</span>
-    </div>
-    <span class="arrow">→</span>
-</a>
-            <a href="https://goldwave-notice.github.io/260806.html" class="report-item">
-    <div class="report-info">
-        <span class="report-date">2026. 08. 06</span>
-        <span class="report-title">"이란·오만, 호르무즈 재개방 초안 합의… 통행료 없이 정상화"</span>
-    </div>
-    <span class="arrow">→</span>
-</a>
-            <a href="https://goldwave-notice.github.io/260805.html" class="report-item">
-    <div class="report-info">
-        <span class="report-date">2026. 08. 05</span>
-        <span class="report-title">"중동 긴장 완화에 국채 강세… 시장은 연준보다 유가를 본다"</span>
-    </div>
-    <span class="arrow">→</span>
-</a>
-            <a href="https://goldwave-notice.github.io/260804.html" class="report-item">
-    <div class="report-info">
-        <span class="report-date">2026. 08. 04</span>
-        <span class="report-title">"트럼프 '이란 마지막 기회'… 외교 기대에 유가 4.6% 급락"</span>
-    </div>
-    <span class="arrow">→</span>
-</a>
-            <a href="https://goldwave-notice.github.io/260803.html" class="report-item">
+            <a href="https://goldwave-notice.github.io/260901.html" class="report-item">
                 <div class="report-info">
-                    <span class="report-date">2026. 08. 03</span>
-                    <span class="report-title">"레이 달리오 '비트코인 1%만, 금이 최상의 자산'"</span>
+                    <span class="report-date">2026. 09. 01</span>
+                    <span class="report-title">"금값 200일선 이탈 기술적 약세 신호… 골드만삭스 연말 4900달러 유지"</span>
                 </div>
                 <span class="arrow">→</span>
             </a>
         </div>
 
-        <!-- [7월 토글 버튼] -->
-        <button class="archive-toggle-btn" id="toggleBtn07" onclick="toggleArchive('archive-2607', 'toggleBtn07')" style="margin-top: 0;">
-            <span class="show-when-closed"><i class="fa-solid fa-box-archive"></i> 2026. 07 지난 리포트 펼쳐보기 (31건) <i class="fa-solid fa-chevron-down"></i></span>
+        <!-- ====== 8월 토글 버튼 ====== -->
+        <button class="archive-toggle-btn" id="toggleBtn2608" onclick="toggleSection('archive-2608', 'toggleBtn2608')">
+            <span class="show-when-closed"><i class="fa-solid fa-box-archive"></i> 2026. 08 지난 리포트 펼쳐보기 (20건) <i class="fa-solid fa-chevron-down"></i></span>
+            <span class="show-when-open"><i class="fa-solid fa-box-open"></i> 2026. 08 리포트 접기 <i class="fa-solid fa-chevron-up"></i></span>
+        </button>
+
+        <!-- ====== 8월 구역 (접힘) ====== -->
+        <div class="archive-section" id="archive-2608">
+            <a href="https://goldwave-notice.github.io/260831.html" class="report-item"><div class="report-info"><span class="report-date">2026. 08. 31</span><span class="report-title">"워시 매파 발언에 9월 금리 인상 확률 35%→60%… 고용보고서가 판가름"</span></div><span class="arrow">→</span></a>
+            <a href="https://goldwave-notice.github.io/260828.html" class="report-item"><div class="report-info"><span class="report-date">2026. 08. 28</span><span class="report-title">"달러 대신 금·비트코인… 닷새 역대 최대 70억달러 머니무브"</span></div><span class="arrow">→</span></a>
+            <a href="https://goldwave-notice.github.io/260827.html" class="report-item"><div class="report-info"><span class="report-date">2026. 08. 27</span><span class="report-title">"PCE 예상 상회에 달러·금리 동반 상승… 금 1.4% 조정, 매수 기회"</span></div><span class="arrow">→</span></a>
+            <a href="https://goldwave-notice.github.io/260826.html" class="report-item"><div class="report-info"><span class="report-date">2026. 08. 26</span><span class="report-title">"트럼프 '호르무즈 기뢰 완파'… 재설치 선박은 즉각 파괴 경고"</span></div><span class="arrow">→</span></a>
+            <a href="https://goldwave-notice.github.io/260825.html" class="report-item"><div class="report-info"><span class="report-date">2026. 08. 25</span><span class="report-title">"금 3개월 최고치 4620달러… '화폐가치 희석 거래'가 돌아왔다"</span></div><span class="arrow">→</span></a>
+            <a href="https://goldwave-notice.github.io/260824.html" class="report-item"><div class="report-info"><span class="report-date">2026. 08. 24</span><span class="report-title">"UBS '12개월 내 금 5400달러'… 골드만삭스도 같은 목표 제시"</span></div><span class="arrow">→</span></a>
+            <a href="https://goldwave-notice.github.io/260821.html" class="report-item"><div class="report-info"><span class="report-date">2026. 08. 21</span><span class="report-title">"재무부 개입 하루 만에 약발 끝났나… 10년물 4.7%·달러 다시 강세"</span></div><span class="arrow">→</span></a>
+            <a href="https://goldwave-notice.github.io/260820.html" class="report-item"><div class="report-info"><span class="report-date">2026. 08. 20</span><span class="report-title">"미 재무부 장기 국채 바이백 2배 확대, 금 4% 급등·달러 최저"</span></div><span class="arrow">→</span></a>
+            <a href="https://goldwave-notice.github.io/260819.html" class="report-item"><div class="report-info"><span class="report-date">2026. 08. 19</span><span class="report-title">"채권시장 강력 경고, AI 집중 리스크 — 금으로 분산하라"</span></div><span class="arrow">→</span></a>
+            <a href="https://goldwave-notice.github.io/260818.html" class="report-item"><div class="report-info"><span class="report-date">2026. 08. 18</span><span class="report-title">"미 30년물 국채금리 5.29%, 2007년 이후 최고 — 재정 불신이 금을 민다"</span></div><span class="arrow">→</span></a>
+            <a href="https://goldwave-notice.github.io/260814.html" class="report-item"><div class="report-info"><span class="report-date">2026. 08. 14</span><span class="report-title">"한국은행 13년 만에 금 ETF 매입"</span></div><span class="arrow">→</span></a>
+            <a href="https://goldwave-notice.github.io/260813.html" class="report-item"><div class="report-info"><span class="report-date">2026. 08. 13</span><span class="report-title"><span class="badge-beyond">BEYOND GOLD</span>"트럼프 발언 월 10만 달러, 자동매매는 더 빠르다"</span></div><span class="arrow">→</span></a>
+            <a href="https://goldwave-notice.github.io/260812.html" class="report-item"><div class="report-info"><span class="report-date">2026. 08. 12</span><span class="report-title">"파키스탄 '호르무즈 타결 임박' 미·이란 강경 대립 속 협상 분수령"</span></div><span class="arrow">→</span></a>
+            <a href="https://goldwave-notice.github.io/260811.html" class="report-item"><div class="report-info"><span class="report-date">2026. 08. 11</span><span class="report-title">"금 4400달러 돌파, JP모건 4Q 6000달러 전망"</span></div><span class="arrow">→</span></a>
+            <a href="https://goldwave-notice.github.io/260810.html" class="report-item"><div class="report-info"><span class="report-date">2026. 08. 10</span><span class="report-title">"금 4200달러 안착, 1월 이후 최대 주간 상승"</span></div><span class="arrow">→</span></a>
+            <a href="https://goldwave-notice.github.io/260807.html" class="report-item"><div class="report-info"><span class="report-date">2026. 08. 07</span><span class="report-title">"구리값 사상 최고치, AI·공급난이 끌어올렸다"</span></div><span class="arrow">→</span></a>
+            <a href="https://goldwave-notice.github.io/260806.html" class="report-item"><div class="report-info"><span class="report-date">2026. 08. 06</span><span class="report-title">"이란·오만 호르무즈 재개방 초안 합의"</span></div><span class="arrow">→</span></a>
+            <a href="https://goldwave-notice.github.io/260805.html" class="report-item"><div class="report-info"><span class="report-date">2026. 08. 05</span><span class="report-title">"국채 강세, 시장은 연준보다 유가를 본다"</span></div><span class="arrow">→</span></a>
+            <a href="https://goldwave-notice.github.io/260804.html" class="report-item"><div class="report-info"><span class="report-date">2026. 08. 04</span><span class="report-title">"트럼프 '이란 마지막 기회' 유가 4.6% 급락"</span></div><span class="arrow">→</span></a>
+            <a href="https://goldwave-notice.github.io/260803.html" class="report-item"><div class="report-info"><span class="report-date">2026. 08. 03</span><span class="report-title">"레이 달리오 '비트코인 1%, 금이 최상의 자산'"</span></div><span class="arrow">→</span></a>
+        </div>
+
+        <!-- ====== 7월 토글 버튼 ====== -->
+        <button class="archive-toggle-btn" id="toggleBtn2607" onclick="toggleSection('archive-2607', 'toggleBtn2607')" style="margin-top:20px;">
+            <span class="show-when-closed"><i class="fa-solid fa-box-archive"></i> 2026. 07 지난 리포트 펼쳐보기 <i class="fa-solid fa-chevron-down"></i></span>
             <span class="show-when-open"><i class="fa-solid fa-box-open"></i> 2026. 07 리포트 접기 <i class="fa-solid fa-chevron-up"></i></span>
         </button>
-
-        <!-- [7월 구역] -->
-        <div class="report-list" id="archive-2607">
-            <a href="https://goldwave-notice.github.io/260731.html" class="report-item"><div class="report-info"><span class="report-date">2026. 07. 31</span><span class="report-title">"미 국채금리 급등… 월가 '연준 인플레이션 신뢰 흔들려' BofA 9월부터 3회 연속 인상 전망"</span></div><span class="arrow">→</span></a>
-            <a href="https://goldwave-notice.github.io/260730.html" class="report-item"><div class="report-info"><span class="report-date">2026. 07. 30</span><span class="report-title">"연준 6회 연속 동결… 달러 약세·금 상승, 30년물 금리 20년 만에 최고"</span></div><span class="arrow">→</span></a>
-            <a href="https://goldwave-notice.github.io/260729.html" class="report-item"><div class="report-info"><span class="report-date">2026. 07. 29</span><span class="report-title">"TD증권 '연준 동결 시 달러 최대 0.5% 하락'… 내일 새벽이 분수령"</span></div><span class="arrow">→</span></a>
-            <a href="https://goldwave-notice.github.io/260728.html" class="report-item"><div class="report-info"><span class="report-date">2026. 07. 28</span><span class="report-title">"유가 8% 급락, 금리↓ 금↑ 4077달러 — FOMC D-2"</span></div><span class="arrow">→</span></a>
-            <a href="https://goldwave-notice.github.io/260727.html" class="report-item"><div class="report-info"><span class="report-date">2026. 07. 27</span><span class="report-title">"FOMC 금리결정 + PCE + GDP 동시 발표… 이번 주가 하반기 금값 방향 결정"</span></div><span class="arrow">→</span></a>
-            <a href="https://goldwave-notice.github.io/260724.html" class="report-item"><div class="report-info"><span class="report-date">2026. 07. 24</span><span class="report-title">"브렌트유 100달러 돌파… 달러·금리 급등에 금값 단기 변동성 확대"</span></div><span class="arrow">→</span></a>
-            <a href="https://goldwave-notice.github.io/260723.html" class="report-item"><div class="report-info"><span class="report-date">2026. 07. 23</span><span class="report-title">"미국인 5명 중 1명 비트코인 보유… 그러나 중앙은행은 여전히 금을 산다"</span></div><span class="arrow">→</span></a>
-            <a href="https://goldwave-notice.github.io/260722.html" class="report-item"><div class="report-info"><span class="report-date">2026. 07. 22</span><span class="report-title">"유가발 달러·금리 상승에도… 이란 휴전 기대에 금값 4077달러 돌파"</span></div><span class="arrow">→</span></a>
-            <a href="https://goldwave-notice.github.io/260721.html" class="report-item"><div class="report-info"><span class="report-date">2026. 07. 21</span><span class="report-title">"중동 불안에 달러·금리 상승… 금 4000달러선 지지 확인"</span></div><span class="arrow">→</span></a>
-            <a href="https://goldwave-notice.github.io/260720.html" class="report-item"><div class="report-info"><span class="report-date">2026. 07. 20</span><span class="report-title">"베선트 '포트녹스 금 안전'… 달러는 신용 기반 법정화폐"</span></div><span class="arrow">→</span></a>
-            <a href="https://goldwave-notice.github.io/260717.html" class="report-item"><div class="report-info"><span class="report-date">2026. 07. 17</span><span class="report-title">"미·이란 충돌 격화… 브렌트유 85달러, 주간 11% 급등·호르무즈 40% 급감"</span></div><span class="arrow">→</span></a>
-            <a href="https://goldwave-notice.github.io/260716.html" class="report-item"><div class="report-info"><span class="report-date">2026. 07. 16</span><span class="report-title">"PPI도 예상 밖 하락… 달러·국채금리 내리고 금값 반등"</span></div><span class="arrow">→</span></a>
-            <a href="https://goldwave-notice.github.io/260715.html" class="report-item"><div class="report-info"><span class="report-date">2026. 07. 15</span><span class="report-title">"CPI 예상 하회에 달러·금리 동반 하락… 금값 4051달러 돌파"</span></div><span class="arrow">→</span></a>
-            <a href="https://goldwave-notice.github.io/260714.html" class="report-item"><div class="report-info"><span class="report-date">2026. 07. 14</span><span class="report-title">"중동 전면전에도 금·비트코인 동반 약세… 시장이 주목한 건 고금리 장기화"</span></div><span class="arrow">→</span></a>
-            <a href="https://goldwave-notice.github.io/260713.html" class="report-item"><div class="report-info"><span class="report-date">2026. 07. 13</span><span class="report-title">"미국 CPI에 쏠린 시선… 금·비트코인·나스닥 방향 가른다"</span></div><span class="arrow">→</span></a>
-            <a href="https://goldwave-notice.github.io/260710.html" class="report-item"><div class="report-info"><span class="report-date">2026. 07. 10</span><span class="report-title">"중동 긴장에도 달러 약세… 금값 4123달러로 1% 반등"</span></div><span class="arrow">→</span></a>
-            <a href="https://goldwave-notice.github.io/260709.html" class="report-item"><div class="report-info"><span class="report-date">2026. 07. 09</span><span class="report-title">"트럼프 '이란 합의 끝났다'… 미군 이틀째 폭격, 유가 7% 급등"</span></div><span class="arrow">→</span></a>
-            <a href="https://goldwave-notice.github.io/260708-3.html" class="report-item"><div class="report-info"><span class="report-date">2026. 07. 08</span><span class="report-title"><span style="background: #cc0000; color: #fff; font-size: 10px; font-weight: 900; padding: 2px 6px; border-radius: 3px; margin-right: 6px; letter-spacing: 1px;">속보</span>트럼프 "이란 MOU 끝났다"… 중동 협상 전면 파기</span></div><span class="arrow">→</span></a>
-            <a href="https://goldwave-notice.github.io/260708-2.html" class="report-item"><div class="report-info"><span class="report-date">2026. 07. 08(2)</span><span class="report-title"><span style="background: #cc0000; color: #fff; font-size: 10px; font-weight: 900; padding: 2px 6px; border-radius: 3px; margin-right: 6px; letter-spacing: 1px;">속보</span>코스피, 이틀 연속 매도 사이드카 발동</span></div><span class="arrow">→</span></a>
-            <a href="https://goldwave-notice.github.io/260708.html" class="report-item"><div class="report-info"><span class="report-date">2026. 07. 08</span><span class="report-title">"블룸버그 '금 강세장 종료'… 그러나 중앙은행은 240톤 순매입 중"</span></div><span class="arrow">→</span></a>
-            <a href="https://goldwave-notice.github.io/260707.html" class="report-item"><div class="report-info"><span class="report-date">2026. 07. 07</span><span class="report-title">"달러·금리 내리고 금값 4164달러 랠리… 시선은 FOMC 의사록으로"</span></div><span class="arrow">→</span></a>
-            <a href="https://goldwave-notice.github.io/260706.html" class="report-item"><div class="report-info"><span class="report-date">2026. 07. 06</span><span class="report-title">"FOMC 의사록 주목… 금값 4200달러 저항선 돌파 여부가 이번 주 핵심"</span></div><span class="arrow">→</span></a>
-            <a href="https://goldwave-notice.github.io/260703.html" class="report-item"><div class="report-info"><span class="report-date">2026. 07. 03</span><span class="report-title">"NFP 쇼크에 달러 급락·금값 4122달러 돌파… 긴축 기대 후퇴"</span></div><span class="arrow">→</span></a>
-            <a href="https://goldwave-notice.github.io/260702.html" class="report-item"><div class="report-info"><span class="report-date">2026. 07. 02</span><span class="report-title">"주요국 중앙은행장 '금리 힌트 없다'… 포워드 가이던스 폐기 선언"</span></div><span class="arrow">→</span></a>
-            <a href="https://goldwave-notice.github.io/260701-2.html" class="report-item"><div class="report-info"><span class="report-date">2026. 07. 01(2)</span><span class="report-title"><span style="background: #cc0000; color: #fff; font-size: 10px; font-weight: 900; padding: 2px 6px; border-radius: 3px; margin-right: 6px; letter-spacing: 1px;">속보</span>워시 ECB 신트라 포럼 "중앙은행의 독립성은 견고하다"</span></div><span class="arrow">→</span></a>
-            <a href="https://goldwave-notice.github.io/260701.html" class="report-item"><div class="report-info"><span class="report-date">2026. 07. 01</span><span class="report-title">"미 6월 소비자신뢰 91.2 반등… 고용 불안은 5년 만에 최고"</span></div><span class="arrow">→</span></a>
+        <div class="archive-section" id="archive-2607">
+            <a href="https://goldwave-notice.github.io/260731.html" class="report-item"><div class="report-info"><span class="report-date">2026. 07. 31</span><span class="report-title">"월가 '연준 인플레 신뢰 흔들려' BofA 3회 인상 전망"</span></div><span class="arrow">→</span></a>
+            <a href="https://goldwave-notice.github.io/260730.html" class="report-item"><div class="report-info"><span class="report-date">2026. 07. 30</span><span class="report-title">"연준 동결·달러 약세·30년물 20년 최고"</span></div><span class="arrow">→</span></a>
+            <a href="https://goldwave-notice.github.io/260729.html" class="report-item"><div class="report-info"><span class="report-date">2026. 07. 29</span><span class="report-title">"TD증권 '동결 시 달러 0.5% 하락' D-1"</span></div><span class="arrow">→</span></a>
+            <a href="https://goldwave-notice.github.io/260728.html" class="report-item"><div class="report-info"><span class="report-date">2026. 07. 28</span><span class="report-title">"유가 8% 급락, 금리↓ 금↑ 4077달러"</span></div><span class="arrow">→</span></a>
+            <a href="https://goldwave-notice.github.io/260727.html" class="report-item"><div class="report-info"><span class="report-date">2026. 07. 27</span><span class="report-title">"FOMC·PCE·GDP 폭격 주간, 하반기 방향 결정"</span></div><span class="arrow">→</span></a>
+            <a href="https://goldwave-notice.github.io/260724.html" class="report-item"><div class="report-info"><span class="report-date">2026. 07. 24</span><span class="report-title">"브렌트유 100달러 돌파, 금값 단기 변동성"</span></div><span class="arrow">→</span></a>
+            <a href="https://goldwave-notice.github.io/260723.html" class="report-item"><div class="report-info"><span class="report-date">2026. 07. 23</span><span class="report-title">"미국인 5명 중 1명 비트코인, 중앙은행은 금"</span></div><span class="arrow">→</span></a>
+            <a href="https://goldwave-notice.github.io/260722.html" class="report-item"><div class="report-info"><span class="report-date">2026. 07. 22</span><span class="report-title">"이란 휴전 기대에 금값 4077달러 돌파"</span></div><span class="arrow">→</span></a>
+            <a href="https://goldwave-notice.github.io/260721.html" class="report-item"><div class="report-info"><span class="report-date">2026. 07. 21</span><span class="report-title">"중동 불안에 달러·금리 상승, 금 4000달러 지지"</span></div><span class="arrow">→</span></a>
+            <a href="https://goldwave-notice.github.io/260720.html" class="report-item"><div class="report-info"><span class="report-date">2026. 07. 20</span><span class="report-title">"베선트 '포트녹스 금 안전' 달러는 신용화폐"</span></div><span class="arrow">→</span></a>
+            <a href="https://goldwave-notice.github.io/260717.html" class="report-item"><div class="report-info"><span class="report-date">2026. 07. 17</span><span class="report-title">"미·이란 충돌 격화, 브렌트유 주간 11% 급등"</span></div><span class="arrow">→</span></a>
+            <a href="https://goldwave-notice.github.io/260716.html" class="report-item"><div class="report-info"><span class="report-date">2026. 07. 16</span><span class="report-title">"PPI도 예상 하회, 달러·금리 하락 금값 반등"</span></div><span class="arrow">→</span></a>
+            <a href="https://goldwave-notice.github.io/260715.html" class="report-item"><div class="report-info"><span class="report-date">2026. 07. 15</span><span class="report-title">"CPI 예상 하회, 금값 4051달러 돌파"</span></div><span class="arrow">→</span></a>
+            <a href="https://goldwave-notice.github.io/260714.html" class="report-item"><div class="report-info"><span class="report-date">2026. 07. 14</span><span class="report-title">"중동 전면전에도 금·BTC 약세, 연준이 핵심"</span></div><span class="arrow">→</span></a>
+            <a href="https://goldwave-notice.github.io/260713.html" class="report-item"><div class="report-info"><span class="report-date">2026. 07. 13</span><span class="report-title">"CPI에 쏠린 시선, 금·BTC·나스닥 방향 가른다"</span></div><span class="arrow">→</span></a>
+            <a href="https://goldwave-notice.github.io/260710.html" class="report-item"><div class="report-info"><span class="report-date">2026. 07. 10</span><span class="report-title">"중동 긴장에도 달러 약세, 금 1% 반등"</span></div><span class="arrow">→</span></a>
+            <a href="https://goldwave-notice.github.io/260709.html" class="report-item"><div class="report-info"><span class="report-date">2026. 07. 09</span><span class="report-title">"트럼프 '이란 합의 끝났다' 유가 7% 급등"</span></div><span class="arrow">→</span></a>
+            <a href="https://goldwave-notice.github.io/260708.html" class="report-item"><div class="report-info"><span class="report-date">2026. 07. 08</span><span class="report-title">"블룸버그 '금 약세장 진입' 중앙은행은 매수 중"</span></div><span class="arrow">→</span></a>
+            <a href="https://goldwave-notice.github.io/260707.html" class="report-item"><div class="report-info"><span class="report-date">2026. 07. 07</span><span class="report-title">"달러·금리 내리고 금값 4164달러 랠리"</span></div><span class="arrow">→</span></a>
+            <a href="https://goldwave-notice.github.io/260706.html" class="report-item"><div class="report-info"><span class="report-date">2026. 07. 06</span><span class="report-title">"FOMC 의사록 주목, 금값 4200달러 저항선"</span></div><span class="arrow">→</span></a>
+            <a href="https://goldwave-notice.github.io/260703.html" class="report-item"><div class="report-info"><span class="report-date">2026. 07. 03</span><span class="report-title">"NFP 쇼크, 금값 4122달러 돌파"</span></div><span class="arrow">→</span></a>
+            <a href="https://goldwave-notice.github.io/260702.html" class="report-item"><div class="report-info"><span class="report-date">2026. 07. 02</span><span class="report-title">"중앙은행장 '금리 힌트 없다' 포워드 가이던스 폐기"</span></div><span class="arrow">→</span></a>
+            <a href="https://goldwave-notice.github.io/260701.html" class="report-item"><div class="report-info"><span class="report-date">2026. 07. 01</span><span class="report-title">"소비자신뢰 91.2 반등, 고용 불안 5년 최고"</span></div><span class="arrow">→</span></a>
         </div>
 
-        <!-- [6월 토글 버튼] -->
-        <button class="archive-toggle-btn" id="toggleBtn06" onclick="toggleArchive('archive-2606', 'toggleBtn06')" style="margin-top: 20px;">
-            <span class="show-when-closed"><i class="fa-solid fa-box-archive"></i> 2026. 06 지난 리포트 펼쳐보기 (21건) <i class="fa-solid fa-chevron-down"></i></span>
+        <!-- ====== 6월 토글 버튼 ====== -->
+        <button class="archive-toggle-btn" id="toggleBtn2606" onclick="toggleSection('archive-2606', 'toggleBtn2606')" style="margin-top:20px;">
+            <span class="show-when-closed"><i class="fa-solid fa-box-archive"></i> 2026. 06 지난 리포트 펼쳐보기 <i class="fa-solid fa-chevron-down"></i></span>
             <span class="show-when-open"><i class="fa-solid fa-box-open"></i> 2026. 06 리포트 접기 <i class="fa-solid fa-chevron-up"></i></span>
         </button>
-
-        <!-- [6월 구역] -->
-        <div class="report-list" id="archive-2606">
-            <a href="https://goldwave-notice.github.io/260630.html" class="report-item"><div class="report-info"><span class="report-date">2026. 06. 30</span><span class="report-title">"골드만삭스 '금 랠리 아직 안 끝났다'… 내년 말 4900달러 전망"</span></div><span class="arrow">→</span></a>
-            <a href="https://goldwave-notice.github.io/260629.html" class="report-item"><div class="report-info"><span class="report-date">2026. 06. 29</span><span class="report-title">"달러 강세에 금·은·비트코인 동반 약세… 연준 금리 전망이 변수"</span></div><span class="arrow">→</span></a>
-            <a href="https://goldwave-notice.github.io/260626.html" class="report-item"><div class="report-info"><span class="report-date">2026. 06. 26</span><span class="report-title">"PCE 예상 하회에 달러 약세 전환… 금값 하루 만에 4000달러 재탈환"</span></div><span class="arrow">→</span></a>
-            <a href="https://goldwave-notice.github.io/260625.html" class="report-item"><div class="report-info"><span class="report-date">2026. 06. 25</span><span class="report-title">"월가, 금값 목표 하향 러시… 도이체뱅크 3800달러까지 밀릴 수도"</span></div><span class="arrow">→</span></a>
-            <a href="https://goldwave-notice.github.io/260624.html" class="report-item"><div class="report-info"><span class="report-date">2026. 06. 24</span><span class="report-title">"매파 연준에 달러 101 돌파·금값 1.66% 급락… 채권은 증시 폭락의 피난처"</span></div><span class="arrow">→</span></a>
-            <a href="https://goldwave-notice.github.io/260623.html" class="report-item"><div class="report-info"><span class="report-date">2026. 06. 23</span><span class="report-title">"연준발 긴축 공포에 강달러·고금리… 금값 4190달러로 하락"</span></div><span class="arrow">→</span></a>
-            <a href="https://goldwave-notice.github.io/260622.html" class="report-item"><div class="report-info"><span class="report-date">2026. 06. 22</span><span class="report-title">"워시 매파에 2년물 금리 급등··· 25일 PCE가 이번 주 분수령"</span></div><span class="arrow">→</span></a>
-            <a href="https://goldwave-notice.github.io/260618.html" class="report-item"><div class="report-info"><span class="report-date">2026. 06. 18</span><span class="report-title">"워시 첫 FOMC 매파 신호··· PCE 전망 3.6%로 급등"</span></div><span class="arrow">→</span></a>
-            <a href="https://goldwave-notice.github.io/260617.html" class="report-item"><div class="report-info"><span class="report-date">2026. 06. 17</span><span class="report-title">"美·이란 19일 서명 예정··· 끝이 아닌 60일 협상의 시작"</span></div><span class="arrow">→</span></a>
-            <a href="https://goldwave-notice.github.io/260616.html" class="report-item"><div class="report-info"><span class="report-date">2026. 06. 16</span><span class="report-title">"유가 5% 급락 3월 최저··· 인플레 완화로 금값 상승 경로 열렸다"</span></div><span class="arrow">→</span></a>
-            <a href="https://goldwave-notice.github.io/260615.html" class="report-item"><div class="report-info"><span class="report-date">2026. 06. 15</span><span class="report-title">"트럼프 美·이란 평화 합의 완료, 호르무즈 봉쇄 해제"</span></div><span class="arrow">→</span></a>
-            <a href="https://goldwave-notice.github.io/260612.html" class="report-item"><div class="report-info"><span class="report-date">2026. 06. 12</span><span class="report-title">"트럼프 공습 철회··· 달러 급락·금값 3.49% 폭등"</span></div><span class="arrow">→</span></a>
-            <a href="https://goldwave-notice.github.io/260611.html" class="report-item"><div class="report-info"><span class="report-date">2026. 06. 11</span><span class="report-title">"금값 3개월 최저··· 금리 공포가 만든 저점은 기회다"</span></div><span class="arrow">→</span></a>
-            <a href="https://goldwave-notice.github.io/260610.html" class="report-item"><div class="report-info"><span class="report-date">2026. 06. 10</span><span class="report-title">"CPI 발표일 금값 1.6% 급락··· 어느 결과든 골드웨이브는 준비됐다"</span></div><span class="arrow">→</span></a>
-            <a href="https://goldwave-notice.github.io/260609.html" class="report-item"><div class="report-info"><span class="report-date">2026. 06. 09</span><span class="report-title">"이란·이스라엘 공격 중단 합의··· 금값 저점 반등, CPI가 분수령"</span></div><span class="arrow">→</span></a>
-            <a href="https://goldwave-notice.github.io/260608.html" class="report-item"><div class="report-info"><span class="report-date">2026. 06. 08</span><span class="report-title">"원/달러 1555원 돌파··· 달러로 버는 GOLD WAVE는 지금이 기회"</span></div><span class="arrow">→</span></a>
-            <a href="https://goldwave-notice.github.io/260605.html" class="report-item"><div class="report-info"><span class="report-date">2026. 06. 05</span><span class="report-title">"이란 휴전 기대에 달러 꺾이고 금값 반등··· NFP가 분수령"</span></div><span class="arrow">→</span></a>
-            <a href="https://goldwave-notice.github.io/260604.html" class="report-item"><div class="report-info"><span class="report-date">2026. 06. 04</span><span class="report-title">"미 강제노동 관세 60개국 부과··· 관세發 인플레가 금값 반등 이끈다"</span></div><span class="arrow">→</span></a>
-            <a href="https://goldwave-notice.github.io/260603.html" class="report-item"><div class="report-info"><span class="report-date">2026. 06. 03</span><span class="report-title">"PCE 3.8% 최고치··· 인플레 길수록 금의 가치는 더 빛난다"</span></div><span class="arrow">→</span></a>
-            <a href="https://goldwave-notice.github.io/260602.html" class="report-item"><div class="report-info"><span class="report-date">2026. 06. 02</span><span class="report-title">"이란 협상 중단·유가 급등··· 금값 조정은 매수 준비 구간"</span></div><span class="arrow">→</span></a>
-            <a href="https://goldwave-notice.github.io/260601.html" class="report-item"><div class="report-info"><span class="report-date">2026. 06. 01</span><span class="report-title">"협상 결렬 시 군사 공격 재개··· 중동 리스크 재점화"</span></div><span class="arrow">→</span></a>
+        <div class="archive-section" id="archive-2606">
+            <a href="https://goldwave-notice.github.io/260630.html" class="report-item"><div class="report-info"><span class="report-date">2026. 06. 30</span><span class="report-title">"골드만삭스 '금 랠리 안 끝났다' 4900달러"</span></div><span class="arrow">→</span></a>
+            <a href="https://goldwave-notice.github.io/260629.html" class="report-item"><div class="report-info"><span class="report-date">2026. 06. 29</span><span class="report-title">"달러 강세에 금·은·BTC 동반 약세"</span></div><span class="arrow">→</span></a>
+            <a href="https://goldwave-notice.github.io/260626.html" class="report-item"><div class="report-info"><span class="report-date">2026. 06. 26</span><span class="report-title">"PCE 예상 하회, 금값 4000달러 재탈환"</span></div><span class="arrow">→</span></a>
+            <a href="https://goldwave-notice.github.io/260625.html" class="report-item"><div class="report-info"><span class="report-date">2026. 06. 25</span><span class="report-title">"월가 금값 목표 하향, 3800달러 경고"</span></div><span class="arrow">→</span></a>
+            <a href="https://goldwave-notice.github.io/260624.html" class="report-item"><div class="report-info"><span class="report-date">2026. 06. 24</span><span class="report-title">"달러 101 돌파·금값 1.66% 급락"</span></div><span class="arrow">→</span></a>
+            <a href="https://goldwave-notice.github.io/260623.html" class="report-item"><div class="report-info"><span class="report-date">2026. 06. 23</span><span class="report-title">"연준발 긴축 공포, 금값 4190달러 하락"</span></div><span class="arrow">→</span></a>
+            <a href="https://goldwave-notice.github.io/260622.html" class="report-item"><div class="report-info"><span class="report-date">2026. 06. 22</span><span class="report-title">"워시 매파 발언에 2년물 금리 급등"</span></div><span class="arrow">→</span></a>
+            <a href="https://goldwave-notice.github.io/260618.html" class="report-item"><div class="report-info"><span class="report-date">2026. 06. 18</span><span class="report-title">"워시 매파 신호, PCE 3.6% 급등"</span></div><span class="arrow">→</span></a>
+            <a href="https://goldwave-notice.github.io/260617.html" class="report-item"><div class="report-info"><span class="report-date">2026. 06. 17</span><span class="report-title">"美·이란 19일 서명, 60일 협상의 시작"</span></div><span class="arrow">→</span></a>
+            <a href="https://goldwave-notice.github.io/260616.html" class="report-item"><div class="report-info"><span class="report-date">2026. 06. 16</span><span class="report-title">"유가 5% 급락, 금값 상승 경로 열렸다"</span></div><span class="arrow">→</span></a>
+            <a href="https://goldwave-notice.github.io/260615.html" class="report-item"><div class="report-info"><span class="report-date">2026. 06. 15</span><span class="report-title">"美·이란 평화 합의, 호르무즈 봉쇄 해제"</span></div><span class="arrow">→</span></a>
+            <a href="https://goldwave-notice.github.io/260612.html" class="report-item"><div class="report-info"><span class="report-date">2026. 06. 12</span><span class="report-title">"트럼프 공습 철회, 금값 3.49% 폭등"</span></div><span class="arrow">→</span></a>
+            <a href="https://goldwave-notice.github.io/260611.html" class="report-item"><div class="report-info"><span class="report-date">2026. 06. 11</span><span class="report-title">"금값 3개월 최저, 저점이 기회다"</span></div><span class="arrow">→</span></a>
+            <a href="https://goldwave-notice.github.io/260610.html" class="report-item"><div class="report-info"><span class="report-date">2026. 06. 10</span><span class="report-title">"CPI 발표일, 어느 결과든 대비 완료"</span></div><span class="arrow">→</span></a>
+            <a href="https://goldwave-notice.github.io/260609.html" class="report-item"><div class="report-info"><span class="report-date">2026. 06. 09</span><span class="report-title">"이란·이스라엘 공격 중단, 금값 저점 반등"</span></div><span class="arrow">→</span></a>
+            <a href="https://goldwave-notice.github.io/260608.html" class="report-item"><div class="report-info"><span class="report-date">2026. 06. 08</span><span class="report-title">"원/달러 1555원, 달러 수익이 빛난다"</span></div><span class="arrow">→</span></a>
+            <a href="https://goldwave-notice.github.io/260605.html" class="report-item"><div class="report-info"><span class="report-date">2026. 06. 05</span><span class="report-title">"이란 휴전 기대, 달러 꺾이고 금 반등"</span></div><span class="arrow">→</span></a>
+            <a href="https://goldwave-notice.github.io/260604.html" class="report-item"><div class="report-info"><span class="report-date">2026. 06. 04</span><span class="report-title">"관세發 인플레, 금값 반등 이끈다"</span></div><span class="arrow">→</span></a>
+            <a href="https://goldwave-notice.github.io/260603.html" class="report-item"><div class="report-info"><span class="report-date">2026. 06. 03</span><span class="report-title">"PCE 3.8% 최고치, 인플레 길수록 금이 빛난다"</span></div><span class="arrow">→</span></a>
+            <a href="https://goldwave-notice.github.io/260602.html" class="report-item"><div class="report-info"><span class="report-date">2026. 06. 02</span><span class="report-title">"유가 급등·달러 강세, 금값 조정 매수 기회"</span></div><span class="arrow">→</span></a>
+            <a href="https://goldwave-notice.github.io/260601.html" class="report-item"><div class="report-info"><span class="report-date">2026. 06. 01</span><span class="report-title">"협상 결렬 시 군사 공격 재개 경고"</span></div><span class="arrow">→</span></a>
         </div>
 
-        <!-- [5월 토글 버튼] -->
-        <button class="archive-toggle-btn" id="toggleBtn05" onclick="toggleArchive('archive-2605', 'toggleBtn05')" style="margin-top: 20px;">
-            <span class="show-when-closed"><i class="fa-solid fa-box-archive"></i> 2026. 05 지난 리포트 펼쳐보기 (16건) <i class="fa-solid fa-chevron-down"></i></span>
+        <!-- ====== 5월 토글 버튼 ====== -->
+        <button class="archive-toggle-btn" id="toggleBtn2605" onclick="toggleSection('archive-2605', 'toggleBtn2605')" style="margin-top:20px;">
+            <span class="show-when-closed"><i class="fa-solid fa-box-archive"></i> 2026. 05 지난 리포트 펼쳐보기 <i class="fa-solid fa-chevron-down"></i></span>
             <span class="show-when-open"><i class="fa-solid fa-box-open"></i> 2026. 05 리포트 접기 <i class="fa-solid fa-chevron-up"></i></span>
         </button>
-
-        <!-- [5월 구역] -->
-        <div class="report-list" id="archive-2605">
+        <div class="archive-section" id="archive-2605">
             <a href="https://goldwave-notice.github.io/260529.html" class="report-item"><div class="report-info"><span class="report-date">2026. 05. 29</span><span class="report-title">"JP모건 경고, 금 반등 시나리오 포착"</span></div><span class="arrow">→</span></a>
             <a href="https://goldwave-notice.github.io/260528.html" class="report-item"><div class="report-info"><span class="report-date">2026. 05. 28</span><span class="report-title">"달러 강세 속 금값 조정, 매수 기회"</span></div><span class="arrow">→</span></a>
-            <a href="https://goldwave-notice.github.io/260526.html" class="report-item"><div class="report-info"><span class="report-date">2026. 05. 26</span><span class="report-title">"토큰화 원자재 99.8%가 금··· 디지털도 금 선택"</span></div><span class="arrow">→</span></a>
-            <a href="https://goldwave-notice.github.io/260521.html" class="report-item"><div class="report-info"><span class="report-date">2026. 05. 21</span><span class="report-title">"채권 붕괴 종착점, 금·은으로 도피하라"</span></div><span class="arrow">→</span></a>
-            <a href="https://goldwave-notice.github.io/260520.html" class="report-item"><div class="report-info"><span class="report-date">2026. 05. 20</span><span class="report-title">"수십 년 최고 금리 쇼크··· 위기의 끝엔 금"</span></div><span class="arrow">→</span></a>
-            <a href="https://goldwave-notice.github.io/260519.html" class="report-item"><div class="report-info"><span class="report-date">2026. 05. 19</span><span class="report-title">"유가 쇼크에 국채금리 급등, 금값 반등"</span></div><span class="arrow">→</span></a>
+            <a href="https://goldwave-notice.github.io/260526.html" class="report-item"><div class="report-info"><span class="report-date">2026. 05. 26</span><span class="report-title">"토큰화 시장도 금이 99.8% 독점"</span></div><span class="arrow">→</span></a>
+            <a href="https://goldwave-notice.github.io/260521.html" class="report-item"><div class="report-info"><span class="report-date">2026. 05. 21</span><span class="report-title">"채권 붕괴 종착점, 금으로 도피하라"</span></div><span class="arrow">→</span></a>
+            <a href="https://goldwave-notice.github.io/260520.html" class="report-item"><div class="report-info"><span class="report-date">2026. 05. 20</span><span class="report-title">"위기의 끝엔 항상 금이 있었다"</span></div><span class="arrow">→</span></a>
+            <a href="https://goldwave-notice.github.io/260519.html" class="report-item"><div class="report-info"><span class="report-date">2026. 05. 19</span><span class="report-title">"유가 쇼크, 금값 안전자산 반등"</span></div><span class="arrow">→</span></a>
             <a href="https://goldwave-notice.github.io/260515.html" class="report-item"><div class="report-info"><span class="report-date">2026. 05. 15</span><span class="report-title">"수입물가 쇼크, 금리인상 확률 급등"</span></div><span class="arrow">→</span></a>
             <a href="https://goldwave-notice.github.io/260514.html" class="report-item"><div class="report-info"><span class="report-date">2026. 05. 14</span><span class="report-title">"연내 금리 인상론 대두, 긴축 경계감 확산"</span></div><span class="arrow">→</span></a>
             <a href="https://goldwave-notice.github.io/260513.html" class="report-item"><div class="report-info"><span class="report-date">2026. 05. 13</span><span class="report-title">"구리값 1.4만달러, 역대 최고가 눈앞"</span></div><span class="arrow">→</span></a>
             <a href="https://goldwave-notice.github.io/260511-2.html" class="report-item"><div class="report-info"><span class="report-date">2026. 05. 11(2)</span><span class="report-title">"은(Silver) 83달러 돌파!"</span></div><span class="arrow">→</span></a>
             <a href="https://goldwave-notice.github.io/260511.html" class="report-item"><div class="report-info"><span class="report-date">2026. 05. 11</span><span class="report-title">"글로벌 금 ETF 66억 달러 유입 반전"</span></div><span class="arrow">→</span></a>
-            <a href="https://goldwave-notice.github.io/260508.html" class="report-item"><div class="report-info"><span class="report-date">2026. 05. 08</span><span class="report-title">"이란 협상 거부에 달러•금리 반등"</span></div><span class="arrow">→</span></a>
-            <a href="https://goldwave-notice.github.io/260507.html" class="report-item"><div class="report-info"><span class="report-date">2026. 05. 07</span><span class="report-title">"금값 3% 폭등! 달러•금리 뚝"</span></div><span class="arrow">→</span></a>
+            <a href="https://goldwave-notice.github.io/260508.html" class="report-item"><div class="report-info"><span class="report-date">2026. 05. 08</span><span class="report-title">"이란 협상 거부에 달러·금리 반등"</span></div><span class="arrow">→</span></a>
+            <a href="https://goldwave-notice.github.io/260507.html" class="report-item"><div class="report-info"><span class="report-date">2026. 05. 07</span><span class="report-title">"금값 3% 폭등! 달러·금리 뚝"</span></div><span class="arrow">→</span></a>
             <a href="https://goldwave-notice.github.io/260506.html" class="report-item"><div class="report-info"><span class="report-date">2026. 05. 06</span><span class="report-title">"비트코인 폰지설 vs AI 그록 반격"</span></div><span class="arrow">→</span></a>
             <a href="https://goldwave-notice.github.io/260504.html" class="report-item"><div class="report-info"><span class="report-date">2026. 05. 04</span><span class="report-title">"트럼프 '프로젝트 프리덤' 선언"</span></div><span class="arrow">→</span></a>
             <a href="https://goldwave-notice.github.io/260501.html" class="report-item"><div class="report-info"><span class="report-date">2026. 05. 01</span><span class="report-title">"日 개입! 달러 급락, 금값 4620달러 회복"</span></div><span class="arrow">→</span></a>
         </div>
 
-        <!-- [4월 토글 버튼] -->
-        <button class="archive-toggle-btn" id="toggleBtn04" onclick="toggleArchive('archive-2604', 'toggleBtn04')" style="margin-top: 20px;">
-            <span class="show-when-closed"><i class="fa-solid fa-box-archive"></i> 2026. 04 지난 리포트 펼쳐보기 (22건) <i class="fa-solid fa-chevron-down"></i></span>
+        <!-- ====== 4월 토글 버튼 ====== -->
+        <button class="archive-toggle-btn" id="toggleBtn2604" onclick="toggleSection('archive-2604', 'toggleBtn2604')" style="margin-top:20px;">
+            <span class="show-when-closed"><i class="fa-solid fa-box-archive"></i> 2026. 04 지난 리포트 펼쳐보기 (30건) <i class="fa-solid fa-chevron-down"></i></span>
             <span class="show-when-open"><i class="fa-solid fa-box-open"></i> 2026. 04 리포트 접기 <i class="fa-solid fa-chevron-up"></i></span>
         </button>
-
-        <!-- [4월 구역] -->
-        <div class="report-list" id="archive-2604">
+        <div class="archive-section" id="archive-2604">
             <a href="https://goldwave-notice.github.io/260430.html" class="report-item"><div class="report-info"><span class="report-date">2026. 04. 30</span><span class="report-title">"연준 분열에 금리 급등, 매수 적기!"</span></div><span class="arrow">→</span></a>
             <a href="https://goldwave-notice.github.io/260429.html" class="report-item"><div class="report-info"><span class="report-date">2026. 04. 29</span><span class="report-title">"금•은 가격 동반 하락···자동매매의 방향은?"</span></div><span class="arrow">→</span></a>
             <a href="https://goldwave-notice.github.io/260428.html" class="report-item"><div class="report-info"><span class="report-date">2026. 04. 28</span><span class="report-title">"금값 방향성 탐색, 금리 동결 시그널 주시"</span></div><span class="arrow">→</span></a>
@@ -311,7 +205,7 @@
             <a href="https://goldwave-notice.github.io/260410.html" class="report-item"><div class="report-info"><span class="report-date">2026. 04. 10</span><span class="report-title">"통화 시스템, 달러 대신 금 선택!"</span></div><span class="arrow">→</span></a>
             <a href="https://goldwave-notice.github.io/260409.html" class="report-item"><div class="report-info"><span class="report-date">2026. 04. 09</span><span class="report-title">"금값, 휴전 속 '인하기대' vs '위험선호' 줄다리기"</span></div><span class="arrow">→</span></a>
             <a href="https://goldwave-notice.github.io/260407.html" class="report-item"><div class="report-info"><span class="report-date">2026. 04. 07</span><span class="report-title">"금 거래량 3610달러로 폭발"</span></div><span class="arrow">→</span></a>
-            <a href="https://goldwave-notice.github.io/260406-2.html" class="report-item"><div class="report-info"><span class="report-date">2026. 04. 06(2)</span><span class="report-title">"연준 기대 식었다··· 금값 상승 막히나, 4600달러 고비"</span></div><span class="arrow">→</span></a>
+            <a href="https://goldwave-notice.github.io/260406-2.html" class="report-item"><div class="report-info"><span class="report-date">2026. 04. 06(2)</span><span class="report-title">"연준 기대 식었다"… 금값 상승 막히나, 4600달러 고비"</span></div><span class="arrow">→</span></a>
             <a href="https://goldwave-notice.github.io/260406.html" class="report-item"><div class="report-info"><span class="report-date">2026. 04. 06</span><span class="report-title">"비트코인·증시는 '먹구름'... 오직 금·은만 지지선 지켜냈다"</span></div><span class="arrow">→</span></a>
             <a href="https://goldwave-notice.github.io/260402.html" class="report-item"><div class="report-info"><span class="report-date">2026. 04. 02</span><span class="report-title">"금 선물 4,600달러 붕괴... 하루새 시총 1,500조 증발"</span></div><span class="arrow">→</span></a>
             <a href="https://goldwave-notice.github.io/260401-2.html" class="report-item"><div class="report-info"><span class="report-date">2026. 04. 01(2)</span><span class="report-title">"6년 만의 재현... 비트코인 폭등 '골든 시그널' 포착"</span></div><span class="arrow">→</span></a>
@@ -321,25 +215,23 @@
 
     <script>
         window.addEventListener('pageshow', function() {
-            ['archive-2607', 'archive-2606', 'archive-2605', 'archive-2604'].forEach(function(id) {
-                const el = document.getElementById(id);
-                if (el) el.style.display = 'none';
+            ['archive-2608','archive-2607','archive-2606','archive-2605','archive-2604'].forEach(function(id) {
+                document.getElementById(id).classList.remove('open');
             });
-            ['toggleBtn07', 'toggleBtn06', 'toggleBtn05', 'toggleBtn04'].forEach(function(id) {
-                const btn = document.getElementById(id);
-                if (btn) btn.classList.remove('is-open');
+            ['toggleBtn2608','toggleBtn2607','toggleBtn2606','toggleBtn2605','toggleBtn2604'].forEach(function(id) {
+                document.getElementById(id).classList.remove('is-open');
             });
         });
 
-        function toggleArchive(archiveId, btnId) {
-            const archive = document.getElementById(archiveId);
+        function toggleSection(sectionId, btnId) {
+            const section = document.getElementById(sectionId);
             const btn = document.getElementById(btnId);
-            if (archive.style.display === 'none' || archive.style.display === '') {
-                archive.style.display = 'flex';
-                btn.classList.add('is-open');
-            } else {
-                archive.style.display = 'none';
+            if (section.classList.contains('open')) {
+                section.classList.remove('open');
                 btn.classList.remove('is-open');
+            } else {
+                section.classList.add('open');
+                btn.classList.add('is-open');
             }
         }
     </script>
